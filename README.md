@@ -39,7 +39,7 @@ nodeRoutesApi.getNodeInfo().then(console.log);
 
 ## Contributing
 
-`expo-symbol-crypto` is an open-source project. Contributions are welcome. Please refer to the GitHub repository for details.
+`symbol-rest-client` is an open-source project. Contributions are welcome. Please refer to the GitHub repository for details.
 
 ## License
 

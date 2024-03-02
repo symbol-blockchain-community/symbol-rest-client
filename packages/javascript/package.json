@@ -1,6 +1,6 @@
 {
   "name": "@symbol-blockchain-community/symbol-rest-client",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "symbol rest client package",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
