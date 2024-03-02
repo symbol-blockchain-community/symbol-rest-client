@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "symbol rest client generator",
   "homepage": "https://symbol-community.com",
-  "private": false,
+  "private": true,
   "scripts": {
     "build": "sh create-clients.sh"
   },
