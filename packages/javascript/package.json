@@ -1,0 +1,49 @@
+{
+  "name": "@symbol-blockchain-community/symbol-rest-client",
+  "version": "1.0.1",
+  "description": "symbol rest client package",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "private": false,
+  "author": "ym.u.ichiro@gmail.com",
+  "homepage": "https://symbol-community.com",
+  "repository": {
+    "url": "https://github.com/symbol-blockchain-community/symbol-rest-client"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js"
+    }
+  },
+  "scripts": {
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+    "build:esm": "tsc --module NodeNext --moduleResolution nodenext --outDir dist/esm",
+    "build": "rm -rf dist && npm run build:cjs && npm run build:esm",
+    "lint": "prettier --write \"**/*.{ts,js,md,json}\""
+  },
+  "keywords": [
+    "symbol",
+    "xym",
+    "nem",
+    "sdk",
+    "expo",
+    "crypto",
+    "blockchain"
+  ],
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "files": [
+    "dist",
+    "package.json",
+    "package-lock.json",
+    "README.md",
+    "LICENSE"
+  ]
+}

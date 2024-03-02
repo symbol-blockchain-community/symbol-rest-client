@@ -1,0 +1,25 @@
+{
+  "name": "generator",
+  "version": "1.0.0",
+  "description": "symbol rest client generator",
+  "homepage": "https://symbol-community.com",
+  "private": false,
+  "scripts": {
+    "build": "sh create-clients.sh"
+  },
+  "keywords": [
+    "symbol",
+    "xym",
+    "nem",
+    "sdk",
+    "expo",
+    "crypto",
+    "blockchain"
+  ],
+  "author": "ym.u.ichiro@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.9.0",
+    "prettier": "^3.2.5"
+  }
+}

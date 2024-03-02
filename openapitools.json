@@ -1,0 +1,77 @@
+{
+  "$schema": "./node_modules/@openapitools/openapi-generator-cli/config.schema.json",
+  "spaces": 2,
+  "generator-cli": {
+    "version": "7.2.0",
+    "generators": {
+      "python": {
+        "generatorName": "python",
+        "output": "packages/python",
+        "inputSpec": "schema/1_0_4.yml",
+        "globalProperty": {
+          "skipFormModel": false
+        }
+      },
+      "dart": {
+        "generatorName": "dart",
+        "output": "packages/dart",
+        "inputSpec": "schema/1_0_4.yml",
+        "globalProperty": {
+          "skipFormModel": false
+        }
+      },
+      "go": {
+        "generatorName": "go",
+        "output": "packages/go",
+        "inputSpec": "schema/1_0_4.yml",
+        "globalProperty": {
+          "skipFormModel": false
+        },
+        "additionalProperties": {
+          "packageName": "openapi_client"
+        }
+      },
+      "kotlin": {
+        "generatorName": "kotlin",
+        "output": "packages/kotlin",
+        "inputSpec": "schema/1_0_4.yml",
+        "globalProperty": {
+          "skipFormModel": false
+        }
+      },
+      "swift5": {
+        "generatorName": "swift5",
+        "output": "packages/swift",
+        "inputSpec": "schema/1_0_4.yml",
+        "globalProperty": {
+          "skipFormModel": false
+        }
+      },
+      "java": {
+        "generatorName": "java",
+        "output": "packages/java",
+        "inputSpec": "schema/1_0_4.yml",
+        "globalProperty": {
+          "skipFormModel": false
+        }
+      },
+      "csharp": {
+        "generatorName": "csharp",
+        "output": "packages/csharp",
+        "inputSpec": "schema/1_0_4.yml",
+        "globalProperty": {
+          "skipFormModel": false
+        }
+      },
+      "typescript": {
+        "generatorName": "typescript-fetch",
+        "output": "packages/javascript/src",
+        "enablePostProcessFile": true,
+        "inputSpec": "schema/1_0_4.yml",
+        "globalProperty": {
+          "skipFormModel": false
+        }
+      }
+    }
+  }
+}
