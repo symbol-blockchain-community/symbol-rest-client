@@ -2,7 +2,7 @@
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 ```
 
 All URIs are relative to *http://localhost:3000*
@@ -23,7 +23,7 @@ Returns the multisig account information.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = MultisigRoutesApi();
 final address = address_example; // String | Account address.
@@ -66,7 +66,7 @@ Returns the multisig account graph.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = MultisigRoutesApi();
 final address = address_example; // String | Account address.
@@ -109,7 +109,7 @@ Returns the multisig account merkle information.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = MultisigRoutesApi();
 final address = address_example; // String | Account address.

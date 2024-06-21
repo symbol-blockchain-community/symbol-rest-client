@@ -2,10 +2,10 @@
 # AUTO-GENERATED FILE, DO NOT MODIFY!
 #
 
-name: 'openapi'
+name: 'symbol_rest_client'
 version: '1.0.0'
-description: 'OpenAPI API client'
-homepage: 'homepage'
+description: 'Symbol OpenAPI API client'
+homepage: 'https://symbol-community.com/'
 environment:
   sdk: '>=2.12.0 <3.0.0'
 dependencies:

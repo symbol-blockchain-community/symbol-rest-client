@@ -2,7 +2,7 @@
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 ```
 
 All URIs are relative to *http://localhost:3000*
@@ -22,7 +22,7 @@ Returns the transaction status for a given hash.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = TransactionStatusRoutesApi();
 final hash = hash_example; // String | Transaction hash.
@@ -65,7 +65,7 @@ Returns an array of transaction statuses for a given array of transaction hashes
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = TransactionStatusRoutesApi();
 final transactionHashes = TransactionHashes(); // TransactionHashes | 

@@ -2,7 +2,7 @@
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 ```
 
 All URIs are relative to *http://localhost:3000*
@@ -23,7 +23,7 @@ Gets an array of address resolution statements.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = ReceiptRoutesApi();
 final height = height_example; // String | Filter by block height.
@@ -74,7 +74,7 @@ Gets an array of mosaic resolution statements.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = ReceiptRoutesApi();
 final height = height_example; // String | Filter by block height.
@@ -125,7 +125,7 @@ Gets an array of transaction statements.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = ReceiptRoutesApi();
 final height = height_example; // String | Filter by block height.

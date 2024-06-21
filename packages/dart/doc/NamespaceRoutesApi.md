@@ -2,7 +2,7 @@
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 ```
 
 All URIs are relative to *http://localhost:3000*
@@ -26,7 +26,7 @@ Returns friendly names for accounts.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = NamespaceRoutesApi();
 final addresses = Addresses(); // Addresses | 
@@ -69,7 +69,7 @@ Returns friendly names for mosaics.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = NamespaceRoutesApi();
 final mosaicIds = MosaicIds(); // MosaicIds | 
@@ -112,7 +112,7 @@ Gets the namespace for a given namespace identifier.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = NamespaceRoutesApi();
 final namespaceId = namespaceId_example; // String | Namespace identifier.
@@ -155,7 +155,7 @@ Gets the namespace merkle for a given namespace identifier.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = NamespaceRoutesApi();
 final namespaceId = namespaceId_example; // String | Namespace identifier.
@@ -198,7 +198,7 @@ Returns friendly names for namespaces.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = NamespaceRoutesApi();
 final namespaceIds = NamespaceIds(); // NamespaceIds | 
@@ -241,7 +241,7 @@ Gets an array of namespaces.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = NamespaceRoutesApi();
 final ownerAddress = ownerAddress_example; // String | Filter by owner address.

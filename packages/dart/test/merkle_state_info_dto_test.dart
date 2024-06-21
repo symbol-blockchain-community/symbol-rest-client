@@ -8,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 import 'package:test/test.dart';
 
 // tests for MerkleStateInfoDTO
@@ -16,7 +16,7 @@ void main() {
   // final instance = MerkleStateInfoDTO();
 
   group('test MerkleStateInfoDTO', () {
-    // The hex information of the complete merkle tree as returned by server api. More information can be found in chapter 4.3 of the catapult whitepaper. 
+    // The hex information of the complete merkle tree as returned by server api. More information can be found in chapter 4.3 of the catapult whitepaper.
     // String raw
     test('to test the property `raw`', () async {
       // TODO
@@ -27,8 +27,5 @@ void main() {
     test('to test the property `tree`', () async {
       // TODO
     });
-
-
   });
-
 }

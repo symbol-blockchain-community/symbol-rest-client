@@ -8,9 +8,8 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 import 'package:test/test.dart';
-
 
 /// tests for TransactionRoutesApi
 void main() {
@@ -37,7 +36,7 @@ void main() {
 
     // Announce a new transaction
     //
-    // Announces a transaction to the network. The [catbuffer library](https://github.com/nemtech/catbuffer) defines the protocol to serialize and deserialize Symbol entities. Catbuffers are integrated into [Symbol SDKs](https://nemtech.github.io/sdk.html).  It's recommended to use SDKs instead of calling the API endpoint directly to announce transactions. 
+    // Announces a transaction to the network. The [catbuffer library](https://github.com/nemtech/catbuffer) defines the protocol to serialize and deserialize Symbol entities. Catbuffers are integrated into [Symbol SDKs](https://nemtech.github.io/sdk.html).  It's recommended to use SDKs instead of calling the API endpoint directly to announce transactions.
     //
     //Future<AnnounceTransactionInfoDTO> announceTransaction(TransactionPayload transactionPayload) async
     test('test announceTransaction', () async {
@@ -100,7 +99,7 @@ void main() {
 
     // Search confirmed transactions
     //
-    // Returns an array of confirmed transactions. If a transaction was announced with an alias rather than an address, the address that will be considered when querying is the one that was resolved from the alias at confirmation time. 
+    // Returns an array of confirmed transactions. If a transaction was announced with an alias rather than an address, the address that will be considered when querying is the one that was resolved from the alias at confirmation time.
     //
     //Future<TransactionPage> searchConfirmedTransactions({ String address, String recipientAddress, String signerPublicKey, String height, String fromHeight, String toHeight, String fromTransferAmount, String toTransferAmount, List<TransactionTypeEnum> type, bool embedded, String transferMosaicId, int pageSize, int pageNumber, String offset, Order order }) async
     test('test searchConfirmedTransactions', () async {
@@ -124,6 +123,5 @@ void main() {
     test('test searchUnconfirmedTransactions', () async {
       // TODO
     });
-
   });
 }

@@ -2,7 +2,7 @@
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 ```
 
 All URIs are relative to *http://localhost:3000*
@@ -32,7 +32,7 @@ Announces a cosignature transaction to the network.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = TransactionRoutesApi();
 final cosignature = Cosignature(); // Cosignature | 
@@ -75,7 +75,7 @@ Announces an aggregate bonded transaction to the network.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = TransactionRoutesApi();
 final transactionPayload = TransactionPayload(); // TransactionPayload | 
@@ -118,7 +118,7 @@ Announces a transaction to the network. The [catbuffer library](https://github.c
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = TransactionRoutesApi();
 final transactionPayload = TransactionPayload(); // TransactionPayload | 
@@ -161,7 +161,7 @@ Returns confirmed transaction information given a transactionId or hash.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = TransactionRoutesApi();
 final transactionId = transactionId_example; // String | Transaction id or hash.
@@ -204,7 +204,7 @@ Returns confirmed transactions information for a given array of transactionIds.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = TransactionRoutesApi();
 final transactionIds = TransactionIds(); // TransactionIds | 
@@ -247,7 +247,7 @@ Returns partial transaction information given a transactionId or hash.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = TransactionRoutesApi();
 final transactionId = transactionId_example; // String | Transaction id or hash.
@@ -290,7 +290,7 @@ Returns partial transactions information for a given array of transactionIds.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = TransactionRoutesApi();
 final transactionIds = TransactionIds(); // TransactionIds | 
@@ -333,7 +333,7 @@ Returns unconfirmed transaction information given a transactionId or hash.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = TransactionRoutesApi();
 final transactionId = transactionId_example; // String | Transaction id or hash.
@@ -376,7 +376,7 @@ Returns unconfirmed transactions information for a given array of transactionIds
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = TransactionRoutesApi();
 final transactionIds = TransactionIds(); // TransactionIds | 
@@ -419,7 +419,7 @@ Returns an array of confirmed transactions. If a transaction was announced with 
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = TransactionRoutesApi();
 final address = address_example; // String | Filter by address involved in the transaction. An account's address is considered to be involved in the transaction when the account is the sender, recipient, or it is required to cosign the transaction. This filter cannot be combined with ``recipientAddress`` and ``signerPublicKey`` query params. 
@@ -490,7 +490,7 @@ Returns an array of partial transactions.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = TransactionRoutesApi();
 final address = address_example; // String | Filter by address involved in the transaction. An account's address is considered to be involved in the transaction when the account is the sender, recipient, or it is required to cosign the transaction. This filter cannot be combined with ``recipientAddress`` and ``signerPublicKey`` query params. 
@@ -561,7 +561,7 @@ Returns an array of unconfirmed transactions.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = TransactionRoutesApi();
 final address = address_example; // String | Filter by address involved in the transaction. An account's address is considered to be involved in the transaction when the account is the sender, recipient, or it is required to cosign the transaction. This filter cannot be combined with ``recipientAddress`` and ``signerPublicKey`` query params. 

@@ -8,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 import 'package:test/test.dart';
 
 // tests for ChainInfoDTO
@@ -22,13 +22,13 @@ void main() {
       // TODO
     });
 
-    // Score of the blockchain. During synchronization, nodes try to get the blockchain with highest score in the network. 
+    // Score of the blockchain. During synchronization, nodes try to get the blockchain with highest score in the network.
     // String scoreHigh
     test('to test the property `scoreHigh`', () async {
       // TODO
     });
 
-    // Score of the blockchain. During synchronization, nodes try to get the blockchain with highest score in the network. 
+    // Score of the blockchain. During synchronization, nodes try to get the blockchain with highest score in the network.
     // String scoreLow
     test('to test the property `scoreLow`', () async {
       // TODO
@@ -38,8 +38,5 @@ void main() {
     test('to test the property `latestFinalizedBlock`', () async {
       // TODO
     });
-
-
   });
-
 }

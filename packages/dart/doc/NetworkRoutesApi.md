@@ -2,7 +2,7 @@
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 ```
 
 All URIs are relative to *http://localhost:3000*
@@ -24,7 +24,7 @@ Returns the content from a catapult-server network configuration file (resources
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = NetworkRoutesApi();
 
@@ -63,7 +63,7 @@ Returns the current network type.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = NetworkRoutesApi();
 
@@ -102,7 +102,7 @@ Returns the estimated effective rental fees for namespaces and mosaics. This end
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = NetworkRoutesApi();
 
@@ -141,7 +141,7 @@ Returns the average, median, highest and lower fee multiplier over the last \"nu
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = NetworkRoutesApi();
 

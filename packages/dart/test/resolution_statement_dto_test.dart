@@ -8,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 import 'package:test/test.dart';
 
 // tests for ResolutionStatementDTO
@@ -27,13 +27,10 @@ void main() {
       // TODO
     });
 
-    // Array of resolution entries linked to the unresolved namespaceId. It is an array instead of a single resolution entry since within one block the resolution might change for different sources due to alias related transactions. 
+    // Array of resolution entries linked to the unresolved namespaceId. It is an array instead of a single resolution entry since within one block the resolution might change for different sources due to alias related transactions.
     // List<ResolutionEntryDTO> resolutionEntries (default value: const [])
     test('to test the property `resolutionEntries`', () async {
       // TODO
     });
-
-
   });
-
 }

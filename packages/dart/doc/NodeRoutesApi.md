@@ -2,7 +2,7 @@
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 ```
 
 All URIs are relative to *http://localhost:3000*
@@ -27,7 +27,7 @@ Supplies information regarding the connection and services status.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = NodeRoutesApi();
 
@@ -66,7 +66,7 @@ Supplies additional information about the application running on a node.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = NodeRoutesApi();
 
@@ -105,7 +105,7 @@ Gets the list of peers visible by the node.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = NodeRoutesApi();
 
@@ -144,7 +144,7 @@ Returns storage information about the node.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = NodeRoutesApi();
 
@@ -183,7 +183,7 @@ Gets the node time at the moment the reply was sent and received.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = NodeRoutesApi();
 
@@ -222,7 +222,7 @@ Returns the version of the running catapult-rest component.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = NodeRoutesApi();
 
@@ -261,7 +261,7 @@ Returns array of unlocked account public keys.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = NodeRoutesApi();
 
