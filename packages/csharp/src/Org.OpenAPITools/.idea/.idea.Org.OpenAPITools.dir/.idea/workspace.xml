@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4d6917c8-3228-49b6-a4b0-3b226be44de3" name="変更" comment="">
+      <change beforePath="$PROJECT_DIR$/Api/AccountRoutesApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Api/AccountRoutesApi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/BlockRoutesApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Api/BlockRoutesApi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/ChainRoutesApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Api/ChainRoutesApi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/FinalizationRoutesApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Api/FinalizationRoutesApi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/HashLockRoutesApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Api/HashLockRoutesApi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/MetadataRoutesApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Api/MetadataRoutesApi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/MosaicRoutesApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Api/MosaicRoutesApi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/MultisigRoutesApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Api/MultisigRoutesApi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/NamespaceRoutesApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Api/NamespaceRoutesApi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/NetworkRoutesApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Api/NetworkRoutesApi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/NodeRoutesApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Api/NodeRoutesApi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/ReceiptRoutesApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Api/ReceiptRoutesApi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/RestrictionAccountRoutesApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Api/RestrictionAccountRoutesApi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/RestrictionMosaicRoutesApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Api/RestrictionMosaicRoutesApi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/SecretLockRoutesApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Api/SecretLockRoutesApi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/TransactionRoutesApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Api/TransactionRoutesApi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/TransactionStatusRoutesApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Api/TransactionStatusRoutesApi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/ApiClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Client/ApiClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/ApiException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Client/ApiException.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/ApiResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Client/ApiResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/ClientUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Client/ClientUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Configuration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Client/Configuration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/ExceptionFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Client/ExceptionFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/GlobalConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Client/GlobalConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/HttpMethod.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Client/HttpMethod.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/IApiAccessor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Client/IApiAccessor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/IAsynchronousClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Client/IAsynchronousClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/IReadableConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Client/IReadableConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/ISynchronousClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Client/ISynchronousClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Multimap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Client/Multimap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/OpenAPIDateConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Client/OpenAPIDateConverter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/RequestOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Client/RequestOptions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/RetryConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Client/RetryConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AbstractOpenAPISchema.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AbstractOpenAPISchema.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountAddressRestrictionTransactionBodyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountAddressRestrictionTransactionBodyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountAddressRestrictionTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountAddressRestrictionTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountIds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountIds.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountInfoDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountInfoDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountKeyLinkNetworkPropertiesDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountKeyLinkNetworkPropertiesDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountKeyLinkTransactionBodyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountKeyLinkTransactionBodyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountKeyLinkTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountKeyLinkTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountKeyTypeFlagsEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountKeyTypeFlagsEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountLinkPublicKeyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountLinkPublicKeyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountLinkVotingKeyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountLinkVotingKeyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountLinkVotingKeysDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountLinkVotingKeysDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountMetadataTransactionBodyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountMetadataTransactionBodyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountMetadataTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountMetadataTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountMosaicRestrictionTransactionBodyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountMosaicRestrictionTransactionBodyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountMosaicRestrictionTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountMosaicRestrictionTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountNamesDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountNamesDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountOperationRestrictionTransactionBodyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountOperationRestrictionTransactionBodyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountOperationRestrictionTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountOperationRestrictionTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountOrderByEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountOrderByEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountPage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountPage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountRestrictionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountRestrictionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountRestrictionDTOValuesInner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountRestrictionDTOValuesInner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountRestrictionFlagsEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountRestrictionFlagsEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountRestrictionNetworkPropertiesDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountRestrictionNetworkPropertiesDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountRestrictionsDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountRestrictionsDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountRestrictionsInfoDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountRestrictionsInfoDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountRestrictionsPage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountRestrictionsPage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountTypeEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountTypeEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AccountsNamesDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AccountsNamesDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/ActivityBucketDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/ActivityBucketDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AddressAliasTransactionBodyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AddressAliasTransactionBodyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AddressAliasTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AddressAliasTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/Addresses.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/Addresses.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AggregateNetworkPropertiesDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AggregateNetworkPropertiesDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AggregateTransactionBodyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AggregateTransactionBodyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AggregateTransactionBodyExtendedDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AggregateTransactionBodyExtendedDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AggregateTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AggregateTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AggregateTransactionExtendedDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AggregateTransactionExtendedDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AliasActionEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AliasActionEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AliasDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AliasDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AliasTypeEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AliasTypeEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AnnounceTransactionInfoDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/AnnounceTransactionInfoDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/BalanceChangeReceiptDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/BalanceChangeReceiptDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/BalanceTransferReceiptDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/BalanceTransferReceiptDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/BlockDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/BlockDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/BlockInfoDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/BlockInfoDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/BlockInfoDTOBlock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/BlockInfoDTOBlock.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/BlockMetaDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/BlockMetaDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/BlockOrderByEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/BlockOrderByEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/BlockPage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/BlockPage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/BmTreeSignature.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/BmTreeSignature.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/ChainInfoDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/ChainInfoDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/ChainPropertiesDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/ChainPropertiesDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/CommunicationTimestampsDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/CommunicationTimestampsDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/Cosignature.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/Cosignature.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/CosignatureDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/CosignatureDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/DeploymentDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/DeploymentDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedAccountAddressRestrictionTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedAccountAddressRestrictionTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedAccountKeyLinkTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedAccountKeyLinkTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedAccountMetadataTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedAccountMetadataTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedAccountMosaicRestrictionTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedAccountMosaicRestrictionTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedAccountOperationRestrictionTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedAccountOperationRestrictionTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedAddressAliasTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedAddressAliasTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedHashLockTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedHashLockTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedMosaicAddressRestrictionTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedMosaicAddressRestrictionTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedMosaicAliasTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedMosaicAliasTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedMosaicDefinitionTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedMosaicDefinitionTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedMosaicGlobalRestrictionTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedMosaicGlobalRestrictionTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedMosaicMetadataTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedMosaicMetadataTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedMosaicSupplyChangeTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedMosaicSupplyChangeTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedMosaicSupplyRevocationTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedMosaicSupplyRevocationTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedMultisigAccountModificationTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedMultisigAccountModificationTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedNamespaceMetadataTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedNamespaceMetadataTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedNamespaceRegistrationTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedNamespaceRegistrationTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedNodeKeyLinkTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedNodeKeyLinkTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedSecretLockTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedSecretLockTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedSecretProofTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedSecretProofTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedTransactionBodyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedTransactionBodyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedTransactionInfoDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedTransactionInfoDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedTransactionInfoDTOTransaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedTransactionInfoDTOTransaction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedTransactionMetaDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedTransactionMetaDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedTransferTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedTransferTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedVotingKeyLinkTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedVotingKeyLinkTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EmbeddedVrfKeyLinkTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EmbeddedVrfKeyLinkTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/EntityDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/EntityDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/FinalizationProofDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/FinalizationProofDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/FinalizedBlockDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/FinalizedBlockDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/HashLockEntryDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/HashLockEntryDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/HashLockInfoDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/HashLockInfoDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/HashLockNetworkPropertiesDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/HashLockNetworkPropertiesDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/HashLockPage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/HashLockPage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/HashLockTransactionBodyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/HashLockTransactionBodyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/HashLockTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/HashLockTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/ImportanceBlockDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/ImportanceBlockDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/InflationReceiptDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/InflationReceiptDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/LinkActionEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/LinkActionEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/LockHashAlgorithmEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/LockHashAlgorithmEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/LockStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/LockStatus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MerklePathItemDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MerklePathItemDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MerkleProofInfoDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MerkleProofInfoDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MerkleStateInfoDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MerkleStateInfoDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MerkleStateInfoDTOTreeInner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MerkleStateInfoDTOTreeInner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MerkleTreeBranchDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MerkleTreeBranchDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MerkleTreeBranchLinkDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MerkleTreeBranchLinkDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MerkleTreeLeafDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MerkleTreeLeafDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MerkleTreeNodeTypeEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MerkleTreeNodeTypeEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MessageGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MessageGroup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MetadataEntryDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MetadataEntryDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MetadataEntryDTOTargetId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MetadataEntryDTOTargetId.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MetadataInfoDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MetadataInfoDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MetadataNetworkPropertiesDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MetadataNetworkPropertiesDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MetadataPage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MetadataPage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MetadataTypeEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MetadataTypeEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/ModelError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/ModelError.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/Mosaic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/Mosaic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicAddressRestrictionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicAddressRestrictionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicAddressRestrictionEntryDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicAddressRestrictionEntryDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicAddressRestrictionEntryWrapperDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicAddressRestrictionEntryWrapperDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicAddressRestrictionTransactionBodyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicAddressRestrictionTransactionBodyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicAddressRestrictionTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicAddressRestrictionTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicAliasTransactionBodyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicAliasTransactionBodyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicAliasTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicAliasTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicDefinitionTransactionBodyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicDefinitionTransactionBodyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicDefinitionTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicDefinitionTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicExpiryReceiptDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicExpiryReceiptDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicGlobalRestrictionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicGlobalRestrictionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicGlobalRestrictionEntryDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicGlobalRestrictionEntryDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicGlobalRestrictionEntryRestrictionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicGlobalRestrictionEntryRestrictionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicGlobalRestrictionEntryWrapperDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicGlobalRestrictionEntryWrapperDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicGlobalRestrictionTransactionBodyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicGlobalRestrictionTransactionBodyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicGlobalRestrictionTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicGlobalRestrictionTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicIds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicIds.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicInfoDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicInfoDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicMetadataTransactionBodyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicMetadataTransactionBodyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicMetadataTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicMetadataTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicNamesDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicNamesDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicNetworkPropertiesDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicNetworkPropertiesDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicPage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicPage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicRestrictionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicRestrictionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicRestrictionEntryTypeEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicRestrictionEntryTypeEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicRestrictionNetworkPropertiesDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicRestrictionNetworkPropertiesDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicRestrictionTypeEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicRestrictionTypeEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicRestrictionsPage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicRestrictionsPage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicRestrictionsPageDataInner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicRestrictionsPageDataInner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicSupplyChangeActionEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicSupplyChangeActionEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicSupplyChangeTransactionBodyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicSupplyChangeTransactionBodyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicSupplyChangeTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicSupplyChangeTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicSupplyRevocationTransactionBodyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicSupplyRevocationTransactionBodyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicSupplyRevocationTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicSupplyRevocationTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MosaicsNamesDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MosaicsNamesDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MultisigAccountGraphInfoDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MultisigAccountGraphInfoDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MultisigAccountInfoDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MultisigAccountInfoDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MultisigAccountModificationTransactionBodyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MultisigAccountModificationTransactionBodyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MultisigAccountModificationTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MultisigAccountModificationTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MultisigDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MultisigDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/MultisigNetworkPropertiesDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/MultisigNetworkPropertiesDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/NamespaceDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/NamespaceDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/NamespaceExpiryReceiptDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/NamespaceExpiryReceiptDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/NamespaceIds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/NamespaceIds.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/NamespaceInfoDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/NamespaceInfoDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/NamespaceMetaDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/NamespaceMetaDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/NamespaceMetadataTransactionBodyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/NamespaceMetadataTransactionBodyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/NamespaceMetadataTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/NamespaceMetadataTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/NamespaceNameDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/NamespaceNameDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/NamespaceNetworkPropertiesDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/NamespaceNetworkPropertiesDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/NamespacePage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/NamespacePage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/NamespaceRegistrationTransactionBodyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/NamespaceRegistrationTransactionBodyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/NamespaceRegistrationTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/NamespaceRegistrationTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/NamespaceRegistrationTypeEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/NamespaceRegistrationTypeEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/NetworkConfigurationDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/NetworkConfigurationDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/NetworkPropertiesDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/NetworkPropertiesDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/NetworkTypeDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/NetworkTypeDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/NetworkTypeEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/NetworkTypeEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/NodeHealthDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/NodeHealthDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/NodeHealthInfoDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/NodeHealthInfoDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/NodeIdentityEqualityStrategy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/NodeIdentityEqualityStrategy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/NodeInfoDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/NodeInfoDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/NodeKeyLinkNetworkPropertiesDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/NodeKeyLinkNetworkPropertiesDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/NodeKeyLinkTransactionBodyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/NodeKeyLinkTransactionBodyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/NodeKeyLinkTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/NodeKeyLinkTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/NodeStatusEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/NodeStatusEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/NodeTimeDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/NodeTimeDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/Order.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/Order.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/Pagination.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/Pagination.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/ParentPublicKeySignaturePair.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/ParentPublicKeySignaturePair.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/PluginsPropertiesDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/PluginsPropertiesDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/PositionEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/PositionEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/ReceiptDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/ReceiptDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/ReceiptTypeEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/ReceiptTypeEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/RentalFeesDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/RentalFeesDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/ResolutionEntryDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/ResolutionEntryDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/ResolutionEntryDTOResolved.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/ResolutionEntryDTOResolved.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/ResolutionStatementDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/ResolutionStatementDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/ResolutionStatementDTOUnresolved.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/ResolutionStatementDTOUnresolved.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/ResolutionStatementInfoDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/ResolutionStatementInfoDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/ResolutionStatementPage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/ResolutionStatementPage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/SecretLockEntryDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/SecretLockEntryDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/SecretLockInfoDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/SecretLockInfoDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/SecretLockNetworkPropertiesDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/SecretLockNetworkPropertiesDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/SecretLockPage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/SecretLockPage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/SecretLockTransactionBodyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/SecretLockTransactionBodyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/SecretLockTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/SecretLockTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/SecretProofTransactionBodyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/SecretProofTransactionBodyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/SecretProofTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/SecretProofTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/ServerDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/ServerDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/ServerInfoDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/ServerInfoDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/SizePrefixedEntityDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/SizePrefixedEntityDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/SourceDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/SourceDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/StageEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/StageEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/StatementMetaDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/StatementMetaDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/StorageInfoDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/StorageInfoDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/SupplementalPublicKeysDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/SupplementalPublicKeysDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TransactionBodyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/TransactionBodyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/TransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TransactionFeesDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/TransactionFeesDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TransactionGroupEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/TransactionGroupEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TransactionHashes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/TransactionHashes.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TransactionIds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/TransactionIds.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TransactionInfoDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/TransactionInfoDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TransactionInfoDTOMeta.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/TransactionInfoDTOMeta.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TransactionInfoDTOTransaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/TransactionInfoDTOTransaction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TransactionMetaDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/TransactionMetaDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TransactionPage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/TransactionPage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TransactionPayload.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/TransactionPayload.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TransactionStatementDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/TransactionStatementDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TransactionStatementDTOReceiptsInner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/TransactionStatementDTOReceiptsInner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TransactionStatementInfoDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/TransactionStatementInfoDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TransactionStatementPage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/TransactionStatementPage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TransactionStatusDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/TransactionStatusDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TransactionStatusEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/TransactionStatusEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TransactionTypeEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/TransactionTypeEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TransferNetworkPropertiesDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/TransferNetworkPropertiesDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TransferTransactionBodyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/TransferTransactionBodyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TransferTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/TransferTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/UnlockedAccountDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/UnlockedAccountDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/UnresolvedMosaic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/UnresolvedMosaic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/VerifiableEntityDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/VerifiableEntityDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/VotingKeyLinkNetworkPropertiesDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/VotingKeyLinkNetworkPropertiesDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/VotingKeyLinkTransactionBodyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/VotingKeyLinkTransactionBodyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/VotingKeyLinkTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/VotingKeyLinkTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/VrfKeyLinkNetworkPropertiesDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/VrfKeyLinkNetworkPropertiesDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/VrfKeyLinkTransactionBodyDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/VrfKeyLinkTransactionBodyDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/VrfKeyLinkTransactionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/Model/VrfKeyLinkTransactionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Org.OpenAPITools.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../SymbolRestClient/SymbolRestClient.csproj" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2iB8McOp3tzKoBCusUlhGSlGikw" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.environmentSetup",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "/Users/matsukawatoshiya/Library/Application Support/JetBrains/Rider2023.3/resharper-host/DecompilerCache",
+      "/Users/matsukawatoshiya/Library/Application Support/JetBrains/Rider2023.3/resharper-host/SourcesCache",
+      "/Users/matsukawatoshiya/.local/share/Symbols/src"
+    ]
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="アプリケーションレベル" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="デフォルトタスク">
+      <changelist id="4d6917c8-3228-49b6-a4b0-3b226be44de3" name="変更" comment="" />
+      <created>1718952562311</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1718952562311</updated>
+      <workItem from="1718952563410" duration="2975000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>
