@@ -6,6 +6,8 @@ name: 'symbol_rest_client'
 version: '1.0.0'
 description: 'Symbol OpenAPI API client'
 homepage: 'https://symbol-community.com/'
+repository: https://github.com/symbol-blockchain-community/symbol-rest-client.git
+license: MIT
 environment:
   sdk: '>=2.12.0 <3.0.0'
 dependencies:
