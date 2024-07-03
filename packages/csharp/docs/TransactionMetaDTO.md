@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.TransactionMetaDTO
+# SymbolRestClient.Model.TransactionMetaDTO
 
 ## Properties
 

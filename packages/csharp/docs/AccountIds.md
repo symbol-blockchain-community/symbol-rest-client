@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.AccountIds
+# SymbolRestClient.Model.AccountIds
 
 ## Properties
 

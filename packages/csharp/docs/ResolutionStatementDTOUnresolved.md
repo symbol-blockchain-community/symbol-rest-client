@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.ResolutionStatementDTOUnresolved
+# SymbolRestClient.Model.ResolutionStatementDTOUnresolved
 
 ## Properties
 

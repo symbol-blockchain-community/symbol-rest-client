@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.Addresses
+# SymbolRestClient.Model.Addresses
 
 ## Properties
 

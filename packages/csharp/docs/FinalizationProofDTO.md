@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.FinalizationProofDTO
+# SymbolRestClient.Model.FinalizationProofDTO
 
 ## Properties
 

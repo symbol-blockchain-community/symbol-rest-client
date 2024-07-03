@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Api.MultisigRoutesApi
+# SymbolRestClient.Api.MultisigRoutesApi
 
 All URIs are relative to *http://localhost:3000*
 
@@ -20,9 +20,9 @@ Returns the multisig account information.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using SymbolRestClient.Api;
+using SymbolRestClient.Client;
+using SymbolRestClient.Model;
 
 namespace Example
 {
@@ -113,9 +113,9 @@ Returns the multisig account graph.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using SymbolRestClient.Api;
+using SymbolRestClient.Client;
+using SymbolRestClient.Model;
 
 namespace Example
 {
@@ -206,9 +206,9 @@ Returns the multisig account merkle information.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using SymbolRestClient.Api;
+using SymbolRestClient.Client;
+using SymbolRestClient.Model;
 
 namespace Example
 {

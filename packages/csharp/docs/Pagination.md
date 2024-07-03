@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.Pagination
+# SymbolRestClient.Model.Pagination
 
 ## Properties
 

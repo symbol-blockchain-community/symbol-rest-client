@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.UnlockedAccountDTO
+# SymbolRestClient.Model.UnlockedAccountDTO
 
 ## Properties
 

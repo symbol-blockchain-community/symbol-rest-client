@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MerkleStateInfoDTOTreeInner
+# SymbolRestClient.Model.MerkleStateInfoDTOTreeInner
 
 ## Properties
 

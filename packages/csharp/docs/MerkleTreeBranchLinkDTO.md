@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MerkleTreeBranchLinkDTO
+# SymbolRestClient.Model.MerkleTreeBranchLinkDTO
 Merkle tree branch link.
 
 ## Properties

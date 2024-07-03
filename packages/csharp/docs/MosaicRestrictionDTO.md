@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MosaicRestrictionDTO
+# SymbolRestClient.Model.MosaicRestrictionDTO
 Generic Mosaic Restriction
 
 ## Properties

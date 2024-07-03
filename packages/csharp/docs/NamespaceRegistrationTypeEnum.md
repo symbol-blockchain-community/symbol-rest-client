@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.NamespaceRegistrationTypeEnum
+# SymbolRestClient.Model.NamespaceRegistrationTypeEnum
 Type of namespace: * 0 - Root namespace. * 1 - Subnamespace. 
 
 ## Properties

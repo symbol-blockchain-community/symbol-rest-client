@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Api.MosaicRoutesApi
+# SymbolRestClient.Api.MosaicRoutesApi
 
 All URIs are relative to *http://localhost:3000*
 
@@ -21,9 +21,9 @@ Gets the mosaic definition for a given mosaic identifier.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using SymbolRestClient.Api;
+using SymbolRestClient.Client;
+using SymbolRestClient.Model;
 
 namespace Example
 {
@@ -114,9 +114,9 @@ Gets the mosaic definition merkle for a given mosaic identifier.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using SymbolRestClient.Api;
+using SymbolRestClient.Client;
+using SymbolRestClient.Model;
 
 namespace Example
 {
@@ -207,9 +207,9 @@ Gets an array of mosaic definition.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using SymbolRestClient.Api;
+using SymbolRestClient.Client;
+using SymbolRestClient.Model;
 
 namespace Example
 {
@@ -300,9 +300,9 @@ Gets an array of mosaics.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using SymbolRestClient.Api;
+using SymbolRestClient.Client;
+using SymbolRestClient.Model;
 
 namespace Example
 {

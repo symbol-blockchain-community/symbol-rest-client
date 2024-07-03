@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MultisigNetworkPropertiesDTO
+# SymbolRestClient.Model.MultisigNetworkPropertiesDTO
 
 ## Properties
 

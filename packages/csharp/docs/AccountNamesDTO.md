@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.AccountNamesDTO
+# SymbolRestClient.Model.AccountNamesDTO
 
 ## Properties
 

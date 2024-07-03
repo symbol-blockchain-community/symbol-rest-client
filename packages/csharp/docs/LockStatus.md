@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.LockStatus
+# SymbolRestClient.Model.LockStatus
 Possible status of lock states: * 0 - UNUSED. * 1 - USED. 
 
 ## Properties

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Api.TransactionStatusRoutesApi
+# SymbolRestClient.Api.TransactionStatusRoutesApi
 
 All URIs are relative to *http://localhost:3000*
 
@@ -19,9 +19,9 @@ Returns the transaction status for a given hash.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using SymbolRestClient.Api;
+using SymbolRestClient.Client;
+using SymbolRestClient.Model;
 
 namespace Example
 {
@@ -112,9 +112,9 @@ Returns an array of transaction statuses for a given array of transaction hashes
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using SymbolRestClient.Api;
+using SymbolRestClient.Client;
+using SymbolRestClient.Model;
 
 namespace Example
 {

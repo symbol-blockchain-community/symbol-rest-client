@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MosaicSupplyRevocationTransactionDTO
+# SymbolRestClient.Model.MosaicSupplyRevocationTransactionDTO
 Transaction that allows the mosaic creator to revoke some balance from a user.
 
 ## Properties

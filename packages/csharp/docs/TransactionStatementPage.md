@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.TransactionStatementPage
+# SymbolRestClient.Model.TransactionStatementPage
 
 ## Properties
 

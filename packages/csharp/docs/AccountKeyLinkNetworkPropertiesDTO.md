@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.AccountKeyLinkNetworkPropertiesDTO
+# SymbolRestClient.Model.AccountKeyLinkNetworkPropertiesDTO
 
 ## Properties
 

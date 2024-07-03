@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.SecretProofTransactionDTO
+# SymbolRestClient.Model.SecretProofTransactionDTO
 Transaction to reveal a proof.
 
 ## Properties

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MerkleProofInfoDTO
+# SymbolRestClient.Model.MerkleProofInfoDTO
 
 ## Properties
 

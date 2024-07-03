@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MosaicAliasTransactionDTO
+# SymbolRestClient.Model.MosaicAliasTransactionDTO
 Transaction to link a namespace to a mosaic.
 
 ## Properties

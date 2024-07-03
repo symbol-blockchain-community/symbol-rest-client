@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.BlockInfoDTO
+# SymbolRestClient.Model.BlockInfoDTO
 
 ## Properties
 

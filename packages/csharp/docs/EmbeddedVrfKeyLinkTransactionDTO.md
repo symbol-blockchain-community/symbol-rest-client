@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.EmbeddedVrfKeyLinkTransactionDTO
+# SymbolRestClient.Model.EmbeddedVrfKeyLinkTransactionDTO
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MerkleTreeNodeTypeEnum
+# SymbolRestClient.Model.MerkleTreeNodeTypeEnum
 Type of Merkle tree node: * 0 - Branch node. * 255 - Leaf node. 
 
 ## Properties

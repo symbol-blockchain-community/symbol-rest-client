@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.AccountAddressRestrictionTransactionDTO
+# SymbolRestClient.Model.AccountAddressRestrictionTransactionDTO
 Transaction to prevent incoming and outgoing transactions for a given a set of addresses.
 
 ## Properties

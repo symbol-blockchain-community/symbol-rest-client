@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MultisigAccountGraphInfoDTO
+# SymbolRestClient.Model.MultisigAccountGraphInfoDTO
 
 ## Properties
 

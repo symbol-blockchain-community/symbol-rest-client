@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.PluginsPropertiesDTO
+# SymbolRestClient.Model.PluginsPropertiesDTO
 Plugin related configuration properties.
 
 ## Properties

@@ -9,11 +9,19 @@
 
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using OpenAPIDateConverter = SymbolRestClient.Client.OpenAPIDateConverter;
 
 namespace SymbolRestClient.Model
 {
@@ -32,7 +40,7 @@ namespace SymbolRestClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmbeddedMosaicMetadataTransactionDTO" /> class.
         /// </summary>
-        [JsonConstructor]
+        [JsonConstructorAttribute]
         protected EmbeddedMosaicMetadataTransactionDTO() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="EmbeddedMosaicMetadataTransactionDTO" /> class.

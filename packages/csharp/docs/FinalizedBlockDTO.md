@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.FinalizedBlockDTO
+# SymbolRestClient.Model.FinalizedBlockDTO
 
 ## Properties
 

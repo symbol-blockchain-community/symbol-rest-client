@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.VrfKeyLinkNetworkPropertiesDTO
+# SymbolRestClient.Model.VrfKeyLinkNetworkPropertiesDTO
 
 ## Properties
 

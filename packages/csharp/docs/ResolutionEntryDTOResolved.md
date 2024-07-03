@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.ResolutionEntryDTOResolved
+# SymbolRestClient.Model.ResolutionEntryDTOResolved
 
 ## Properties
 

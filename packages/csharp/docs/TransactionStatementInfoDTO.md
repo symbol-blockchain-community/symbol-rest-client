@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.TransactionStatementInfoDTO
+# SymbolRestClient.Model.TransactionStatementInfoDTO
 Collection of receipts related to a transaction.
 
 ## Properties

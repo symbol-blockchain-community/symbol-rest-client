@@ -1,4 +1,4 @@
-# Org.OpenAPITools - the C# library for the Catapult REST Endpoints
+# SymbolRestClient - the C# library for the Catapult REST Endpoints
 
 OpenAPI Specification of catapult-rest
 
@@ -38,9 +38,9 @@ Run the following command to generate the DLL
 
 Then include the DLL (under the `bin` folder) in the C# project, and use the namespaces:
 ```csharp
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using SymbolRestClient.Api;
+using SymbolRestClient.Client;
+using SymbolRestClient.Model;
 ```
 <a id="packaging"></a>
 ## Packaging
@@ -50,7 +50,7 @@ A `.nuspec` is included with the project. You can follow the Nuget quickstart to
 This `.nuspec` uses placeholders from the `.csproj`, so build the `.csproj` directly:
 
 ```
-nuget pack -Build -OutputDirectory out Org.OpenAPITools.csproj
+nuget pack -Build -OutputDirectory out SymbolRestClient.csproj
 ```
 
 Then, publish to a [local feed](https://docs.microsoft.com/en-us/nuget/hosting-packages/local-feeds) or [other host](https://docs.microsoft.com/en-us/nuget/hosting-packages/overview) and consume the new package via Nuget as usual.
@@ -72,9 +72,9 @@ c.Proxy = webProxy;
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using SymbolRestClient.Api;
+using SymbolRestClient.Client;
+using SymbolRestClient.Model;
 
 namespace Example
 {

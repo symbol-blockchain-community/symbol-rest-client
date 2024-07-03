@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.NodeTimeDTO
+# SymbolRestClient.Model.NodeTimeDTO
 
 ## Properties
 

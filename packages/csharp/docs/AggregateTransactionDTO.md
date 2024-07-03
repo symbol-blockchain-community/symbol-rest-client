@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.AggregateTransactionDTO
+# SymbolRestClient.Model.AggregateTransactionDTO
 Transaction to combine multiple transactions together.
 
 ## Properties

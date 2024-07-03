@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.NamespaceRegistrationTransactionDTO
+# SymbolRestClient.Model.NamespaceRegistrationTransactionDTO
 Transaction to create or renew a namespace.
 
 ## Properties

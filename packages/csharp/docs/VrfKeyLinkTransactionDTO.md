@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.VrfKeyLinkTransactionDTO
+# SymbolRestClient.Model.VrfKeyLinkTransactionDTO
 Transaction to link an account with a VRF public key. The key is used to randomize block production and leader/participant selection. Required for all harvesting eligible accounts. 
 
 ## Properties

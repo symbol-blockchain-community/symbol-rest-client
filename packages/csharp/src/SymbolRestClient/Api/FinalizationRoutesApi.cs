@@ -9,6 +9,11 @@
 
 
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Mime;
 using SymbolRestClient.Client;
 using SymbolRestClient.Model;
 
@@ -142,7 +147,7 @@ namespace SymbolRestClient.Api
     /// </summary>
     public partial class FinalizationRoutesApi : IFinalizationRoutesApi
     {
-        private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private SymbolRestClient.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FinalizationRoutesApi"/> class.
@@ -159,11 +164,11 @@ namespace SymbolRestClient.Api
         public FinalizationRoutesApi(string basePath)
         {
             this.Configuration = SymbolRestClient.Client.Configuration.MergeConfigurations(
-                GlobalConfiguration.Instance,
-                new Configuration { BasePath = basePath }
+                SymbolRestClient.Client.GlobalConfiguration.Instance,
+                new SymbolRestClient.Client.Configuration { BasePath = basePath }
             );
-            this.Client = new ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new ApiClient(this.Configuration.BasePath);
+            this.Client = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
+            this.AsynchronousClient = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
             this.ExceptionFactory = SymbolRestClient.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -173,16 +178,16 @@ namespace SymbolRestClient.Api
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public FinalizationRoutesApi(Configuration configuration)
+        public FinalizationRoutesApi(SymbolRestClient.Client.Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Configuration = SymbolRestClient.Client.Configuration.MergeConfigurations(
-                GlobalConfiguration.Instance,
+                SymbolRestClient.Client.GlobalConfiguration.Instance,
                 configuration
             );
-            this.Client = new ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new ApiClient(this.Configuration.BasePath);
+            this.Client = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
+            this.AsynchronousClient = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
             ExceptionFactory = SymbolRestClient.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -193,7 +198,7 @@ namespace SymbolRestClient.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public FinalizationRoutesApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
+        public FinalizationRoutesApi(SymbolRestClient.Client.ISynchronousClient client, SymbolRestClient.Client.IAsynchronousClient asyncClient, SymbolRestClient.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -208,12 +213,12 @@ namespace SymbolRestClient.Api
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
-        public IAsynchronousClient AsynchronousClient { get; set; }
+        public SymbolRestClient.Client.IAsynchronousClient AsynchronousClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API synchronously.
         /// </summary>
-        public ISynchronousClient Client { get; set; }
+        public SymbolRestClient.Client.ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -228,12 +233,12 @@ namespace SymbolRestClient.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public IReadableConfiguration Configuration { get; set; }
+        public SymbolRestClient.Client.IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public ExceptionFactory ExceptionFactory
+        public SymbolRestClient.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -255,7 +260,7 @@ namespace SymbolRestClient.Api
         /// <returns>FinalizationProofDTO</returns>
         public FinalizationProofDTO GetFinalizationProofAtEpoch(long epoch, int operationIndex = 0)
         {
-            ApiResponse<FinalizationProofDTO> localVarResponse = GetFinalizationProofAtEpochWithHttpInfo(epoch);
+            SymbolRestClient.Client.ApiResponse<FinalizationProofDTO> localVarResponse = GetFinalizationProofAtEpochWithHttpInfo(epoch);
             return localVarResponse.Data;
         }
 
@@ -266,9 +271,9 @@ namespace SymbolRestClient.Api
         /// <param name="epoch">Finalization epoch.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FinalizationProofDTO</returns>
-        public ApiResponse<FinalizationProofDTO> GetFinalizationProofAtEpochWithHttpInfo(long epoch, int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<FinalizationProofDTO> GetFinalizationProofAtEpochWithHttpInfo(long epoch, int operationIndex = 0)
         {
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -278,19 +283,19 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("epoch", ClientUtils.ParameterToString(epoch)); // path parameter
+            localVarRequestOptions.PathParameters.Add("epoch", SymbolRestClient.Client.ClientUtils.ParameterToString(epoch)); // path parameter
 
             localVarRequestOptions.Operation = "FinalizationRoutesApi.GetFinalizationProofAtEpoch";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -320,7 +325,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of FinalizationProofDTO</returns>
         public async System.Threading.Tasks.Task<FinalizationProofDTO> GetFinalizationProofAtEpochAsync(long epoch, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<FinalizationProofDTO> localVarResponse = await GetFinalizationProofAtEpochWithHttpInfoAsync(epoch, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<FinalizationProofDTO> localVarResponse = await GetFinalizationProofAtEpochWithHttpInfoAsync(epoch, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -332,10 +337,10 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FinalizationProofDTO)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FinalizationProofDTO>> GetFinalizationProofAtEpochWithHttpInfoAsync(long epoch, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<FinalizationProofDTO>> GetFinalizationProofAtEpochWithHttpInfoAsync(long epoch, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -345,19 +350,19 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("epoch", ClientUtils.ParameterToString(epoch)); // path parameter
+            localVarRequestOptions.PathParameters.Add("epoch", SymbolRestClient.Client.ClientUtils.ParameterToString(epoch)); // path parameter
 
             localVarRequestOptions.Operation = "FinalizationRoutesApi.GetFinalizationProofAtEpoch";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -387,7 +392,7 @@ namespace SymbolRestClient.Api
         /// <returns>FinalizationProofDTO</returns>
         public FinalizationProofDTO GetFinalizationProofAtHeight(string height, int operationIndex = 0)
         {
-            ApiResponse<FinalizationProofDTO> localVarResponse = GetFinalizationProofAtHeightWithHttpInfo(height);
+            SymbolRestClient.Client.ApiResponse<FinalizationProofDTO> localVarResponse = GetFinalizationProofAtHeightWithHttpInfo(height);
             return localVarResponse.Data;
         }
 
@@ -398,15 +403,15 @@ namespace SymbolRestClient.Api
         /// <param name="height">Block height.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FinalizationProofDTO</returns>
-        public ApiResponse<FinalizationProofDTO> GetFinalizationProofAtHeightWithHttpInfo(string height, int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<FinalizationProofDTO> GetFinalizationProofAtHeightWithHttpInfo(string height, int operationIndex = 0)
         {
             // verify the required parameter 'height' is set
             if (height == null)
             {
-                throw new ApiException(400, "Missing required parameter 'height' when calling FinalizationRoutesApi->GetFinalizationProofAtHeight");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'height' when calling FinalizationRoutesApi->GetFinalizationProofAtHeight");
             }
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -416,19 +421,19 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("height", ClientUtils.ParameterToString(height)); // path parameter
+            localVarRequestOptions.PathParameters.Add("height", SymbolRestClient.Client.ClientUtils.ParameterToString(height)); // path parameter
 
             localVarRequestOptions.Operation = "FinalizationRoutesApi.GetFinalizationProofAtHeight";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -458,7 +463,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of FinalizationProofDTO</returns>
         public async System.Threading.Tasks.Task<FinalizationProofDTO> GetFinalizationProofAtHeightAsync(string height, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<FinalizationProofDTO> localVarResponse = await GetFinalizationProofAtHeightWithHttpInfoAsync(height, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<FinalizationProofDTO> localVarResponse = await GetFinalizationProofAtHeightWithHttpInfoAsync(height, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -470,16 +475,16 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FinalizationProofDTO)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FinalizationProofDTO>> GetFinalizationProofAtHeightWithHttpInfoAsync(string height, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<FinalizationProofDTO>> GetFinalizationProofAtHeightWithHttpInfoAsync(string height, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'height' is set
             if (height == null)
             {
-                throw new ApiException(400, "Missing required parameter 'height' when calling FinalizationRoutesApi->GetFinalizationProofAtHeight");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'height' when calling FinalizationRoutesApi->GetFinalizationProofAtHeight");
             }
 
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -489,19 +494,19 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("height", ClientUtils.ParameterToString(height)); // path parameter
+            localVarRequestOptions.PathParameters.Add("height", SymbolRestClient.Client.ClientUtils.ParameterToString(height)); // path parameter
 
             localVarRequestOptions.Operation = "FinalizationRoutesApi.GetFinalizationProofAtHeight";
             localVarRequestOptions.OperationIndex = operationIndex;

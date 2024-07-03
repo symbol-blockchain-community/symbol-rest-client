@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MosaicRestrictionsPage
+# SymbolRestClient.Model.MosaicRestrictionsPage
 
 ## Properties
 

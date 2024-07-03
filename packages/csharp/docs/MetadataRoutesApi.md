@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Api.MetadataRoutesApi
+# SymbolRestClient.Api.MetadataRoutesApi
 
 All URIs are relative to *http://localhost:3000*
 
@@ -20,9 +20,9 @@ Gets the metadata for a given composite hash.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using SymbolRestClient.Api;
+using SymbolRestClient.Client;
+using SymbolRestClient.Model;
 
 namespace Example
 {
@@ -112,9 +112,9 @@ Gets the metadata merkle for a given composite hash.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using SymbolRestClient.Api;
+using SymbolRestClient.Client;
+using SymbolRestClient.Model;
 
 namespace Example
 {
@@ -204,9 +204,9 @@ Returns an array of metadata.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using SymbolRestClient.Api;
+using SymbolRestClient.Client;
+using SymbolRestClient.Model;
 
 namespace Example
 {

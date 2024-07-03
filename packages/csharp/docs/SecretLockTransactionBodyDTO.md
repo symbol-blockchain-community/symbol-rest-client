@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.SecretLockTransactionBodyDTO
+# SymbolRestClient.Model.SecretLockTransactionBodyDTO
 
 ## Properties
 

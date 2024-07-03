@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.TransactionIds
+# SymbolRestClient.Model.TransactionIds
 
 ## Properties
 

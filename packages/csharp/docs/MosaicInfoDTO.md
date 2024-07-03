@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MosaicInfoDTO
+# SymbolRestClient.Model.MosaicInfoDTO
 
 ## Properties
 

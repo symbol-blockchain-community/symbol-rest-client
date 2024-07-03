@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.TransactionPayload
+# SymbolRestClient.Model.TransactionPayload
 
 ## Properties
 

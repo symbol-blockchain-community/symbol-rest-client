@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.NamespaceNetworkPropertiesDTO
+# SymbolRestClient.Model.NamespaceNetworkPropertiesDTO
 
 ## Properties
 

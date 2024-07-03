@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.CommunicationTimestampsDTO
+# SymbolRestClient.Model.CommunicationTimestampsDTO
 
 ## Properties
 

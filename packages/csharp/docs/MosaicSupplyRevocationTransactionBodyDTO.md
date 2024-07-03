@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MosaicSupplyRevocationTransactionBodyDTO
+# SymbolRestClient.Model.MosaicSupplyRevocationTransactionBodyDTO
 
 ## Properties
 

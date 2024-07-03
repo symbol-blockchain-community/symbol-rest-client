@@ -8,6 +8,8 @@
  */
 
 
+using System;
+
 namespace SymbolRestClient.Client
 {
     /// <summary>

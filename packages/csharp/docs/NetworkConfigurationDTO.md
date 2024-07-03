@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.NetworkConfigurationDTO
+# SymbolRestClient.Model.NetworkConfigurationDTO
 
 ## Properties
 

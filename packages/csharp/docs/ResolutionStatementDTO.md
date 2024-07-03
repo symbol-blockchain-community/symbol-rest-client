@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.ResolutionStatementDTO
+# SymbolRestClient.Model.ResolutionStatementDTO
 
 ## Properties
 

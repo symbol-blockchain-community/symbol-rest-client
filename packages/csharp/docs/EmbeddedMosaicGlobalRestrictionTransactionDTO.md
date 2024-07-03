@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.EmbeddedMosaicGlobalRestrictionTransactionDTO
+# SymbolRestClient.Model.EmbeddedMosaicGlobalRestrictionTransactionDTO
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.AliasTypeEnum
+# SymbolRestClient.Model.AliasTypeEnum
 Type of alias: * 0 - No alias. * 1 - Mosaic id alias. * 2 - Addres alias. 
 
 ## Properties

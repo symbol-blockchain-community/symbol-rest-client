@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MosaicExpiryReceiptDTO
+# SymbolRestClient.Model.MosaicExpiryReceiptDTO
 Receipt stored when a mosaic expires.
 
 ## Properties

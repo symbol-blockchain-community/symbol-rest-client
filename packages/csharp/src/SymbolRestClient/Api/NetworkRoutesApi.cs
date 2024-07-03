@@ -9,6 +9,11 @@
 
 
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Mime;
 using SymbolRestClient.Client;
 using SymbolRestClient.Model;
 
@@ -222,7 +227,7 @@ namespace SymbolRestClient.Api
     /// </summary>
     public partial class NetworkRoutesApi : INetworkRoutesApi
     {
-        private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private SymbolRestClient.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NetworkRoutesApi"/> class.
@@ -239,11 +244,11 @@ namespace SymbolRestClient.Api
         public NetworkRoutesApi(string basePath)
         {
             this.Configuration = SymbolRestClient.Client.Configuration.MergeConfigurations(
-                GlobalConfiguration.Instance,
-                new Configuration { BasePath = basePath }
+                SymbolRestClient.Client.GlobalConfiguration.Instance,
+                new SymbolRestClient.Client.Configuration { BasePath = basePath }
             );
-            this.Client = new ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new ApiClient(this.Configuration.BasePath);
+            this.Client = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
+            this.AsynchronousClient = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
             this.ExceptionFactory = SymbolRestClient.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -253,16 +258,16 @@ namespace SymbolRestClient.Api
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public NetworkRoutesApi(Configuration configuration)
+        public NetworkRoutesApi(SymbolRestClient.Client.Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Configuration = SymbolRestClient.Client.Configuration.MergeConfigurations(
-                GlobalConfiguration.Instance,
+                SymbolRestClient.Client.GlobalConfiguration.Instance,
                 configuration
             );
-            this.Client = new ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new ApiClient(this.Configuration.BasePath);
+            this.Client = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
+            this.AsynchronousClient = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
             ExceptionFactory = SymbolRestClient.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -273,7 +278,7 @@ namespace SymbolRestClient.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public NetworkRoutesApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
+        public NetworkRoutesApi(SymbolRestClient.Client.ISynchronousClient client, SymbolRestClient.Client.IAsynchronousClient asyncClient, SymbolRestClient.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -288,12 +293,12 @@ namespace SymbolRestClient.Api
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
-        public IAsynchronousClient AsynchronousClient { get; set; }
+        public SymbolRestClient.Client.IAsynchronousClient AsynchronousClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API synchronously.
         /// </summary>
-        public ISynchronousClient Client { get; set; }
+        public SymbolRestClient.Client.ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -308,12 +313,12 @@ namespace SymbolRestClient.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public IReadableConfiguration Configuration { get; set; }
+        public SymbolRestClient.Client.IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public ExceptionFactory ExceptionFactory
+        public SymbolRestClient.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -334,7 +339,7 @@ namespace SymbolRestClient.Api
         /// <returns>NetworkConfigurationDTO</returns>
         public NetworkConfigurationDTO GetNetworkProperties(int operationIndex = 0)
         {
-            ApiResponse<NetworkConfigurationDTO> localVarResponse = GetNetworkPropertiesWithHttpInfo();
+            SymbolRestClient.Client.ApiResponse<NetworkConfigurationDTO> localVarResponse = GetNetworkPropertiesWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -344,9 +349,9 @@ namespace SymbolRestClient.Api
         /// <exception cref="SymbolRestClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of NetworkConfigurationDTO</returns>
-        public ApiResponse<NetworkConfigurationDTO> GetNetworkPropertiesWithHttpInfo(int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<NetworkConfigurationDTO> GetNetworkPropertiesWithHttpInfo(int operationIndex = 0)
         {
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -356,13 +361,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -396,7 +401,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of NetworkConfigurationDTO</returns>
         public async System.Threading.Tasks.Task<NetworkConfigurationDTO> GetNetworkPropertiesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<NetworkConfigurationDTO> localVarResponse = await GetNetworkPropertiesWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<NetworkConfigurationDTO> localVarResponse = await GetNetworkPropertiesWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -407,10 +412,10 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NetworkConfigurationDTO)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NetworkConfigurationDTO>> GetNetworkPropertiesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<NetworkConfigurationDTO>> GetNetworkPropertiesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -420,13 +425,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -460,7 +465,7 @@ namespace SymbolRestClient.Api
         /// <returns>NetworkTypeDTO</returns>
         public NetworkTypeDTO GetNetworkType(int operationIndex = 0)
         {
-            ApiResponse<NetworkTypeDTO> localVarResponse = GetNetworkTypeWithHttpInfo();
+            SymbolRestClient.Client.ApiResponse<NetworkTypeDTO> localVarResponse = GetNetworkTypeWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -470,9 +475,9 @@ namespace SymbolRestClient.Api
         /// <exception cref="SymbolRestClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of NetworkTypeDTO</returns>
-        public ApiResponse<NetworkTypeDTO> GetNetworkTypeWithHttpInfo(int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<NetworkTypeDTO> GetNetworkTypeWithHttpInfo(int operationIndex = 0)
         {
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -482,13 +487,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -522,7 +527,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of NetworkTypeDTO</returns>
         public async System.Threading.Tasks.Task<NetworkTypeDTO> GetNetworkTypeAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<NetworkTypeDTO> localVarResponse = await GetNetworkTypeWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<NetworkTypeDTO> localVarResponse = await GetNetworkTypeWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -533,10 +538,10 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NetworkTypeDTO)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NetworkTypeDTO>> GetNetworkTypeWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<NetworkTypeDTO>> GetNetworkTypeWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -546,13 +551,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -586,7 +591,7 @@ namespace SymbolRestClient.Api
         /// <returns>RentalFeesDTO</returns>
         public RentalFeesDTO GetRentalFees(int operationIndex = 0)
         {
-            ApiResponse<RentalFeesDTO> localVarResponse = GetRentalFeesWithHttpInfo();
+            SymbolRestClient.Client.ApiResponse<RentalFeesDTO> localVarResponse = GetRentalFeesWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -596,9 +601,9 @@ namespace SymbolRestClient.Api
         /// <exception cref="SymbolRestClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of RentalFeesDTO</returns>
-        public ApiResponse<RentalFeesDTO> GetRentalFeesWithHttpInfo(int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<RentalFeesDTO> GetRentalFeesWithHttpInfo(int operationIndex = 0)
         {
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -608,13 +613,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -648,7 +653,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of RentalFeesDTO</returns>
         public async System.Threading.Tasks.Task<RentalFeesDTO> GetRentalFeesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<RentalFeesDTO> localVarResponse = await GetRentalFeesWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<RentalFeesDTO> localVarResponse = await GetRentalFeesWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -659,10 +664,10 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RentalFeesDTO)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<RentalFeesDTO>> GetRentalFeesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<RentalFeesDTO>> GetRentalFeesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -672,13 +677,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -712,7 +717,7 @@ namespace SymbolRestClient.Api
         /// <returns>TransactionFeesDTO</returns>
         public TransactionFeesDTO GetTransactionFees(int operationIndex = 0)
         {
-            ApiResponse<TransactionFeesDTO> localVarResponse = GetTransactionFeesWithHttpInfo();
+            SymbolRestClient.Client.ApiResponse<TransactionFeesDTO> localVarResponse = GetTransactionFeesWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -722,9 +727,9 @@ namespace SymbolRestClient.Api
         /// <exception cref="SymbolRestClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TransactionFeesDTO</returns>
-        public ApiResponse<TransactionFeesDTO> GetTransactionFeesWithHttpInfo(int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<TransactionFeesDTO> GetTransactionFeesWithHttpInfo(int operationIndex = 0)
         {
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -734,13 +739,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -774,7 +779,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of TransactionFeesDTO</returns>
         public async System.Threading.Tasks.Task<TransactionFeesDTO> GetTransactionFeesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<TransactionFeesDTO> localVarResponse = await GetTransactionFeesWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<TransactionFeesDTO> localVarResponse = await GetTransactionFeesWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -785,10 +790,10 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionFeesDTO)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TransactionFeesDTO>> GetTransactionFeesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<TransactionFeesDTO>> GetTransactionFeesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -798,13 +803,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);

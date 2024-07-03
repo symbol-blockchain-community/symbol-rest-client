@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.HashLockNetworkPropertiesDTO
+# SymbolRestClient.Model.HashLockNetworkPropertiesDTO
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.DeploymentDTO
+# SymbolRestClient.Model.DeploymentDTO
 
 ## Properties
 

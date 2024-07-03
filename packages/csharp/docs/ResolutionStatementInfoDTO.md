@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.ResolutionStatementInfoDTO
+# SymbolRestClient.Model.ResolutionStatementInfoDTO
 A resolution statement keeps the relation between a namespace alias used in a transaction and the real address or mosaicId. 
 
 ## Properties

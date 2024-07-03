@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.EmbeddedNodeKeyLinkTransactionDTO
+# SymbolRestClient.Model.EmbeddedNodeKeyLinkTransactionDTO
 
 ## Properties
 

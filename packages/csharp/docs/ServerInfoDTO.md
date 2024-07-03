@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.ServerInfoDTO
+# SymbolRestClient.Model.ServerInfoDTO
 
 ## Properties
 

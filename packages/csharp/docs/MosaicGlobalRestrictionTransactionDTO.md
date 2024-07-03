@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MosaicGlobalRestrictionTransactionDTO
+# SymbolRestClient.Model.MosaicGlobalRestrictionTransactionDTO
 Transaction to set a network-wide restriction rule to a mosaic.
 
 ## Properties

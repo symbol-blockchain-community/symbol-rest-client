@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MosaicGlobalRestrictionEntryWrapperDTO
+# SymbolRestClient.Model.MosaicGlobalRestrictionEntryWrapperDTO
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.AccountKeyLinkTransactionDTO
+# SymbolRestClient.Model.AccountKeyLinkTransactionDTO
 Transaction to delegate the account importance score to a proxy account. Required for all accounts willing to activate delegated harvesting. 
 
 ## Properties

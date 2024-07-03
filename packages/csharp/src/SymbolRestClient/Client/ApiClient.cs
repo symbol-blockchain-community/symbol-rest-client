@@ -9,19 +9,26 @@
 
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Reflection;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters;
+using System.Text;
+using System.Threading;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Web;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using Polly;
 using RestSharp;
 using RestSharp.Serializers;
-using SymbolRestClient.Model;
 using RestSharpMethod = RestSharp.Method;
+using Polly;
 
 namespace SymbolRestClient.Client
 {
@@ -62,10 +69,10 @@ namespace SymbolRestClient.Client
         /// <returns>A JSON string.</returns>
         public string Serialize(object obj)
         {
-            if (obj != null && obj is AbstractOpenAPISchema)
+            if (obj != null && obj is SymbolRestClient.Model.AbstractOpenAPISchema)
             {
                 // the object to be serialized is an oneOf/anyOf schema
-                return ((AbstractOpenAPISchema)obj).ToJson();
+                return ((SymbolRestClient.Model.AbstractOpenAPISchema)obj).ToJson();
             }
             else
             {
@@ -196,7 +203,7 @@ namespace SymbolRestClient.Client
         /// </summary>
         public ApiClient()
         {
-            _baseUrl = GlobalConfiguration.Instance.BasePath;
+            _baseUrl = SymbolRestClient.Client.GlobalConfiguration.Instance.BasePath;
         }
 
         /// <summary>
@@ -468,7 +475,7 @@ namespace SymbolRestClient.Client
                 }
 
                 // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
-                if (typeof(AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
+                if (typeof(SymbolRestClient.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
                 {
                     try
                     {
@@ -565,7 +572,7 @@ namespace SymbolRestClient.Client
                 }
 
                 // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
-                if (typeof(AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
+                if (typeof(SymbolRestClient.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
                 {
                     response.Data = (T) typeof(T).GetMethod("FromJson").Invoke(null, new object[] { response.Content });
                 }

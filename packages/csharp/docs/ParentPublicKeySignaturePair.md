@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.ParentPublicKeySignaturePair
+# SymbolRestClient.Model.ParentPublicKeySignaturePair
 
 ## Properties
 

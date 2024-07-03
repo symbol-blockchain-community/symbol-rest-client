@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.ChainInfoDTO
+# SymbolRestClient.Model.ChainInfoDTO
 
 ## Properties
 

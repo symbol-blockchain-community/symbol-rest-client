@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.Order
+# SymbolRestClient.Model.Order
 Indicates how to sort the results:  * ``asc`` - ascending * ``desc`` - descending 
 
 ## Properties

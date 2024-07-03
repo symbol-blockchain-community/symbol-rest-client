@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.EmbeddedNamespaceRegistrationTransactionDTO
+# SymbolRestClient.Model.EmbeddedNamespaceRegistrationTransactionDTO
 
 ## Properties
 

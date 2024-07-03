@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MerkleTreeBranchDTO
+# SymbolRestClient.Model.MerkleTreeBranchDTO
 Merkle tree branch node.
 
 ## Properties

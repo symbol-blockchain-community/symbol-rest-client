@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.BmTreeSignature
+# SymbolRestClient.Model.BmTreeSignature
 
 ## Properties
 

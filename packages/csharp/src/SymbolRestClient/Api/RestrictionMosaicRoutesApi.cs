@@ -9,6 +9,11 @@
 
 
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Mime;
 using SymbolRestClient.Client;
 using SymbolRestClient.Model;
 
@@ -214,7 +219,7 @@ namespace SymbolRestClient.Api
     /// </summary>
     public partial class RestrictionMosaicRoutesApi : IRestrictionMosaicRoutesApi
     {
-        private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private SymbolRestClient.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RestrictionMosaicRoutesApi"/> class.
@@ -231,11 +236,11 @@ namespace SymbolRestClient.Api
         public RestrictionMosaicRoutesApi(string basePath)
         {
             this.Configuration = SymbolRestClient.Client.Configuration.MergeConfigurations(
-                GlobalConfiguration.Instance,
-                new Configuration { BasePath = basePath }
+                SymbolRestClient.Client.GlobalConfiguration.Instance,
+                new SymbolRestClient.Client.Configuration { BasePath = basePath }
             );
-            this.Client = new ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new ApiClient(this.Configuration.BasePath);
+            this.Client = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
+            this.AsynchronousClient = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
             this.ExceptionFactory = SymbolRestClient.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -245,16 +250,16 @@ namespace SymbolRestClient.Api
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public RestrictionMosaicRoutesApi(Configuration configuration)
+        public RestrictionMosaicRoutesApi(SymbolRestClient.Client.Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Configuration = SymbolRestClient.Client.Configuration.MergeConfigurations(
-                GlobalConfiguration.Instance,
+                SymbolRestClient.Client.GlobalConfiguration.Instance,
                 configuration
             );
-            this.Client = new ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new ApiClient(this.Configuration.BasePath);
+            this.Client = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
+            this.AsynchronousClient = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
             ExceptionFactory = SymbolRestClient.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -265,7 +270,7 @@ namespace SymbolRestClient.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public RestrictionMosaicRoutesApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
+        public RestrictionMosaicRoutesApi(SymbolRestClient.Client.ISynchronousClient client, SymbolRestClient.Client.IAsynchronousClient asyncClient, SymbolRestClient.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -280,12 +285,12 @@ namespace SymbolRestClient.Api
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
-        public IAsynchronousClient AsynchronousClient { get; set; }
+        public SymbolRestClient.Client.IAsynchronousClient AsynchronousClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API synchronously.
         /// </summary>
-        public ISynchronousClient Client { get; set; }
+        public SymbolRestClient.Client.ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -300,12 +305,12 @@ namespace SymbolRestClient.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public IReadableConfiguration Configuration { get; set; }
+        public SymbolRestClient.Client.IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public ExceptionFactory ExceptionFactory
+        public SymbolRestClient.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -327,7 +332,7 @@ namespace SymbolRestClient.Api
         /// <returns>MosaicRestrictionDTO</returns>
         public MosaicRestrictionDTO GetMosaicRestrictions(string compositeHash, int operationIndex = 0)
         {
-            ApiResponse<MosaicRestrictionDTO> localVarResponse = GetMosaicRestrictionsWithHttpInfo(compositeHash);
+            SymbolRestClient.Client.ApiResponse<MosaicRestrictionDTO> localVarResponse = GetMosaicRestrictionsWithHttpInfo(compositeHash);
             return localVarResponse.Data;
         }
 
@@ -338,15 +343,15 @@ namespace SymbolRestClient.Api
         /// <param name="compositeHash">Filter by composite hash.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of MosaicRestrictionDTO</returns>
-        public ApiResponse<MosaicRestrictionDTO> GetMosaicRestrictionsWithHttpInfo(string compositeHash, int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<MosaicRestrictionDTO> GetMosaicRestrictionsWithHttpInfo(string compositeHash, int operationIndex = 0)
         {
             // verify the required parameter 'compositeHash' is set
             if (compositeHash == null)
             {
-                throw new ApiException(400, "Missing required parameter 'compositeHash' when calling RestrictionMosaicRoutesApi->GetMosaicRestrictions");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'compositeHash' when calling RestrictionMosaicRoutesApi->GetMosaicRestrictions");
             }
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -356,19 +361,19 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("compositeHash", ClientUtils.ParameterToString(compositeHash)); // path parameter
+            localVarRequestOptions.PathParameters.Add("compositeHash", SymbolRestClient.Client.ClientUtils.ParameterToString(compositeHash)); // path parameter
 
             localVarRequestOptions.Operation = "RestrictionMosaicRoutesApi.GetMosaicRestrictions";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -398,7 +403,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of MosaicRestrictionDTO</returns>
         public async System.Threading.Tasks.Task<MosaicRestrictionDTO> GetMosaicRestrictionsAsync(string compositeHash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<MosaicRestrictionDTO> localVarResponse = await GetMosaicRestrictionsWithHttpInfoAsync(compositeHash, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<MosaicRestrictionDTO> localVarResponse = await GetMosaicRestrictionsWithHttpInfoAsync(compositeHash, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -410,16 +415,16 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MosaicRestrictionDTO)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<MosaicRestrictionDTO>> GetMosaicRestrictionsWithHttpInfoAsync(string compositeHash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<MosaicRestrictionDTO>> GetMosaicRestrictionsWithHttpInfoAsync(string compositeHash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'compositeHash' is set
             if (compositeHash == null)
             {
-                throw new ApiException(400, "Missing required parameter 'compositeHash' when calling RestrictionMosaicRoutesApi->GetMosaicRestrictions");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'compositeHash' when calling RestrictionMosaicRoutesApi->GetMosaicRestrictions");
             }
 
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -429,19 +434,19 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("compositeHash", ClientUtils.ParameterToString(compositeHash)); // path parameter
+            localVarRequestOptions.PathParameters.Add("compositeHash", SymbolRestClient.Client.ClientUtils.ParameterToString(compositeHash)); // path parameter
 
             localVarRequestOptions.Operation = "RestrictionMosaicRoutesApi.GetMosaicRestrictions";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -471,7 +476,7 @@ namespace SymbolRestClient.Api
         /// <returns>MerkleStateInfoDTO</returns>
         public MerkleStateInfoDTO GetMosaicRestrictionsMerkle(string compositeHash, int operationIndex = 0)
         {
-            ApiResponse<MerkleStateInfoDTO> localVarResponse = GetMosaicRestrictionsMerkleWithHttpInfo(compositeHash);
+            SymbolRestClient.Client.ApiResponse<MerkleStateInfoDTO> localVarResponse = GetMosaicRestrictionsMerkleWithHttpInfo(compositeHash);
             return localVarResponse.Data;
         }
 
@@ -482,15 +487,15 @@ namespace SymbolRestClient.Api
         /// <param name="compositeHash">Filter by composite hash.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of MerkleStateInfoDTO</returns>
-        public ApiResponse<MerkleStateInfoDTO> GetMosaicRestrictionsMerkleWithHttpInfo(string compositeHash, int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<MerkleStateInfoDTO> GetMosaicRestrictionsMerkleWithHttpInfo(string compositeHash, int operationIndex = 0)
         {
             // verify the required parameter 'compositeHash' is set
             if (compositeHash == null)
             {
-                throw new ApiException(400, "Missing required parameter 'compositeHash' when calling RestrictionMosaicRoutesApi->GetMosaicRestrictionsMerkle");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'compositeHash' when calling RestrictionMosaicRoutesApi->GetMosaicRestrictionsMerkle");
             }
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -500,19 +505,19 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("compositeHash", ClientUtils.ParameterToString(compositeHash)); // path parameter
+            localVarRequestOptions.PathParameters.Add("compositeHash", SymbolRestClient.Client.ClientUtils.ParameterToString(compositeHash)); // path parameter
 
             localVarRequestOptions.Operation = "RestrictionMosaicRoutesApi.GetMosaicRestrictionsMerkle";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -542,7 +547,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of MerkleStateInfoDTO</returns>
         public async System.Threading.Tasks.Task<MerkleStateInfoDTO> GetMosaicRestrictionsMerkleAsync(string compositeHash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<MerkleStateInfoDTO> localVarResponse = await GetMosaicRestrictionsMerkleWithHttpInfoAsync(compositeHash, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<MerkleStateInfoDTO> localVarResponse = await GetMosaicRestrictionsMerkleWithHttpInfoAsync(compositeHash, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -554,16 +559,16 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MerkleStateInfoDTO)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<MerkleStateInfoDTO>> GetMosaicRestrictionsMerkleWithHttpInfoAsync(string compositeHash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<MerkleStateInfoDTO>> GetMosaicRestrictionsMerkleWithHttpInfoAsync(string compositeHash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'compositeHash' is set
             if (compositeHash == null)
             {
-                throw new ApiException(400, "Missing required parameter 'compositeHash' when calling RestrictionMosaicRoutesApi->GetMosaicRestrictionsMerkle");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'compositeHash' when calling RestrictionMosaicRoutesApi->GetMosaicRestrictionsMerkle");
             }
 
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -573,19 +578,19 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("compositeHash", ClientUtils.ParameterToString(compositeHash)); // path parameter
+            localVarRequestOptions.PathParameters.Add("compositeHash", SymbolRestClient.Client.ClientUtils.ParameterToString(compositeHash)); // path parameter
 
             localVarRequestOptions.Operation = "RestrictionMosaicRoutesApi.GetMosaicRestrictionsMerkle";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -621,7 +626,7 @@ namespace SymbolRestClient.Api
         /// <returns>MosaicRestrictionsPage</returns>
         public MosaicRestrictionsPage SearchMosaicRestrictions(string? mosaicId = default(string?), MosaicRestrictionEntryTypeEnum? entryType = default(MosaicRestrictionEntryTypeEnum?), string? targetAddress = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0)
         {
-            ApiResponse<MosaicRestrictionsPage> localVarResponse = SearchMosaicRestrictionsWithHttpInfo(mosaicId, entryType, targetAddress, pageSize, pageNumber, offset, order);
+            SymbolRestClient.Client.ApiResponse<MosaicRestrictionsPage> localVarResponse = SearchMosaicRestrictionsWithHttpInfo(mosaicId, entryType, targetAddress, pageSize, pageNumber, offset, order);
             return localVarResponse.Data;
         }
 
@@ -638,9 +643,9 @@ namespace SymbolRestClient.Api
         /// <param name="order">Sort responses in ascending or descending order based on the collection property set on the param &#x60;&#x60;orderBy&#x60;&#x60;. If the request does not specify &#x60;&#x60;orderBy&#x60;&#x60;, REST returns the collection ordered by id.  (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of MosaicRestrictionsPage</returns>
-        public ApiResponse<MosaicRestrictionsPage> SearchMosaicRestrictionsWithHttpInfo(string? mosaicId = default(string?), MosaicRestrictionEntryTypeEnum? entryType = default(MosaicRestrictionEntryTypeEnum?), string? targetAddress = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<MosaicRestrictionsPage> SearchMosaicRestrictionsWithHttpInfo(string? mosaicId = default(string?), MosaicRestrictionEntryTypeEnum? entryType = default(MosaicRestrictionEntryTypeEnum?), string? targetAddress = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0)
         {
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -650,13 +655,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -664,31 +669,31 @@ namespace SymbolRestClient.Api
 
             if (mosaicId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "mosaicId", mosaicId));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "mosaicId", mosaicId));
             }
             if (entryType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entryType", entryType));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "entryType", entryType));
             }
             if (targetAddress != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "targetAddress", targetAddress));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "targetAddress", targetAddress));
             }
             if (pageSize != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
             }
             if (pageNumber != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
             }
             if (offset != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
             if (order != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "order", order));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "order", order));
             }
 
             localVarRequestOptions.Operation = "RestrictionMosaicRoutesApi.SearchMosaicRestrictions";
@@ -725,7 +730,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of MosaicRestrictionsPage</returns>
         public async System.Threading.Tasks.Task<MosaicRestrictionsPage> SearchMosaicRestrictionsAsync(string? mosaicId = default(string?), MosaicRestrictionEntryTypeEnum? entryType = default(MosaicRestrictionEntryTypeEnum?), string? targetAddress = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<MosaicRestrictionsPage> localVarResponse = await SearchMosaicRestrictionsWithHttpInfoAsync(mosaicId, entryType, targetAddress, pageSize, pageNumber, offset, order, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<MosaicRestrictionsPage> localVarResponse = await SearchMosaicRestrictionsWithHttpInfoAsync(mosaicId, entryType, targetAddress, pageSize, pageNumber, offset, order, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -743,10 +748,10 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MosaicRestrictionsPage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<MosaicRestrictionsPage>> SearchMosaicRestrictionsWithHttpInfoAsync(string? mosaicId = default(string?), MosaicRestrictionEntryTypeEnum? entryType = default(MosaicRestrictionEntryTypeEnum?), string? targetAddress = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<MosaicRestrictionsPage>> SearchMosaicRestrictionsWithHttpInfoAsync(string? mosaicId = default(string?), MosaicRestrictionEntryTypeEnum? entryType = default(MosaicRestrictionEntryTypeEnum?), string? targetAddress = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -756,13 +761,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -770,31 +775,31 @@ namespace SymbolRestClient.Api
 
             if (mosaicId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "mosaicId", mosaicId));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "mosaicId", mosaicId));
             }
             if (entryType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "entryType", entryType));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "entryType", entryType));
             }
             if (targetAddress != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "targetAddress", targetAddress));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "targetAddress", targetAddress));
             }
             if (pageSize != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
             }
             if (pageNumber != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
             }
             if (offset != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
             if (order != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "order", order));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "order", order));
             }
 
             localVarRequestOptions.Operation = "RestrictionMosaicRoutesApi.SearchMosaicRestrictions";

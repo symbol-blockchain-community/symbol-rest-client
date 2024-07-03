@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.ModelError
+# SymbolRestClient.Model.ModelError
 
 ## Properties
 

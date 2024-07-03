@@ -9,6 +9,11 @@
 
 
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Mime;
 using SymbolRestClient.Client;
 using SymbolRestClient.Model;
 
@@ -270,7 +275,7 @@ namespace SymbolRestClient.Api
     /// </summary>
     public partial class BlockRoutesApi : IBlockRoutesApi
     {
-        private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private SymbolRestClient.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BlockRoutesApi"/> class.
@@ -287,11 +292,11 @@ namespace SymbolRestClient.Api
         public BlockRoutesApi(string basePath)
         {
             this.Configuration = SymbolRestClient.Client.Configuration.MergeConfigurations(
-                GlobalConfiguration.Instance,
-                new Configuration { BasePath = basePath }
+                SymbolRestClient.Client.GlobalConfiguration.Instance,
+                new SymbolRestClient.Client.Configuration { BasePath = basePath }
             );
-            this.Client = new ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new ApiClient(this.Configuration.BasePath);
+            this.Client = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
+            this.AsynchronousClient = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
             this.ExceptionFactory = SymbolRestClient.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -301,16 +306,16 @@ namespace SymbolRestClient.Api
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public BlockRoutesApi(Configuration configuration)
+        public BlockRoutesApi(SymbolRestClient.Client.Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Configuration = SymbolRestClient.Client.Configuration.MergeConfigurations(
-                GlobalConfiguration.Instance,
+                SymbolRestClient.Client.GlobalConfiguration.Instance,
                 configuration
             );
-            this.Client = new ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new ApiClient(this.Configuration.BasePath);
+            this.Client = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
+            this.AsynchronousClient = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
             ExceptionFactory = SymbolRestClient.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -321,7 +326,7 @@ namespace SymbolRestClient.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public BlockRoutesApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
+        public BlockRoutesApi(SymbolRestClient.Client.ISynchronousClient client, SymbolRestClient.Client.IAsynchronousClient asyncClient, SymbolRestClient.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -336,12 +341,12 @@ namespace SymbolRestClient.Api
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
-        public IAsynchronousClient AsynchronousClient { get; set; }
+        public SymbolRestClient.Client.IAsynchronousClient AsynchronousClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API synchronously.
         /// </summary>
-        public ISynchronousClient Client { get; set; }
+        public SymbolRestClient.Client.ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -356,12 +361,12 @@ namespace SymbolRestClient.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public IReadableConfiguration Configuration { get; set; }
+        public SymbolRestClient.Client.IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public ExceptionFactory ExceptionFactory
+        public SymbolRestClient.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -383,7 +388,7 @@ namespace SymbolRestClient.Api
         /// <returns>BlockInfoDTO</returns>
         public BlockInfoDTO GetBlockByHeight(string height, int operationIndex = 0)
         {
-            ApiResponse<BlockInfoDTO> localVarResponse = GetBlockByHeightWithHttpInfo(height);
+            SymbolRestClient.Client.ApiResponse<BlockInfoDTO> localVarResponse = GetBlockByHeightWithHttpInfo(height);
             return localVarResponse.Data;
         }
 
@@ -394,15 +399,15 @@ namespace SymbolRestClient.Api
         /// <param name="height">Block height.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of BlockInfoDTO</returns>
-        public ApiResponse<BlockInfoDTO> GetBlockByHeightWithHttpInfo(string height, int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<BlockInfoDTO> GetBlockByHeightWithHttpInfo(string height, int operationIndex = 0)
         {
             // verify the required parameter 'height' is set
             if (height == null)
             {
-                throw new ApiException(400, "Missing required parameter 'height' when calling BlockRoutesApi->GetBlockByHeight");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'height' when calling BlockRoutesApi->GetBlockByHeight");
             }
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -412,19 +417,19 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("height", ClientUtils.ParameterToString(height)); // path parameter
+            localVarRequestOptions.PathParameters.Add("height", SymbolRestClient.Client.ClientUtils.ParameterToString(height)); // path parameter
 
             localVarRequestOptions.Operation = "BlockRoutesApi.GetBlockByHeight";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -454,7 +459,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of BlockInfoDTO</returns>
         public async System.Threading.Tasks.Task<BlockInfoDTO> GetBlockByHeightAsync(string height, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<BlockInfoDTO> localVarResponse = await GetBlockByHeightWithHttpInfoAsync(height, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<BlockInfoDTO> localVarResponse = await GetBlockByHeightWithHttpInfoAsync(height, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -466,16 +471,16 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BlockInfoDTO)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<BlockInfoDTO>> GetBlockByHeightWithHttpInfoAsync(string height, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<BlockInfoDTO>> GetBlockByHeightWithHttpInfoAsync(string height, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'height' is set
             if (height == null)
             {
-                throw new ApiException(400, "Missing required parameter 'height' when calling BlockRoutesApi->GetBlockByHeight");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'height' when calling BlockRoutesApi->GetBlockByHeight");
             }
 
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -485,19 +490,19 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("height", ClientUtils.ParameterToString(height)); // path parameter
+            localVarRequestOptions.PathParameters.Add("height", SymbolRestClient.Client.ClientUtils.ParameterToString(height)); // path parameter
 
             localVarRequestOptions.Operation = "BlockRoutesApi.GetBlockByHeight";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -528,7 +533,7 @@ namespace SymbolRestClient.Api
         /// <returns>MerkleProofInfoDTO</returns>
         public MerkleProofInfoDTO GetMerkleReceipts(string height, string hash, int operationIndex = 0)
         {
-            ApiResponse<MerkleProofInfoDTO> localVarResponse = GetMerkleReceiptsWithHttpInfo(height, hash);
+            SymbolRestClient.Client.ApiResponse<MerkleProofInfoDTO> localVarResponse = GetMerkleReceiptsWithHttpInfo(height, hash);
             return localVarResponse.Data;
         }
 
@@ -540,21 +545,21 @@ namespace SymbolRestClient.Api
         /// <param name="hash">Receipt hash.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of MerkleProofInfoDTO</returns>
-        public ApiResponse<MerkleProofInfoDTO> GetMerkleReceiptsWithHttpInfo(string height, string hash, int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<MerkleProofInfoDTO> GetMerkleReceiptsWithHttpInfo(string height, string hash, int operationIndex = 0)
         {
             // verify the required parameter 'height' is set
             if (height == null)
             {
-                throw new ApiException(400, "Missing required parameter 'height' when calling BlockRoutesApi->GetMerkleReceipts");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'height' when calling BlockRoutesApi->GetMerkleReceipts");
             }
 
             // verify the required parameter 'hash' is set
             if (hash == null)
             {
-                throw new ApiException(400, "Missing required parameter 'hash' when calling BlockRoutesApi->GetMerkleReceipts");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'hash' when calling BlockRoutesApi->GetMerkleReceipts");
             }
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -564,20 +569,20 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("height", ClientUtils.ParameterToString(height)); // path parameter
-            localVarRequestOptions.PathParameters.Add("hash", ClientUtils.ParameterToString(hash)); // path parameter
+            localVarRequestOptions.PathParameters.Add("height", SymbolRestClient.Client.ClientUtils.ParameterToString(height)); // path parameter
+            localVarRequestOptions.PathParameters.Add("hash", SymbolRestClient.Client.ClientUtils.ParameterToString(hash)); // path parameter
 
             localVarRequestOptions.Operation = "BlockRoutesApi.GetMerkleReceipts";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -608,7 +613,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of MerkleProofInfoDTO</returns>
         public async System.Threading.Tasks.Task<MerkleProofInfoDTO> GetMerkleReceiptsAsync(string height, string hash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<MerkleProofInfoDTO> localVarResponse = await GetMerkleReceiptsWithHttpInfoAsync(height, hash, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<MerkleProofInfoDTO> localVarResponse = await GetMerkleReceiptsWithHttpInfoAsync(height, hash, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -621,22 +626,22 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MerkleProofInfoDTO)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<MerkleProofInfoDTO>> GetMerkleReceiptsWithHttpInfoAsync(string height, string hash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<MerkleProofInfoDTO>> GetMerkleReceiptsWithHttpInfoAsync(string height, string hash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'height' is set
             if (height == null)
             {
-                throw new ApiException(400, "Missing required parameter 'height' when calling BlockRoutesApi->GetMerkleReceipts");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'height' when calling BlockRoutesApi->GetMerkleReceipts");
             }
 
             // verify the required parameter 'hash' is set
             if (hash == null)
             {
-                throw new ApiException(400, "Missing required parameter 'hash' when calling BlockRoutesApi->GetMerkleReceipts");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'hash' when calling BlockRoutesApi->GetMerkleReceipts");
             }
 
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -646,20 +651,20 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("height", ClientUtils.ParameterToString(height)); // path parameter
-            localVarRequestOptions.PathParameters.Add("hash", ClientUtils.ParameterToString(hash)); // path parameter
+            localVarRequestOptions.PathParameters.Add("height", SymbolRestClient.Client.ClientUtils.ParameterToString(height)); // path parameter
+            localVarRequestOptions.PathParameters.Add("hash", SymbolRestClient.Client.ClientUtils.ParameterToString(hash)); // path parameter
 
             localVarRequestOptions.Operation = "BlockRoutesApi.GetMerkleReceipts";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -690,7 +695,7 @@ namespace SymbolRestClient.Api
         /// <returns>MerkleProofInfoDTO</returns>
         public MerkleProofInfoDTO GetMerkleTransaction(string height, string hash, int operationIndex = 0)
         {
-            ApiResponse<MerkleProofInfoDTO> localVarResponse = GetMerkleTransactionWithHttpInfo(height, hash);
+            SymbolRestClient.Client.ApiResponse<MerkleProofInfoDTO> localVarResponse = GetMerkleTransactionWithHttpInfo(height, hash);
             return localVarResponse.Data;
         }
 
@@ -702,21 +707,21 @@ namespace SymbolRestClient.Api
         /// <param name="hash">Transaction hash.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of MerkleProofInfoDTO</returns>
-        public ApiResponse<MerkleProofInfoDTO> GetMerkleTransactionWithHttpInfo(string height, string hash, int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<MerkleProofInfoDTO> GetMerkleTransactionWithHttpInfo(string height, string hash, int operationIndex = 0)
         {
             // verify the required parameter 'height' is set
             if (height == null)
             {
-                throw new ApiException(400, "Missing required parameter 'height' when calling BlockRoutesApi->GetMerkleTransaction");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'height' when calling BlockRoutesApi->GetMerkleTransaction");
             }
 
             // verify the required parameter 'hash' is set
             if (hash == null)
             {
-                throw new ApiException(400, "Missing required parameter 'hash' when calling BlockRoutesApi->GetMerkleTransaction");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'hash' when calling BlockRoutesApi->GetMerkleTransaction");
             }
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -726,20 +731,20 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("height", ClientUtils.ParameterToString(height)); // path parameter
-            localVarRequestOptions.PathParameters.Add("hash", ClientUtils.ParameterToString(hash)); // path parameter
+            localVarRequestOptions.PathParameters.Add("height", SymbolRestClient.Client.ClientUtils.ParameterToString(height)); // path parameter
+            localVarRequestOptions.PathParameters.Add("hash", SymbolRestClient.Client.ClientUtils.ParameterToString(hash)); // path parameter
 
             localVarRequestOptions.Operation = "BlockRoutesApi.GetMerkleTransaction";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -770,7 +775,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of MerkleProofInfoDTO</returns>
         public async System.Threading.Tasks.Task<MerkleProofInfoDTO> GetMerkleTransactionAsync(string height, string hash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<MerkleProofInfoDTO> localVarResponse = await GetMerkleTransactionWithHttpInfoAsync(height, hash, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<MerkleProofInfoDTO> localVarResponse = await GetMerkleTransactionWithHttpInfoAsync(height, hash, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -783,22 +788,22 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MerkleProofInfoDTO)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<MerkleProofInfoDTO>> GetMerkleTransactionWithHttpInfoAsync(string height, string hash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<MerkleProofInfoDTO>> GetMerkleTransactionWithHttpInfoAsync(string height, string hash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'height' is set
             if (height == null)
             {
-                throw new ApiException(400, "Missing required parameter 'height' when calling BlockRoutesApi->GetMerkleTransaction");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'height' when calling BlockRoutesApi->GetMerkleTransaction");
             }
 
             // verify the required parameter 'hash' is set
             if (hash == null)
             {
-                throw new ApiException(400, "Missing required parameter 'hash' when calling BlockRoutesApi->GetMerkleTransaction");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'hash' when calling BlockRoutesApi->GetMerkleTransaction");
             }
 
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -808,20 +813,20 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("height", ClientUtils.ParameterToString(height)); // path parameter
-            localVarRequestOptions.PathParameters.Add("hash", ClientUtils.ParameterToString(hash)); // path parameter
+            localVarRequestOptions.PathParameters.Add("height", SymbolRestClient.Client.ClientUtils.ParameterToString(height)); // path parameter
+            localVarRequestOptions.PathParameters.Add("hash", SymbolRestClient.Client.ClientUtils.ParameterToString(hash)); // path parameter
 
             localVarRequestOptions.Operation = "BlockRoutesApi.GetMerkleTransaction";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -857,7 +862,7 @@ namespace SymbolRestClient.Api
         /// <returns>BlockPage</returns>
         public BlockPage SearchBlocks(string? signerPublicKey = default(string?), string? beneficiaryAddress = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), BlockOrderByEnum? orderBy = default(BlockOrderByEnum?), int operationIndex = 0)
         {
-            ApiResponse<BlockPage> localVarResponse = SearchBlocksWithHttpInfo(signerPublicKey, beneficiaryAddress, pageSize, pageNumber, offset, order, orderBy);
+            SymbolRestClient.Client.ApiResponse<BlockPage> localVarResponse = SearchBlocksWithHttpInfo(signerPublicKey, beneficiaryAddress, pageSize, pageNumber, offset, order, orderBy);
             return localVarResponse.Data;
         }
 
@@ -874,9 +879,9 @@ namespace SymbolRestClient.Api
         /// <param name="orderBy">Sort responses by the property set.  (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of BlockPage</returns>
-        public ApiResponse<BlockPage> SearchBlocksWithHttpInfo(string? signerPublicKey = default(string?), string? beneficiaryAddress = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), BlockOrderByEnum? orderBy = default(BlockOrderByEnum?), int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<BlockPage> SearchBlocksWithHttpInfo(string? signerPublicKey = default(string?), string? beneficiaryAddress = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), BlockOrderByEnum? orderBy = default(BlockOrderByEnum?), int operationIndex = 0)
         {
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -886,13 +891,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -900,31 +905,31 @@ namespace SymbolRestClient.Api
 
             if (signerPublicKey != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "signerPublicKey", signerPublicKey));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "signerPublicKey", signerPublicKey));
             }
             if (beneficiaryAddress != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "beneficiaryAddress", beneficiaryAddress));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "beneficiaryAddress", beneficiaryAddress));
             }
             if (pageSize != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
             }
             if (pageNumber != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
             }
             if (offset != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
             if (order != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "order", order));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "order", order));
             }
             if (orderBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "orderBy", orderBy));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "orderBy", orderBy));
             }
 
             localVarRequestOptions.Operation = "BlockRoutesApi.SearchBlocks";
@@ -961,7 +966,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of BlockPage</returns>
         public async System.Threading.Tasks.Task<BlockPage> SearchBlocksAsync(string? signerPublicKey = default(string?), string? beneficiaryAddress = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), BlockOrderByEnum? orderBy = default(BlockOrderByEnum?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<BlockPage> localVarResponse = await SearchBlocksWithHttpInfoAsync(signerPublicKey, beneficiaryAddress, pageSize, pageNumber, offset, order, orderBy, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<BlockPage> localVarResponse = await SearchBlocksWithHttpInfoAsync(signerPublicKey, beneficiaryAddress, pageSize, pageNumber, offset, order, orderBy, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -979,10 +984,10 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BlockPage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<BlockPage>> SearchBlocksWithHttpInfoAsync(string? signerPublicKey = default(string?), string? beneficiaryAddress = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), BlockOrderByEnum? orderBy = default(BlockOrderByEnum?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<BlockPage>> SearchBlocksWithHttpInfoAsync(string? signerPublicKey = default(string?), string? beneficiaryAddress = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), BlockOrderByEnum? orderBy = default(BlockOrderByEnum?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -992,13 +997,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -1006,31 +1011,31 @@ namespace SymbolRestClient.Api
 
             if (signerPublicKey != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "signerPublicKey", signerPublicKey));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "signerPublicKey", signerPublicKey));
             }
             if (beneficiaryAddress != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "beneficiaryAddress", beneficiaryAddress));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "beneficiaryAddress", beneficiaryAddress));
             }
             if (pageSize != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
             }
             if (pageNumber != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
             }
             if (offset != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
             if (order != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "order", order));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "order", order));
             }
             if (orderBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "orderBy", orderBy));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "orderBy", orderBy));
             }
 
             localVarRequestOptions.Operation = "BlockRoutesApi.SearchBlocks";

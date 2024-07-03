@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MosaicRestrictionEntryTypeEnum
+# SymbolRestClient.Model.MosaicRestrictionEntryTypeEnum
 - 0 - Mosaic address restriction. - 1 - Mosaic global restriction. 
 
 ## Properties

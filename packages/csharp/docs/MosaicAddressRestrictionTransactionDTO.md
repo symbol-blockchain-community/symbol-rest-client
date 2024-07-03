@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MosaicAddressRestrictionTransactionDTO
+# SymbolRestClient.Model.MosaicAddressRestrictionTransactionDTO
 Transaction to set a restriction rule to an address.
 
 ## Properties

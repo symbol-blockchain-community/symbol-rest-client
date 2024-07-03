@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.BlockPage
+# SymbolRestClient.Model.BlockPage
 
 ## Properties
 

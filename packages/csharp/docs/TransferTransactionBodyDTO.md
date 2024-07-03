@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.TransferTransactionBodyDTO
+# SymbolRestClient.Model.TransferTransactionBodyDTO
 
 ## Properties
 

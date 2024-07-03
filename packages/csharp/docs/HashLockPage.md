@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.HashLockPage
+# SymbolRestClient.Model.HashLockPage
 
 ## Properties
 

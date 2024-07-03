@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.EmbeddedMosaicAddressRestrictionTransactionDTO
+# SymbolRestClient.Model.EmbeddedMosaicAddressRestrictionTransactionDTO
 
 ## Properties
 

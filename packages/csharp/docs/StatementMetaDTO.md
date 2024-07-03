@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.StatementMetaDTO
+# SymbolRestClient.Model.StatementMetaDTO
 Metadata related to the statment, including block information.
 
 ## Properties

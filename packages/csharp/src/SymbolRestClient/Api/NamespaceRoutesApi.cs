@@ -10,6 +10,10 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Mime;
 using SymbolRestClient.Client;
 using SymbolRestClient.Model;
 
@@ -363,7 +367,7 @@ namespace SymbolRestClient.Api
     /// </summary>
     public partial class NamespaceRoutesApi : INamespaceRoutesApi
     {
-        private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private SymbolRestClient.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NamespaceRoutesApi"/> class.
@@ -380,11 +384,11 @@ namespace SymbolRestClient.Api
         public NamespaceRoutesApi(string basePath)
         {
             this.Configuration = SymbolRestClient.Client.Configuration.MergeConfigurations(
-                GlobalConfiguration.Instance,
-                new Configuration { BasePath = basePath }
+                SymbolRestClient.Client.GlobalConfiguration.Instance,
+                new SymbolRestClient.Client.Configuration { BasePath = basePath }
             );
-            this.Client = new ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new ApiClient(this.Configuration.BasePath);
+            this.Client = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
+            this.AsynchronousClient = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
             this.ExceptionFactory = SymbolRestClient.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -394,16 +398,16 @@ namespace SymbolRestClient.Api
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public NamespaceRoutesApi(Configuration configuration)
+        public NamespaceRoutesApi(SymbolRestClient.Client.Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Configuration = SymbolRestClient.Client.Configuration.MergeConfigurations(
-                GlobalConfiguration.Instance,
+                SymbolRestClient.Client.GlobalConfiguration.Instance,
                 configuration
             );
-            this.Client = new ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new ApiClient(this.Configuration.BasePath);
+            this.Client = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
+            this.AsynchronousClient = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
             ExceptionFactory = SymbolRestClient.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -414,7 +418,7 @@ namespace SymbolRestClient.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public NamespaceRoutesApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
+        public NamespaceRoutesApi(SymbolRestClient.Client.ISynchronousClient client, SymbolRestClient.Client.IAsynchronousClient asyncClient, SymbolRestClient.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -429,12 +433,12 @@ namespace SymbolRestClient.Api
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
-        public IAsynchronousClient AsynchronousClient { get; set; }
+        public SymbolRestClient.Client.IAsynchronousClient AsynchronousClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API synchronously.
         /// </summary>
-        public ISynchronousClient Client { get; set; }
+        public SymbolRestClient.Client.ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -449,12 +453,12 @@ namespace SymbolRestClient.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public IReadableConfiguration Configuration { get; set; }
+        public SymbolRestClient.Client.IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public ExceptionFactory ExceptionFactory
+        public SymbolRestClient.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -476,7 +480,7 @@ namespace SymbolRestClient.Api
         /// <returns>AccountsNamesDTO</returns>
         public AccountsNamesDTO GetAccountsNames(Addresses addresses, int operationIndex = 0)
         {
-            ApiResponse<AccountsNamesDTO> localVarResponse = GetAccountsNamesWithHttpInfo(addresses);
+            SymbolRestClient.Client.ApiResponse<AccountsNamesDTO> localVarResponse = GetAccountsNamesWithHttpInfo(addresses);
             return localVarResponse.Data;
         }
 
@@ -487,15 +491,15 @@ namespace SymbolRestClient.Api
         /// <param name="addresses"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of AccountsNamesDTO</returns>
-        public ApiResponse<AccountsNamesDTO> GetAccountsNamesWithHttpInfo(Addresses addresses, int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<AccountsNamesDTO> GetAccountsNamesWithHttpInfo(Addresses addresses, int operationIndex = 0)
         {
             // verify the required parameter 'addresses' is set
             if (addresses == null)
             {
-                throw new ApiException(400, "Missing required parameter 'addresses' when calling NamespaceRoutesApi->GetAccountsNames");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'addresses' when calling NamespaceRoutesApi->GetAccountsNames");
             }
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
                 "application/json"
@@ -506,13 +510,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -548,7 +552,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of AccountsNamesDTO</returns>
         public async System.Threading.Tasks.Task<AccountsNamesDTO> GetAccountsNamesAsync(Addresses addresses, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<AccountsNamesDTO> localVarResponse = await GetAccountsNamesWithHttpInfoAsync(addresses, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<AccountsNamesDTO> localVarResponse = await GetAccountsNamesWithHttpInfoAsync(addresses, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -560,16 +564,16 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountsNamesDTO)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AccountsNamesDTO>> GetAccountsNamesWithHttpInfoAsync(Addresses addresses, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<AccountsNamesDTO>> GetAccountsNamesWithHttpInfoAsync(Addresses addresses, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'addresses' is set
             if (addresses == null)
             {
-                throw new ApiException(400, "Missing required parameter 'addresses' when calling NamespaceRoutesApi->GetAccountsNames");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'addresses' when calling NamespaceRoutesApi->GetAccountsNames");
             }
 
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
                 "application/json"
@@ -580,13 +584,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -622,7 +626,7 @@ namespace SymbolRestClient.Api
         /// <returns>MosaicsNamesDTO</returns>
         public MosaicsNamesDTO GetMosaicsNames(MosaicIds mosaicIds, int operationIndex = 0)
         {
-            ApiResponse<MosaicsNamesDTO> localVarResponse = GetMosaicsNamesWithHttpInfo(mosaicIds);
+            SymbolRestClient.Client.ApiResponse<MosaicsNamesDTO> localVarResponse = GetMosaicsNamesWithHttpInfo(mosaicIds);
             return localVarResponse.Data;
         }
 
@@ -633,15 +637,15 @@ namespace SymbolRestClient.Api
         /// <param name="mosaicIds"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of MosaicsNamesDTO</returns>
-        public ApiResponse<MosaicsNamesDTO> GetMosaicsNamesWithHttpInfo(MosaicIds mosaicIds, int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<MosaicsNamesDTO> GetMosaicsNamesWithHttpInfo(MosaicIds mosaicIds, int operationIndex = 0)
         {
             // verify the required parameter 'mosaicIds' is set
             if (mosaicIds == null)
             {
-                throw new ApiException(400, "Missing required parameter 'mosaicIds' when calling NamespaceRoutesApi->GetMosaicsNames");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'mosaicIds' when calling NamespaceRoutesApi->GetMosaicsNames");
             }
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
                 "application/json"
@@ -652,13 +656,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -694,7 +698,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of MosaicsNamesDTO</returns>
         public async System.Threading.Tasks.Task<MosaicsNamesDTO> GetMosaicsNamesAsync(MosaicIds mosaicIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<MosaicsNamesDTO> localVarResponse = await GetMosaicsNamesWithHttpInfoAsync(mosaicIds, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<MosaicsNamesDTO> localVarResponse = await GetMosaicsNamesWithHttpInfoAsync(mosaicIds, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -706,16 +710,16 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MosaicsNamesDTO)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<MosaicsNamesDTO>> GetMosaicsNamesWithHttpInfoAsync(MosaicIds mosaicIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<MosaicsNamesDTO>> GetMosaicsNamesWithHttpInfoAsync(MosaicIds mosaicIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'mosaicIds' is set
             if (mosaicIds == null)
             {
-                throw new ApiException(400, "Missing required parameter 'mosaicIds' when calling NamespaceRoutesApi->GetMosaicsNames");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'mosaicIds' when calling NamespaceRoutesApi->GetMosaicsNames");
             }
 
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
                 "application/json"
@@ -726,13 +730,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -768,7 +772,7 @@ namespace SymbolRestClient.Api
         /// <returns>NamespaceInfoDTO</returns>
         public NamespaceInfoDTO GetNamespace(string namespaceId, int operationIndex = 0)
         {
-            ApiResponse<NamespaceInfoDTO> localVarResponse = GetNamespaceWithHttpInfo(namespaceId);
+            SymbolRestClient.Client.ApiResponse<NamespaceInfoDTO> localVarResponse = GetNamespaceWithHttpInfo(namespaceId);
             return localVarResponse.Data;
         }
 
@@ -779,15 +783,15 @@ namespace SymbolRestClient.Api
         /// <param name="namespaceId">Namespace identifier.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of NamespaceInfoDTO</returns>
-        public ApiResponse<NamespaceInfoDTO> GetNamespaceWithHttpInfo(string namespaceId, int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<NamespaceInfoDTO> GetNamespaceWithHttpInfo(string namespaceId, int operationIndex = 0)
         {
             // verify the required parameter 'namespaceId' is set
             if (namespaceId == null)
             {
-                throw new ApiException(400, "Missing required parameter 'namespaceId' when calling NamespaceRoutesApi->GetNamespace");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'namespaceId' when calling NamespaceRoutesApi->GetNamespace");
             }
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -797,19 +801,19 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("namespaceId", ClientUtils.ParameterToString(namespaceId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("namespaceId", SymbolRestClient.Client.ClientUtils.ParameterToString(namespaceId)); // path parameter
 
             localVarRequestOptions.Operation = "NamespaceRoutesApi.GetNamespace";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -839,7 +843,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of NamespaceInfoDTO</returns>
         public async System.Threading.Tasks.Task<NamespaceInfoDTO> GetNamespaceAsync(string namespaceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<NamespaceInfoDTO> localVarResponse = await GetNamespaceWithHttpInfoAsync(namespaceId, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<NamespaceInfoDTO> localVarResponse = await GetNamespaceWithHttpInfoAsync(namespaceId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -851,16 +855,16 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NamespaceInfoDTO)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NamespaceInfoDTO>> GetNamespaceWithHttpInfoAsync(string namespaceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<NamespaceInfoDTO>> GetNamespaceWithHttpInfoAsync(string namespaceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'namespaceId' is set
             if (namespaceId == null)
             {
-                throw new ApiException(400, "Missing required parameter 'namespaceId' when calling NamespaceRoutesApi->GetNamespace");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'namespaceId' when calling NamespaceRoutesApi->GetNamespace");
             }
 
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -870,19 +874,19 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("namespaceId", ClientUtils.ParameterToString(namespaceId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("namespaceId", SymbolRestClient.Client.ClientUtils.ParameterToString(namespaceId)); // path parameter
 
             localVarRequestOptions.Operation = "NamespaceRoutesApi.GetNamespace";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -912,7 +916,7 @@ namespace SymbolRestClient.Api
         /// <returns>MerkleStateInfoDTO</returns>
         public MerkleStateInfoDTO GetNamespaceMerkle(string namespaceId, int operationIndex = 0)
         {
-            ApiResponse<MerkleStateInfoDTO> localVarResponse = GetNamespaceMerkleWithHttpInfo(namespaceId);
+            SymbolRestClient.Client.ApiResponse<MerkleStateInfoDTO> localVarResponse = GetNamespaceMerkleWithHttpInfo(namespaceId);
             return localVarResponse.Data;
         }
 
@@ -923,15 +927,15 @@ namespace SymbolRestClient.Api
         /// <param name="namespaceId">Namespace identifier.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of MerkleStateInfoDTO</returns>
-        public ApiResponse<MerkleStateInfoDTO> GetNamespaceMerkleWithHttpInfo(string namespaceId, int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<MerkleStateInfoDTO> GetNamespaceMerkleWithHttpInfo(string namespaceId, int operationIndex = 0)
         {
             // verify the required parameter 'namespaceId' is set
             if (namespaceId == null)
             {
-                throw new ApiException(400, "Missing required parameter 'namespaceId' when calling NamespaceRoutesApi->GetNamespaceMerkle");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'namespaceId' when calling NamespaceRoutesApi->GetNamespaceMerkle");
             }
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -941,19 +945,19 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("namespaceId", ClientUtils.ParameterToString(namespaceId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("namespaceId", SymbolRestClient.Client.ClientUtils.ParameterToString(namespaceId)); // path parameter
 
             localVarRequestOptions.Operation = "NamespaceRoutesApi.GetNamespaceMerkle";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -983,7 +987,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of MerkleStateInfoDTO</returns>
         public async System.Threading.Tasks.Task<MerkleStateInfoDTO> GetNamespaceMerkleAsync(string namespaceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<MerkleStateInfoDTO> localVarResponse = await GetNamespaceMerkleWithHttpInfoAsync(namespaceId, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<MerkleStateInfoDTO> localVarResponse = await GetNamespaceMerkleWithHttpInfoAsync(namespaceId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -995,16 +999,16 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MerkleStateInfoDTO)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<MerkleStateInfoDTO>> GetNamespaceMerkleWithHttpInfoAsync(string namespaceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<MerkleStateInfoDTO>> GetNamespaceMerkleWithHttpInfoAsync(string namespaceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'namespaceId' is set
             if (namespaceId == null)
             {
-                throw new ApiException(400, "Missing required parameter 'namespaceId' when calling NamespaceRoutesApi->GetNamespaceMerkle");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'namespaceId' when calling NamespaceRoutesApi->GetNamespaceMerkle");
             }
 
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -1014,19 +1018,19 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("namespaceId", ClientUtils.ParameterToString(namespaceId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("namespaceId", SymbolRestClient.Client.ClientUtils.ParameterToString(namespaceId)); // path parameter
 
             localVarRequestOptions.Operation = "NamespaceRoutesApi.GetNamespaceMerkle";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1056,7 +1060,7 @@ namespace SymbolRestClient.Api
         /// <returns>List&lt;NamespaceNameDTO&gt;</returns>
         public List<NamespaceNameDTO> GetNamespacesNames(NamespaceIds namespaceIds, int operationIndex = 0)
         {
-            ApiResponse<List<NamespaceNameDTO>> localVarResponse = GetNamespacesNamesWithHttpInfo(namespaceIds);
+            SymbolRestClient.Client.ApiResponse<List<NamespaceNameDTO>> localVarResponse = GetNamespacesNamesWithHttpInfo(namespaceIds);
             return localVarResponse.Data;
         }
 
@@ -1067,15 +1071,15 @@ namespace SymbolRestClient.Api
         /// <param name="namespaceIds"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;NamespaceNameDTO&gt;</returns>
-        public ApiResponse<List<NamespaceNameDTO>> GetNamespacesNamesWithHttpInfo(NamespaceIds namespaceIds, int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<List<NamespaceNameDTO>> GetNamespacesNamesWithHttpInfo(NamespaceIds namespaceIds, int operationIndex = 0)
         {
             // verify the required parameter 'namespaceIds' is set
             if (namespaceIds == null)
             {
-                throw new ApiException(400, "Missing required parameter 'namespaceIds' when calling NamespaceRoutesApi->GetNamespacesNames");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'namespaceIds' when calling NamespaceRoutesApi->GetNamespacesNames");
             }
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
                 "application/json"
@@ -1086,13 +1090,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -1128,7 +1132,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of List&lt;NamespaceNameDTO&gt;</returns>
         public async System.Threading.Tasks.Task<List<NamespaceNameDTO>> GetNamespacesNamesAsync(NamespaceIds namespaceIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<List<NamespaceNameDTO>> localVarResponse = await GetNamespacesNamesWithHttpInfoAsync(namespaceIds, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<List<NamespaceNameDTO>> localVarResponse = await GetNamespacesNamesWithHttpInfoAsync(namespaceIds, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1140,16 +1144,16 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;NamespaceNameDTO&gt;)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<List<NamespaceNameDTO>>> GetNamespacesNamesWithHttpInfoAsync(NamespaceIds namespaceIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<List<NamespaceNameDTO>>> GetNamespacesNamesWithHttpInfoAsync(NamespaceIds namespaceIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'namespaceIds' is set
             if (namespaceIds == null)
             {
-                throw new ApiException(400, "Missing required parameter 'namespaceIds' when calling NamespaceRoutesApi->GetNamespacesNames");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'namespaceIds' when calling NamespaceRoutesApi->GetNamespacesNames");
             }
 
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
                 "application/json"
@@ -1160,13 +1164,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -1209,7 +1213,7 @@ namespace SymbolRestClient.Api
         /// <returns>NamespacePage</returns>
         public NamespacePage SearchNamespaces(string? ownerAddress = default(string?), NamespaceRegistrationTypeEnum? registrationType = default(NamespaceRegistrationTypeEnum?), string? level0 = default(string?), AliasTypeEnum? aliasType = default(AliasTypeEnum?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0)
         {
-            ApiResponse<NamespacePage> localVarResponse = SearchNamespacesWithHttpInfo(ownerAddress, registrationType, level0, aliasType, pageSize, pageNumber, offset, order);
+            SymbolRestClient.Client.ApiResponse<NamespacePage> localVarResponse = SearchNamespacesWithHttpInfo(ownerAddress, registrationType, level0, aliasType, pageSize, pageNumber, offset, order);
             return localVarResponse.Data;
         }
 
@@ -1227,9 +1231,9 @@ namespace SymbolRestClient.Api
         /// <param name="order">Sort responses in ascending or descending order based on the collection property set on the param &#x60;&#x60;orderBy&#x60;&#x60;. If the request does not specify &#x60;&#x60;orderBy&#x60;&#x60;, REST returns the collection ordered by id.  (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of NamespacePage</returns>
-        public ApiResponse<NamespacePage> SearchNamespacesWithHttpInfo(string? ownerAddress = default(string?), NamespaceRegistrationTypeEnum? registrationType = default(NamespaceRegistrationTypeEnum?), string? level0 = default(string?), AliasTypeEnum? aliasType = default(AliasTypeEnum?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<NamespacePage> SearchNamespacesWithHttpInfo(string? ownerAddress = default(string?), NamespaceRegistrationTypeEnum? registrationType = default(NamespaceRegistrationTypeEnum?), string? level0 = default(string?), AliasTypeEnum? aliasType = default(AliasTypeEnum?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0)
         {
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -1239,13 +1243,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -1253,35 +1257,35 @@ namespace SymbolRestClient.Api
 
             if (ownerAddress != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "ownerAddress", ownerAddress));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "ownerAddress", ownerAddress));
             }
             if (registrationType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "registrationType", registrationType));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "registrationType", registrationType));
             }
             if (level0 != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "level0", level0));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "level0", level0));
             }
             if (aliasType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "aliasType", aliasType));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "aliasType", aliasType));
             }
             if (pageSize != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
             }
             if (pageNumber != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
             }
             if (offset != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
             if (order != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "order", order));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "order", order));
             }
 
             localVarRequestOptions.Operation = "NamespaceRoutesApi.SearchNamespaces";
@@ -1319,7 +1323,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of NamespacePage</returns>
         public async System.Threading.Tasks.Task<NamespacePage> SearchNamespacesAsync(string? ownerAddress = default(string?), NamespaceRegistrationTypeEnum? registrationType = default(NamespaceRegistrationTypeEnum?), string? level0 = default(string?), AliasTypeEnum? aliasType = default(AliasTypeEnum?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<NamespacePage> localVarResponse = await SearchNamespacesWithHttpInfoAsync(ownerAddress, registrationType, level0, aliasType, pageSize, pageNumber, offset, order, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<NamespacePage> localVarResponse = await SearchNamespacesWithHttpInfoAsync(ownerAddress, registrationType, level0, aliasType, pageSize, pageNumber, offset, order, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1338,10 +1342,10 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NamespacePage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<NamespacePage>> SearchNamespacesWithHttpInfoAsync(string? ownerAddress = default(string?), NamespaceRegistrationTypeEnum? registrationType = default(NamespaceRegistrationTypeEnum?), string? level0 = default(string?), AliasTypeEnum? aliasType = default(AliasTypeEnum?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<NamespacePage>> SearchNamespacesWithHttpInfoAsync(string? ownerAddress = default(string?), NamespaceRegistrationTypeEnum? registrationType = default(NamespaceRegistrationTypeEnum?), string? level0 = default(string?), AliasTypeEnum? aliasType = default(AliasTypeEnum?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -1351,13 +1355,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -1365,35 +1369,35 @@ namespace SymbolRestClient.Api
 
             if (ownerAddress != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "ownerAddress", ownerAddress));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "ownerAddress", ownerAddress));
             }
             if (registrationType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "registrationType", registrationType));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "registrationType", registrationType));
             }
             if (level0 != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "level0", level0));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "level0", level0));
             }
             if (aliasType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "aliasType", aliasType));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "aliasType", aliasType));
             }
             if (pageSize != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
             }
             if (pageNumber != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
             }
             if (offset != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
             if (order != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "order", order));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "order", order));
             }
 
             localVarRequestOptions.Operation = "NamespaceRoutesApi.SearchNamespaces";

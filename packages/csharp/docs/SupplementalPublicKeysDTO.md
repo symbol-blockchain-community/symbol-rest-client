@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.SupplementalPublicKeysDTO
+# SymbolRestClient.Model.SupplementalPublicKeysDTO
 
 ## Properties
 

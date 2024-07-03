@@ -10,6 +10,10 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Mime;
 using SymbolRestClient.Client;
 using SymbolRestClient.Model;
 
@@ -791,7 +795,7 @@ namespace SymbolRestClient.Api
     /// </summary>
     public partial class TransactionRoutesApi : ITransactionRoutesApi
     {
-        private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private SymbolRestClient.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionRoutesApi"/> class.
@@ -808,11 +812,11 @@ namespace SymbolRestClient.Api
         public TransactionRoutesApi(string basePath)
         {
             this.Configuration = SymbolRestClient.Client.Configuration.MergeConfigurations(
-                GlobalConfiguration.Instance,
-                new Configuration { BasePath = basePath }
+                SymbolRestClient.Client.GlobalConfiguration.Instance,
+                new SymbolRestClient.Client.Configuration { BasePath = basePath }
             );
-            this.Client = new ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new ApiClient(this.Configuration.BasePath);
+            this.Client = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
+            this.AsynchronousClient = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
             this.ExceptionFactory = SymbolRestClient.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -822,16 +826,16 @@ namespace SymbolRestClient.Api
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public TransactionRoutesApi(Configuration configuration)
+        public TransactionRoutesApi(SymbolRestClient.Client.Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Configuration = SymbolRestClient.Client.Configuration.MergeConfigurations(
-                GlobalConfiguration.Instance,
+                SymbolRestClient.Client.GlobalConfiguration.Instance,
                 configuration
             );
-            this.Client = new ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new ApiClient(this.Configuration.BasePath);
+            this.Client = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
+            this.AsynchronousClient = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
             ExceptionFactory = SymbolRestClient.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -842,7 +846,7 @@ namespace SymbolRestClient.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public TransactionRoutesApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
+        public TransactionRoutesApi(SymbolRestClient.Client.ISynchronousClient client, SymbolRestClient.Client.IAsynchronousClient asyncClient, SymbolRestClient.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -857,12 +861,12 @@ namespace SymbolRestClient.Api
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
-        public IAsynchronousClient AsynchronousClient { get; set; }
+        public SymbolRestClient.Client.IAsynchronousClient AsynchronousClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API synchronously.
         /// </summary>
-        public ISynchronousClient Client { get; set; }
+        public SymbolRestClient.Client.ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -877,12 +881,12 @@ namespace SymbolRestClient.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public IReadableConfiguration Configuration { get; set; }
+        public SymbolRestClient.Client.IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public ExceptionFactory ExceptionFactory
+        public SymbolRestClient.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -904,7 +908,7 @@ namespace SymbolRestClient.Api
         /// <returns>AnnounceTransactionInfoDTO</returns>
         public AnnounceTransactionInfoDTO AnnounceCosignatureTransaction(Cosignature cosignature, int operationIndex = 0)
         {
-            ApiResponse<AnnounceTransactionInfoDTO> localVarResponse = AnnounceCosignatureTransactionWithHttpInfo(cosignature);
+            SymbolRestClient.Client.ApiResponse<AnnounceTransactionInfoDTO> localVarResponse = AnnounceCosignatureTransactionWithHttpInfo(cosignature);
             return localVarResponse.Data;
         }
 
@@ -915,15 +919,15 @@ namespace SymbolRestClient.Api
         /// <param name="cosignature"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of AnnounceTransactionInfoDTO</returns>
-        public ApiResponse<AnnounceTransactionInfoDTO> AnnounceCosignatureTransactionWithHttpInfo(Cosignature cosignature, int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<AnnounceTransactionInfoDTO> AnnounceCosignatureTransactionWithHttpInfo(Cosignature cosignature, int operationIndex = 0)
         {
             // verify the required parameter 'cosignature' is set
             if (cosignature == null)
             {
-                throw new ApiException(400, "Missing required parameter 'cosignature' when calling TransactionRoutesApi->AnnounceCosignatureTransaction");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'cosignature' when calling TransactionRoutesApi->AnnounceCosignatureTransaction");
             }
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
                 "application/json"
@@ -934,13 +938,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -976,7 +980,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of AnnounceTransactionInfoDTO</returns>
         public async System.Threading.Tasks.Task<AnnounceTransactionInfoDTO> AnnounceCosignatureTransactionAsync(Cosignature cosignature, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<AnnounceTransactionInfoDTO> localVarResponse = await AnnounceCosignatureTransactionWithHttpInfoAsync(cosignature, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<AnnounceTransactionInfoDTO> localVarResponse = await AnnounceCosignatureTransactionWithHttpInfoAsync(cosignature, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -988,16 +992,16 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AnnounceTransactionInfoDTO)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AnnounceTransactionInfoDTO>> AnnounceCosignatureTransactionWithHttpInfoAsync(Cosignature cosignature, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<AnnounceTransactionInfoDTO>> AnnounceCosignatureTransactionWithHttpInfoAsync(Cosignature cosignature, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'cosignature' is set
             if (cosignature == null)
             {
-                throw new ApiException(400, "Missing required parameter 'cosignature' when calling TransactionRoutesApi->AnnounceCosignatureTransaction");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'cosignature' when calling TransactionRoutesApi->AnnounceCosignatureTransaction");
             }
 
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
                 "application/json"
@@ -1008,13 +1012,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -1050,7 +1054,7 @@ namespace SymbolRestClient.Api
         /// <returns>AnnounceTransactionInfoDTO</returns>
         public AnnounceTransactionInfoDTO AnnouncePartialTransaction(TransactionPayload transactionPayload, int operationIndex = 0)
         {
-            ApiResponse<AnnounceTransactionInfoDTO> localVarResponse = AnnouncePartialTransactionWithHttpInfo(transactionPayload);
+            SymbolRestClient.Client.ApiResponse<AnnounceTransactionInfoDTO> localVarResponse = AnnouncePartialTransactionWithHttpInfo(transactionPayload);
             return localVarResponse.Data;
         }
 
@@ -1061,15 +1065,15 @@ namespace SymbolRestClient.Api
         /// <param name="transactionPayload"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of AnnounceTransactionInfoDTO</returns>
-        public ApiResponse<AnnounceTransactionInfoDTO> AnnouncePartialTransactionWithHttpInfo(TransactionPayload transactionPayload, int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<AnnounceTransactionInfoDTO> AnnouncePartialTransactionWithHttpInfo(TransactionPayload transactionPayload, int operationIndex = 0)
         {
             // verify the required parameter 'transactionPayload' is set
             if (transactionPayload == null)
             {
-                throw new ApiException(400, "Missing required parameter 'transactionPayload' when calling TransactionRoutesApi->AnnouncePartialTransaction");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'transactionPayload' when calling TransactionRoutesApi->AnnouncePartialTransaction");
             }
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
                 "application/json"
@@ -1080,13 +1084,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -1122,7 +1126,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of AnnounceTransactionInfoDTO</returns>
         public async System.Threading.Tasks.Task<AnnounceTransactionInfoDTO> AnnouncePartialTransactionAsync(TransactionPayload transactionPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<AnnounceTransactionInfoDTO> localVarResponse = await AnnouncePartialTransactionWithHttpInfoAsync(transactionPayload, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<AnnounceTransactionInfoDTO> localVarResponse = await AnnouncePartialTransactionWithHttpInfoAsync(transactionPayload, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1134,16 +1138,16 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AnnounceTransactionInfoDTO)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AnnounceTransactionInfoDTO>> AnnouncePartialTransactionWithHttpInfoAsync(TransactionPayload transactionPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<AnnounceTransactionInfoDTO>> AnnouncePartialTransactionWithHttpInfoAsync(TransactionPayload transactionPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'transactionPayload' is set
             if (transactionPayload == null)
             {
-                throw new ApiException(400, "Missing required parameter 'transactionPayload' when calling TransactionRoutesApi->AnnouncePartialTransaction");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'transactionPayload' when calling TransactionRoutesApi->AnnouncePartialTransaction");
             }
 
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
                 "application/json"
@@ -1154,13 +1158,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -1196,7 +1200,7 @@ namespace SymbolRestClient.Api
         /// <returns>AnnounceTransactionInfoDTO</returns>
         public AnnounceTransactionInfoDTO AnnounceTransaction(TransactionPayload transactionPayload, int operationIndex = 0)
         {
-            ApiResponse<AnnounceTransactionInfoDTO> localVarResponse = AnnounceTransactionWithHttpInfo(transactionPayload);
+            SymbolRestClient.Client.ApiResponse<AnnounceTransactionInfoDTO> localVarResponse = AnnounceTransactionWithHttpInfo(transactionPayload);
             return localVarResponse.Data;
         }
 
@@ -1207,15 +1211,15 @@ namespace SymbolRestClient.Api
         /// <param name="transactionPayload"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of AnnounceTransactionInfoDTO</returns>
-        public ApiResponse<AnnounceTransactionInfoDTO> AnnounceTransactionWithHttpInfo(TransactionPayload transactionPayload, int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<AnnounceTransactionInfoDTO> AnnounceTransactionWithHttpInfo(TransactionPayload transactionPayload, int operationIndex = 0)
         {
             // verify the required parameter 'transactionPayload' is set
             if (transactionPayload == null)
             {
-                throw new ApiException(400, "Missing required parameter 'transactionPayload' when calling TransactionRoutesApi->AnnounceTransaction");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'transactionPayload' when calling TransactionRoutesApi->AnnounceTransaction");
             }
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
                 "application/json"
@@ -1226,13 +1230,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -1268,7 +1272,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of AnnounceTransactionInfoDTO</returns>
         public async System.Threading.Tasks.Task<AnnounceTransactionInfoDTO> AnnounceTransactionAsync(TransactionPayload transactionPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<AnnounceTransactionInfoDTO> localVarResponse = await AnnounceTransactionWithHttpInfoAsync(transactionPayload, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<AnnounceTransactionInfoDTO> localVarResponse = await AnnounceTransactionWithHttpInfoAsync(transactionPayload, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1280,16 +1284,16 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AnnounceTransactionInfoDTO)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AnnounceTransactionInfoDTO>> AnnounceTransactionWithHttpInfoAsync(TransactionPayload transactionPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<AnnounceTransactionInfoDTO>> AnnounceTransactionWithHttpInfoAsync(TransactionPayload transactionPayload, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'transactionPayload' is set
             if (transactionPayload == null)
             {
-                throw new ApiException(400, "Missing required parameter 'transactionPayload' when calling TransactionRoutesApi->AnnounceTransaction");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'transactionPayload' when calling TransactionRoutesApi->AnnounceTransaction");
             }
 
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
                 "application/json"
@@ -1300,13 +1304,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -1342,7 +1346,7 @@ namespace SymbolRestClient.Api
         /// <returns>TransactionInfoDTO</returns>
         public TransactionInfoDTO GetConfirmedTransaction(string transactionId, int operationIndex = 0)
         {
-            ApiResponse<TransactionInfoDTO> localVarResponse = GetConfirmedTransactionWithHttpInfo(transactionId);
+            SymbolRestClient.Client.ApiResponse<TransactionInfoDTO> localVarResponse = GetConfirmedTransactionWithHttpInfo(transactionId);
             return localVarResponse.Data;
         }
 
@@ -1353,15 +1357,15 @@ namespace SymbolRestClient.Api
         /// <param name="transactionId">Transaction id or hash.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TransactionInfoDTO</returns>
-        public ApiResponse<TransactionInfoDTO> GetConfirmedTransactionWithHttpInfo(string transactionId, int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<TransactionInfoDTO> GetConfirmedTransactionWithHttpInfo(string transactionId, int operationIndex = 0)
         {
             // verify the required parameter 'transactionId' is set
             if (transactionId == null)
             {
-                throw new ApiException(400, "Missing required parameter 'transactionId' when calling TransactionRoutesApi->GetConfirmedTransaction");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'transactionId' when calling TransactionRoutesApi->GetConfirmedTransaction");
             }
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -1371,19 +1375,19 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("transactionId", ClientUtils.ParameterToString(transactionId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("transactionId", SymbolRestClient.Client.ClientUtils.ParameterToString(transactionId)); // path parameter
 
             localVarRequestOptions.Operation = "TransactionRoutesApi.GetConfirmedTransaction";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1413,7 +1417,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of TransactionInfoDTO</returns>
         public async System.Threading.Tasks.Task<TransactionInfoDTO> GetConfirmedTransactionAsync(string transactionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<TransactionInfoDTO> localVarResponse = await GetConfirmedTransactionWithHttpInfoAsync(transactionId, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<TransactionInfoDTO> localVarResponse = await GetConfirmedTransactionWithHttpInfoAsync(transactionId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1425,16 +1429,16 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionInfoDTO)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TransactionInfoDTO>> GetConfirmedTransactionWithHttpInfoAsync(string transactionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<TransactionInfoDTO>> GetConfirmedTransactionWithHttpInfoAsync(string transactionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'transactionId' is set
             if (transactionId == null)
             {
-                throw new ApiException(400, "Missing required parameter 'transactionId' when calling TransactionRoutesApi->GetConfirmedTransaction");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'transactionId' when calling TransactionRoutesApi->GetConfirmedTransaction");
             }
 
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -1444,19 +1448,19 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("transactionId", ClientUtils.ParameterToString(transactionId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("transactionId", SymbolRestClient.Client.ClientUtils.ParameterToString(transactionId)); // path parameter
 
             localVarRequestOptions.Operation = "TransactionRoutesApi.GetConfirmedTransaction";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1486,7 +1490,7 @@ namespace SymbolRestClient.Api
         /// <returns>List&lt;TransactionInfoDTO&gt;</returns>
         public List<TransactionInfoDTO> GetConfirmedTransactions(TransactionIds transactionIds, int operationIndex = 0)
         {
-            ApiResponse<List<TransactionInfoDTO>> localVarResponse = GetConfirmedTransactionsWithHttpInfo(transactionIds);
+            SymbolRestClient.Client.ApiResponse<List<TransactionInfoDTO>> localVarResponse = GetConfirmedTransactionsWithHttpInfo(transactionIds);
             return localVarResponse.Data;
         }
 
@@ -1497,15 +1501,15 @@ namespace SymbolRestClient.Api
         /// <param name="transactionIds"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;TransactionInfoDTO&gt;</returns>
-        public ApiResponse<List<TransactionInfoDTO>> GetConfirmedTransactionsWithHttpInfo(TransactionIds transactionIds, int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<List<TransactionInfoDTO>> GetConfirmedTransactionsWithHttpInfo(TransactionIds transactionIds, int operationIndex = 0)
         {
             // verify the required parameter 'transactionIds' is set
             if (transactionIds == null)
             {
-                throw new ApiException(400, "Missing required parameter 'transactionIds' when calling TransactionRoutesApi->GetConfirmedTransactions");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'transactionIds' when calling TransactionRoutesApi->GetConfirmedTransactions");
             }
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
                 "application/json"
@@ -1516,13 +1520,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -1558,7 +1562,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of List&lt;TransactionInfoDTO&gt;</returns>
         public async System.Threading.Tasks.Task<List<TransactionInfoDTO>> GetConfirmedTransactionsAsync(TransactionIds transactionIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<List<TransactionInfoDTO>> localVarResponse = await GetConfirmedTransactionsWithHttpInfoAsync(transactionIds, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<List<TransactionInfoDTO>> localVarResponse = await GetConfirmedTransactionsWithHttpInfoAsync(transactionIds, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1570,16 +1574,16 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;TransactionInfoDTO&gt;)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<List<TransactionInfoDTO>>> GetConfirmedTransactionsWithHttpInfoAsync(TransactionIds transactionIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<List<TransactionInfoDTO>>> GetConfirmedTransactionsWithHttpInfoAsync(TransactionIds transactionIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'transactionIds' is set
             if (transactionIds == null)
             {
-                throw new ApiException(400, "Missing required parameter 'transactionIds' when calling TransactionRoutesApi->GetConfirmedTransactions");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'transactionIds' when calling TransactionRoutesApi->GetConfirmedTransactions");
             }
 
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
                 "application/json"
@@ -1590,13 +1594,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -1632,7 +1636,7 @@ namespace SymbolRestClient.Api
         /// <returns>TransactionInfoDTO</returns>
         public TransactionInfoDTO GetPartialTransaction(string transactionId, int operationIndex = 0)
         {
-            ApiResponse<TransactionInfoDTO> localVarResponse = GetPartialTransactionWithHttpInfo(transactionId);
+            SymbolRestClient.Client.ApiResponse<TransactionInfoDTO> localVarResponse = GetPartialTransactionWithHttpInfo(transactionId);
             return localVarResponse.Data;
         }
 
@@ -1643,15 +1647,15 @@ namespace SymbolRestClient.Api
         /// <param name="transactionId">Transaction id or hash.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TransactionInfoDTO</returns>
-        public ApiResponse<TransactionInfoDTO> GetPartialTransactionWithHttpInfo(string transactionId, int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<TransactionInfoDTO> GetPartialTransactionWithHttpInfo(string transactionId, int operationIndex = 0)
         {
             // verify the required parameter 'transactionId' is set
             if (transactionId == null)
             {
-                throw new ApiException(400, "Missing required parameter 'transactionId' when calling TransactionRoutesApi->GetPartialTransaction");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'transactionId' when calling TransactionRoutesApi->GetPartialTransaction");
             }
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -1661,19 +1665,19 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("transactionId", ClientUtils.ParameterToString(transactionId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("transactionId", SymbolRestClient.Client.ClientUtils.ParameterToString(transactionId)); // path parameter
 
             localVarRequestOptions.Operation = "TransactionRoutesApi.GetPartialTransaction";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1703,7 +1707,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of TransactionInfoDTO</returns>
         public async System.Threading.Tasks.Task<TransactionInfoDTO> GetPartialTransactionAsync(string transactionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<TransactionInfoDTO> localVarResponse = await GetPartialTransactionWithHttpInfoAsync(transactionId, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<TransactionInfoDTO> localVarResponse = await GetPartialTransactionWithHttpInfoAsync(transactionId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1715,16 +1719,16 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionInfoDTO)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TransactionInfoDTO>> GetPartialTransactionWithHttpInfoAsync(string transactionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<TransactionInfoDTO>> GetPartialTransactionWithHttpInfoAsync(string transactionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'transactionId' is set
             if (transactionId == null)
             {
-                throw new ApiException(400, "Missing required parameter 'transactionId' when calling TransactionRoutesApi->GetPartialTransaction");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'transactionId' when calling TransactionRoutesApi->GetPartialTransaction");
             }
 
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -1734,19 +1738,19 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("transactionId", ClientUtils.ParameterToString(transactionId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("transactionId", SymbolRestClient.Client.ClientUtils.ParameterToString(transactionId)); // path parameter
 
             localVarRequestOptions.Operation = "TransactionRoutesApi.GetPartialTransaction";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1776,7 +1780,7 @@ namespace SymbolRestClient.Api
         /// <returns>List&lt;TransactionInfoDTO&gt;</returns>
         public List<TransactionInfoDTO> GetPartialTransactions(TransactionIds transactionIds, int operationIndex = 0)
         {
-            ApiResponse<List<TransactionInfoDTO>> localVarResponse = GetPartialTransactionsWithHttpInfo(transactionIds);
+            SymbolRestClient.Client.ApiResponse<List<TransactionInfoDTO>> localVarResponse = GetPartialTransactionsWithHttpInfo(transactionIds);
             return localVarResponse.Data;
         }
 
@@ -1787,15 +1791,15 @@ namespace SymbolRestClient.Api
         /// <param name="transactionIds"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;TransactionInfoDTO&gt;</returns>
-        public ApiResponse<List<TransactionInfoDTO>> GetPartialTransactionsWithHttpInfo(TransactionIds transactionIds, int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<List<TransactionInfoDTO>> GetPartialTransactionsWithHttpInfo(TransactionIds transactionIds, int operationIndex = 0)
         {
             // verify the required parameter 'transactionIds' is set
             if (transactionIds == null)
             {
-                throw new ApiException(400, "Missing required parameter 'transactionIds' when calling TransactionRoutesApi->GetPartialTransactions");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'transactionIds' when calling TransactionRoutesApi->GetPartialTransactions");
             }
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
                 "application/json"
@@ -1806,13 +1810,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -1848,7 +1852,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of List&lt;TransactionInfoDTO&gt;</returns>
         public async System.Threading.Tasks.Task<List<TransactionInfoDTO>> GetPartialTransactionsAsync(TransactionIds transactionIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<List<TransactionInfoDTO>> localVarResponse = await GetPartialTransactionsWithHttpInfoAsync(transactionIds, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<List<TransactionInfoDTO>> localVarResponse = await GetPartialTransactionsWithHttpInfoAsync(transactionIds, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1860,16 +1864,16 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;TransactionInfoDTO&gt;)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<List<TransactionInfoDTO>>> GetPartialTransactionsWithHttpInfoAsync(TransactionIds transactionIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<List<TransactionInfoDTO>>> GetPartialTransactionsWithHttpInfoAsync(TransactionIds transactionIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'transactionIds' is set
             if (transactionIds == null)
             {
-                throw new ApiException(400, "Missing required parameter 'transactionIds' when calling TransactionRoutesApi->GetPartialTransactions");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'transactionIds' when calling TransactionRoutesApi->GetPartialTransactions");
             }
 
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
                 "application/json"
@@ -1880,13 +1884,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -1922,7 +1926,7 @@ namespace SymbolRestClient.Api
         /// <returns>TransactionInfoDTO</returns>
         public TransactionInfoDTO GetUnconfirmedTransaction(string transactionId, int operationIndex = 0)
         {
-            ApiResponse<TransactionInfoDTO> localVarResponse = GetUnconfirmedTransactionWithHttpInfo(transactionId);
+            SymbolRestClient.Client.ApiResponse<TransactionInfoDTO> localVarResponse = GetUnconfirmedTransactionWithHttpInfo(transactionId);
             return localVarResponse.Data;
         }
 
@@ -1933,15 +1937,15 @@ namespace SymbolRestClient.Api
         /// <param name="transactionId">Transaction id or hash.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TransactionInfoDTO</returns>
-        public ApiResponse<TransactionInfoDTO> GetUnconfirmedTransactionWithHttpInfo(string transactionId, int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<TransactionInfoDTO> GetUnconfirmedTransactionWithHttpInfo(string transactionId, int operationIndex = 0)
         {
             // verify the required parameter 'transactionId' is set
             if (transactionId == null)
             {
-                throw new ApiException(400, "Missing required parameter 'transactionId' when calling TransactionRoutesApi->GetUnconfirmedTransaction");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'transactionId' when calling TransactionRoutesApi->GetUnconfirmedTransaction");
             }
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -1951,19 +1955,19 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("transactionId", ClientUtils.ParameterToString(transactionId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("transactionId", SymbolRestClient.Client.ClientUtils.ParameterToString(transactionId)); // path parameter
 
             localVarRequestOptions.Operation = "TransactionRoutesApi.GetUnconfirmedTransaction";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1993,7 +1997,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of TransactionInfoDTO</returns>
         public async System.Threading.Tasks.Task<TransactionInfoDTO> GetUnconfirmedTransactionAsync(string transactionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<TransactionInfoDTO> localVarResponse = await GetUnconfirmedTransactionWithHttpInfoAsync(transactionId, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<TransactionInfoDTO> localVarResponse = await GetUnconfirmedTransactionWithHttpInfoAsync(transactionId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2005,16 +2009,16 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionInfoDTO)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TransactionInfoDTO>> GetUnconfirmedTransactionWithHttpInfoAsync(string transactionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<TransactionInfoDTO>> GetUnconfirmedTransactionWithHttpInfoAsync(string transactionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'transactionId' is set
             if (transactionId == null)
             {
-                throw new ApiException(400, "Missing required parameter 'transactionId' when calling TransactionRoutesApi->GetUnconfirmedTransaction");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'transactionId' when calling TransactionRoutesApi->GetUnconfirmedTransaction");
             }
 
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -2024,19 +2028,19 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("transactionId", ClientUtils.ParameterToString(transactionId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("transactionId", SymbolRestClient.Client.ClientUtils.ParameterToString(transactionId)); // path parameter
 
             localVarRequestOptions.Operation = "TransactionRoutesApi.GetUnconfirmedTransaction";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -2066,7 +2070,7 @@ namespace SymbolRestClient.Api
         /// <returns>List&lt;TransactionInfoDTO&gt;</returns>
         public List<TransactionInfoDTO> GetUnconfirmedTransactions(TransactionIds transactionIds, int operationIndex = 0)
         {
-            ApiResponse<List<TransactionInfoDTO>> localVarResponse = GetUnconfirmedTransactionsWithHttpInfo(transactionIds);
+            SymbolRestClient.Client.ApiResponse<List<TransactionInfoDTO>> localVarResponse = GetUnconfirmedTransactionsWithHttpInfo(transactionIds);
             return localVarResponse.Data;
         }
 
@@ -2077,15 +2081,15 @@ namespace SymbolRestClient.Api
         /// <param name="transactionIds"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;TransactionInfoDTO&gt;</returns>
-        public ApiResponse<List<TransactionInfoDTO>> GetUnconfirmedTransactionsWithHttpInfo(TransactionIds transactionIds, int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<List<TransactionInfoDTO>> GetUnconfirmedTransactionsWithHttpInfo(TransactionIds transactionIds, int operationIndex = 0)
         {
             // verify the required parameter 'transactionIds' is set
             if (transactionIds == null)
             {
-                throw new ApiException(400, "Missing required parameter 'transactionIds' when calling TransactionRoutesApi->GetUnconfirmedTransactions");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'transactionIds' when calling TransactionRoutesApi->GetUnconfirmedTransactions");
             }
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
                 "application/json"
@@ -2096,13 +2100,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -2138,7 +2142,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of List&lt;TransactionInfoDTO&gt;</returns>
         public async System.Threading.Tasks.Task<List<TransactionInfoDTO>> GetUnconfirmedTransactionsAsync(TransactionIds transactionIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<List<TransactionInfoDTO>> localVarResponse = await GetUnconfirmedTransactionsWithHttpInfoAsync(transactionIds, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<List<TransactionInfoDTO>> localVarResponse = await GetUnconfirmedTransactionsWithHttpInfoAsync(transactionIds, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2150,16 +2154,16 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;TransactionInfoDTO&gt;)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<List<TransactionInfoDTO>>> GetUnconfirmedTransactionsWithHttpInfoAsync(TransactionIds transactionIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<List<TransactionInfoDTO>>> GetUnconfirmedTransactionsWithHttpInfoAsync(TransactionIds transactionIds, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'transactionIds' is set
             if (transactionIds == null)
             {
-                throw new ApiException(400, "Missing required parameter 'transactionIds' when calling TransactionRoutesApi->GetUnconfirmedTransactions");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'transactionIds' when calling TransactionRoutesApi->GetUnconfirmedTransactions");
             }
 
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
                 "application/json"
@@ -2170,13 +2174,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -2226,7 +2230,7 @@ namespace SymbolRestClient.Api
         /// <returns>TransactionPage</returns>
         public TransactionPage SearchConfirmedTransactions(string? address = default(string?), string? recipientAddress = default(string?), string? signerPublicKey = default(string?), string? height = default(string?), string? fromHeight = default(string?), string? toHeight = default(string?), string? fromTransferAmount = default(string?), string? toTransferAmount = default(string?), List<TransactionTypeEnum>? type = default(List<TransactionTypeEnum>?), bool? embedded = default(bool?), string? transferMosaicId = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0)
         {
-            ApiResponse<TransactionPage> localVarResponse = SearchConfirmedTransactionsWithHttpInfo(address, recipientAddress, signerPublicKey, height, fromHeight, toHeight, fromTransferAmount, toTransferAmount, type, embedded, transferMosaicId, pageSize, pageNumber, offset, order);
+            SymbolRestClient.Client.ApiResponse<TransactionPage> localVarResponse = SearchConfirmedTransactionsWithHttpInfo(address, recipientAddress, signerPublicKey, height, fromHeight, toHeight, fromTransferAmount, toTransferAmount, type, embedded, transferMosaicId, pageSize, pageNumber, offset, order);
             return localVarResponse.Data;
         }
 
@@ -2251,9 +2255,9 @@ namespace SymbolRestClient.Api
         /// <param name="order">Sort responses in ascending or descending order based on the collection property set on the param &#x60;&#x60;orderBy&#x60;&#x60;. If the request does not specify &#x60;&#x60;orderBy&#x60;&#x60;, REST returns the collection ordered by id.  (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TransactionPage</returns>
-        public ApiResponse<TransactionPage> SearchConfirmedTransactionsWithHttpInfo(string? address = default(string?), string? recipientAddress = default(string?), string? signerPublicKey = default(string?), string? height = default(string?), string? fromHeight = default(string?), string? toHeight = default(string?), string? fromTransferAmount = default(string?), string? toTransferAmount = default(string?), List<TransactionTypeEnum>? type = default(List<TransactionTypeEnum>?), bool? embedded = default(bool?), string? transferMosaicId = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<TransactionPage> SearchConfirmedTransactionsWithHttpInfo(string? address = default(string?), string? recipientAddress = default(string?), string? signerPublicKey = default(string?), string? height = default(string?), string? fromHeight = default(string?), string? toHeight = default(string?), string? fromTransferAmount = default(string?), string? toTransferAmount = default(string?), List<TransactionTypeEnum>? type = default(List<TransactionTypeEnum>?), bool? embedded = default(bool?), string? transferMosaicId = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0)
         {
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -2263,13 +2267,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -2277,63 +2281,63 @@ namespace SymbolRestClient.Api
 
             if (address != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "address", address));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "address", address));
             }
             if (recipientAddress != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "recipientAddress", recipientAddress));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "recipientAddress", recipientAddress));
             }
             if (signerPublicKey != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "signerPublicKey", signerPublicKey));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "signerPublicKey", signerPublicKey));
             }
             if (height != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "height", height));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "height", height));
             }
             if (fromHeight != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fromHeight", fromHeight));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "fromHeight", fromHeight));
             }
             if (toHeight != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toHeight", toHeight));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "toHeight", toHeight));
             }
             if (fromTransferAmount != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fromTransferAmount", fromTransferAmount));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "fromTransferAmount", fromTransferAmount));
             }
             if (toTransferAmount != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toTransferAmount", toTransferAmount));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "toTransferAmount", toTransferAmount));
             }
             if (type != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "type", type));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("multi", "type", type));
             }
             if (embedded != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "embedded", embedded));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "embedded", embedded));
             }
             if (transferMosaicId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "transferMosaicId", transferMosaicId));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "transferMosaicId", transferMosaicId));
             }
             if (pageSize != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
             }
             if (pageNumber != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
             }
             if (offset != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
             if (order != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "order", order));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "order", order));
             }
 
             localVarRequestOptions.Operation = "TransactionRoutesApi.SearchConfirmedTransactions";
@@ -2378,7 +2382,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of TransactionPage</returns>
         public async System.Threading.Tasks.Task<TransactionPage> SearchConfirmedTransactionsAsync(string? address = default(string?), string? recipientAddress = default(string?), string? signerPublicKey = default(string?), string? height = default(string?), string? fromHeight = default(string?), string? toHeight = default(string?), string? fromTransferAmount = default(string?), string? toTransferAmount = default(string?), List<TransactionTypeEnum>? type = default(List<TransactionTypeEnum>?), bool? embedded = default(bool?), string? transferMosaicId = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<TransactionPage> localVarResponse = await SearchConfirmedTransactionsWithHttpInfoAsync(address, recipientAddress, signerPublicKey, height, fromHeight, toHeight, fromTransferAmount, toTransferAmount, type, embedded, transferMosaicId, pageSize, pageNumber, offset, order, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<TransactionPage> localVarResponse = await SearchConfirmedTransactionsWithHttpInfoAsync(address, recipientAddress, signerPublicKey, height, fromHeight, toHeight, fromTransferAmount, toTransferAmount, type, embedded, transferMosaicId, pageSize, pageNumber, offset, order, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2404,10 +2408,10 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionPage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TransactionPage>> SearchConfirmedTransactionsWithHttpInfoAsync(string? address = default(string?), string? recipientAddress = default(string?), string? signerPublicKey = default(string?), string? height = default(string?), string? fromHeight = default(string?), string? toHeight = default(string?), string? fromTransferAmount = default(string?), string? toTransferAmount = default(string?), List<TransactionTypeEnum>? type = default(List<TransactionTypeEnum>?), bool? embedded = default(bool?), string? transferMosaicId = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<TransactionPage>> SearchConfirmedTransactionsWithHttpInfoAsync(string? address = default(string?), string? recipientAddress = default(string?), string? signerPublicKey = default(string?), string? height = default(string?), string? fromHeight = default(string?), string? toHeight = default(string?), string? fromTransferAmount = default(string?), string? toTransferAmount = default(string?), List<TransactionTypeEnum>? type = default(List<TransactionTypeEnum>?), bool? embedded = default(bool?), string? transferMosaicId = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -2417,13 +2421,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -2431,63 +2435,63 @@ namespace SymbolRestClient.Api
 
             if (address != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "address", address));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "address", address));
             }
             if (recipientAddress != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "recipientAddress", recipientAddress));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "recipientAddress", recipientAddress));
             }
             if (signerPublicKey != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "signerPublicKey", signerPublicKey));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "signerPublicKey", signerPublicKey));
             }
             if (height != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "height", height));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "height", height));
             }
             if (fromHeight != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fromHeight", fromHeight));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "fromHeight", fromHeight));
             }
             if (toHeight != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toHeight", toHeight));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "toHeight", toHeight));
             }
             if (fromTransferAmount != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fromTransferAmount", fromTransferAmount));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "fromTransferAmount", fromTransferAmount));
             }
             if (toTransferAmount != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toTransferAmount", toTransferAmount));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "toTransferAmount", toTransferAmount));
             }
             if (type != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "type", type));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("multi", "type", type));
             }
             if (embedded != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "embedded", embedded));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "embedded", embedded));
             }
             if (transferMosaicId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "transferMosaicId", transferMosaicId));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "transferMosaicId", transferMosaicId));
             }
             if (pageSize != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
             }
             if (pageNumber != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
             }
             if (offset != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
             if (order != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "order", order));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "order", order));
             }
 
             localVarRequestOptions.Operation = "TransactionRoutesApi.SearchConfirmedTransactions";
@@ -2532,7 +2536,7 @@ namespace SymbolRestClient.Api
         /// <returns>TransactionPage</returns>
         public TransactionPage SearchPartialTransactions(string? address = default(string?), string? recipientAddress = default(string?), string? signerPublicKey = default(string?), string? height = default(string?), string? fromHeight = default(string?), string? toHeight = default(string?), string? fromTransferAmount = default(string?), string? toTransferAmount = default(string?), List<TransactionTypeEnum>? type = default(List<TransactionTypeEnum>?), bool? embedded = default(bool?), string? transferMosaicId = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0)
         {
-            ApiResponse<TransactionPage> localVarResponse = SearchPartialTransactionsWithHttpInfo(address, recipientAddress, signerPublicKey, height, fromHeight, toHeight, fromTransferAmount, toTransferAmount, type, embedded, transferMosaicId, pageSize, pageNumber, offset, order);
+            SymbolRestClient.Client.ApiResponse<TransactionPage> localVarResponse = SearchPartialTransactionsWithHttpInfo(address, recipientAddress, signerPublicKey, height, fromHeight, toHeight, fromTransferAmount, toTransferAmount, type, embedded, transferMosaicId, pageSize, pageNumber, offset, order);
             return localVarResponse.Data;
         }
 
@@ -2557,9 +2561,9 @@ namespace SymbolRestClient.Api
         /// <param name="order">Sort responses in ascending or descending order based on the collection property set on the param &#x60;&#x60;orderBy&#x60;&#x60;. If the request does not specify &#x60;&#x60;orderBy&#x60;&#x60;, REST returns the collection ordered by id.  (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TransactionPage</returns>
-        public ApiResponse<TransactionPage> SearchPartialTransactionsWithHttpInfo(string? address = default(string?), string? recipientAddress = default(string?), string? signerPublicKey = default(string?), string? height = default(string?), string? fromHeight = default(string?), string? toHeight = default(string?), string? fromTransferAmount = default(string?), string? toTransferAmount = default(string?), List<TransactionTypeEnum>? type = default(List<TransactionTypeEnum>?), bool? embedded = default(bool?), string? transferMosaicId = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<TransactionPage> SearchPartialTransactionsWithHttpInfo(string? address = default(string?), string? recipientAddress = default(string?), string? signerPublicKey = default(string?), string? height = default(string?), string? fromHeight = default(string?), string? toHeight = default(string?), string? fromTransferAmount = default(string?), string? toTransferAmount = default(string?), List<TransactionTypeEnum>? type = default(List<TransactionTypeEnum>?), bool? embedded = default(bool?), string? transferMosaicId = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0)
         {
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -2569,13 +2573,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -2583,63 +2587,63 @@ namespace SymbolRestClient.Api
 
             if (address != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "address", address));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "address", address));
             }
             if (recipientAddress != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "recipientAddress", recipientAddress));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "recipientAddress", recipientAddress));
             }
             if (signerPublicKey != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "signerPublicKey", signerPublicKey));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "signerPublicKey", signerPublicKey));
             }
             if (height != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "height", height));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "height", height));
             }
             if (fromHeight != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fromHeight", fromHeight));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "fromHeight", fromHeight));
             }
             if (toHeight != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toHeight", toHeight));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "toHeight", toHeight));
             }
             if (fromTransferAmount != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fromTransferAmount", fromTransferAmount));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "fromTransferAmount", fromTransferAmount));
             }
             if (toTransferAmount != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toTransferAmount", toTransferAmount));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "toTransferAmount", toTransferAmount));
             }
             if (type != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "type", type));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("multi", "type", type));
             }
             if (embedded != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "embedded", embedded));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "embedded", embedded));
             }
             if (transferMosaicId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "transferMosaicId", transferMosaicId));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "transferMosaicId", transferMosaicId));
             }
             if (pageSize != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
             }
             if (pageNumber != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
             }
             if (offset != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
             if (order != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "order", order));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "order", order));
             }
 
             localVarRequestOptions.Operation = "TransactionRoutesApi.SearchPartialTransactions";
@@ -2684,7 +2688,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of TransactionPage</returns>
         public async System.Threading.Tasks.Task<TransactionPage> SearchPartialTransactionsAsync(string? address = default(string?), string? recipientAddress = default(string?), string? signerPublicKey = default(string?), string? height = default(string?), string? fromHeight = default(string?), string? toHeight = default(string?), string? fromTransferAmount = default(string?), string? toTransferAmount = default(string?), List<TransactionTypeEnum>? type = default(List<TransactionTypeEnum>?), bool? embedded = default(bool?), string? transferMosaicId = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<TransactionPage> localVarResponse = await SearchPartialTransactionsWithHttpInfoAsync(address, recipientAddress, signerPublicKey, height, fromHeight, toHeight, fromTransferAmount, toTransferAmount, type, embedded, transferMosaicId, pageSize, pageNumber, offset, order, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<TransactionPage> localVarResponse = await SearchPartialTransactionsWithHttpInfoAsync(address, recipientAddress, signerPublicKey, height, fromHeight, toHeight, fromTransferAmount, toTransferAmount, type, embedded, transferMosaicId, pageSize, pageNumber, offset, order, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2710,10 +2714,10 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionPage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TransactionPage>> SearchPartialTransactionsWithHttpInfoAsync(string? address = default(string?), string? recipientAddress = default(string?), string? signerPublicKey = default(string?), string? height = default(string?), string? fromHeight = default(string?), string? toHeight = default(string?), string? fromTransferAmount = default(string?), string? toTransferAmount = default(string?), List<TransactionTypeEnum>? type = default(List<TransactionTypeEnum>?), bool? embedded = default(bool?), string? transferMosaicId = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<TransactionPage>> SearchPartialTransactionsWithHttpInfoAsync(string? address = default(string?), string? recipientAddress = default(string?), string? signerPublicKey = default(string?), string? height = default(string?), string? fromHeight = default(string?), string? toHeight = default(string?), string? fromTransferAmount = default(string?), string? toTransferAmount = default(string?), List<TransactionTypeEnum>? type = default(List<TransactionTypeEnum>?), bool? embedded = default(bool?), string? transferMosaicId = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -2723,13 +2727,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -2737,63 +2741,63 @@ namespace SymbolRestClient.Api
 
             if (address != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "address", address));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "address", address));
             }
             if (recipientAddress != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "recipientAddress", recipientAddress));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "recipientAddress", recipientAddress));
             }
             if (signerPublicKey != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "signerPublicKey", signerPublicKey));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "signerPublicKey", signerPublicKey));
             }
             if (height != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "height", height));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "height", height));
             }
             if (fromHeight != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fromHeight", fromHeight));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "fromHeight", fromHeight));
             }
             if (toHeight != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toHeight", toHeight));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "toHeight", toHeight));
             }
             if (fromTransferAmount != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fromTransferAmount", fromTransferAmount));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "fromTransferAmount", fromTransferAmount));
             }
             if (toTransferAmount != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toTransferAmount", toTransferAmount));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "toTransferAmount", toTransferAmount));
             }
             if (type != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "type", type));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("multi", "type", type));
             }
             if (embedded != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "embedded", embedded));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "embedded", embedded));
             }
             if (transferMosaicId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "transferMosaicId", transferMosaicId));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "transferMosaicId", transferMosaicId));
             }
             if (pageSize != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
             }
             if (pageNumber != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
             }
             if (offset != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
             if (order != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "order", order));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "order", order));
             }
 
             localVarRequestOptions.Operation = "TransactionRoutesApi.SearchPartialTransactions";
@@ -2838,7 +2842,7 @@ namespace SymbolRestClient.Api
         /// <returns>TransactionPage</returns>
         public TransactionPage SearchUnconfirmedTransactions(string? address = default(string?), string? recipientAddress = default(string?), string? signerPublicKey = default(string?), string? height = default(string?), string? fromHeight = default(string?), string? toHeight = default(string?), string? fromTransferAmount = default(string?), string? toTransferAmount = default(string?), List<TransactionTypeEnum>? type = default(List<TransactionTypeEnum>?), bool? embedded = default(bool?), string? transferMosaicId = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0)
         {
-            ApiResponse<TransactionPage> localVarResponse = SearchUnconfirmedTransactionsWithHttpInfo(address, recipientAddress, signerPublicKey, height, fromHeight, toHeight, fromTransferAmount, toTransferAmount, type, embedded, transferMosaicId, pageSize, pageNumber, offset, order);
+            SymbolRestClient.Client.ApiResponse<TransactionPage> localVarResponse = SearchUnconfirmedTransactionsWithHttpInfo(address, recipientAddress, signerPublicKey, height, fromHeight, toHeight, fromTransferAmount, toTransferAmount, type, embedded, transferMosaicId, pageSize, pageNumber, offset, order);
             return localVarResponse.Data;
         }
 
@@ -2863,9 +2867,9 @@ namespace SymbolRestClient.Api
         /// <param name="order">Sort responses in ascending or descending order based on the collection property set on the param &#x60;&#x60;orderBy&#x60;&#x60;. If the request does not specify &#x60;&#x60;orderBy&#x60;&#x60;, REST returns the collection ordered by id.  (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TransactionPage</returns>
-        public ApiResponse<TransactionPage> SearchUnconfirmedTransactionsWithHttpInfo(string? address = default(string?), string? recipientAddress = default(string?), string? signerPublicKey = default(string?), string? height = default(string?), string? fromHeight = default(string?), string? toHeight = default(string?), string? fromTransferAmount = default(string?), string? toTransferAmount = default(string?), List<TransactionTypeEnum>? type = default(List<TransactionTypeEnum>?), bool? embedded = default(bool?), string? transferMosaicId = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<TransactionPage> SearchUnconfirmedTransactionsWithHttpInfo(string? address = default(string?), string? recipientAddress = default(string?), string? signerPublicKey = default(string?), string? height = default(string?), string? fromHeight = default(string?), string? toHeight = default(string?), string? fromTransferAmount = default(string?), string? toTransferAmount = default(string?), List<TransactionTypeEnum>? type = default(List<TransactionTypeEnum>?), bool? embedded = default(bool?), string? transferMosaicId = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0)
         {
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -2875,13 +2879,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -2889,63 +2893,63 @@ namespace SymbolRestClient.Api
 
             if (address != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "address", address));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "address", address));
             }
             if (recipientAddress != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "recipientAddress", recipientAddress));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "recipientAddress", recipientAddress));
             }
             if (signerPublicKey != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "signerPublicKey", signerPublicKey));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "signerPublicKey", signerPublicKey));
             }
             if (height != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "height", height));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "height", height));
             }
             if (fromHeight != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fromHeight", fromHeight));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "fromHeight", fromHeight));
             }
             if (toHeight != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toHeight", toHeight));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "toHeight", toHeight));
             }
             if (fromTransferAmount != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fromTransferAmount", fromTransferAmount));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "fromTransferAmount", fromTransferAmount));
             }
             if (toTransferAmount != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toTransferAmount", toTransferAmount));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "toTransferAmount", toTransferAmount));
             }
             if (type != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "type", type));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("multi", "type", type));
             }
             if (embedded != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "embedded", embedded));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "embedded", embedded));
             }
             if (transferMosaicId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "transferMosaicId", transferMosaicId));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "transferMosaicId", transferMosaicId));
             }
             if (pageSize != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
             }
             if (pageNumber != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
             }
             if (offset != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
             if (order != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "order", order));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "order", order));
             }
 
             localVarRequestOptions.Operation = "TransactionRoutesApi.SearchUnconfirmedTransactions";
@@ -2990,7 +2994,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of TransactionPage</returns>
         public async System.Threading.Tasks.Task<TransactionPage> SearchUnconfirmedTransactionsAsync(string? address = default(string?), string? recipientAddress = default(string?), string? signerPublicKey = default(string?), string? height = default(string?), string? fromHeight = default(string?), string? toHeight = default(string?), string? fromTransferAmount = default(string?), string? toTransferAmount = default(string?), List<TransactionTypeEnum>? type = default(List<TransactionTypeEnum>?), bool? embedded = default(bool?), string? transferMosaicId = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<TransactionPage> localVarResponse = await SearchUnconfirmedTransactionsWithHttpInfoAsync(address, recipientAddress, signerPublicKey, height, fromHeight, toHeight, fromTransferAmount, toTransferAmount, type, embedded, transferMosaicId, pageSize, pageNumber, offset, order, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<TransactionPage> localVarResponse = await SearchUnconfirmedTransactionsWithHttpInfoAsync(address, recipientAddress, signerPublicKey, height, fromHeight, toHeight, fromTransferAmount, toTransferAmount, type, embedded, transferMosaicId, pageSize, pageNumber, offset, order, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3016,10 +3020,10 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionPage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TransactionPage>> SearchUnconfirmedTransactionsWithHttpInfoAsync(string? address = default(string?), string? recipientAddress = default(string?), string? signerPublicKey = default(string?), string? height = default(string?), string? fromHeight = default(string?), string? toHeight = default(string?), string? fromTransferAmount = default(string?), string? toTransferAmount = default(string?), List<TransactionTypeEnum>? type = default(List<TransactionTypeEnum>?), bool? embedded = default(bool?), string? transferMosaicId = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<TransactionPage>> SearchUnconfirmedTransactionsWithHttpInfoAsync(string? address = default(string?), string? recipientAddress = default(string?), string? signerPublicKey = default(string?), string? height = default(string?), string? fromHeight = default(string?), string? toHeight = default(string?), string? fromTransferAmount = default(string?), string? toTransferAmount = default(string?), List<TransactionTypeEnum>? type = default(List<TransactionTypeEnum>?), bool? embedded = default(bool?), string? transferMosaicId = default(string?), int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -3029,13 +3033,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -3043,63 +3047,63 @@ namespace SymbolRestClient.Api
 
             if (address != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "address", address));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "address", address));
             }
             if (recipientAddress != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "recipientAddress", recipientAddress));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "recipientAddress", recipientAddress));
             }
             if (signerPublicKey != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "signerPublicKey", signerPublicKey));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "signerPublicKey", signerPublicKey));
             }
             if (height != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "height", height));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "height", height));
             }
             if (fromHeight != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fromHeight", fromHeight));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "fromHeight", fromHeight));
             }
             if (toHeight != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toHeight", toHeight));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "toHeight", toHeight));
             }
             if (fromTransferAmount != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fromTransferAmount", fromTransferAmount));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "fromTransferAmount", fromTransferAmount));
             }
             if (toTransferAmount != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toTransferAmount", toTransferAmount));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "toTransferAmount", toTransferAmount));
             }
             if (type != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "type", type));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("multi", "type", type));
             }
             if (embedded != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "embedded", embedded));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "embedded", embedded));
             }
             if (transferMosaicId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "transferMosaicId", transferMosaicId));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "transferMosaicId", transferMosaicId));
             }
             if (pageSize != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
             }
             if (pageNumber != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
             }
             if (offset != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
             if (order != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "order", order));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "order", order));
             }
 
             localVarRequestOptions.Operation = "TransactionRoutesApi.SearchUnconfirmedTransactions";

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.SecretLockEntryDTO
+# SymbolRestClient.Model.SecretLockEntryDTO
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MosaicDefinitionTransactionDTO
+# SymbolRestClient.Model.MosaicDefinitionTransactionDTO
 Transaction to create a new mosaic.
 
 ## Properties

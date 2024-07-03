@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MultisigDTO
+# SymbolRestClient.Model.MultisigDTO
 
 ## Properties
 

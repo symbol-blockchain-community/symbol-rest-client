@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.BlockMetaDTO
+# SymbolRestClient.Model.BlockMetaDTO
 
 ## Properties
 

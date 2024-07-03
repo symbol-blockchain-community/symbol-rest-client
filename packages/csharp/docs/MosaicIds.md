@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MosaicIds
+# SymbolRestClient.Model.MosaicIds
 
 ## Properties
 

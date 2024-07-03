@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.AccountRestrictionDTOValuesInner
+# SymbolRestClient.Model.AccountRestrictionDTOValuesInner
 
 ## Properties
 

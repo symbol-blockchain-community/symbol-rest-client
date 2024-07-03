@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.EmbeddedAddressAliasTransactionDTO
+# SymbolRestClient.Model.EmbeddedAddressAliasTransactionDTO
 
 ## Properties
 

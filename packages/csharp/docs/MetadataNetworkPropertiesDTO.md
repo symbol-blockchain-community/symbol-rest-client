@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MetadataNetworkPropertiesDTO
+# SymbolRestClient.Model.MetadataNetworkPropertiesDTO
 
 ## Properties
 

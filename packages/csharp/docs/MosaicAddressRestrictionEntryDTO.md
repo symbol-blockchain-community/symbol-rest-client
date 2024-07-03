@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MosaicAddressRestrictionEntryDTO
+# SymbolRestClient.Model.MosaicAddressRestrictionEntryDTO
 
 ## Properties
 

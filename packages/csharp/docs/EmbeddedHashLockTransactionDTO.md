@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.EmbeddedHashLockTransactionDTO
+# SymbolRestClient.Model.EmbeddedHashLockTransactionDTO
 
 ## Properties
 

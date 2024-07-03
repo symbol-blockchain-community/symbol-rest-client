@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.EntityDTO
+# SymbolRestClient.Model.EntityDTO
 
 ## Properties
 

@@ -10,6 +10,10 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Mime;
 using SymbolRestClient.Client;
 using SymbolRestClient.Model;
 
@@ -259,7 +263,7 @@ namespace SymbolRestClient.Api
     /// </summary>
     public partial class AccountRoutesApi : IAccountRoutesApi
     {
-        private ExceptionFactory _exceptionFactory = (name, response) => null;
+        private SymbolRestClient.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountRoutesApi"/> class.
@@ -276,11 +280,11 @@ namespace SymbolRestClient.Api
         public AccountRoutesApi(string basePath)
         {
             this.Configuration = SymbolRestClient.Client.Configuration.MergeConfigurations(
-                GlobalConfiguration.Instance,
-                new Configuration { BasePath = basePath }
+                SymbolRestClient.Client.GlobalConfiguration.Instance,
+                new SymbolRestClient.Client.Configuration { BasePath = basePath }
             );
-            this.Client = new ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new ApiClient(this.Configuration.BasePath);
+            this.Client = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
+            this.AsynchronousClient = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
             this.ExceptionFactory = SymbolRestClient.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -290,16 +294,16 @@ namespace SymbolRestClient.Api
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public AccountRoutesApi(Configuration configuration)
+        public AccountRoutesApi(SymbolRestClient.Client.Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Configuration = SymbolRestClient.Client.Configuration.MergeConfigurations(
-                GlobalConfiguration.Instance,
+                SymbolRestClient.Client.GlobalConfiguration.Instance,
                 configuration
             );
-            this.Client = new ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new ApiClient(this.Configuration.BasePath);
+            this.Client = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
+            this.AsynchronousClient = new SymbolRestClient.Client.ApiClient(this.Configuration.BasePath);
             ExceptionFactory = SymbolRestClient.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -310,7 +314,7 @@ namespace SymbolRestClient.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public AccountRoutesApi(ISynchronousClient client, IAsynchronousClient asyncClient, IReadableConfiguration configuration)
+        public AccountRoutesApi(SymbolRestClient.Client.ISynchronousClient client, SymbolRestClient.Client.IAsynchronousClient asyncClient, SymbolRestClient.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -325,12 +329,12 @@ namespace SymbolRestClient.Api
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
         /// </summary>
-        public IAsynchronousClient AsynchronousClient { get; set; }
+        public SymbolRestClient.Client.IAsynchronousClient AsynchronousClient { get; set; }
 
         /// <summary>
         /// The client for accessing this underlying API synchronously.
         /// </summary>
-        public ISynchronousClient Client { get; set; }
+        public SymbolRestClient.Client.ISynchronousClient Client { get; set; }
 
         /// <summary>
         /// Gets the base path of the API client.
@@ -345,12 +349,12 @@ namespace SymbolRestClient.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public IReadableConfiguration Configuration { get; set; }
+        public SymbolRestClient.Client.IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public ExceptionFactory ExceptionFactory
+        public SymbolRestClient.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -372,7 +376,7 @@ namespace SymbolRestClient.Api
         /// <returns>AccountInfoDTO</returns>
         public AccountInfoDTO GetAccountInfo(string accountId, int operationIndex = 0)
         {
-            ApiResponse<AccountInfoDTO> localVarResponse = GetAccountInfoWithHttpInfo(accountId);
+            SymbolRestClient.Client.ApiResponse<AccountInfoDTO> localVarResponse = GetAccountInfoWithHttpInfo(accountId);
             return localVarResponse.Data;
         }
 
@@ -383,15 +387,15 @@ namespace SymbolRestClient.Api
         /// <param name="accountId">Account public key or address encoded using a 32-character set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of AccountInfoDTO</returns>
-        public ApiResponse<AccountInfoDTO> GetAccountInfoWithHttpInfo(string accountId, int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<AccountInfoDTO> GetAccountInfoWithHttpInfo(string accountId, int operationIndex = 0)
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null)
             {
-                throw new ApiException(400, "Missing required parameter 'accountId' when calling AccountRoutesApi->GetAccountInfo");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'accountId' when calling AccountRoutesApi->GetAccountInfo");
             }
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -401,19 +405,19 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("accountId", ClientUtils.ParameterToString(accountId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("accountId", SymbolRestClient.Client.ClientUtils.ParameterToString(accountId)); // path parameter
 
             localVarRequestOptions.Operation = "AccountRoutesApi.GetAccountInfo";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -443,7 +447,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of AccountInfoDTO</returns>
         public async System.Threading.Tasks.Task<AccountInfoDTO> GetAccountInfoAsync(string accountId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<AccountInfoDTO> localVarResponse = await GetAccountInfoWithHttpInfoAsync(accountId, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<AccountInfoDTO> localVarResponse = await GetAccountInfoWithHttpInfoAsync(accountId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -455,16 +459,16 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountInfoDTO)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AccountInfoDTO>> GetAccountInfoWithHttpInfoAsync(string accountId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<AccountInfoDTO>> GetAccountInfoWithHttpInfoAsync(string accountId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null)
             {
-                throw new ApiException(400, "Missing required parameter 'accountId' when calling AccountRoutesApi->GetAccountInfo");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'accountId' when calling AccountRoutesApi->GetAccountInfo");
             }
 
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -474,19 +478,19 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("accountId", ClientUtils.ParameterToString(accountId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("accountId", SymbolRestClient.Client.ClientUtils.ParameterToString(accountId)); // path parameter
 
             localVarRequestOptions.Operation = "AccountRoutesApi.GetAccountInfo";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -516,7 +520,7 @@ namespace SymbolRestClient.Api
         /// <returns>MerkleStateInfoDTO</returns>
         public MerkleStateInfoDTO GetAccountInfoMerkle(string accountId, int operationIndex = 0)
         {
-            ApiResponse<MerkleStateInfoDTO> localVarResponse = GetAccountInfoMerkleWithHttpInfo(accountId);
+            SymbolRestClient.Client.ApiResponse<MerkleStateInfoDTO> localVarResponse = GetAccountInfoMerkleWithHttpInfo(accountId);
             return localVarResponse.Data;
         }
 
@@ -527,15 +531,15 @@ namespace SymbolRestClient.Api
         /// <param name="accountId">Account public key or address encoded using a 32-character set.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of MerkleStateInfoDTO</returns>
-        public ApiResponse<MerkleStateInfoDTO> GetAccountInfoMerkleWithHttpInfo(string accountId, int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<MerkleStateInfoDTO> GetAccountInfoMerkleWithHttpInfo(string accountId, int operationIndex = 0)
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null)
             {
-                throw new ApiException(400, "Missing required parameter 'accountId' when calling AccountRoutesApi->GetAccountInfoMerkle");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'accountId' when calling AccountRoutesApi->GetAccountInfoMerkle");
             }
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -545,19 +549,19 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("accountId", ClientUtils.ParameterToString(accountId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("accountId", SymbolRestClient.Client.ClientUtils.ParameterToString(accountId)); // path parameter
 
             localVarRequestOptions.Operation = "AccountRoutesApi.GetAccountInfoMerkle";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -587,7 +591,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of MerkleStateInfoDTO</returns>
         public async System.Threading.Tasks.Task<MerkleStateInfoDTO> GetAccountInfoMerkleAsync(string accountId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<MerkleStateInfoDTO> localVarResponse = await GetAccountInfoMerkleWithHttpInfoAsync(accountId, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<MerkleStateInfoDTO> localVarResponse = await GetAccountInfoMerkleWithHttpInfoAsync(accountId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -599,16 +603,16 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MerkleStateInfoDTO)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<MerkleStateInfoDTO>> GetAccountInfoMerkleWithHttpInfoAsync(string accountId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<MerkleStateInfoDTO>> GetAccountInfoMerkleWithHttpInfoAsync(string accountId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null)
             {
-                throw new ApiException(400, "Missing required parameter 'accountId' when calling AccountRoutesApi->GetAccountInfoMerkle");
+                throw new SymbolRestClient.Client.ApiException(400, "Missing required parameter 'accountId' when calling AccountRoutesApi->GetAccountInfoMerkle");
             }
 
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -618,19 +622,19 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("accountId", ClientUtils.ParameterToString(accountId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("accountId", SymbolRestClient.Client.ClientUtils.ParameterToString(accountId)); // path parameter
 
             localVarRequestOptions.Operation = "AccountRoutesApi.GetAccountInfoMerkle";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -660,7 +664,7 @@ namespace SymbolRestClient.Api
         /// <returns>List&lt;AccountInfoDTO&gt;</returns>
         public List<AccountInfoDTO> GetAccountsInfo(AccountIds? accountIds = default(AccountIds?), int operationIndex = 0)
         {
-            ApiResponse<List<AccountInfoDTO>> localVarResponse = GetAccountsInfoWithHttpInfo(accountIds);
+            SymbolRestClient.Client.ApiResponse<List<AccountInfoDTO>> localVarResponse = GetAccountsInfoWithHttpInfo(accountIds);
             return localVarResponse.Data;
         }
 
@@ -671,9 +675,9 @@ namespace SymbolRestClient.Api
         /// <param name="accountIds"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;AccountInfoDTO&gt;</returns>
-        public ApiResponse<List<AccountInfoDTO>> GetAccountsInfoWithHttpInfo(AccountIds? accountIds = default(AccountIds?), int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<List<AccountInfoDTO>> GetAccountsInfoWithHttpInfo(AccountIds? accountIds = default(AccountIds?), int operationIndex = 0)
         {
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
                 "application/json"
@@ -684,13 +688,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -726,7 +730,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of List&lt;AccountInfoDTO&gt;</returns>
         public async System.Threading.Tasks.Task<List<AccountInfoDTO>> GetAccountsInfoAsync(AccountIds? accountIds = default(AccountIds?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<List<AccountInfoDTO>> localVarResponse = await GetAccountsInfoWithHttpInfoAsync(accountIds, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<List<AccountInfoDTO>> localVarResponse = await GetAccountsInfoWithHttpInfoAsync(accountIds, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -738,10 +742,10 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;AccountInfoDTO&gt;)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<List<AccountInfoDTO>>> GetAccountsInfoWithHttpInfoAsync(AccountIds? accountIds = default(AccountIds?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<List<AccountInfoDTO>>> GetAccountsInfoWithHttpInfoAsync(AccountIds? accountIds = default(AccountIds?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
                 "application/json"
@@ -752,13 +756,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -799,7 +803,7 @@ namespace SymbolRestClient.Api
         /// <returns>AccountPage</returns>
         public AccountPage SearchAccounts(int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), AccountOrderByEnum? orderBy = default(AccountOrderByEnum?), string? mosaicId = default(string?), int operationIndex = 0)
         {
-            ApiResponse<AccountPage> localVarResponse = SearchAccountsWithHttpInfo(pageSize, pageNumber, offset, order, orderBy, mosaicId);
+            SymbolRestClient.Client.ApiResponse<AccountPage> localVarResponse = SearchAccountsWithHttpInfo(pageSize, pageNumber, offset, order, orderBy, mosaicId);
             return localVarResponse.Data;
         }
 
@@ -815,9 +819,9 @@ namespace SymbolRestClient.Api
         /// <param name="mosaicId">Filter by mosaic identifier. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of AccountPage</returns>
-        public ApiResponse<AccountPage> SearchAccountsWithHttpInfo(int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), AccountOrderByEnum? orderBy = default(AccountOrderByEnum?), string? mosaicId = default(string?), int operationIndex = 0)
+        public SymbolRestClient.Client.ApiResponse<AccountPage> SearchAccountsWithHttpInfo(int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), AccountOrderByEnum? orderBy = default(AccountOrderByEnum?), string? mosaicId = default(string?), int operationIndex = 0)
         {
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -827,13 +831,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -841,27 +845,27 @@ namespace SymbolRestClient.Api
 
             if (pageSize != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
             }
             if (pageNumber != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
             }
             if (offset != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
             if (order != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "order", order));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "order", order));
             }
             if (orderBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "orderBy", orderBy));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "orderBy", orderBy));
             }
             if (mosaicId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "mosaicId", mosaicId));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "mosaicId", mosaicId));
             }
 
             localVarRequestOptions.Operation = "AccountRoutesApi.SearchAccounts";
@@ -897,7 +901,7 @@ namespace SymbolRestClient.Api
         /// <returns>Task of AccountPage</returns>
         public async System.Threading.Tasks.Task<AccountPage> SearchAccountsAsync(int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), AccountOrderByEnum? orderBy = default(AccountOrderByEnum?), string? mosaicId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ApiResponse<AccountPage> localVarResponse = await SearchAccountsWithHttpInfoAsync(pageSize, pageNumber, offset, order, orderBy, mosaicId, operationIndex, cancellationToken).ConfigureAwait(false);
+            SymbolRestClient.Client.ApiResponse<AccountPage> localVarResponse = await SearchAccountsWithHttpInfoAsync(pageSize, pageNumber, offset, order, orderBy, mosaicId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -914,10 +918,10 @@ namespace SymbolRestClient.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountPage)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AccountPage>> SearchAccountsWithHttpInfoAsync(int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), AccountOrderByEnum? orderBy = default(AccountOrderByEnum?), string? mosaicId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SymbolRestClient.Client.ApiResponse<AccountPage>> SearchAccountsWithHttpInfoAsync(int? pageSize = default(int?), int? pageNumber = default(int?), string? offset = default(string?), Order? order = default(Order?), AccountOrderByEnum? orderBy = default(AccountOrderByEnum?), string? mosaicId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
-            RequestOptions localVarRequestOptions = new RequestOptions();
+            SymbolRestClient.Client.RequestOptions localVarRequestOptions = new SymbolRestClient.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
@@ -927,13 +931,13 @@ namespace SymbolRestClient.Api
                 "application/json"
             };
 
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarContentType = SymbolRestClient.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
             }
 
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = SymbolRestClient.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
@@ -941,27 +945,27 @@ namespace SymbolRestClient.Api
 
             if (pageSize != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
             }
             if (pageNumber != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
             }
             if (offset != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
             if (order != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "order", order));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "order", order));
             }
             if (orderBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "orderBy", orderBy));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "orderBy", orderBy));
             }
             if (mosaicId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "mosaicId", mosaicId));
+                localVarRequestOptions.QueryParameters.Add(SymbolRestClient.Client.ClientUtils.ParameterToMultiMap("", "mosaicId", mosaicId));
             }
 
             localVarRequestOptions.Operation = "AccountRoutesApi.SearchAccounts";

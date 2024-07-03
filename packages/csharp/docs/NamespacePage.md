@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.NamespacePage
+# SymbolRestClient.Model.NamespacePage
 
 ## Properties
 

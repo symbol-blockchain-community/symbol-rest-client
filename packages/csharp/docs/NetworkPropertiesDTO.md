@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.NetworkPropertiesDTO
+# SymbolRestClient.Model.NetworkPropertiesDTO
 Network related configuration properties.
 
 ## Properties

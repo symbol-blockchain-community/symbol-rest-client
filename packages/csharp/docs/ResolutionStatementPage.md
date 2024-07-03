@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.ResolutionStatementPage
+# SymbolRestClient.Model.ResolutionStatementPage
 
 ## Properties
 

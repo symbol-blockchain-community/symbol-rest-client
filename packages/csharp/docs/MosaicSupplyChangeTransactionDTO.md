@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MosaicSupplyChangeTransactionDTO
+# SymbolRestClient.Model.MosaicSupplyChangeTransactionDTO
 Transaction to increase or decrease the supply of a mosaic.
 
 ## Properties

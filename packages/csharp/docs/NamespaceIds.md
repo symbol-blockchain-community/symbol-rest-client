@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.NamespaceIds
+# SymbolRestClient.Model.NamespaceIds
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.AccountLinkVotingKeysDTO
+# SymbolRestClient.Model.AccountLinkVotingKeysDTO
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.VotingKeyLinkTransactionDTO
+# SymbolRestClient.Model.VotingKeyLinkTransactionDTO
 Transaction to associate a BLS public key with an account. Required for node operators willing to vote finalized blocks. 
 
 ## Properties

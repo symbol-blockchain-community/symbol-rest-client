@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.AggregateTransactionBodyExtendedDTO
+# SymbolRestClient.Model.AggregateTransactionBodyExtendedDTO
 
 ## Properties
 

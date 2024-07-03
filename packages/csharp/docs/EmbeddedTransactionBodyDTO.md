@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.EmbeddedTransactionBodyDTO
+# SymbolRestClient.Model.EmbeddedTransactionBodyDTO
 
 ## Properties
 

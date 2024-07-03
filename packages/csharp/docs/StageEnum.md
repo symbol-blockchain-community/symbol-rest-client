@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.StageEnum
+# SymbolRestClient.Model.StageEnum
 Type of stage: * 0 - Prevote. * 1 - Precommit. * 2 - Count. 
 
 ## Properties

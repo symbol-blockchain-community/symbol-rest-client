@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.SecretLockTransactionDTO
+# SymbolRestClient.Model.SecretLockTransactionDTO
 Transaction to sends mosaics to a recipient if the proof used is revealed. If the duration is reached, the locked funds go back to the sender of the transaction.
 
 ## Properties

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MosaicRestrictionNetworkPropertiesDTO
+# SymbolRestClient.Model.MosaicRestrictionNetworkPropertiesDTO
 
 ## Properties
 

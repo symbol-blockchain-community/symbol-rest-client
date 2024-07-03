@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.TransactionStatementDTO
+# SymbolRestClient.Model.TransactionStatementDTO
 
 ## Properties
 

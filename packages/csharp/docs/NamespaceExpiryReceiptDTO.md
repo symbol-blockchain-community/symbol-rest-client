@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.NamespaceExpiryReceiptDTO
+# SymbolRestClient.Model.NamespaceExpiryReceiptDTO
 Receipt stored when a namespace expires.
 
 ## Properties

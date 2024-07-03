@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.SourceDTO
+# SymbolRestClient.Model.SourceDTO
 Transaction that triggered the receipt.
 
 ## Properties

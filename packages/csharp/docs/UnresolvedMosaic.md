@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.UnresolvedMosaic
+# SymbolRestClient.Model.UnresolvedMosaic
 
 ## Properties
 

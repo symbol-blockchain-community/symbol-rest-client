@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.NodeStatusEnum
+# SymbolRestClient.Model.NodeStatusEnum
 
 ## Properties
 

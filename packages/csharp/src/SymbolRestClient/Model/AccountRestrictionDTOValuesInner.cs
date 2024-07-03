@@ -9,13 +9,20 @@
 
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using OpenAPIDateConverter = SymbolRestClient.Client.OpenAPIDateConverter;
+using System.Reflection;
 
 namespace SymbolRestClient.Model
 {
@@ -34,7 +41,7 @@ namespace SymbolRestClient.Model
         public AccountRestrictionDTOValuesInner(string actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType = "anyOf";
+            this.SchemaType= "anyOf";
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
@@ -46,8 +53,8 @@ namespace SymbolRestClient.Model
         public AccountRestrictionDTOValuesInner(TransactionTypeEnum actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType = "anyOf";
-            this.ActualInstance = actualInstance;
+            this.SchemaType= "anyOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
 
@@ -200,7 +207,7 @@ namespace SymbolRestClient.Model
         /// <returns>The object converted from the JSON string</returns>
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            if (reader.TokenType != JsonToken.Null)
+            if(reader.TokenType != JsonToken.Null)
             {
                 return AccountRestrictionDTOValuesInner.FromJson(JObject.Load(reader).ToString(Formatting.None));
             }

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.AccountAddressRestrictionTransactionBodyDTO
+# SymbolRestClient.Model.AccountAddressRestrictionTransactionBodyDTO
 
 ## Properties
 

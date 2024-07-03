@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MosaicMetadataTransactionDTO
+# SymbolRestClient.Model.MosaicMetadataTransactionDTO
 Transaction to create or modify a multisig account.
 
 ## Properties

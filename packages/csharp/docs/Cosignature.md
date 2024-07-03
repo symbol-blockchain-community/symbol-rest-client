@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.Cosignature
+# SymbolRestClient.Model.Cosignature
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Api.ChainRoutesApi
+# SymbolRestClient.Api.ChainRoutesApi
 
 All URIs are relative to *http://localhost:3000*
 
@@ -18,9 +18,9 @@ Returns the current information of the blockchain.  The higher the score, the be
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using SymbolRestClient.Api;
+using SymbolRestClient.Client;
+using SymbolRestClient.Model;
 
 namespace Example
 {

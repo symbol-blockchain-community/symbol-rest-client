@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.RentalFeesDTO
+# SymbolRestClient.Model.RentalFeesDTO
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.SecretProofTransactionBodyDTO
+# SymbolRestClient.Model.SecretProofTransactionBodyDTO
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.InflationReceiptDTO
+# SymbolRestClient.Model.InflationReceiptDTO
 Receipt stored when network currency mosaics were created due to inflation.
 
 ## Properties

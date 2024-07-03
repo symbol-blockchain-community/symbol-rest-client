@@ -8,6 +8,9 @@
  */
 
 
+using System;
+using System.IO;
+
 namespace SymbolRestClient.Client
 {
     /// <summary>

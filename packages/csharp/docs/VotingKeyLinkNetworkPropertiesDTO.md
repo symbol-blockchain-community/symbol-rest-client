@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.VotingKeyLinkNetworkPropertiesDTO
+# SymbolRestClient.Model.VotingKeyLinkNetworkPropertiesDTO
 
 ## Properties
 

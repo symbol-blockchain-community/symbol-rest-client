@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MessageGroup
+# SymbolRestClient.Model.MessageGroup
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MosaicNetworkPropertiesDTO
+# SymbolRestClient.Model.MosaicNetworkPropertiesDTO
 
 ## Properties
 

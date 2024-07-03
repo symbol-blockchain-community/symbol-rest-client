@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.EmbeddedAccountOperationRestrictionTransactionDTO
+# SymbolRestClient.Model.EmbeddedAccountOperationRestrictionTransactionDTO
 
 ## Properties
 

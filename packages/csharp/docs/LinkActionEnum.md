@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.LinkActionEnum
+# SymbolRestClient.Model.LinkActionEnum
 Type of action: * 0 - Unlink. * 1 - Link. 
 
 ## Properties

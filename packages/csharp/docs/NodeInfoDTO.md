@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.NodeInfoDTO
+# SymbolRestClient.Model.NodeInfoDTO
 
 ## Properties
 

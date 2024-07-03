@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.NamespaceMetaDTO
+# SymbolRestClient.Model.NamespaceMetaDTO
 
 ## Properties
 

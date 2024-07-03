@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.AccountOperationRestrictionTransactionDTO
+# SymbolRestClient.Model.AccountOperationRestrictionTransactionDTO
 Transaction to prevent outgoing transactions by transaction type.
 
 ## Properties

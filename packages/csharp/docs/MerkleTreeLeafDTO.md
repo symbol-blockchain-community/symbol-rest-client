@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MerkleTreeLeafDTO
+# SymbolRestClient.Model.MerkleTreeLeafDTO
 Merkle tree leaf node.
 
 ## Properties

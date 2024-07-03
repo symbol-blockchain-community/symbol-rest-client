@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.AccountOrderByEnum
+# SymbolRestClient.Model.AccountOrderByEnum
 
 ## Properties
 

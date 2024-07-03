@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.NodeIdentityEqualityStrategy
+# SymbolRestClient.Model.NodeIdentityEqualityStrategy
 Node equality strategy. Defines if the identifier for the node must be its public key or host. 
 
 ## Properties

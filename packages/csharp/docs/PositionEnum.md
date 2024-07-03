@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.PositionEnum
+# SymbolRestClient.Model.PositionEnum
 Position relative to the proofHash being evaluated.
 
 ## Properties

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.AccountMosaicRestrictionTransactionDTO
+# SymbolRestClient.Model.AccountMosaicRestrictionTransactionDTO
 Transaction to prevent incoming transactions containing a given set of mosaics.
 
 ## Properties

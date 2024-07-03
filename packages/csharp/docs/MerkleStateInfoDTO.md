@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MerkleStateInfoDTO
+# SymbolRestClient.Model.MerkleStateInfoDTO
 The merkle path information clients can use to proof the state of the given entity. 
 
 ## Properties

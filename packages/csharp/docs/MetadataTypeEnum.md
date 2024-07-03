@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MetadataTypeEnum
+# SymbolRestClient.Model.MetadataTypeEnum
 Metadata type: * 0 - Account. * 1 - Mosaic. * 2 - Namespace. 
 
 ## Properties

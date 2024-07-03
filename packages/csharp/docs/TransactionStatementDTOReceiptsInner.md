@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.TransactionStatementDTOReceiptsInner
+# SymbolRestClient.Model.TransactionStatementDTOReceiptsInner
 
 ## Properties
 

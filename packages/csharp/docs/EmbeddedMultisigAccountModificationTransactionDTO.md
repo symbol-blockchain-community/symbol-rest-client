@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.EmbeddedMultisigAccountModificationTransactionDTO
+# SymbolRestClient.Model.EmbeddedMultisigAccountModificationTransactionDTO
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MultisigAccountModificationTransactionDTO
+# SymbolRestClient.Model.MultisigAccountModificationTransactionDTO
 Transaction to create or modify a multisig account.
 
 ## Properties

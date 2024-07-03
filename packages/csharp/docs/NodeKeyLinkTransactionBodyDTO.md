@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.NodeKeyLinkTransactionBodyDTO
+# SymbolRestClient.Model.NodeKeyLinkTransactionBodyDTO
 
 ## Properties
 

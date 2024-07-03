@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MosaicAddressRestrictionTransactionBodyDTO
+# SymbolRestClient.Model.MosaicAddressRestrictionTransactionBodyDTO
 
 ## Properties
 

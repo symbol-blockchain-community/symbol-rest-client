@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.TransferTransactionDTO
+# SymbolRestClient.Model.TransferTransactionDTO
 Transaction to transfer mosaics and a message to another account.
 
 ## Properties

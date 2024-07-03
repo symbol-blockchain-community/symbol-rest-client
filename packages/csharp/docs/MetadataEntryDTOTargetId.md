@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MetadataEntryDTOTargetId
+# SymbolRestClient.Model.MetadataEntryDTOTargetId
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MosaicSupplyChangeTransactionBodyDTO
+# SymbolRestClient.Model.MosaicSupplyChangeTransactionBodyDTO
 
 ## Properties
 

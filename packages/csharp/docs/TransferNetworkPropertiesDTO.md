@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.TransferNetworkPropertiesDTO
+# SymbolRestClient.Model.TransferNetworkPropertiesDTO
 
 ## Properties
 

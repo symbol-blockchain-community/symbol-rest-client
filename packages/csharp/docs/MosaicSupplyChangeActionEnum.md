@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MosaicSupplyChangeActionEnum
+# SymbolRestClient.Model.MosaicSupplyChangeActionEnum
 Direction of the supply change: * 0  - Decrease. * 1  - Increase. 
 
 ## Properties

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.AccountKeyLinkTransactionBodyDTO
+# SymbolRestClient.Model.AccountKeyLinkTransactionBodyDTO
 
 ## Properties
 

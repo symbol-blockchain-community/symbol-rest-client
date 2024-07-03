@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MetadataEntryDTO
+# SymbolRestClient.Model.MetadataEntryDTO
 
 ## Properties
 

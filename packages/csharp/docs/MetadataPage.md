@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MetadataPage
+# SymbolRestClient.Model.MetadataPage
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.MosaicPage
+# SymbolRestClient.Model.MosaicPage
 
 ## Properties
 

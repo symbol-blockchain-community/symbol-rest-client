@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.EmbeddedMosaicSupplyRevocationTransactionDTO
+# SymbolRestClient.Model.EmbeddedMosaicSupplyRevocationTransactionDTO
 
 ## Properties
 

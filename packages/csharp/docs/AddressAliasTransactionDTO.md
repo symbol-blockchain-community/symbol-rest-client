@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.AddressAliasTransactionDTO
+# SymbolRestClient.Model.AddressAliasTransactionDTO
 Transaction to link a namespace to an account.
 
 ## Properties

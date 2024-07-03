@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.BlockOrderByEnum
+# SymbolRestClient.Model.BlockOrderByEnum
 
 ## Properties
 

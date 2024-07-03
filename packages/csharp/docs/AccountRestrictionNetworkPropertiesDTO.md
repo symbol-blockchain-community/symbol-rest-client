@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.AccountRestrictionNetworkPropertiesDTO
+# SymbolRestClient.Model.AccountRestrictionNetworkPropertiesDTO
 
 ## Properties
 

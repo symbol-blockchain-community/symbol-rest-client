@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.TransactionHashes
+# SymbolRestClient.Model.TransactionHashes
 
 ## Properties
 

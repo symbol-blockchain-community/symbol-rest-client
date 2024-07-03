@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.VerifiableEntityDTO
+# SymbolRestClient.Model.VerifiableEntityDTO
 
 ## Properties
 

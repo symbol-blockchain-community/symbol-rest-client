@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.EmbeddedVotingKeyLinkTransactionDTO
+# SymbolRestClient.Model.EmbeddedVotingKeyLinkTransactionDTO
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.NodeHealthDTO
+# SymbolRestClient.Model.NodeHealthDTO
 
 ## Properties
 

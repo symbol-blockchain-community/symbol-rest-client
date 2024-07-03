@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.AliasActionEnum
+# SymbolRestClient.Model.AliasActionEnum
 Alias action: * 0 - Unlink alias. * 1 - Link alias. 
 
 ## Properties

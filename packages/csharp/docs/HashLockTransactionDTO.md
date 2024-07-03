@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.HashLockTransactionDTO
+# SymbolRestClient.Model.HashLockTransactionDTO
 Transaction to lock funds before sending an aggregate bonded transaction.
 
 ## Properties

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.EmbeddedAccountMosaicRestrictionTransactionDTO
+# SymbolRestClient.Model.EmbeddedAccountMosaicRestrictionTransactionDTO
 
 ## Properties
 

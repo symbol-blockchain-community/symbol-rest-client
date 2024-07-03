@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.EmbeddedMosaicMetadataTransactionDTO
+# SymbolRestClient.Model.EmbeddedMosaicMetadataTransactionDTO
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.NamespaceMetadataTransactionBodyDTO
+# SymbolRestClient.Model.NamespaceMetadataTransactionBodyDTO
 
 ## Properties
 

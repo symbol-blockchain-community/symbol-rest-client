@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.ImportanceBlockDTO
+# SymbolRestClient.Model.ImportanceBlockDTO
 
 ## Properties
 

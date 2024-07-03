@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.TransactionInfoDTOMeta
+# SymbolRestClient.Model.TransactionInfoDTOMeta
 
 ## Properties
 

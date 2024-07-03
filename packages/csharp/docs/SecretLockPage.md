@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.SecretLockPage
+# SymbolRestClient.Model.SecretLockPage
 
 ## Properties
 

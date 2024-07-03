@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.BalanceChangeReceiptDTO
+# SymbolRestClient.Model.BalanceChangeReceiptDTO
 Receipt stored when a state change modified an account balance.
 
 ## Properties

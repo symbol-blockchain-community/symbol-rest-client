@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.ActivityBucketDTO
+# SymbolRestClient.Model.ActivityBucketDTO
 Supplementary data stored for importance recalculation. At each importance recalculation, existing buckets are shifted, the working bucket is finalized and a new working bucket is created. Each bucket influences at most five importance recalculations. 
 
 ## Properties

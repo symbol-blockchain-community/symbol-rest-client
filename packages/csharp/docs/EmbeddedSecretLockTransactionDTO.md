@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.EmbeddedSecretLockTransactionDTO
+# SymbolRestClient.Model.EmbeddedSecretLockTransactionDTO
 
 ## Properties
 

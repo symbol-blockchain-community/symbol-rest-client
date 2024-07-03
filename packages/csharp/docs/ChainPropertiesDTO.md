@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.ChainPropertiesDTO
+# SymbolRestClient.Model.ChainPropertiesDTO
 Chain related configuration properties.
 
 ## Properties

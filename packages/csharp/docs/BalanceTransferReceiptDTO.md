@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.BalanceTransferReceiptDTO
+# SymbolRestClient.Model.BalanceTransferReceiptDTO
 Receipt stored when a state change that triggered a mosaic transfer.
 
 ## Properties
