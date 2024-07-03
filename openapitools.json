@@ -61,6 +61,12 @@
         "inputSpec": "schema/1_0_4.yml",
         "globalProperty": {
           "skipFormModel": false
+        },
+        "additionalProperties": {
+          "packageName": "SymbolRestClient",
+          "apiNamespace": "SymbolRestClient.Api",
+          "modelNamespace": "SymbolRestClient.Model",
+          "invokerNamespace": "SymbolRestClient.Client"
         }
       },
       "typescript": {
@@ -70,6 +76,14 @@
         "inputSpec": "schema/1_0_4.yml",
         "globalProperty": {
           "skipFormModel": false
+        }
+      },
+      "php": {
+        "generatorName": "php",
+        "output": "packages/php",
+        "inputSpec": "schema/1_0_4.yml",
+        "additionalProperties": {
+          "invokerPackage": "SymbolRestClient"
         }
       }
     }

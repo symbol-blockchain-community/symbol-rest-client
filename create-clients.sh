@@ -16,5 +16,6 @@ rm -rf $dir/packages/javascript/src
 rm -rf $dir/packages/kotlin
 rm -rf $dir/packages/python
 rm -rf $dir/packages/swift
+rm -rf $dir/packages/php
 
 node_modules/@openapitools/openapi-generator-cli/main.js generate
