@@ -8,12 +8,15 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
 // tests for AccountRestrictionDTOValuesInner
 void main() {
   // final instance = AccountRestrictionDTOValuesInner();
 
-  group('test AccountRestrictionDTOValuesInner', () {});
+  group('test AccountRestrictionDTOValuesInner', () {
+
+  });
+
 }

@@ -8,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
 // tests for EmbeddedMultisigAccountModificationTransactionDTO
@@ -38,13 +38,13 @@ void main() {
       // TODO
     });
 
-    // Number of signatures needed to remove a cosignatory. If we are modifying an existing multisig account, this indicates the relative change of the minimum cosignatories.
+    // Number of signatures needed to remove a cosignatory. If we are modifying an existing multisig account, this indicates the relative change of the minimum cosignatories. 
     // int minRemovalDelta
     test('to test the property `minRemovalDelta`', () async {
       // TODO
     });
 
-    // Number of signatures needed to approve a transaction. If we are modifying an existing multisig account, this indicates the relative change of the minimum cosignatories.
+    // Number of signatures needed to approve a transaction. If we are modifying an existing multisig account, this indicates the relative change of the minimum cosignatories. 
     // int minApprovalDelta
     test('to test the property `minApprovalDelta`', () async {
       // TODO
@@ -61,5 +61,8 @@ void main() {
     test('to test the property `addressDeletions`', () async {
       // TODO
     });
+
+
   });
+
 }

@@ -2,7 +2,7 @@
 
 ## Load the API package
 ```dart
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 ```
 
 All URIs are relative to *http://localhost:3000*
@@ -23,7 +23,7 @@ Returns the mosaic restrictions for a composite hash.
 
 ### Example
 ```dart
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 
 final api_instance = RestrictionMosaicRoutesApi();
 final compositeHash = compositeHash_example; // String | Filter by composite hash.
@@ -66,7 +66,7 @@ Returns the mosaic restrictions merkle for a given composite hash.
 
 ### Example
 ```dart
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 
 final api_instance = RestrictionMosaicRoutesApi();
 final compositeHash = compositeHash_example; // String | Filter by composite hash.
@@ -109,7 +109,7 @@ Returns an array of mosaic restrictions.
 
 ### Example
 ```dart
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 
 final api_instance = RestrictionMosaicRoutesApi();
 final mosaicId = mosaicId_example; // String | Filter by mosaic identifier.

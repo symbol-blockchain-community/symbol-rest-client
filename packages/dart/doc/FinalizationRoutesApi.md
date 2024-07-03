@@ -2,7 +2,7 @@
 
 ## Load the API package
 ```dart
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 ```
 
 All URIs are relative to *http://localhost:3000*
@@ -22,7 +22,7 @@ Gets finalization proof for the greatest height associated with the given epoch.
 
 ### Example
 ```dart
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 
 final api_instance = FinalizationRoutesApi();
 final epoch = 789; // int | Finalization epoch.
@@ -65,7 +65,7 @@ Gets finalization proof at the given height.
 
 ### Example
 ```dart
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 
 final api_instance = FinalizationRoutesApi();
 final height = height_example; // String | Block height.

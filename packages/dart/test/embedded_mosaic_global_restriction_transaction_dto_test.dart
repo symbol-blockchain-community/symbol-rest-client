@@ -8,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
 // tests for EmbeddedMosaicGlobalRestrictionTransactionDTO
@@ -38,13 +38,13 @@ void main() {
       // TODO
     });
 
-    // Mosaic identifier. If the most significant bit of byte 0 is set, a namespaceId (alias) is used instead of the real mosaic identifier.
+    // Mosaic identifier. If the most significant bit of byte 0 is set, a namespaceId (alias) is used instead of the real mosaic identifier. 
     // String mosaicId
     test('to test the property `mosaicId`', () async {
       // TODO
     });
 
-    // Mosaic identifier. If the most significant bit of byte 0 is set, a namespaceId (alias) is used instead of the real mosaic identifier.
+    // Mosaic identifier. If the most significant bit of byte 0 is set, a namespaceId (alias) is used instead of the real mosaic identifier. 
     // String referenceMosaicId
     test('to test the property `referenceMosaicId`', () async {
       // TODO
@@ -77,5 +77,8 @@ void main() {
     test('to test the property `newRestrictionType`', () async {
       // TODO
     });
+
+
   });
+
 }

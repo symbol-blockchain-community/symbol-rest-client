@@ -37,7 +37,7 @@ TODO
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```dart
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 
 
 final api_instance = AccountRoutesApi();

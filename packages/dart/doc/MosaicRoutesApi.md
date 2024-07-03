@@ -2,7 +2,7 @@
 
 ## Load the API package
 ```dart
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 ```
 
 All URIs are relative to *http://localhost:3000*
@@ -24,7 +24,7 @@ Gets the mosaic definition for a given mosaic identifier.
 
 ### Example
 ```dart
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 
 final api_instance = MosaicRoutesApi();
 final mosaicId = mosaicId_example; // String | Mosaic identifier.
@@ -67,7 +67,7 @@ Gets the mosaic definition merkle for a given mosaic identifier.
 
 ### Example
 ```dart
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 
 final api_instance = MosaicRoutesApi();
 final mosaicId = mosaicId_example; // String | Mosaic identifier.
@@ -110,7 +110,7 @@ Gets an array of mosaic definition.
 
 ### Example
 ```dart
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 
 final api_instance = MosaicRoutesApi();
 final mosaicIds = MosaicIds(); // MosaicIds | 
@@ -153,7 +153,7 @@ Gets an array of mosaics.
 
 ### Example
 ```dart
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 
 final api_instance = MosaicRoutesApi();
 final ownerAddress = ownerAddress_example; // String | Filter by owner address.

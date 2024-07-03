@@ -2,7 +2,7 @@
 
 ## Load the API package
 ```dart
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 ```
 
 All URIs are relative to *http://localhost:3000*
@@ -23,7 +23,7 @@ Gets the hash lock for a given composite hash.
 
 ### Example
 ```dart
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 
 final api_instance = SecretLockRoutesApi();
 final compositeHash = compositeHash_example; // String | Filter by composite hash.
@@ -66,7 +66,7 @@ Gets the hash lock merkle for a given composite hash.
 
 ### Example
 ```dart
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 
 final api_instance = SecretLockRoutesApi();
 final compositeHash = compositeHash_example; // String | Filter by composite hash.
@@ -109,7 +109,7 @@ Returns an array of secret locks.
 
 ### Example
 ```dart
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 
 final api_instance = SecretLockRoutesApi();
 final address = address_example; // String | Filter by address involved in the transaction. An account's address is considered to be involved in the transaction when the account is the sender, recipient, or it is required to cosign the transaction. This filter cannot be combined with ``recipientAddress`` and ``signerPublicKey`` query params. 

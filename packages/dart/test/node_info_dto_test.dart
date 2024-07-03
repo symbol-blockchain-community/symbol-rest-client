@@ -8,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
 // tests for NodeInfoDTO
@@ -33,7 +33,7 @@ void main() {
       // TODO
     });
 
-    // A number that defines the different roles the node provides. Possible roles are: * 1 - Peer node. * 2 - Api node. * 4 - Voting node. * 64 - IPv4 compatible node * 128 - IPv6 compatible node.  The values are bitwise added together, Examples: 1 = Just Peer. 2 = Just Api. 3 = Peer and Api node. 7 = Peer, Api and Voting node. 65 = IPv4 and Peer node.
+    // A number that defines the different roles the node provides. Possible roles are: * 1 - Peer node. * 2 - Api node. * 4 - Voting node. * 64 - IPv4 compatible node * 128 - IPv6 compatible node.  The values are bitwise added together, Examples: 1 = Just Peer. 2 = Just Api. 3 = Peer and Api node. 7 = Peer, Api and Voting node. 65 = IPv4 and Peer node. 
     // int roles
     test('to test the property `roles`', () async {
       // TODO
@@ -67,5 +67,8 @@ void main() {
     test('to test the property `nodePublicKey`', () async {
       // TODO
     });
+
+
   });
+
 }

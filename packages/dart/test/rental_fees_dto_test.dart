@@ -8,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
 // tests for RentalFeesDTO
@@ -18,8 +18,7 @@ void main() {
   group('test RentalFeesDTO', () {
     // Absolute amount. An amount of 123456789 (absolute) for a mosaic with divisibility 6 means 123.456789 (relative).
     // String effectiveRootNamespaceRentalFeePerBlock
-    test('to test the property `effectiveRootNamespaceRentalFeePerBlock`',
-        () async {
+    test('to test the property `effectiveRootNamespaceRentalFeePerBlock`', () async {
       // TODO
     });
 
@@ -34,5 +33,8 @@ void main() {
     test('to test the property `effectiveMosaicRentalFee`', () async {
       // TODO
     });
+
+
   });
+
 }

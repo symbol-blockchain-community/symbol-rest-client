@@ -2,7 +2,7 @@
 
 ## Load the API package
 ```dart
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 ```
 
 All URIs are relative to *http://localhost:3000*
@@ -24,7 +24,7 @@ Returns the account information.
 
 ### Example
 ```dart
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 
 final api_instance = AccountRoutesApi();
 final accountId = accountId_example; // String | Account public key or address encoded using a 32-character set.
@@ -67,7 +67,7 @@ Returns the account merkle information.
 
 ### Example
 ```dart
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 
 final api_instance = AccountRoutesApi();
 final accountId = accountId_example; // String | Account public key or address encoded using a 32-character set.
@@ -110,7 +110,7 @@ Returns the account information for an array of accounts.
 
 ### Example
 ```dart
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 
 final api_instance = AccountRoutesApi();
 final accountIds = AccountIds(); // AccountIds | 
@@ -153,7 +153,7 @@ Gets an array of accounts.
 
 ### Example
 ```dart
-import 'package:symbol_rest_client/api.dart';
+import 'package:openapi/api.dart';
 
 final api_instance = AccountRoutesApi();
 final pageSize = 56; // int | Select the number of entries to return.
