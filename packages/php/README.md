@@ -2,6 +2,7 @@
 
 OpenAPI Specification of catapult-rest
 
+
 ## Installation & Usage
 
 ### Requirements
@@ -46,11 +47,14 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$config = new Configuration();
-$config->setHost('http://NODE_URL:3000');
-$client = new GuzzleHttp\Client();
-$apiInstance = new TransactionRoutesApi($client, $config);
 
+
+
+$apiInstance = new SymbolRestClient\Api\AccountRoutesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
 $account_id = 'account_id_example'; // string | Account public key or address encoded using a 32-character set.
 
 try {
@@ -64,77 +68,77 @@ try {
 
 ## API Endpoints
 
-All URIs are relative to _http://localhost:3000_
+All URIs are relative to *http://localhost:3000*
 
-| Class                         | Method                                                                                                   | HTTP request                                        | Description                                                        |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------- | --------------------------------------------------- | ------------------------------------------------------------------ |
-| _AccountRoutesApi_            | [**getAccountInfo**](docs/Api/AccountRoutesApi.md#getaccountinfo)                                        | **GET** /accounts/{accountId}                       | Get account information                                            |
-| _AccountRoutesApi_            | [**getAccountInfoMerkle**](docs/Api/AccountRoutesApi.md#getaccountinfomerkle)                            | **GET** /accounts/{accountId}/merkle                | Get account merkle information                                     |
-| _AccountRoutesApi_            | [**getAccountsInfo**](docs/Api/AccountRoutesApi.md#getaccountsinfo)                                      | **POST** /accounts                                  | Get accounts information                                           |
-| _AccountRoutesApi_            | [**searchAccounts**](docs/Api/AccountRoutesApi.md#searchaccounts)                                        | **GET** /accounts                                   | Search accounts                                                    |
-| _BlockRoutesApi_              | [**getBlockByHeight**](docs/Api/BlockRoutesApi.md#getblockbyheight)                                      | **GET** /blocks/{height}                            | Get block information                                              |
-| _BlockRoutesApi_              | [**getMerkleReceipts**](docs/Api/BlockRoutesApi.md#getmerklereceipts)                                    | **GET** /blocks/{height}/statements/{hash}/merkle   | Get the merkle path for a given a receipt statement hash and block |
-| _BlockRoutesApi_              | [**getMerkleTransaction**](docs/Api/BlockRoutesApi.md#getmerkletransaction)                              | **GET** /blocks/{height}/transactions/{hash}/merkle | Get the merkle path for a given a transaction and block            |
-| _BlockRoutesApi_              | [**searchBlocks**](docs/Api/BlockRoutesApi.md#searchblocks)                                              | **GET** /blocks                                     | Search blocks                                                      |
-| _ChainRoutesApi_              | [**getChainInfo**](docs/Api/ChainRoutesApi.md#getchaininfo)                                              | **GET** /chain/info                                 | Get the current information of the chain                           |
-| _FinalizationRoutesApi_       | [**getFinalizationProofAtEpoch**](docs/Api/FinalizationRoutesApi.md#getfinalizationproofatepoch)         | **GET** /finalization/proof/epoch/{epoch}           | Get finalization proof                                             |
-| _FinalizationRoutesApi_       | [**getFinalizationProofAtHeight**](docs/Api/FinalizationRoutesApi.md#getfinalizationproofatheight)       | **GET** /finalization/proof/height/{height}         | Get finalization proof                                             |
-| _HashLockRoutesApi_           | [**getHashLock**](docs/Api/HashLockRoutesApi.md#gethashlock)                                             | **GET** /lock/hash/{hash}                           | Get hash lock information                                          |
-| _HashLockRoutesApi_           | [**getHashLockMerkle**](docs/Api/HashLockRoutesApi.md#gethashlockmerkle)                                 | **GET** /lock/hash/{hash}/merkle                    | Get hash lock merkle information                                   |
-| _HashLockRoutesApi_           | [**searchHashLock**](docs/Api/HashLockRoutesApi.md#searchhashlock)                                       | **GET** /lock/hash                                  | Search hash lock entries                                           |
-| _MetadataRoutesApi_           | [**getMetadata**](docs/Api/MetadataRoutesApi.md#getmetadata)                                             | **GET** /metadata/{compositeHash}                   | Get metadata information                                           |
-| _MetadataRoutesApi_           | [**getMetadataMerkle**](docs/Api/MetadataRoutesApi.md#getmetadatamerkle)                                 | **GET** /metadata/{compositeHash}/merkle            | Get metadata merkle information                                    |
-| _MetadataRoutesApi_           | [**searchMetadataEntries**](docs/Api/MetadataRoutesApi.md#searchmetadataentries)                         | **GET** /metadata                                   | Search metadata entries                                            |
-| _MosaicRoutesApi_             | [**getMosaic**](docs/Api/MosaicRoutesApi.md#getmosaic)                                                   | **GET** /mosaics/{mosaicId}                         | Get mosaic information                                             |
-| _MosaicRoutesApi_             | [**getMosaicMerkle**](docs/Api/MosaicRoutesApi.md#getmosaicmerkle)                                       | **GET** /mosaics/{mosaicId}/merkle                  | Get mosaic merkle information                                      |
-| _MosaicRoutesApi_             | [**getMosaics**](docs/Api/MosaicRoutesApi.md#getmosaics)                                                 | **POST** /mosaics                                   | Get mosaics information for an array of mosaics                    |
-| _MosaicRoutesApi_             | [**searchMosaics**](docs/Api/MosaicRoutesApi.md#searchmosaics)                                           | **GET** /mosaics                                    | Search mosaics                                                     |
-| _MultisigRoutesApi_           | [**getAccountMultisig**](docs/Api/MultisigRoutesApi.md#getaccountmultisig)                               | **GET** /account/{address}/multisig                 | Get multisig account information                                   |
-| _MultisigRoutesApi_           | [**getAccountMultisigGraph**](docs/Api/MultisigRoutesApi.md#getaccountmultisiggraph)                     | **GET** /account/{address}/multisig/graph           | Get multisig account graph information                             |
-| _MultisigRoutesApi_           | [**getAccountMultisigMerkle**](docs/Api/MultisigRoutesApi.md#getaccountmultisigmerkle)                   | **GET** /account/{address}/multisig/merkle          | Get multisig account merkle information                            |
-| _NamespaceRoutesApi_          | [**getAccountsNames**](docs/Api/NamespaceRoutesApi.md#getaccountsnames)                                  | **POST** /namespaces/account/names                  | Get readable names for a set of accountIds                         |
-| _NamespaceRoutesApi_          | [**getMosaicsNames**](docs/Api/NamespaceRoutesApi.md#getmosaicsnames)                                    | **POST** /namespaces/mosaic/names                   | Get readable names for a set of mosaics                            |
-| _NamespaceRoutesApi_          | [**getNamespace**](docs/Api/NamespaceRoutesApi.md#getnamespace)                                          | **GET** /namespaces/{namespaceId}                   | Get namespace information                                          |
-| _NamespaceRoutesApi_          | [**getNamespaceMerkle**](docs/Api/NamespaceRoutesApi.md#getnamespacemerkle)                              | **GET** /namespaces/{namespaceId}/merkle            | Get namespace merkle information                                   |
-| _NamespaceRoutesApi_          | [**getNamespacesNames**](docs/Api/NamespaceRoutesApi.md#getnamespacesnames)                              | **POST** /namespaces/names                          | Get readable names for a set of namespaces                         |
-| _NamespaceRoutesApi_          | [**searchNamespaces**](docs/Api/NamespaceRoutesApi.md#searchnamespaces)                                  | **GET** /namespaces                                 | Search namespaces                                                  |
-| _NetworkRoutesApi_            | [**getNetworkProperties**](docs/Api/NetworkRoutesApi.md#getnetworkproperties)                            | **GET** /network/properties                         | Get the network properties                                         |
-| _NetworkRoutesApi_            | [**getNetworkType**](docs/Api/NetworkRoutesApi.md#getnetworktype)                                        | **GET** /network                                    | Get the current network type of the chain                          |
-| _NetworkRoutesApi_            | [**getRentalFees**](docs/Api/NetworkRoutesApi.md#getrentalfees)                                          | **GET** /network/fees/rental                        | Get rental fees information                                        |
-| _NetworkRoutesApi_            | [**getTransactionFees**](docs/Api/NetworkRoutesApi.md#gettransactionfees)                                | **GET** /network/fees/transaction                   | Get transaction fees information                                   |
-| _NodeRoutesApi_               | [**getNodeHealth**](docs/Api/NodeRoutesApi.md#getnodehealth)                                             | **GET** /node/health                                | Get the node health information                                    |
-| _NodeRoutesApi_               | [**getNodeInfo**](docs/Api/NodeRoutesApi.md#getnodeinfo)                                                 | **GET** /node/info                                  | Get the node information                                           |
-| _NodeRoutesApi_               | [**getNodePeers**](docs/Api/NodeRoutesApi.md#getnodepeers)                                               | **GET** /node/peers                                 | Get peers information                                              |
-| _NodeRoutesApi_               | [**getNodeStorage**](docs/Api/NodeRoutesApi.md#getnodestorage)                                           | **GET** /node/storage                               | Get the storage information of the node                            |
-| _NodeRoutesApi_               | [**getNodeTime**](docs/Api/NodeRoutesApi.md#getnodetime)                                                 | **GET** /node/time                                  | Get the node time                                                  |
-| _NodeRoutesApi_               | [**getServerInfo**](docs/Api/NodeRoutesApi.md#getserverinfo)                                             | **GET** /node/server                                | Get the version of the running REST component                      |
-| _NodeRoutesApi_               | [**getUnlockedAccount**](docs/Api/NodeRoutesApi.md#getunlockedaccount)                                   | **GET** /node/unlockedaccount                       | Get the unlocked harvesting account public keys.                   |
-| _ReceiptRoutesApi_            | [**searchAddressResolutionStatements**](docs/Api/ReceiptRoutesApi.md#searchaddressresolutionstatements)  | **GET** /statements/resolutions/address             | Get receipts address resolution statements                         |
-| _ReceiptRoutesApi_            | [**searchMosaicResolutionStatements**](docs/Api/ReceiptRoutesApi.md#searchmosaicresolutionstatements)    | **GET** /statements/resolutions/mosaic              | Get receipts mosaic resolution statements                          |
-| _ReceiptRoutesApi_            | [**searchReceipts**](docs/Api/ReceiptRoutesApi.md#searchreceipts)                                        | **GET** /statements/transaction                     | Search transaction statements                                      |
-| _RestrictionAccountRoutesApi_ | [**getAccountRestrictions**](docs/Api/RestrictionAccountRoutesApi.md#getaccountrestrictions)             | **GET** /restrictions/account/{address}             | Get the account restrictions                                       |
-| _RestrictionAccountRoutesApi_ | [**getAccountRestrictionsMerkle**](docs/Api/RestrictionAccountRoutesApi.md#getaccountrestrictionsmerkle) | **GET** /restrictions/account/{address}/merkle      | Get the account restrictions merkle                                |
-| _RestrictionAccountRoutesApi_ | [**searchAccountRestrictions**](docs/Api/RestrictionAccountRoutesApi.md#searchaccountrestrictions)       | **GET** /restrictions/account                       | Search account restrictions                                        |
-| _RestrictionMosaicRoutesApi_  | [**getMosaicRestrictions**](docs/Api/RestrictionMosaicRoutesApi.md#getmosaicrestrictions)                | **GET** /restrictions/mosaic/{compositeHash}        | Get the mosaic restrictions                                        |
-| _RestrictionMosaicRoutesApi_  | [**getMosaicRestrictionsMerkle**](docs/Api/RestrictionMosaicRoutesApi.md#getmosaicrestrictionsmerkle)    | **GET** /restrictions/mosaic/{compositeHash}/merkle | Get the mosaic restrictions merkle                                 |
-| _RestrictionMosaicRoutesApi_  | [**searchMosaicRestrictions**](docs/Api/RestrictionMosaicRoutesApi.md#searchmosaicrestrictions)          | **GET** /restrictions/mosaic                        | Search mosaic restrictions                                         |
-| _SecretLockRoutesApi_         | [**getSecretLock**](docs/Api/SecretLockRoutesApi.md#getsecretlock)                                       | **GET** /lock/secret/{compositeHash}                | Get secret lock information                                        |
-| _SecretLockRoutesApi_         | [**getSecretLockMerkle**](docs/Api/SecretLockRoutesApi.md#getsecretlockmerkle)                           | **GET** /lock/secret/{compositeHash}/merkle         | Get secret lock merkle information                                 |
-| _SecretLockRoutesApi_         | [**searchSecretLock**](docs/Api/SecretLockRoutesApi.md#searchsecretlock)                                 | **GET** /lock/secret                                | Search secret lock entries                                         |
-| _TransactionRoutesApi_        | [**announceCosignatureTransaction**](docs/Api/TransactionRoutesApi.md#announcecosignaturetransaction)    | **PUT** /transactions/cosignature                   | Announce a cosignature transaction                                 |
-| _TransactionRoutesApi_        | [**announcePartialTransaction**](docs/Api/TransactionRoutesApi.md#announcepartialtransaction)            | **PUT** /transactions/partial                       | Announce an aggregate bonded transaction                           |
-| _TransactionRoutesApi_        | [**announceTransaction**](docs/Api/TransactionRoutesApi.md#announcetransaction)                          | **PUT** /transactions                               | Announce a new transaction                                         |
-| _TransactionRoutesApi_        | [**getConfirmedTransaction**](docs/Api/TransactionRoutesApi.md#getconfirmedtransaction)                  | **GET** /transactions/confirmed/{transactionId}     | Get confirmed transaction information                              |
-| _TransactionRoutesApi_        | [**getConfirmedTransactions**](docs/Api/TransactionRoutesApi.md#getconfirmedtransactions)                | **POST** /transactions/confirmed                    | Get confirmed trasactions information                              |
-| _TransactionRoutesApi_        | [**getPartialTransaction**](docs/Api/TransactionRoutesApi.md#getpartialtransaction)                      | **GET** /transactions/partial/{transactionId}       | Get partial transaction information                                |
-| _TransactionRoutesApi_        | [**getPartialTransactions**](docs/Api/TransactionRoutesApi.md#getpartialtransactions)                    | **POST** /transactions/partial                      | Get partial trasactions information                                |
-| _TransactionRoutesApi_        | [**getUnconfirmedTransaction**](docs/Api/TransactionRoutesApi.md#getunconfirmedtransaction)              | **GET** /transactions/unconfirmed/{transactionId}   | Get unconfirmed transaction information                            |
-| _TransactionRoutesApi_        | [**getUnconfirmedTransactions**](docs/Api/TransactionRoutesApi.md#getunconfirmedtransactions)            | **POST** /transactions/unconfirmed                  | Get unconfirmed trasactions information                            |
-| _TransactionRoutesApi_        | [**searchConfirmedTransactions**](docs/Api/TransactionRoutesApi.md#searchconfirmedtransactions)          | **GET** /transactions/confirmed                     | Search confirmed transactions                                      |
-| _TransactionRoutesApi_        | [**searchPartialTransactions**](docs/Api/TransactionRoutesApi.md#searchpartialtransactions)              | **GET** /transactions/partial                       | Search partial transactions                                        |
-| _TransactionRoutesApi_        | [**searchUnconfirmedTransactions**](docs/Api/TransactionRoutesApi.md#searchunconfirmedtransactions)      | **GET** /transactions/unconfirmed                   | Search unconfirmed transactions                                    |
-| _TransactionStatusRoutesApi_  | [**getTransactionStatus**](docs/Api/TransactionStatusRoutesApi.md#gettransactionstatus)                  | **GET** /transactionStatus/{hash}                   | Get transaction status                                             |
-| _TransactionStatusRoutesApi_  | [**getTransactionStatuses**](docs/Api/TransactionStatusRoutesApi.md#gettransactionstatuses)              | **POST** /transactionStatus                         | Get transaction statuses                                           |
+Class | Method | HTTP request | Description
+------------ | ------------- | ------------- | -------------
+*AccountRoutesApi* | [**getAccountInfo**](docs/Api/AccountRoutesApi.md#getaccountinfo) | **GET** /accounts/{accountId} | Get account information
+*AccountRoutesApi* | [**getAccountInfoMerkle**](docs/Api/AccountRoutesApi.md#getaccountinfomerkle) | **GET** /accounts/{accountId}/merkle | Get account merkle information
+*AccountRoutesApi* | [**getAccountsInfo**](docs/Api/AccountRoutesApi.md#getaccountsinfo) | **POST** /accounts | Get accounts information
+*AccountRoutesApi* | [**searchAccounts**](docs/Api/AccountRoutesApi.md#searchaccounts) | **GET** /accounts | Search accounts
+*BlockRoutesApi* | [**getBlockByHeight**](docs/Api/BlockRoutesApi.md#getblockbyheight) | **GET** /blocks/{height} | Get block information
+*BlockRoutesApi* | [**getMerkleReceipts**](docs/Api/BlockRoutesApi.md#getmerklereceipts) | **GET** /blocks/{height}/statements/{hash}/merkle | Get the merkle path for a given a receipt statement hash and block
+*BlockRoutesApi* | [**getMerkleTransaction**](docs/Api/BlockRoutesApi.md#getmerkletransaction) | **GET** /blocks/{height}/transactions/{hash}/merkle | Get the merkle path for a given a transaction and block
+*BlockRoutesApi* | [**searchBlocks**](docs/Api/BlockRoutesApi.md#searchblocks) | **GET** /blocks | Search blocks
+*ChainRoutesApi* | [**getChainInfo**](docs/Api/ChainRoutesApi.md#getchaininfo) | **GET** /chain/info | Get the current information of the chain
+*FinalizationRoutesApi* | [**getFinalizationProofAtEpoch**](docs/Api/FinalizationRoutesApi.md#getfinalizationproofatepoch) | **GET** /finalization/proof/epoch/{epoch} | Get finalization proof
+*FinalizationRoutesApi* | [**getFinalizationProofAtHeight**](docs/Api/FinalizationRoutesApi.md#getfinalizationproofatheight) | **GET** /finalization/proof/height/{height} | Get finalization proof
+*HashLockRoutesApi* | [**getHashLock**](docs/Api/HashLockRoutesApi.md#gethashlock) | **GET** /lock/hash/{hash} | Get hash lock information
+*HashLockRoutesApi* | [**getHashLockMerkle**](docs/Api/HashLockRoutesApi.md#gethashlockmerkle) | **GET** /lock/hash/{hash}/merkle | Get hash lock merkle information
+*HashLockRoutesApi* | [**searchHashLock**](docs/Api/HashLockRoutesApi.md#searchhashlock) | **GET** /lock/hash | Search hash lock entries
+*MetadataRoutesApi* | [**getMetadata**](docs/Api/MetadataRoutesApi.md#getmetadata) | **GET** /metadata/{compositeHash} | Get metadata information
+*MetadataRoutesApi* | [**getMetadataMerkle**](docs/Api/MetadataRoutesApi.md#getmetadatamerkle) | **GET** /metadata/{compositeHash}/merkle | Get metadata merkle information
+*MetadataRoutesApi* | [**searchMetadataEntries**](docs/Api/MetadataRoutesApi.md#searchmetadataentries) | **GET** /metadata | Search metadata entries
+*MosaicRoutesApi* | [**getMosaic**](docs/Api/MosaicRoutesApi.md#getmosaic) | **GET** /mosaics/{mosaicId} | Get mosaic information
+*MosaicRoutesApi* | [**getMosaicMerkle**](docs/Api/MosaicRoutesApi.md#getmosaicmerkle) | **GET** /mosaics/{mosaicId}/merkle | Get mosaic merkle information
+*MosaicRoutesApi* | [**getMosaics**](docs/Api/MosaicRoutesApi.md#getmosaics) | **POST** /mosaics | Get mosaics information for an array of mosaics
+*MosaicRoutesApi* | [**searchMosaics**](docs/Api/MosaicRoutesApi.md#searchmosaics) | **GET** /mosaics | Search mosaics
+*MultisigRoutesApi* | [**getAccountMultisig**](docs/Api/MultisigRoutesApi.md#getaccountmultisig) | **GET** /account/{address}/multisig | Get multisig account information
+*MultisigRoutesApi* | [**getAccountMultisigGraph**](docs/Api/MultisigRoutesApi.md#getaccountmultisiggraph) | **GET** /account/{address}/multisig/graph | Get multisig account graph information
+*MultisigRoutesApi* | [**getAccountMultisigMerkle**](docs/Api/MultisigRoutesApi.md#getaccountmultisigmerkle) | **GET** /account/{address}/multisig/merkle | Get multisig account merkle information
+*NamespaceRoutesApi* | [**getAccountsNames**](docs/Api/NamespaceRoutesApi.md#getaccountsnames) | **POST** /namespaces/account/names | Get readable names for a set of accountIds
+*NamespaceRoutesApi* | [**getMosaicsNames**](docs/Api/NamespaceRoutesApi.md#getmosaicsnames) | **POST** /namespaces/mosaic/names | Get readable names for a set of mosaics
+*NamespaceRoutesApi* | [**getNamespace**](docs/Api/NamespaceRoutesApi.md#getnamespace) | **GET** /namespaces/{namespaceId} | Get namespace information
+*NamespaceRoutesApi* | [**getNamespaceMerkle**](docs/Api/NamespaceRoutesApi.md#getnamespacemerkle) | **GET** /namespaces/{namespaceId}/merkle | Get namespace merkle information
+*NamespaceRoutesApi* | [**getNamespacesNames**](docs/Api/NamespaceRoutesApi.md#getnamespacesnames) | **POST** /namespaces/names | Get readable names for a set of namespaces
+*NamespaceRoutesApi* | [**searchNamespaces**](docs/Api/NamespaceRoutesApi.md#searchnamespaces) | **GET** /namespaces | Search namespaces
+*NetworkRoutesApi* | [**getNetworkProperties**](docs/Api/NetworkRoutesApi.md#getnetworkproperties) | **GET** /network/properties | Get the network properties
+*NetworkRoutesApi* | [**getNetworkType**](docs/Api/NetworkRoutesApi.md#getnetworktype) | **GET** /network | Get the current network type of the chain
+*NetworkRoutesApi* | [**getRentalFees**](docs/Api/NetworkRoutesApi.md#getrentalfees) | **GET** /network/fees/rental | Get rental fees information
+*NetworkRoutesApi* | [**getTransactionFees**](docs/Api/NetworkRoutesApi.md#gettransactionfees) | **GET** /network/fees/transaction | Get transaction fees information
+*NodeRoutesApi* | [**getNodeHealth**](docs/Api/NodeRoutesApi.md#getnodehealth) | **GET** /node/health | Get the node health information
+*NodeRoutesApi* | [**getNodeInfo**](docs/Api/NodeRoutesApi.md#getnodeinfo) | **GET** /node/info | Get the node information
+*NodeRoutesApi* | [**getNodePeers**](docs/Api/NodeRoutesApi.md#getnodepeers) | **GET** /node/peers | Get peers information
+*NodeRoutesApi* | [**getNodeStorage**](docs/Api/NodeRoutesApi.md#getnodestorage) | **GET** /node/storage | Get the storage information of the node
+*NodeRoutesApi* | [**getNodeTime**](docs/Api/NodeRoutesApi.md#getnodetime) | **GET** /node/time | Get the node time
+*NodeRoutesApi* | [**getServerInfo**](docs/Api/NodeRoutesApi.md#getserverinfo) | **GET** /node/server | Get the version of the running REST component
+*NodeRoutesApi* | [**getUnlockedAccount**](docs/Api/NodeRoutesApi.md#getunlockedaccount) | **GET** /node/unlockedaccount | Get the unlocked harvesting account public keys.
+*ReceiptRoutesApi* | [**searchAddressResolutionStatements**](docs/Api/ReceiptRoutesApi.md#searchaddressresolutionstatements) | **GET** /statements/resolutions/address | Get receipts address resolution statements
+*ReceiptRoutesApi* | [**searchMosaicResolutionStatements**](docs/Api/ReceiptRoutesApi.md#searchmosaicresolutionstatements) | **GET** /statements/resolutions/mosaic | Get receipts mosaic resolution statements
+*ReceiptRoutesApi* | [**searchReceipts**](docs/Api/ReceiptRoutesApi.md#searchreceipts) | **GET** /statements/transaction | Search transaction statements
+*RestrictionAccountRoutesApi* | [**getAccountRestrictions**](docs/Api/RestrictionAccountRoutesApi.md#getaccountrestrictions) | **GET** /restrictions/account/{address} | Get the account restrictions
+*RestrictionAccountRoutesApi* | [**getAccountRestrictionsMerkle**](docs/Api/RestrictionAccountRoutesApi.md#getaccountrestrictionsmerkle) | **GET** /restrictions/account/{address}/merkle | Get the account restrictions merkle
+*RestrictionAccountRoutesApi* | [**searchAccountRestrictions**](docs/Api/RestrictionAccountRoutesApi.md#searchaccountrestrictions) | **GET** /restrictions/account | Search account restrictions
+*RestrictionMosaicRoutesApi* | [**getMosaicRestrictions**](docs/Api/RestrictionMosaicRoutesApi.md#getmosaicrestrictions) | **GET** /restrictions/mosaic/{compositeHash} | Get the mosaic restrictions
+*RestrictionMosaicRoutesApi* | [**getMosaicRestrictionsMerkle**](docs/Api/RestrictionMosaicRoutesApi.md#getmosaicrestrictionsmerkle) | **GET** /restrictions/mosaic/{compositeHash}/merkle | Get the mosaic restrictions merkle
+*RestrictionMosaicRoutesApi* | [**searchMosaicRestrictions**](docs/Api/RestrictionMosaicRoutesApi.md#searchmosaicrestrictions) | **GET** /restrictions/mosaic | Search mosaic restrictions
+*SecretLockRoutesApi* | [**getSecretLock**](docs/Api/SecretLockRoutesApi.md#getsecretlock) | **GET** /lock/secret/{compositeHash} | Get secret lock information
+*SecretLockRoutesApi* | [**getSecretLockMerkle**](docs/Api/SecretLockRoutesApi.md#getsecretlockmerkle) | **GET** /lock/secret/{compositeHash}/merkle | Get secret lock merkle information
+*SecretLockRoutesApi* | [**searchSecretLock**](docs/Api/SecretLockRoutesApi.md#searchsecretlock) | **GET** /lock/secret | Search secret lock entries
+*TransactionRoutesApi* | [**announceCosignatureTransaction**](docs/Api/TransactionRoutesApi.md#announcecosignaturetransaction) | **PUT** /transactions/cosignature | Announce a cosignature transaction
+*TransactionRoutesApi* | [**announcePartialTransaction**](docs/Api/TransactionRoutesApi.md#announcepartialtransaction) | **PUT** /transactions/partial | Announce an aggregate bonded transaction
+*TransactionRoutesApi* | [**announceTransaction**](docs/Api/TransactionRoutesApi.md#announcetransaction) | **PUT** /transactions | Announce a new transaction
+*TransactionRoutesApi* | [**getConfirmedTransaction**](docs/Api/TransactionRoutesApi.md#getconfirmedtransaction) | **GET** /transactions/confirmed/{transactionId} | Get confirmed transaction information
+*TransactionRoutesApi* | [**getConfirmedTransactions**](docs/Api/TransactionRoutesApi.md#getconfirmedtransactions) | **POST** /transactions/confirmed | Get confirmed trasactions information
+*TransactionRoutesApi* | [**getPartialTransaction**](docs/Api/TransactionRoutesApi.md#getpartialtransaction) | **GET** /transactions/partial/{transactionId} | Get partial transaction information
+*TransactionRoutesApi* | [**getPartialTransactions**](docs/Api/TransactionRoutesApi.md#getpartialtransactions) | **POST** /transactions/partial | Get partial trasactions information
+*TransactionRoutesApi* | [**getUnconfirmedTransaction**](docs/Api/TransactionRoutesApi.md#getunconfirmedtransaction) | **GET** /transactions/unconfirmed/{transactionId} | Get unconfirmed transaction information
+*TransactionRoutesApi* | [**getUnconfirmedTransactions**](docs/Api/TransactionRoutesApi.md#getunconfirmedtransactions) | **POST** /transactions/unconfirmed | Get unconfirmed trasactions information
+*TransactionRoutesApi* | [**searchConfirmedTransactions**](docs/Api/TransactionRoutesApi.md#searchconfirmedtransactions) | **GET** /transactions/confirmed | Search confirmed transactions
+*TransactionRoutesApi* | [**searchPartialTransactions**](docs/Api/TransactionRoutesApi.md#searchpartialtransactions) | **GET** /transactions/partial | Search partial transactions
+*TransactionRoutesApi* | [**searchUnconfirmedTransactions**](docs/Api/TransactionRoutesApi.md#searchunconfirmedtransactions) | **GET** /transactions/unconfirmed | Search unconfirmed transactions
+*TransactionStatusRoutesApi* | [**getTransactionStatus**](docs/Api/TransactionStatusRoutesApi.md#gettransactionstatus) | **GET** /transactionStatus/{hash} | Get transaction status
+*TransactionStatusRoutesApi* | [**getTransactionStatuses**](docs/Api/TransactionStatusRoutesApi.md#gettransactionstatuses) | **POST** /transactionStatus | Get transaction statuses
 
 ## Models
 
@@ -386,7 +390,6 @@ All URIs are relative to _http://localhost:3000_
 - [VrfKeyLinkTransactionDTO](docs/Model/VrfKeyLinkTransactionDTO.md)
 
 ## Authorization
-
 Endpoints do not require authorization.
 
 ## Tests
@@ -399,6 +402,8 @@ vendor/bin/phpunit
 ```
 
 ## Author
+
+
 
 ## About this package
 
