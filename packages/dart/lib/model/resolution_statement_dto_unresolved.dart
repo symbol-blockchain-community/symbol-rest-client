@@ -34,23 +34,19 @@ class ResolutionStatementDTOUnresolved {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "ResolutionStatementDTOUnresolved[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "ResolutionStatementDTOUnresolved[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "ResolutionStatementDTOUnresolved[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "ResolutionStatementDTOUnresolved[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return ResolutionStatementDTOUnresolved();
+      return ResolutionStatementDTOUnresolved(
+      );
     }
     return null;
   }
 
-  static List<ResolutionStatementDTOUnresolved> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<ResolutionStatementDTOUnresolved> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <ResolutionStatementDTOUnresolved>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -63,8 +59,7 @@ class ResolutionStatementDTOUnresolved {
     return result.toList(growable: growable);
   }
 
-  static Map<String, ResolutionStatementDTOUnresolved> mapFromJson(
-      dynamic json) {
+  static Map<String, ResolutionStatementDTOUnresolved> mapFromJson(dynamic json) {
     final map = <String, ResolutionStatementDTOUnresolved>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
@@ -79,24 +74,20 @@ class ResolutionStatementDTOUnresolved {
   }
 
   // maps a json object with a list of ResolutionStatementDTOUnresolved-objects as value to a dart map
-  static Map<String, List<ResolutionStatementDTOUnresolved>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<ResolutionStatementDTOUnresolved>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<ResolutionStatementDTOUnresolved>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = ResolutionStatementDTOUnresolved.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = ResolutionStatementDTOUnresolved.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{};
+  static const requiredKeys = <String>{
+  };
 }
+
