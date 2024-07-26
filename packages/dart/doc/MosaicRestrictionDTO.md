@@ -1,8 +1,8 @@
-# openapi.model.MosaicRestrictionDTO
+# symbol_rest_client.model.MosaicRestrictionDTO
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 ```
 
 ## Properties

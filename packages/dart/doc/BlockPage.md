@@ -1,8 +1,8 @@
-# openapi.model.BlockPage
+# symbol_rest_client.model.BlockPage
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 ```
 
 ## Properties

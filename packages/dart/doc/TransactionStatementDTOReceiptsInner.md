@@ -1,8 +1,8 @@
-# openapi.model.TransactionStatementDTOReceiptsInner
+# symbol_rest_client.model.TransactionStatementDTOReceiptsInner
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 ```
 
 ## Properties

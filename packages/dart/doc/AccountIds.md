@@ -1,8 +1,8 @@
-# openapi.model.AccountIds
+# symbol_rest_client.model.AccountIds
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 ```
 
 ## Properties

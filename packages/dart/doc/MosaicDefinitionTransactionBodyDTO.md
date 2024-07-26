@@ -1,8 +1,8 @@
-# openapi.model.MosaicDefinitionTransactionBodyDTO
+# symbol_rest_client.model.MosaicDefinitionTransactionBodyDTO
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 ```
 
 ## Properties

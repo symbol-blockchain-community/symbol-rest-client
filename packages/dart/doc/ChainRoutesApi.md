@@ -1,8 +1,8 @@
-# openapi.api.ChainRoutesApi
+# symbol_rest_client.api.ChainRoutesApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 ```
 
 All URIs are relative to *http://localhost:3000*
@@ -21,7 +21,7 @@ Returns the current information of the blockchain.  The higher the score, the be
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = ChainRoutesApi();
 

@@ -1,8 +1,8 @@
-# openapi.model.AccountKeyLinkTransactionBodyDTO
+# symbol_rest_client.model.AccountKeyLinkTransactionBodyDTO
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 ```
 
 ## Properties

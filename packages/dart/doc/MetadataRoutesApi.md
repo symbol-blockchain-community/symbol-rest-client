@@ -1,8 +1,8 @@
-# openapi.api.MetadataRoutesApi
+# symbol_rest_client.api.MetadataRoutesApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 ```
 
 All URIs are relative to *http://localhost:3000*
@@ -23,7 +23,7 @@ Gets the metadata for a given composite hash.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = MetadataRoutesApi();
 final compositeHash = compositeHash_example; // String | Filter by composite hash.
@@ -66,7 +66,7 @@ Gets the metadata merkle for a given composite hash.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = MetadataRoutesApi();
 final compositeHash = compositeHash_example; // String | Filter by composite hash.
@@ -109,7 +109,7 @@ Returns an array of metadata.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = MetadataRoutesApi();
 final sourceAddress = sourceAddress_example; // String | Filter by address sending the metadata entry.

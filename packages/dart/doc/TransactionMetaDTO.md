@@ -1,8 +1,8 @@
-# openapi.model.TransactionMetaDTO
+# symbol_rest_client.model.TransactionMetaDTO
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 ```
 
 ## Properties

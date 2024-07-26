@@ -1,8 +1,8 @@
-# openapi.model.EmbeddedTransferTransactionDTO
+# symbol_rest_client.model.EmbeddedTransferTransactionDTO
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 ```
 
 ## Properties

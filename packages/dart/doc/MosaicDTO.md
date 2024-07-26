@@ -1,8 +1,8 @@
-# openapi.model.MosaicDTO
+# symbol_rest_client.model.MosaicDTO
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 ```
 
 ## Properties

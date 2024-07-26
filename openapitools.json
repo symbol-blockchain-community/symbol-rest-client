@@ -18,6 +18,9 @@
         "inputSpec": "schema/1_0_5.yml",
         "globalProperty": {
           "skipFormModel": false
+        },
+        "additionalProperties": {
+          "pubName": "symbol_rest_client"
         }
       },
       "go": {

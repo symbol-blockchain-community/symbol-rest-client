@@ -1,8 +1,8 @@
-# openapi.model.VotingKeyLinkTransactionBodyDTO
+# symbol_rest_client.model.VotingKeyLinkTransactionBodyDTO
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 ```
 
 ## Properties

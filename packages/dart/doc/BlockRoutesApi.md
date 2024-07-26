@@ -1,8 +1,8 @@
-# openapi.api.BlockRoutesApi
+# symbol_rest_client.api.BlockRoutesApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 ```
 
 All URIs are relative to *http://localhost:3000*
@@ -24,7 +24,7 @@ Gets a block from the chain that has the given height.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = BlockRoutesApi();
 final height = height_example; // String | Block height.
@@ -67,7 +67,7 @@ Returns the merkle path for a receipt statement or resolution linked to a block.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = BlockRoutesApi();
 final height = height_example; // String | Block height.
@@ -112,7 +112,7 @@ Returns the merkle path for a transaction included in a block. The merkle path i
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = BlockRoutesApi();
 final height = height_example; // String | Block height.
@@ -157,7 +157,7 @@ Gets an array of bocks.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 
 final api_instance = BlockRoutesApi();
 final signerPublicKey = signerPublicKey_example; // String | Filter by public key of the account signing the entity.

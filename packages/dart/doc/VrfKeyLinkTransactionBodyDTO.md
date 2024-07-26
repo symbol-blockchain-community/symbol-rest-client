@@ -1,8 +1,8 @@
-# openapi.model.VrfKeyLinkTransactionBodyDTO
+# symbol_rest_client.model.VrfKeyLinkTransactionBodyDTO
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 ```
 
 ## Properties

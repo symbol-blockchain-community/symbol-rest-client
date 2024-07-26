@@ -1,8 +1,8 @@
-# openapi.model.EmbeddedNodeKeyLinkTransactionDTO
+# symbol_rest_client.model.EmbeddedNodeKeyLinkTransactionDTO
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:symbol_rest_client/api.dart';
 ```
 
 ## Properties
