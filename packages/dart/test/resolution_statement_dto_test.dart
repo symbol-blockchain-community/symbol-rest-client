@@ -22,7 +22,7 @@ void main() {
       // TODO
     });
 
-    // ResolutionStatementDTOUnresolved unresolved
+    // String unresolved
     test('to test the property `unresolved`', () async {
       // TODO
     });

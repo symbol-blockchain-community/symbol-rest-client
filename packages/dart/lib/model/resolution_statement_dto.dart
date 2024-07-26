@@ -21,7 +21,7 @@ class ResolutionStatementDTO {
   /// Height of the blockchain.
   String height;
 
-  ResolutionStatementDTOUnresolved unresolved;
+  String unresolved;
 
   /// Array of resolution entries linked to the unresolved namespaceId. It is an array instead of a single resolution entry since within one block the resolution might change for different sources due to alias related transactions. 
   List<ResolutionEntryDTO> resolutionEntries;
@@ -70,7 +70,7 @@ class ResolutionStatementDTO {
 
       return ResolutionStatementDTO(
         height: mapValueOfType<String>(json, r'height')!,
-        unresolved: ResolutionStatementDTOUnresolved.fromJson(json[r'unresolved'])!,
+        unresolved: mapValueOfType<String>(json, r'unresolved')!,
         resolutionEntries: ResolutionEntryDTO.listFromJson(json[r'resolutionEntries']),
       );
     }

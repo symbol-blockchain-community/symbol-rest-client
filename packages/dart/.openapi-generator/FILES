@@ -25,7 +25,6 @@ doc/AccountOperationRestrictionTransactionDTO.md
 doc/AccountOrderByEnum.md
 doc/AccountPage.md
 doc/AccountRestrictionDTO.md
-doc/AccountRestrictionDTOValuesInner.md
 doc/AccountRestrictionFlagsEnum.md
 doc/AccountRestrictionNetworkPropertiesDTO.md
 doc/AccountRestrictionsDTO.md
@@ -209,9 +208,7 @@ doc/ReceiptRoutesApi.md
 doc/ReceiptTypeEnum.md
 doc/RentalFeesDTO.md
 doc/ResolutionEntryDTO.md
-doc/ResolutionEntryDTOResolved.md
 doc/ResolutionStatementDTO.md
-doc/ResolutionStatementDTOUnresolved.md
 doc/ResolutionStatementInfoDTO.md
 doc/ResolutionStatementPage.md
 doc/RestrictionAccountRoutesApi.md
@@ -315,7 +312,6 @@ lib/model/account_operation_restriction_transaction_dto.dart
 lib/model/account_order_by_enum.dart
 lib/model/account_page.dart
 lib/model/account_restriction_dto.dart
-lib/model/account_restriction_dto_values_inner.dart
 lib/model/account_restriction_flags_enum.dart
 lib/model/account_restriction_network_properties_dto.dart
 lib/model/account_restrictions_dto.dart
@@ -487,9 +483,7 @@ lib/model/receipt_dto.dart
 lib/model/receipt_type_enum.dart
 lib/model/rental_fees_dto.dart
 lib/model/resolution_entry_dto.dart
-lib/model/resolution_entry_dto_resolved.dart
 lib/model/resolution_statement_dto.dart
-lib/model/resolution_statement_dto_unresolved.dart
 lib/model/resolution_statement_info_dto.dart
 lib/model/resolution_statement_page.dart
 lib/model/secret_lock_entry_dto.dart
@@ -562,7 +556,6 @@ test/account_operation_restriction_transaction_dto_test.dart
 test/account_order_by_enum_test.dart
 test/account_page_test.dart
 test/account_restriction_dto_test.dart
-test/account_restriction_dto_values_inner_test.dart
 test/account_restriction_flags_enum_test.dart
 test/account_restriction_network_properties_dto_test.dart
 test/account_restrictions_dto_test.dart
@@ -745,10 +738,8 @@ test/receipt_dto_test.dart
 test/receipt_routes_api_test.dart
 test/receipt_type_enum_test.dart
 test/rental_fees_dto_test.dart
-test/resolution_entry_dto_resolved_test.dart
 test/resolution_entry_dto_test.dart
 test/resolution_statement_dto_test.dart
-test/resolution_statement_dto_unresolved_test.dart
 test/resolution_statement_info_dto_test.dart
 test/resolution_statement_page_test.dart
 test/restriction_account_routes_api_test.dart

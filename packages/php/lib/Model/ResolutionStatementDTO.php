@@ -58,7 +58,7 @@ class ResolutionStatementDTO implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPITypes = [
         'height' => 'string',
-        'unresolved' => '\SymbolRestClient\Model\ResolutionStatementDTOUnresolved',
+        'unresolved' => 'string',
         'resolution_entries' => '\SymbolRestClient\Model\ResolutionEntryDTO[]'
     ];
 
@@ -342,7 +342,7 @@ class ResolutionStatementDTO implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets unresolved
      *
-     * @return \SymbolRestClient\Model\ResolutionStatementDTOUnresolved
+     * @return string
      */
     public function getUnresolved()
     {
@@ -352,7 +352,7 @@ class ResolutionStatementDTO implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets unresolved
      *
-     * @param \SymbolRestClient\Model\ResolutionStatementDTOUnresolved $unresolved unresolved
+     * @param string $unresolved unresolved
      *
      * @return self
      */

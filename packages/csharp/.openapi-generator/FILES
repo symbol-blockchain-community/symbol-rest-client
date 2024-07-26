@@ -26,7 +26,6 @@ docs/AccountOperationRestrictionTransactionDTO.md
 docs/AccountOrderByEnum.md
 docs/AccountPage.md
 docs/AccountRestrictionDTO.md
-docs/AccountRestrictionDTOValuesInner.md
 docs/AccountRestrictionFlagsEnum.md
 docs/AccountRestrictionNetworkPropertiesDTO.md
 docs/AccountRestrictionsDTO.md
@@ -210,9 +209,7 @@ docs/ReceiptRoutesApi.md
 docs/ReceiptTypeEnum.md
 docs/RentalFeesDTO.md
 docs/ResolutionEntryDTO.md
-docs/ResolutionEntryDTOResolved.md
 docs/ResolutionStatementDTO.md
-docs/ResolutionStatementDTOUnresolved.md
 docs/ResolutionStatementInfoDTO.md
 docs/ResolutionStatementPage.md
 docs/RestrictionAccountRoutesApi.md
@@ -307,7 +304,6 @@ src/SymbolRestClient.Test/Model/AccountOperationRestrictionTransactionDTOTests.c
 src/SymbolRestClient.Test/Model/AccountOrderByEnumTests.cs
 src/SymbolRestClient.Test/Model/AccountPageTests.cs
 src/SymbolRestClient.Test/Model/AccountRestrictionDTOTests.cs
-src/SymbolRestClient.Test/Model/AccountRestrictionDTOValuesInnerTests.cs
 src/SymbolRestClient.Test/Model/AccountRestrictionFlagsEnumTests.cs
 src/SymbolRestClient.Test/Model/AccountRestrictionNetworkPropertiesDTOTests.cs
 src/SymbolRestClient.Test/Model/AccountRestrictionsDTOTests.cs
@@ -478,10 +474,8 @@ src/SymbolRestClient.Test/Model/PositionEnumTests.cs
 src/SymbolRestClient.Test/Model/ReceiptDTOTests.cs
 src/SymbolRestClient.Test/Model/ReceiptTypeEnumTests.cs
 src/SymbolRestClient.Test/Model/RentalFeesDTOTests.cs
-src/SymbolRestClient.Test/Model/ResolutionEntryDTOResolvedTests.cs
 src/SymbolRestClient.Test/Model/ResolutionEntryDTOTests.cs
 src/SymbolRestClient.Test/Model/ResolutionStatementDTOTests.cs
-src/SymbolRestClient.Test/Model/ResolutionStatementDTOUnresolvedTests.cs
 src/SymbolRestClient.Test/Model/ResolutionStatementInfoDTOTests.cs
 src/SymbolRestClient.Test/Model/ResolutionStatementPageTests.cs
 src/SymbolRestClient.Test/Model/SecretLockEntryDTOTests.cs
@@ -588,7 +582,6 @@ src/SymbolRestClient/Model/AccountOperationRestrictionTransactionDTO.cs
 src/SymbolRestClient/Model/AccountOrderByEnum.cs
 src/SymbolRestClient/Model/AccountPage.cs
 src/SymbolRestClient/Model/AccountRestrictionDTO.cs
-src/SymbolRestClient/Model/AccountRestrictionDTOValuesInner.cs
 src/SymbolRestClient/Model/AccountRestrictionFlagsEnum.cs
 src/SymbolRestClient/Model/AccountRestrictionNetworkPropertiesDTO.cs
 src/SymbolRestClient/Model/AccountRestrictionsDTO.cs
@@ -760,9 +753,7 @@ src/SymbolRestClient/Model/ReceiptDTO.cs
 src/SymbolRestClient/Model/ReceiptTypeEnum.cs
 src/SymbolRestClient/Model/RentalFeesDTO.cs
 src/SymbolRestClient/Model/ResolutionEntryDTO.cs
-src/SymbolRestClient/Model/ResolutionEntryDTOResolved.cs
 src/SymbolRestClient/Model/ResolutionStatementDTO.cs
-src/SymbolRestClient/Model/ResolutionStatementDTOUnresolved.cs
 src/SymbolRestClient/Model/ResolutionStatementInfoDTO.cs
 src/SymbolRestClient/Model/ResolutionStatementPage.cs
 src/SymbolRestClient/Model/SecretLockEntryDTO.cs

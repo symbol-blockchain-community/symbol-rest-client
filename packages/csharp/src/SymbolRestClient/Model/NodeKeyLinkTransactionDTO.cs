@@ -26,7 +26,7 @@ using OpenAPIDateConverter = SymbolRestClient.Client.OpenAPIDateConverter;
 namespace SymbolRestClient.Model
 {
     /// <summary>
-    /// Transaction to link a public key to an account. TLS uses the linked public key to create sessions. Required for node operators.  
+    /// Transaction to link a public key to an account. TLS uses the linked public key to create sessions. Required for node operators. 
     /// </summary>
     [DataContract(Name = "NodeKeyLinkTransactionDTO")]
     public partial class NodeKeyLinkTransactionDTO : IValidatableObject

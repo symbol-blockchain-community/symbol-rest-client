@@ -1,5 +1,5 @@
 # SymbolRestClient.Model.NodeKeyLinkTransactionDTO
-Transaction to link a public key to an account. TLS uses the linked public key to create sessions. Required for node operators.  
+Transaction to link a public key to an account. TLS uses the linked public key to create sessions. Required for node operators. 
 
 ## Properties
 

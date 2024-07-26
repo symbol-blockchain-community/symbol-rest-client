@@ -20,7 +20,7 @@ class AccountRestrictionDTO {
   AccountRestrictionFlagsEnum restrictionFlags;
 
   /// Address, mosaic id, or transaction type to restrict.
-  List<AccountRestrictionDTOValuesInner> values;
+  List<String> values;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is AccountRestrictionDTO &&
@@ -63,7 +63,9 @@ class AccountRestrictionDTO {
 
       return AccountRestrictionDTO(
         restrictionFlags: AccountRestrictionFlagsEnum.fromJson(json[r'restrictionFlags'])!,
-        values: AccountRestrictionDTOValuesInner.listFromJson(json[r'values']),
+        values: json[r'values'] is Iterable
+            ? (json[r'values'] as Iterable).cast<String>().toList(growable: false)
+            : const [],
       );
     }
     return null;

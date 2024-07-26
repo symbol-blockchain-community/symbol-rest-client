@@ -43,7 +43,6 @@ docs/Model/AccountOperationRestrictionTransactionDTO.md
 docs/Model/AccountOrderByEnum.md
 docs/Model/AccountPage.md
 docs/Model/AccountRestrictionDTO.md
-docs/Model/AccountRestrictionDTOValuesInner.md
 docs/Model/AccountRestrictionFlagsEnum.md
 docs/Model/AccountRestrictionNetworkPropertiesDTO.md
 docs/Model/AccountRestrictionsDTO.md
@@ -215,9 +214,7 @@ docs/Model/ReceiptDTO.md
 docs/Model/ReceiptTypeEnum.md
 docs/Model/RentalFeesDTO.md
 docs/Model/ResolutionEntryDTO.md
-docs/Model/ResolutionEntryDTOResolved.md
 docs/Model/ResolutionStatementDTO.md
-docs/Model/ResolutionStatementDTOUnresolved.md
 docs/Model/ResolutionStatementInfoDTO.md
 docs/Model/ResolutionStatementPage.md
 docs/Model/SecretLockEntryDTO.md
@@ -310,7 +307,6 @@ lib/Model/AccountOperationRestrictionTransactionDTO.php
 lib/Model/AccountOrderByEnum.php
 lib/Model/AccountPage.php
 lib/Model/AccountRestrictionDTO.php
-lib/Model/AccountRestrictionDTOValuesInner.php
 lib/Model/AccountRestrictionFlagsEnum.php
 lib/Model/AccountRestrictionNetworkPropertiesDTO.php
 lib/Model/AccountRestrictionsDTO.php
@@ -483,9 +479,7 @@ lib/Model/ReceiptDTO.php
 lib/Model/ReceiptTypeEnum.php
 lib/Model/RentalFeesDTO.php
 lib/Model/ResolutionEntryDTO.php
-lib/Model/ResolutionEntryDTOResolved.php
 lib/Model/ResolutionStatementDTO.php
-lib/Model/ResolutionStatementDTOUnresolved.php
 lib/Model/ResolutionStatementInfoDTO.php
 lib/Model/ResolutionStatementPage.php
 lib/Model/SecretLockEntryDTO.php
@@ -576,7 +570,6 @@ test/Model/AccountOperationRestrictionTransactionDTOTest.php
 test/Model/AccountOrderByEnumTest.php
 test/Model/AccountPageTest.php
 test/Model/AccountRestrictionDTOTest.php
-test/Model/AccountRestrictionDTOValuesInnerTest.php
 test/Model/AccountRestrictionFlagsEnumTest.php
 test/Model/AccountRestrictionNetworkPropertiesDTOTest.php
 test/Model/AccountRestrictionsDTOTest.php
@@ -747,10 +740,8 @@ test/Model/PositionEnumTest.php
 test/Model/ReceiptDTOTest.php
 test/Model/ReceiptTypeEnumTest.php
 test/Model/RentalFeesDTOTest.php
-test/Model/ResolutionEntryDTOResolvedTest.php
 test/Model/ResolutionEntryDTOTest.php
 test/Model/ResolutionStatementDTOTest.php
-test/Model/ResolutionStatementDTOUnresolvedTest.php
 test/Model/ResolutionStatementInfoDTOTest.php
 test/Model/ResolutionStatementPageTest.php
 test/Model/SecretLockEntryDTOTest.php

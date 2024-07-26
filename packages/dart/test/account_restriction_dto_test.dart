@@ -22,7 +22,7 @@ void main() {
     });
 
     // Address, mosaic id, or transaction type to restrict.
-    // List<AccountRestrictionDTOValuesInner> values (default value: const [])
+    // List<String> values (default value: const [])
     test('to test the property `values`', () async {
       // TODO
     });

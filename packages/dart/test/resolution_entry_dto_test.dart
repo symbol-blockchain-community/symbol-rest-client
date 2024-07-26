@@ -21,7 +21,7 @@ void main() {
       // TODO
     });
 
-    // ResolutionEntryDTOResolved resolved
+    // String resolved
     test('to test the property `resolved`', () async {
       // TODO
     });

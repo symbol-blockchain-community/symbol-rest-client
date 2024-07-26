@@ -42,7 +42,7 @@ namespace SymbolRestClient.Model
         /// <param name="height">Height of the blockchain. (required).</param>
         /// <param name="unresolved">unresolved (required).</param>
         /// <param name="resolutionEntries">Array of resolution entries linked to the unresolved namespaceId. It is an array instead of a single resolution entry since within one block the resolution might change for different sources due to alias related transactions.  (required).</param>
-        public ResolutionStatementDTO(string height = default(string), ResolutionStatementDTOUnresolved unresolved = default(ResolutionStatementDTOUnresolved), List<ResolutionEntryDTO> resolutionEntries = default(List<ResolutionEntryDTO>))
+        public ResolutionStatementDTO(string height = default(string), string unresolved = default(string), List<ResolutionEntryDTO> resolutionEntries = default(List<ResolutionEntryDTO>))
         {
             // to ensure "height" is required (not null)
             if (height == null)
@@ -76,7 +76,7 @@ namespace SymbolRestClient.Model
         /// Gets or Sets Unresolved
         /// </summary>
         [DataMember(Name = "unresolved", IsRequired = true, EmitDefaultValue = true)]
-        public ResolutionStatementDTOUnresolved Unresolved { get; set; }
+        public string Unresolved { get; set; }
 
         /// <summary>
         /// Array of resolution entries linked to the unresolved namespaceId. It is an array instead of a single resolution entry since within one block the resolution might change for different sources due to alias related transactions. 

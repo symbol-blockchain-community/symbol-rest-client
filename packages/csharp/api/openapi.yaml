@@ -6279,8 +6279,10 @@ components:
       allOf:
       - $ref: '#/components/schemas/TransactionDTO'
       - $ref: '#/components/schemas/NodeKeyLinkTransactionBodyDTO'
-      description: "Transaction to link a public key to an account.\nTLS uses the\
-        \ linked public key to create sessions.\nRequired for node operators. \n"
+      description: |
+        Transaction to link a public key to an account.
+        TLS uses the linked public key to create sessions.
+        Required for node operators.
       type: object
     EmbeddedNodeKeyLinkTransactionDTO:
       allOf:
@@ -8198,28 +8200,30 @@ components:
         source:
           secondaryId: 2222212828
           primaryId: 2222212828
-        resolved: null
+        resolved: ""
       properties:
         source:
           $ref: '#/components/schemas/SourceDTO'
         resolved:
-          $ref: '#/components/schemas/ResolutionEntryDTO_resolved'
+          allOf:
+          - $ref: '#/components/schemas/Address'
+          - $ref: '#/components/schemas/MosaicId'
       required:
       - resolved
       - source
       type: object
     ResolutionStatementDTO:
       example:
-        unresolved: null
+        unresolved: ""
         resolutionEntries:
         - source:
             secondaryId: 2222212828
             primaryId: 2222212828
-          resolved: null
+          resolved: ""
         - source:
             secondaryId: 2222212828
             primaryId: 2222212828
-          resolved: null
+          resolved: ""
         height: "1"
       properties:
         height:
@@ -8227,7 +8231,9 @@ components:
           example: "1"
           type: string
         unresolved:
-          $ref: '#/components/schemas/ResolutionStatementDTO_unresolved'
+          allOf:
+          - $ref: '#/components/schemas/UnresolvedMosaicId'
+          - $ref: '#/components/schemas/UnresolvedAddress'
         resolutionEntries:
           description: |
             Array of resolution entries linked to the unresolved namespaceId.
@@ -8249,16 +8255,16 @@ components:
         meta:
           timestamp: "108303181802"
         statement:
-          unresolved: null
+          unresolved: ""
           resolutionEntries:
           - source:
               secondaryId: 2222212828
               primaryId: 2222212828
-            resolved: null
+            resolved: ""
           - source:
               secondaryId: 2222212828
               primaryId: 2222212828
-            resolved: null
+            resolved: ""
           height: "1"
         id: id
       properties:
@@ -8283,31 +8289,31 @@ components:
         - meta:
             timestamp: "108303181802"
           statement:
-            unresolved: null
+            unresolved: ""
             resolutionEntries:
             - source:
                 secondaryId: 2222212828
                 primaryId: 2222212828
-              resolved: null
+              resolved: ""
             - source:
                 secondaryId: 2222212828
                 primaryId: 2222212828
-              resolved: null
+              resolved: ""
             height: "1"
           id: id
         - meta:
             timestamp: "108303181802"
           statement:
-            unresolved: null
+            unresolved: ""
             resolutionEntries:
             - source:
                 secondaryId: 2222212828
                 primaryId: 2222212828
-              resolved: null
+              resolved: ""
             - source:
                 secondaryId: 2222212828
                 primaryId: 2222212828
-              resolved: null
+              resolved: ""
             height: "1"
           id: id
       properties:
@@ -8555,12 +8561,12 @@ components:
           restrictions:
           - restrictionFlags: 1
             values:
-            - null
-            - null
+            - ""
+            - ""
           - restrictionFlags: 1
             values:
-            - null
-            - null
+            - ""
+            - ""
           version: 1
       properties:
         accountRestrictions:
@@ -8579,24 +8585,24 @@ components:
             restrictions:
             - restrictionFlags: 1
               values:
-              - null
-              - null
+              - ""
+              - ""
             - restrictionFlags: 1
               values:
-              - null
-              - null
+              - ""
+              - ""
             version: 1
         - accountRestrictions:
             address: TADP6C2GVEG654OP5LZI32P2GYJSCMEGQBYB7QY
             restrictions:
             - restrictionFlags: 1
               values:
-              - null
-              - null
+              - ""
+              - ""
             - restrictionFlags: 1
               values:
-              - null
-              - null
+              - ""
+              - ""
             version: 1
       properties:
         data:
@@ -8616,12 +8622,12 @@ components:
         restrictions:
         - restrictionFlags: 1
           values:
-          - null
-          - null
+          - ""
+          - ""
         - restrictionFlags: 1
           values:
-          - null
-          - null
+          - ""
+          - ""
         version: 1
       properties:
         version:
@@ -8645,15 +8651,18 @@ components:
       example:
         restrictionFlags: 1
         values:
-        - null
-        - null
+        - ""
+        - ""
       properties:
         restrictionFlags:
           $ref: '#/components/schemas/AccountRestrictionFlagsEnum'
         values:
           description: "Address, mosaic id, or transaction type to restrict."
           items:
-            $ref: '#/components/schemas/AccountRestrictionDTO_values_inner'
+            allOf:
+            - $ref: '#/components/schemas/UnresolvedAddress'
+            - $ref: '#/components/schemas/UnresolvedMosaicId'
+            - $ref: '#/components/schemas/TransactionTypeEnum'
           type: array
       required:
       - restrictionFlags
@@ -9189,14 +9198,6 @@ components:
       anyOf:
       - $ref: '#/components/schemas/MosaicId'
       - $ref: '#/components/schemas/NamespaceId'
-    ResolutionEntryDTO_resolved:
-      anyOf:
-      - $ref: '#/components/schemas/Address'
-      - $ref: '#/components/schemas/MosaicId'
-    ResolutionStatementDTO_unresolved:
-      anyOf:
-      - $ref: '#/components/schemas/UnresolvedMosaicId'
-      - $ref: '#/components/schemas/UnresolvedAddress'
     TransactionStatementDTO_receipts_inner:
       anyOf:
       - $ref: '#/components/schemas/BalanceTransferReceiptDTO'
@@ -9204,11 +9205,6 @@ components:
       - $ref: '#/components/schemas/NamespaceExpiryReceiptDTO'
       - $ref: '#/components/schemas/MosaicExpiryReceiptDTO'
       - $ref: '#/components/schemas/InflationReceiptDTO'
-    AccountRestrictionDTO_values_inner:
-      anyOf:
-      - $ref: '#/components/schemas/UnresolvedAddress'
-      - $ref: '#/components/schemas/UnresolvedMosaicId'
-      - $ref: '#/components/schemas/TransactionTypeEnum'
     MosaicRestrictionsPage_data_inner:
       anyOf:
       - $ref: '#/components/schemas/MosaicAddressRestrictionDTO'

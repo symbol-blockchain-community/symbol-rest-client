@@ -47,7 +47,7 @@ namespace SymbolRestClient.Model
         /// </summary>
         /// <param name="restrictionFlags">restrictionFlags (required).</param>
         /// <param name="values">Address, mosaic id, or transaction type to restrict. (required).</param>
-        public AccountRestrictionDTO(AccountRestrictionFlagsEnum restrictionFlags = default(AccountRestrictionFlagsEnum), List<AccountRestrictionDTOValuesInner> values = default(List<AccountRestrictionDTOValuesInner>))
+        public AccountRestrictionDTO(AccountRestrictionFlagsEnum restrictionFlags = default(AccountRestrictionFlagsEnum), List<string> values = default(List<string>))
         {
             this.RestrictionFlags = restrictionFlags;
             // to ensure "values" is required (not null)
@@ -63,7 +63,7 @@ namespace SymbolRestClient.Model
         /// </summary>
         /// <value>Address, mosaic id, or transaction type to restrict.</value>
         [DataMember(Name = "values", IsRequired = true, EmitDefaultValue = true)]
-        public List<AccountRestrictionDTOValuesInner> Values { get; set; }
+        public List<string> Values { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

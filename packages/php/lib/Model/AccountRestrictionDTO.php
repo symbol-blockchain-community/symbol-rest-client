@@ -58,7 +58,7 @@ class AccountRestrictionDTO implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static $openAPITypes = [
         'restriction_flags' => '\SymbolRestClient\Model\AccountRestrictionFlagsEnum',
-        'values' => '\SymbolRestClient\Model\AccountRestrictionDTOValuesInner[]'
+        'values' => 'string[]'
     ];
 
     /**
@@ -332,7 +332,7 @@ class AccountRestrictionDTO implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets values
      *
-     * @return \SymbolRestClient\Model\AccountRestrictionDTOValuesInner[]
+     * @return string[]
      */
     public function getValues()
     {
@@ -342,7 +342,7 @@ class AccountRestrictionDTO implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets values
      *
-     * @param \SymbolRestClient\Model\AccountRestrictionDTOValuesInner[] $values Address, mosaic id, or transaction type to restrict.
+     * @param string[] $values Address, mosaic id, or transaction type to restrict.
      *
      * @return self
      */

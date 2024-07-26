@@ -15,7 +15,7 @@
       "dart": {
         "generatorName": "dart",
         "output": "packages/dart",
-        "inputSpec": "schema/1_0_4.yml",
+        "inputSpec": "schema/1_0_5.yml",
         "globalProperty": {
           "skipFormModel": false
         }
@@ -58,7 +58,7 @@
       "csharp": {
         "generatorName": "csharp",
         "output": "packages/csharp",
-        "inputSpec": "schema/1_0_4.yml",
+        "inputSpec": "schema/1_0_5.yml",
         "globalProperty": {
           "skipFormModel": false
         },
@@ -81,7 +81,7 @@
       "php": {
         "generatorName": "php",
         "output": "packages/php",
-        "inputSpec": "schema/1_0_4.yml",
+        "inputSpec": "schema/1_0_5.yml",
         "additionalProperties": {
           "invokerPackage": "SymbolRestClient"
         }

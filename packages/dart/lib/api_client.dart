@@ -226,8 +226,6 @@ class ApiClient {
           return AccountPage.fromJson(value);
         case 'AccountRestrictionDTO':
           return AccountRestrictionDTO.fromJson(value);
-        case 'AccountRestrictionDTOValuesInner':
-          return AccountRestrictionDTOValuesInner.fromJson(value);
         case 'AccountRestrictionFlagsEnum':
           return AccountRestrictionFlagsEnumTypeTransformer().decode(value);
         case 'AccountRestrictionNetworkPropertiesDTO':
@@ -570,12 +568,8 @@ class ApiClient {
           return RentalFeesDTO.fromJson(value);
         case 'ResolutionEntryDTO':
           return ResolutionEntryDTO.fromJson(value);
-        case 'ResolutionEntryDTOResolved':
-          return ResolutionEntryDTOResolved.fromJson(value);
         case 'ResolutionStatementDTO':
           return ResolutionStatementDTO.fromJson(value);
-        case 'ResolutionStatementDTOUnresolved':
-          return ResolutionStatementDTOUnresolved.fromJson(value);
         case 'ResolutionStatementInfoDTO':
           return ResolutionStatementInfoDTO.fromJson(value);
         case 'ResolutionStatementPage':

@@ -41,7 +41,7 @@ namespace SymbolRestClient.Model
         /// </summary>
         /// <param name="source">source (required).</param>
         /// <param name="resolved">resolved (required).</param>
-        public ResolutionEntryDTO(SourceDTO source = default(SourceDTO), ResolutionEntryDTOResolved resolved = default(ResolutionEntryDTOResolved))
+        public ResolutionEntryDTO(SourceDTO source = default(SourceDTO), string resolved = default(string))
         {
             // to ensure "source" is required (not null)
             if (source == null)
@@ -67,7 +67,7 @@ namespace SymbolRestClient.Model
         /// Gets or Sets Resolved
         /// </summary>
         [DataMember(Name = "resolved", IsRequired = true, EmitDefaultValue = true)]
-        public ResolutionEntryDTOResolved Resolved { get; set; }
+        public string Resolved { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

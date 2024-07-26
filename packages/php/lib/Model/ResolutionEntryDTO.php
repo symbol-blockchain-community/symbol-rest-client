@@ -58,7 +58,7 @@ class ResolutionEntryDTO implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPITypes = [
         'source' => '\SymbolRestClient\Model\SourceDTO',
-        'resolved' => '\SymbolRestClient\Model\ResolutionEntryDTOResolved'
+        'resolved' => 'string'
     ];
 
     /**
@@ -332,7 +332,7 @@ class ResolutionEntryDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets resolved
      *
-     * @return \SymbolRestClient\Model\ResolutionEntryDTOResolved
+     * @return string
      */
     public function getResolved()
     {
@@ -342,7 +342,7 @@ class ResolutionEntryDTO implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets resolved
      *
-     * @param \SymbolRestClient\Model\ResolutionEntryDTOResolved $resolved resolved
+     * @param string $resolved resolved
      *
      * @return self
      */
