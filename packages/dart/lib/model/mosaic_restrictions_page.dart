@@ -18,7 +18,7 @@ class MosaicRestrictionsPage {
   });
 
   /// Array of mosaic restrictions.
-  List<MosaicRestrictionsPageDataInner> data;
+  List<String> data;
 
   Pagination pagination;
 
@@ -62,7 +62,9 @@ class MosaicRestrictionsPage {
       }());
 
       return MosaicRestrictionsPage(
-        data: MosaicRestrictionsPageDataInner.listFromJson(json[r'data']),
+        data: json[r'data'] is Iterable
+            ? (json[r'data'] as Iterable).cast<String>().toList(growable: false)
+            : const [],
         pagination: Pagination.fromJson(json[r'pagination'])!,
       );
     }

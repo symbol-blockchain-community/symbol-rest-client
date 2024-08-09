@@ -11,21 +11,11 @@
 import 'package:symbol_rest_client/api.dart';
 import 'package:test/test.dart';
 
-// tests for ResolutionEntryDTO
+// tests for ResolutionEntryDTOResolved
 void main() {
-  // final instance = ResolutionEntryDTO();
+  // final instance = ResolutionEntryDTOResolved();
 
-  group('test ResolutionEntryDTO', () {
-    // SourceDTO source_
-    test('to test the property `source_`', () async {
-      // TODO
-    });
-
-    // ResolutionEntryDTOResolved resolved
-    test('to test the property `resolved`', () async {
-      // TODO
-    });
-
+  group('test ResolutionEntryDTOResolved', () {
 
   });
 

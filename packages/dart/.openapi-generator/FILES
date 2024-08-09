@@ -154,7 +154,6 @@ doc/MosaicRestrictionEntryTypeEnum.md
 doc/MosaicRestrictionNetworkPropertiesDTO.md
 doc/MosaicRestrictionTypeEnum.md
 doc/MosaicRestrictionsPage.md
-doc/MosaicRestrictionsPageDataInner.md
 doc/MosaicRoutesApi.md
 doc/MosaicSupplyChangeActionEnum.md
 doc/MosaicSupplyChangeTransactionBodyDTO.md
@@ -208,6 +207,7 @@ doc/ReceiptRoutesApi.md
 doc/ReceiptTypeEnum.md
 doc/RentalFeesDTO.md
 doc/ResolutionEntryDTO.md
+doc/ResolutionEntryDTOResolved.md
 doc/ResolutionStatementDTO.md
 doc/ResolutionStatementInfoDTO.md
 doc/ResolutionStatementPage.md
@@ -435,7 +435,6 @@ lib/model/mosaic_restriction_entry_type_enum.dart
 lib/model/mosaic_restriction_network_properties_dto.dart
 lib/model/mosaic_restriction_type_enum.dart
 lib/model/mosaic_restrictions_page.dart
-lib/model/mosaic_restrictions_page_data_inner.dart
 lib/model/mosaic_supply_change_action_enum.dart
 lib/model/mosaic_supply_change_transaction_body_dto.dart
 lib/model/mosaic_supply_change_transaction_dto.dart
@@ -483,6 +482,7 @@ lib/model/receipt_dto.dart
 lib/model/receipt_type_enum.dart
 lib/model/rental_fees_dto.dart
 lib/model/resolution_entry_dto.dart
+lib/model/resolution_entry_dto_resolved.dart
 lib/model/resolution_statement_dto.dart
 lib/model/resolution_statement_info_dto.dart
 lib/model/resolution_statement_page.dart
@@ -683,7 +683,6 @@ test/mosaic_restriction_dto_test.dart
 test/mosaic_restriction_entry_type_enum_test.dart
 test/mosaic_restriction_network_properties_dto_test.dart
 test/mosaic_restriction_type_enum_test.dart
-test/mosaic_restrictions_page_data_inner_test.dart
 test/mosaic_restrictions_page_test.dart
 test/mosaic_routes_api_test.dart
 test/mosaic_supply_change_action_enum_test.dart
@@ -738,6 +737,7 @@ test/receipt_dto_test.dart
 test/receipt_routes_api_test.dart
 test/receipt_type_enum_test.dart
 test/rental_fees_dto_test.dart
+test/resolution_entry_dto_resolved_test.dart
 test/resolution_entry_dto_test.dart
 test/resolution_statement_dto_test.dart
 test/resolution_statement_info_dto_test.dart

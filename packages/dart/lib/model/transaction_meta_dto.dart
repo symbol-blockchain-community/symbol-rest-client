@@ -14,8 +14,8 @@ class TransactionMetaDTO {
   /// Returns a new [TransactionMetaDTO] instance.
   TransactionMetaDTO({
     required this.height,
-    required this.hash,
-    required this.merkleComponentHash,
+    this.hash,
+    this.merkleComponentHash,
     required this.index,
     this.timestamp,
     this.feeMultiplier,
@@ -24,9 +24,21 @@ class TransactionMetaDTO {
   /// Height of the blockchain.
   String height;
 
-  String hash;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? hash;
 
-  String merkleComponentHash;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? merkleComponentHash;
 
   /// Transaction index within the block.
   int index;
@@ -62,8 +74,8 @@ class TransactionMetaDTO {
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (height.hashCode) +
-    (hash.hashCode) +
-    (merkleComponentHash.hashCode) +
+    (hash == null ? 0 : hash!.hashCode) +
+    (merkleComponentHash == null ? 0 : merkleComponentHash!.hashCode) +
     (index.hashCode) +
     (timestamp == null ? 0 : timestamp!.hashCode) +
     (feeMultiplier == null ? 0 : feeMultiplier!.hashCode);
@@ -74,8 +86,16 @@ class TransactionMetaDTO {
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'height'] = this.height;
+    if (this.hash != null) {
       json[r'hash'] = this.hash;
+    } else {
+      json[r'hash'] = null;
+    }
+    if (this.merkleComponentHash != null) {
       json[r'merkleComponentHash'] = this.merkleComponentHash;
+    } else {
+      json[r'merkleComponentHash'] = null;
+    }
       json[r'index'] = this.index;
     if (this.timestamp != null) {
       json[r'timestamp'] = this.timestamp;
@@ -110,8 +130,8 @@ class TransactionMetaDTO {
 
       return TransactionMetaDTO(
         height: mapValueOfType<String>(json, r'height')!,
-        hash: mapValueOfType<String>(json, r'hash')!,
-        merkleComponentHash: mapValueOfType<String>(json, r'merkleComponentHash')!,
+        hash: mapValueOfType<String>(json, r'hash'),
+        merkleComponentHash: mapValueOfType<String>(json, r'merkleComponentHash'),
         index: mapValueOfType<int>(json, r'index')!,
         timestamp: mapValueOfType<String>(json, r'timestamp'),
         feeMultiplier: mapValueOfType<int>(json, r'feeMultiplier'),
@@ -163,8 +183,6 @@ class TransactionMetaDTO {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'height',
-    'hash',
-    'merkleComponentHash',
     'index',
   };
 }

@@ -17,7 +17,7 @@ void main() {
 
   group('test MosaicRestrictionsPage', () {
     // Array of mosaic restrictions.
-    // List<MosaicRestrictionsPageDataInner> data (default value: const [])
+    // List<String> data (default value: const [])
     test('to test the property `data`', () async {
       // TODO
     });

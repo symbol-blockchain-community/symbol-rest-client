@@ -9,8 +9,8 @@ import 'package:symbol_rest_client/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **height** | **String** | Height of the blockchain. | 
-**hash** | **String** |  | 
-**merkleComponentHash** | **String** |  | 
+**hash** | **String** |  | [optional] 
+**merkleComponentHash** | **String** |  | [optional] 
 **index** | **int** | Transaction index within the block. | 
 **timestamp** | **String** | Number of milliseconds elapsed since the creation of the nemesis block. This value can be converted to epoch time by adding the network's 'epochAdjustment'. | [optional] 
 **feeMultiplier** | **int** | Fee multiplier applied to transactions contained in block. | [optional] 

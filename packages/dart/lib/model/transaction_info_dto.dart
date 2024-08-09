@@ -23,7 +23,7 @@ class TransactionInfoDTO {
 
   TransactionInfoDTOMeta meta;
 
-  TransactionInfoDTOTransaction transaction;
+  dynamic transaction;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is TransactionInfoDTO &&

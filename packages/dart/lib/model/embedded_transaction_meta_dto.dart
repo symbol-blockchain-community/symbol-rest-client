@@ -14,8 +14,8 @@ class EmbeddedTransactionMetaDTO {
   /// Returns a new [EmbeddedTransactionMetaDTO] instance.
   EmbeddedTransactionMetaDTO({
     required this.height,
-    required this.aggregateHash,
-    required this.aggregateId,
+    this.aggregateHash,
+    this.aggregateId,
     required this.index,
     this.timestamp,
     this.feeMultiplier,
@@ -24,10 +24,22 @@ class EmbeddedTransactionMetaDTO {
   /// Height of the blockchain.
   String height;
 
-  String aggregateHash;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? aggregateHash;
 
   /// Identifier of the aggregate transaction.
-  String aggregateId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? aggregateId;
 
   /// Transaction index within the aggregate.
   int index;
@@ -63,8 +75,8 @@ class EmbeddedTransactionMetaDTO {
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (height.hashCode) +
-    (aggregateHash.hashCode) +
-    (aggregateId.hashCode) +
+    (aggregateHash == null ? 0 : aggregateHash!.hashCode) +
+    (aggregateId == null ? 0 : aggregateId!.hashCode) +
     (index.hashCode) +
     (timestamp == null ? 0 : timestamp!.hashCode) +
     (feeMultiplier == null ? 0 : feeMultiplier!.hashCode);
@@ -75,8 +87,16 @@ class EmbeddedTransactionMetaDTO {
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'height'] = this.height;
+    if (this.aggregateHash != null) {
       json[r'aggregateHash'] = this.aggregateHash;
+    } else {
+      json[r'aggregateHash'] = null;
+    }
+    if (this.aggregateId != null) {
       json[r'aggregateId'] = this.aggregateId;
+    } else {
+      json[r'aggregateId'] = null;
+    }
       json[r'index'] = this.index;
     if (this.timestamp != null) {
       json[r'timestamp'] = this.timestamp;
@@ -111,8 +131,8 @@ class EmbeddedTransactionMetaDTO {
 
       return EmbeddedTransactionMetaDTO(
         height: mapValueOfType<String>(json, r'height')!,
-        aggregateHash: mapValueOfType<String>(json, r'aggregateHash')!,
-        aggregateId: mapValueOfType<String>(json, r'aggregateId')!,
+        aggregateHash: mapValueOfType<String>(json, r'aggregateHash'),
+        aggregateId: mapValueOfType<String>(json, r'aggregateId'),
         index: mapValueOfType<int>(json, r'index')!,
         timestamp: mapValueOfType<String>(json, r'timestamp'),
         feeMultiplier: mapValueOfType<int>(json, r'feeMultiplier'),
@@ -164,8 +184,6 @@ class EmbeddedTransactionMetaDTO {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'height',
-    'aggregateHash',
-    'aggregateId',
     'index',
   };
 }

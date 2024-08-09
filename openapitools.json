@@ -15,7 +15,7 @@
       "dart": {
         "generatorName": "dart",
         "output": "packages/dart",
-        "inputSpec": "schema/1_0_5.yml",
+        "inputSpec": "schema/for_dart_1_0_6.yml",
         "globalProperty": {
           "skipFormModel": false
         },

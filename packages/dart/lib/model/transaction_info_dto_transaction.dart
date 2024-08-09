@@ -456,7 +456,7 @@ class TransactionInfoDTOTransaction {
   /// Returns a new [TransactionInfoDTOTransaction] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static TransactionInfoDTOTransaction? fromJson(dynamic value) {
+  static dynamic fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -471,6 +471,107 @@ class TransactionInfoDTOTransaction {
         return true;
       }());
 
+      bool embedded = false;
+      if (json['size'] == null) embedded = true;
+
+      switch (json['type']) {
+        case 16716:
+          return embedded
+              ? EmbeddedAccountKeyLinkTransactionDTO.fromJson(value)
+              : AccountKeyLinkTransactionDTO.fromJson(value);
+        case 16972:
+          return embedded
+              ? EmbeddedNodeKeyLinkTransactionDTO.fromJson(value)
+              : NodeKeyLinkTransactionDTO.fromJson(value);
+        case 16705:
+          return AggregateTransactionDTO.fromJson(value);
+        case 16961:
+          return AggregateTransactionDTO.fromJson(value);
+        case 16707:
+          return embedded
+              ? EmbeddedVotingKeyLinkTransactionDTO.fromJson(value)
+              : VotingKeyLinkTransactionDTO.fromJson(value);
+        case 16963:
+          return embedded
+              ? EmbeddedVrfKeyLinkTransactionDTO.fromJson(value)
+              : VrfKeyLinkTransactionDTO.fromJson(value);
+        case 16712:
+          return embedded
+              ? EmbeddedHashLockTransactionDTO.fromJson(value)
+              : HashLockTransactionDTO.fromJson(value);
+        case 16722:
+          return embedded
+              ? EmbeddedSecretLockTransactionDTO.fromJson(value)
+              : SecretLockTransactionDTO.fromJson(value);
+        case 16978:
+          return embedded
+              ? EmbeddedSecretProofTransactionDTO.fromJson(value)
+              : SecretProofTransactionDTO.fromJson(value);
+        case 16708:
+          return embedded
+              ? EmbeddedAccountMetadataTransactionDTO.fromJson(value)
+              : AccountMetadataTransactionDTO.fromJson(value);
+        case 16964:
+          return embedded
+              ? EmbeddedMosaicMetadataTransactionDTO.fromJson(value)
+              : MosaicMetadataTransactionDTO.fromJson(value);
+        case 17220:
+          return embedded
+              ? EmbeddedNamespaceMetadataTransactionDTO.fromJson(value)
+              : NamespaceMetadataTransactionDTO.fromJson(value);
+        case 16717:
+          return embedded
+              ? EmbeddedMosaicDefinitionTransactionDTO.fromJson(value)
+              : MosaicDefinitionTransactionDTO.fromJson(value);
+        case 16973:
+          return embedded
+              ? EmbeddedMosaicSupplyChangeTransactionDTO.fromJson(value)
+              : MosaicSupplyChangeTransactionDTO.fromJson(value);
+        case 17229:
+          return embedded
+              ? EmbeddedMosaicSupplyRevocationTransactionDTO.fromJson(value)
+              : MosaicSupplyRevocationTransactionDTO.fromJson(value);
+        case 16725:
+          return embedded
+              ? EmbeddedMultisigAccountModificationTransactionDTO.fromJson(value)
+              : MultisigAccountModificationTransactionDTO.fromJson(value);
+        case 16974:
+          return embedded
+              ? EmbeddedAddressAliasTransactionDTO.fromJson(value)
+              : AddressAliasTransactionDTO.fromJson(value);
+        case 17230:
+          return embedded
+              ? EmbeddedMosaicAliasTransactionDTO.fromJson(value)
+              : MosaicAliasTransactionDTO.fromJson(value);
+        case 16718:
+          return embedded
+              ? EmbeddedNamespaceRegistrationTransactionDTO.fromJson(value)
+              : NamespaceRegistrationTransactionDTO.fromJson(value);
+        case 16720:
+          return embedded
+              ? EmbeddedAccountAddressRestrictionTransactionDTO.fromJson(value)
+              : AccountAddressRestrictionTransactionDTO.fromJson(value);
+        case 16976:
+          return embedded
+              ? EmbeddedAccountMosaicRestrictionTransactionDTO.fromJson(value)
+              : AccountMosaicRestrictionTransactionDTO.fromJson(value);
+        case 17232:
+          return embedded
+              ? EmbeddedAccountOperationRestrictionTransactionDTO.fromJson(value)
+              : AccountOperationRestrictionTransactionDTO.fromJson(value);
+        case 16977:
+          return embedded
+              ? EmbeddedMosaicAddressRestrictionTransactionDTO.fromJson(value)
+              : MosaicAddressRestrictionTransactionDTO.fromJson(value);
+        case 16721:
+          return embedded
+              ? EmbeddedMosaicGlobalRestrictionTransactionDTO.fromJson(value)
+              : MosaicGlobalRestrictionTransactionDTO.fromJson(value);
+        case 16724:
+          return embedded
+              ? EmbeddedTransferTransactionDTO.fromJson(value)
+              : TransferTransactionDTO.fromJson(value);
+      }
       return TransactionInfoDTOTransaction(
         size: mapValueOfType<int>(json, r'size')!,
         signature: mapValueOfType<String>(json, r'signature')!,

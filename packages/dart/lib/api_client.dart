@@ -472,8 +472,6 @@ class ApiClient {
           return MosaicRestrictionTypeEnumTypeTransformer().decode(value);
         case 'MosaicRestrictionsPage':
           return MosaicRestrictionsPage.fromJson(value);
-        case 'MosaicRestrictionsPageDataInner':
-          return MosaicRestrictionsPageDataInner.fromJson(value);
         case 'MosaicSupplyChangeActionEnum':
           return MosaicSupplyChangeActionEnumTypeTransformer().decode(value);
         case 'MosaicSupplyChangeTransactionBodyDTO':
@@ -568,6 +566,8 @@ class ApiClient {
           return RentalFeesDTO.fromJson(value);
         case 'ResolutionEntryDTO':
           return ResolutionEntryDTO.fromJson(value);
+        case 'ResolutionEntryDTOResolved':
+          return ResolutionEntryDTOResolved.fromJson(value);
         case 'ResolutionStatementDTO':
           return ResolutionStatementDTO.fromJson(value);
         case 'ResolutionStatementInfoDTO':

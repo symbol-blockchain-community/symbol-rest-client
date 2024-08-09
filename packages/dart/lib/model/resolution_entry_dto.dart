@@ -19,7 +19,7 @@ class ResolutionEntryDTO {
 
   SourceDTO source_;
 
-  String resolved;
+  ResolutionEntryDTOResolved resolved;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is ResolutionEntryDTO &&
@@ -62,7 +62,7 @@ class ResolutionEntryDTO {
 
       return ResolutionEntryDTO(
         source_: SourceDTO.fromJson(json[r'source'])!,
-        resolved: mapValueOfType<String>(json, r'resolved')!,
+        resolved: ResolutionEntryDTOResolved.fromJson(json[r'resolved'])!,
       );
     }
     return null;

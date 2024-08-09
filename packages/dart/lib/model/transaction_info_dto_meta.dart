@@ -14,21 +14,33 @@ class TransactionInfoDTOMeta {
   /// Returns a new [TransactionInfoDTOMeta] instance.
   TransactionInfoDTOMeta({
     required this.height,
-    required this.hash,
-    required this.merkleComponentHash,
+    this.hash,
+    this.merkleComponentHash,
     required this.index,
     this.timestamp,
     this.feeMultiplier,
-    required this.aggregateHash,
-    required this.aggregateId,
+    this.aggregateHash,
+    this.aggregateId,
   });
 
   /// Height of the blockchain.
   String height;
 
-  String hash;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? hash;
 
-  String merkleComponentHash;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? merkleComponentHash;
 
   /// Transaction index within the aggregate.
   int index;
@@ -51,10 +63,22 @@ class TransactionInfoDTOMeta {
   ///
   int? feeMultiplier;
 
-  String aggregateHash;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? aggregateHash;
 
   /// Identifier of the aggregate transaction.
-  String aggregateId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? aggregateId;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is TransactionInfoDTOMeta &&
@@ -71,13 +95,13 @@ class TransactionInfoDTOMeta {
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (height.hashCode) +
-    (hash.hashCode) +
-    (merkleComponentHash.hashCode) +
+    (hash == null ? 0 : hash!.hashCode) +
+    (merkleComponentHash == null ? 0 : merkleComponentHash!.hashCode) +
     (index.hashCode) +
     (timestamp == null ? 0 : timestamp!.hashCode) +
     (feeMultiplier == null ? 0 : feeMultiplier!.hashCode) +
-    (aggregateHash.hashCode) +
-    (aggregateId.hashCode);
+    (aggregateHash == null ? 0 : aggregateHash!.hashCode) +
+    (aggregateId == null ? 0 : aggregateId!.hashCode);
 
   @override
   String toString() => 'TransactionInfoDTOMeta[height=$height, hash=$hash, merkleComponentHash=$merkleComponentHash, index=$index, timestamp=$timestamp, feeMultiplier=$feeMultiplier, aggregateHash=$aggregateHash, aggregateId=$aggregateId]';
@@ -85,8 +109,16 @@ class TransactionInfoDTOMeta {
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'height'] = this.height;
+    if (this.hash != null) {
       json[r'hash'] = this.hash;
+    } else {
+      json[r'hash'] = null;
+    }
+    if (this.merkleComponentHash != null) {
       json[r'merkleComponentHash'] = this.merkleComponentHash;
+    } else {
+      json[r'merkleComponentHash'] = null;
+    }
       json[r'index'] = this.index;
     if (this.timestamp != null) {
       json[r'timestamp'] = this.timestamp;
@@ -98,8 +130,16 @@ class TransactionInfoDTOMeta {
     } else {
       json[r'feeMultiplier'] = null;
     }
+    if (this.aggregateHash != null) {
       json[r'aggregateHash'] = this.aggregateHash;
+    } else {
+      json[r'aggregateHash'] = null;
+    }
+    if (this.aggregateId != null) {
       json[r'aggregateId'] = this.aggregateId;
+    } else {
+      json[r'aggregateId'] = null;
+    }
     return json;
   }
 
@@ -123,13 +163,13 @@ class TransactionInfoDTOMeta {
 
       return TransactionInfoDTOMeta(
         height: mapValueOfType<String>(json, r'height')!,
-        hash: mapValueOfType<String>(json, r'hash')!,
-        merkleComponentHash: mapValueOfType<String>(json, r'merkleComponentHash')!,
+        hash: mapValueOfType<String>(json, r'hash'),
+        merkleComponentHash: mapValueOfType<String>(json, r'merkleComponentHash'),
         index: mapValueOfType<int>(json, r'index')!,
         timestamp: mapValueOfType<String>(json, r'timestamp'),
         feeMultiplier: mapValueOfType<int>(json, r'feeMultiplier'),
-        aggregateHash: mapValueOfType<String>(json, r'aggregateHash')!,
-        aggregateId: mapValueOfType<String>(json, r'aggregateId')!,
+        aggregateHash: mapValueOfType<String>(json, r'aggregateHash'),
+        aggregateId: mapValueOfType<String>(json, r'aggregateId'),
       );
     }
     return null;
@@ -178,11 +218,7 @@ class TransactionInfoDTOMeta {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'height',
-    'hash',
-    'merkleComponentHash',
     'index',
-    'aggregateHash',
-    'aggregateId',
   };
 }
 
