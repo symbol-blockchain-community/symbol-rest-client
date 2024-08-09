@@ -13,18 +13,36 @@ part of openapi.api;
 class MosaicAliasTransactionBodyDTO {
   /// Returns a new [MosaicAliasTransactionBodyDTO] instance.
   MosaicAliasTransactionBodyDTO({
-    required this.namespaceId,
-    required this.mosaicId,
-    required this.aliasAction,
+    this.namespaceId,
+    this.mosaicId,
+    this.aliasAction,
   });
 
   /// Namespace identifier.
-  String namespaceId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? namespaceId;
 
   /// Mosaic identifier.
-  String mosaicId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? mosaicId;
 
-  AliasActionEnum aliasAction;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  AliasActionEnum? aliasAction;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is MosaicAliasTransactionBodyDTO &&
@@ -35,18 +53,30 @@ class MosaicAliasTransactionBodyDTO {
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (namespaceId.hashCode) +
-    (mosaicId.hashCode) +
-    (aliasAction.hashCode);
+    (namespaceId == null ? 0 : namespaceId!.hashCode) +
+    (mosaicId == null ? 0 : mosaicId!.hashCode) +
+    (aliasAction == null ? 0 : aliasAction!.hashCode);
 
   @override
   String toString() => 'MosaicAliasTransactionBodyDTO[namespaceId=$namespaceId, mosaicId=$mosaicId, aliasAction=$aliasAction]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    if (this.namespaceId != null) {
       json[r'namespaceId'] = this.namespaceId;
+    } else {
+      json[r'namespaceId'] = null;
+    }
+    if (this.mosaicId != null) {
       json[r'mosaicId'] = this.mosaicId;
+    } else {
+      json[r'mosaicId'] = null;
+    }
+    if (this.aliasAction != null) {
       json[r'aliasAction'] = this.aliasAction;
+    } else {
+      json[r'aliasAction'] = null;
+    }
     return json;
   }
 
@@ -69,9 +99,9 @@ class MosaicAliasTransactionBodyDTO {
       }());
 
       return MosaicAliasTransactionBodyDTO(
-        namespaceId: mapValueOfType<String>(json, r'namespaceId')!,
-        mosaicId: mapValueOfType<String>(json, r'mosaicId')!,
-        aliasAction: AliasActionEnum.fromJson(json[r'aliasAction'])!,
+        namespaceId: mapValueOfType<String>(json, r'namespaceId'),
+        mosaicId: mapValueOfType<String>(json, r'mosaicId'),
+        aliasAction: AliasActionEnum.fromJson(json[r'aliasAction']),
       );
     }
     return null;
@@ -119,9 +149,6 @@ class MosaicAliasTransactionBodyDTO {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'namespaceId',
-    'mosaicId',
-    'aliasAction',
   };
 }
 

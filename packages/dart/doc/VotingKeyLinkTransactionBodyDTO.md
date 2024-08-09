@@ -8,10 +8,10 @@ import 'package:symbol_rest_client/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**linkedPublicKey** | **String** | 32 bytes voting public key. | 
-**startEpoch** | **int** | Finalization Epoch | 
-**endEpoch** | **int** | Finalization Epoch | 
-**linkAction** | [**LinkActionEnum**](LinkActionEnum.md) |  | 
+**linkedPublicKey** | **String** | 32 bytes voting public key. | [optional] 
+**startEpoch** | **int** | Finalization Epoch | [optional] 
+**endEpoch** | **int** | Finalization Epoch | [optional] 
+**linkAction** | [**LinkActionEnum**](LinkActionEnum.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -21,11 +21,11 @@ class MosaicDefinitionTransactionDTO {
     required this.type,
     required this.maxFee,
     required this.deadline,
-    required this.id,
-    required this.duration,
-    required this.nonce,
-    required this.flags,
-    required this.divisibility,
+    this.id,
+    this.duration,
+    this.nonce,
+    this.flags,
+    this.divisibility,
   });
 
   /// A number that allows uint 32 values.
@@ -51,19 +51,49 @@ class MosaicDefinitionTransactionDTO {
   String deadline;
 
   /// Mosaic identifier.
-  String id;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? id;
 
   /// Duration expressed in number of blocks.
-  String duration;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? duration;
 
   /// A number that allows uint 32 values.
-  int nonce;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? nonce;
 
   /// - 0x00 (none) - No flags present. - 0x01 (supplyMutable) - Mosaic supports supply changes even when mosaic owner owns partial supply. - 0x02 (transferable) - Mosaic supports transfers between arbitrary accounts. When not set, mosaic can only be transferred to and from mosaic owner. - 0x04 (restrictable) - Mosaic supports custom restrictions configured by mosaic owner. - 0x08 (revokable) - Mosaic allows creator to revoke balances from another user. 
-  int flags;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? flags;
 
   /// Determines up to what decimal place the mosaic can be divided. Divisibility of 3 means that a mosaic can be divided into smallest parts of 0.001 mosaics. The divisibility must be in the range of 0 and 6. 
-  int divisibility;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? divisibility;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is MosaicDefinitionTransactionDTO &&
@@ -92,11 +122,11 @@ class MosaicDefinitionTransactionDTO {
     (type.hashCode) +
     (maxFee.hashCode) +
     (deadline.hashCode) +
-    (id.hashCode) +
-    (duration.hashCode) +
-    (nonce.hashCode) +
-    (flags.hashCode) +
-    (divisibility.hashCode);
+    (id == null ? 0 : id!.hashCode) +
+    (duration == null ? 0 : duration!.hashCode) +
+    (nonce == null ? 0 : nonce!.hashCode) +
+    (flags == null ? 0 : flags!.hashCode) +
+    (divisibility == null ? 0 : divisibility!.hashCode);
 
   @override
   String toString() => 'MosaicDefinitionTransactionDTO[size=$size, signature=$signature, signerPublicKey=$signerPublicKey, version=$version, network=$network, type=$type, maxFee=$maxFee, deadline=$deadline, id=$id, duration=$duration, nonce=$nonce, flags=$flags, divisibility=$divisibility]';
@@ -111,11 +141,31 @@ class MosaicDefinitionTransactionDTO {
       json[r'type'] = this.type;
       json[r'maxFee'] = this.maxFee;
       json[r'deadline'] = this.deadline;
+    if (this.id != null) {
       json[r'id'] = this.id;
+    } else {
+      json[r'id'] = null;
+    }
+    if (this.duration != null) {
       json[r'duration'] = this.duration;
+    } else {
+      json[r'duration'] = null;
+    }
+    if (this.nonce != null) {
       json[r'nonce'] = this.nonce;
+    } else {
+      json[r'nonce'] = null;
+    }
+    if (this.flags != null) {
       json[r'flags'] = this.flags;
+    } else {
+      json[r'flags'] = null;
+    }
+    if (this.divisibility != null) {
       json[r'divisibility'] = this.divisibility;
+    } else {
+      json[r'divisibility'] = null;
+    }
     return json;
   }
 
@@ -146,11 +196,11 @@ class MosaicDefinitionTransactionDTO {
         type: mapValueOfType<int>(json, r'type')!,
         maxFee: mapValueOfType<String>(json, r'maxFee')!,
         deadline: mapValueOfType<String>(json, r'deadline')!,
-        id: mapValueOfType<String>(json, r'id')!,
-        duration: mapValueOfType<String>(json, r'duration')!,
-        nonce: mapValueOfType<int>(json, r'nonce')!,
-        flags: mapValueOfType<int>(json, r'flags')!,
-        divisibility: mapValueOfType<int>(json, r'divisibility')!,
+        id: mapValueOfType<String>(json, r'id'),
+        duration: mapValueOfType<String>(json, r'duration'),
+        nonce: mapValueOfType<int>(json, r'nonce'),
+        flags: mapValueOfType<int>(json, r'flags'),
+        divisibility: mapValueOfType<int>(json, r'divisibility'),
       );
     }
     return null;
@@ -206,11 +256,6 @@ class MosaicDefinitionTransactionDTO {
     'type',
     'maxFee',
     'deadline',
-    'id',
-    'duration',
-    'nonce',
-    'flags',
-    'divisibility',
   };
 }
 

@@ -17,9 +17,9 @@ class EmbeddedAddressAliasTransactionDTO {
     required this.version,
     required this.network,
     required this.type,
-    required this.namespaceId,
-    required this.address,
-    required this.aliasAction,
+    this.namespaceId,
+    this.address,
+    this.aliasAction,
   });
 
   /// Public key.
@@ -33,12 +33,30 @@ class EmbeddedAddressAliasTransactionDTO {
   int type;
 
   /// Namespace identifier.
-  String namespaceId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? namespaceId;
 
   /// Address encoded using a 32-character set.
-  String address;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? address;
 
-  AliasActionEnum aliasAction;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  AliasActionEnum? aliasAction;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is EmbeddedAddressAliasTransactionDTO &&
@@ -57,9 +75,9 @@ class EmbeddedAddressAliasTransactionDTO {
     (version.hashCode) +
     (network.hashCode) +
     (type.hashCode) +
-    (namespaceId.hashCode) +
-    (address.hashCode) +
-    (aliasAction.hashCode);
+    (namespaceId == null ? 0 : namespaceId!.hashCode) +
+    (address == null ? 0 : address!.hashCode) +
+    (aliasAction == null ? 0 : aliasAction!.hashCode);
 
   @override
   String toString() => 'EmbeddedAddressAliasTransactionDTO[signerPublicKey=$signerPublicKey, version=$version, network=$network, type=$type, namespaceId=$namespaceId, address=$address, aliasAction=$aliasAction]';
@@ -70,9 +88,21 @@ class EmbeddedAddressAliasTransactionDTO {
       json[r'version'] = this.version;
       json[r'network'] = this.network;
       json[r'type'] = this.type;
+    if (this.namespaceId != null) {
       json[r'namespaceId'] = this.namespaceId;
+    } else {
+      json[r'namespaceId'] = null;
+    }
+    if (this.address != null) {
       json[r'address'] = this.address;
+    } else {
+      json[r'address'] = null;
+    }
+    if (this.aliasAction != null) {
       json[r'aliasAction'] = this.aliasAction;
+    } else {
+      json[r'aliasAction'] = null;
+    }
     return json;
   }
 
@@ -99,9 +129,9 @@ class EmbeddedAddressAliasTransactionDTO {
         version: mapValueOfType<int>(json, r'version')!,
         network: NetworkTypeEnum.fromJson(json[r'network'])!,
         type: mapValueOfType<int>(json, r'type')!,
-        namespaceId: mapValueOfType<String>(json, r'namespaceId')!,
-        address: mapValueOfType<String>(json, r'address')!,
-        aliasAction: AliasActionEnum.fromJson(json[r'aliasAction'])!,
+        namespaceId: mapValueOfType<String>(json, r'namespaceId'),
+        address: mapValueOfType<String>(json, r'address'),
+        aliasAction: AliasActionEnum.fromJson(json[r'aliasAction']),
       );
     }
     return null;
@@ -153,9 +183,6 @@ class EmbeddedAddressAliasTransactionDTO {
     'version',
     'network',
     'type',
-    'namespaceId',
-    'address',
-    'aliasAction',
   };
 }
 

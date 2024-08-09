@@ -13,33 +13,75 @@ part of openapi.api;
 class MosaicGlobalRestrictionTransactionBodyDTO {
   /// Returns a new [MosaicGlobalRestrictionTransactionBodyDTO] instance.
   MosaicGlobalRestrictionTransactionBodyDTO({
-    required this.mosaicId,
-    required this.referenceMosaicId,
-    required this.restrictionKey,
-    required this.previousRestrictionValue,
-    required this.newRestrictionValue,
-    required this.previousRestrictionType,
-    required this.newRestrictionType,
+    this.mosaicId,
+    this.referenceMosaicId,
+    this.restrictionKey,
+    this.previousRestrictionValue,
+    this.newRestrictionValue,
+    this.previousRestrictionType,
+    this.newRestrictionType,
   });
 
   /// Mosaic identifier. If the most significant bit of byte 0 is set, a namespaceId (alias) is used instead of the real mosaic identifier. 
-  String mosaicId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? mosaicId;
 
   /// Mosaic identifier. If the most significant bit of byte 0 is set, a namespaceId (alias) is used instead of the real mosaic identifier. 
-  String referenceMosaicId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? referenceMosaicId;
 
   /// Restriction key.
-  String restrictionKey;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? restrictionKey;
 
   /// Restriction value.
-  String previousRestrictionValue;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? previousRestrictionValue;
 
   /// Restriction value.
-  String newRestrictionValue;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? newRestrictionValue;
 
-  MosaicRestrictionTypeEnum previousRestrictionType;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  MosaicRestrictionTypeEnum? previousRestrictionType;
 
-  MosaicRestrictionTypeEnum newRestrictionType;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  MosaicRestrictionTypeEnum? newRestrictionType;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is MosaicGlobalRestrictionTransactionBodyDTO &&
@@ -54,26 +96,54 @@ class MosaicGlobalRestrictionTransactionBodyDTO {
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (mosaicId.hashCode) +
-    (referenceMosaicId.hashCode) +
-    (restrictionKey.hashCode) +
-    (previousRestrictionValue.hashCode) +
-    (newRestrictionValue.hashCode) +
-    (previousRestrictionType.hashCode) +
-    (newRestrictionType.hashCode);
+    (mosaicId == null ? 0 : mosaicId!.hashCode) +
+    (referenceMosaicId == null ? 0 : referenceMosaicId!.hashCode) +
+    (restrictionKey == null ? 0 : restrictionKey!.hashCode) +
+    (previousRestrictionValue == null ? 0 : previousRestrictionValue!.hashCode) +
+    (newRestrictionValue == null ? 0 : newRestrictionValue!.hashCode) +
+    (previousRestrictionType == null ? 0 : previousRestrictionType!.hashCode) +
+    (newRestrictionType == null ? 0 : newRestrictionType!.hashCode);
 
   @override
   String toString() => 'MosaicGlobalRestrictionTransactionBodyDTO[mosaicId=$mosaicId, referenceMosaicId=$referenceMosaicId, restrictionKey=$restrictionKey, previousRestrictionValue=$previousRestrictionValue, newRestrictionValue=$newRestrictionValue, previousRestrictionType=$previousRestrictionType, newRestrictionType=$newRestrictionType]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    if (this.mosaicId != null) {
       json[r'mosaicId'] = this.mosaicId;
+    } else {
+      json[r'mosaicId'] = null;
+    }
+    if (this.referenceMosaicId != null) {
       json[r'referenceMosaicId'] = this.referenceMosaicId;
+    } else {
+      json[r'referenceMosaicId'] = null;
+    }
+    if (this.restrictionKey != null) {
       json[r'restrictionKey'] = this.restrictionKey;
+    } else {
+      json[r'restrictionKey'] = null;
+    }
+    if (this.previousRestrictionValue != null) {
       json[r'previousRestrictionValue'] = this.previousRestrictionValue;
+    } else {
+      json[r'previousRestrictionValue'] = null;
+    }
+    if (this.newRestrictionValue != null) {
       json[r'newRestrictionValue'] = this.newRestrictionValue;
+    } else {
+      json[r'newRestrictionValue'] = null;
+    }
+    if (this.previousRestrictionType != null) {
       json[r'previousRestrictionType'] = this.previousRestrictionType;
+    } else {
+      json[r'previousRestrictionType'] = null;
+    }
+    if (this.newRestrictionType != null) {
       json[r'newRestrictionType'] = this.newRestrictionType;
+    } else {
+      json[r'newRestrictionType'] = null;
+    }
     return json;
   }
 
@@ -96,13 +166,13 @@ class MosaicGlobalRestrictionTransactionBodyDTO {
       }());
 
       return MosaicGlobalRestrictionTransactionBodyDTO(
-        mosaicId: mapValueOfType<String>(json, r'mosaicId')!,
-        referenceMosaicId: mapValueOfType<String>(json, r'referenceMosaicId')!,
-        restrictionKey: mapValueOfType<String>(json, r'restrictionKey')!,
-        previousRestrictionValue: mapValueOfType<String>(json, r'previousRestrictionValue')!,
-        newRestrictionValue: mapValueOfType<String>(json, r'newRestrictionValue')!,
-        previousRestrictionType: MosaicRestrictionTypeEnum.fromJson(json[r'previousRestrictionType'])!,
-        newRestrictionType: MosaicRestrictionTypeEnum.fromJson(json[r'newRestrictionType'])!,
+        mosaicId: mapValueOfType<String>(json, r'mosaicId'),
+        referenceMosaicId: mapValueOfType<String>(json, r'referenceMosaicId'),
+        restrictionKey: mapValueOfType<String>(json, r'restrictionKey'),
+        previousRestrictionValue: mapValueOfType<String>(json, r'previousRestrictionValue'),
+        newRestrictionValue: mapValueOfType<String>(json, r'newRestrictionValue'),
+        previousRestrictionType: MosaicRestrictionTypeEnum.fromJson(json[r'previousRestrictionType']),
+        newRestrictionType: MosaicRestrictionTypeEnum.fromJson(json[r'newRestrictionType']),
       );
     }
     return null;
@@ -150,13 +220,6 @@ class MosaicGlobalRestrictionTransactionBodyDTO {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'mosaicId',
-    'referenceMosaicId',
-    'restrictionKey',
-    'previousRestrictionValue',
-    'newRestrictionValue',
-    'previousRestrictionType',
-    'newRestrictionType',
   };
 }
 

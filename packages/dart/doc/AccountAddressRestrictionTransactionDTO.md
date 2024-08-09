@@ -16,9 +16,9 @@ Name | Type | Description | Notes
 **type** | **int** |  | 
 **maxFee** | **String** | Absolute amount. An amount of 123456789 (absolute) for a mosaic with divisibility 6 means 123.456789 (relative). | 
 **deadline** | **String** | Duration expressed in number of blocks. | 
-**restrictionFlags** | [**AccountRestrictionFlagsEnum**](AccountRestrictionFlagsEnum.md) |  | 
-**restrictionAdditions** | **List<String>** | Account restriction additions. | [default to const []]
-**restrictionDeletions** | **List<String>** | Account restriction deletions. | [default to const []]
+**restrictionFlags** | [**AccountRestrictionFlagsEnum**](AccountRestrictionFlagsEnum.md) |  | [optional] 
+**restrictionAdditions** | **List<String>** | Account restriction additions. | [optional] [default to const []]
+**restrictionDeletions** | **List<String>** | Account restriction deletions. | [optional] [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

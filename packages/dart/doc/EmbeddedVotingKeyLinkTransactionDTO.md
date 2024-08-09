@@ -12,10 +12,10 @@ Name | Type | Description | Notes
 **version** | **int** | Entity version. | 
 **network** | [**NetworkTypeEnum**](NetworkTypeEnum.md) |  | 
 **type** | **int** |  | 
-**linkedPublicKey** | **String** | 32 bytes voting public key. | 
-**startEpoch** | **int** | Finalization Epoch | 
-**endEpoch** | **int** | Finalization Epoch | 
-**linkAction** | [**LinkActionEnum**](LinkActionEnum.md) |  | 
+**linkedPublicKey** | **String** | 32 bytes voting public key. | [optional] 
+**startEpoch** | **int** | Finalization Epoch | [optional] 
+**endEpoch** | **int** | Finalization Epoch | [optional] 
+**linkAction** | [**LinkActionEnum**](LinkActionEnum.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

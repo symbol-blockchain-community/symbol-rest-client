@@ -21,8 +21,8 @@ class NodeKeyLinkTransactionDTO {
     required this.type,
     required this.maxFee,
     required this.deadline,
-    required this.linkedPublicKey,
-    required this.linkAction,
+    this.linkedPublicKey,
+    this.linkAction,
   });
 
   /// A number that allows uint 32 values.
@@ -48,9 +48,21 @@ class NodeKeyLinkTransactionDTO {
   String deadline;
 
   /// Public key.
-  String linkedPublicKey;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? linkedPublicKey;
 
-  LinkActionEnum linkAction;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  LinkActionEnum? linkAction;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is NodeKeyLinkTransactionDTO &&
@@ -76,8 +88,8 @@ class NodeKeyLinkTransactionDTO {
     (type.hashCode) +
     (maxFee.hashCode) +
     (deadline.hashCode) +
-    (linkedPublicKey.hashCode) +
-    (linkAction.hashCode);
+    (linkedPublicKey == null ? 0 : linkedPublicKey!.hashCode) +
+    (linkAction == null ? 0 : linkAction!.hashCode);
 
   @override
   String toString() => 'NodeKeyLinkTransactionDTO[size=$size, signature=$signature, signerPublicKey=$signerPublicKey, version=$version, network=$network, type=$type, maxFee=$maxFee, deadline=$deadline, linkedPublicKey=$linkedPublicKey, linkAction=$linkAction]';
@@ -92,8 +104,16 @@ class NodeKeyLinkTransactionDTO {
       json[r'type'] = this.type;
       json[r'maxFee'] = this.maxFee;
       json[r'deadline'] = this.deadline;
+    if (this.linkedPublicKey != null) {
       json[r'linkedPublicKey'] = this.linkedPublicKey;
+    } else {
+      json[r'linkedPublicKey'] = null;
+    }
+    if (this.linkAction != null) {
       json[r'linkAction'] = this.linkAction;
+    } else {
+      json[r'linkAction'] = null;
+    }
     return json;
   }
 
@@ -124,8 +144,8 @@ class NodeKeyLinkTransactionDTO {
         type: mapValueOfType<int>(json, r'type')!,
         maxFee: mapValueOfType<String>(json, r'maxFee')!,
         deadline: mapValueOfType<String>(json, r'deadline')!,
-        linkedPublicKey: mapValueOfType<String>(json, r'linkedPublicKey')!,
-        linkAction: LinkActionEnum.fromJson(json[r'linkAction'])!,
+        linkedPublicKey: mapValueOfType<String>(json, r'linkedPublicKey'),
+        linkAction: LinkActionEnum.fromJson(json[r'linkAction']),
       );
     }
     return null;
@@ -181,8 +201,6 @@ class NodeKeyLinkTransactionDTO {
     'type',
     'maxFee',
     'deadline',
-    'linkedPublicKey',
-    'linkAction',
   };
 }
 

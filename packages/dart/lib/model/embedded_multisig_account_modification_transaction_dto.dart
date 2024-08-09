@@ -17,8 +17,8 @@ class EmbeddedMultisigAccountModificationTransactionDTO {
     required this.version,
     required this.network,
     required this.type,
-    required this.minRemovalDelta,
-    required this.minApprovalDelta,
+    this.minRemovalDelta,
+    this.minApprovalDelta,
     this.addressAdditions = const [],
     this.addressDeletions = const [],
   });
@@ -34,10 +34,22 @@ class EmbeddedMultisigAccountModificationTransactionDTO {
   int type;
 
   /// Number of signatures needed to remove a cosignatory. If we are modifying an existing multisig account, this indicates the relative change of the minimum cosignatories. 
-  int minRemovalDelta;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? minRemovalDelta;
 
   /// Number of signatures needed to approve a transaction. If we are modifying an existing multisig account, this indicates the relative change of the minimum cosignatories. 
-  int minApprovalDelta;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? minApprovalDelta;
 
   /// Array of cosignatory accounts to add.
   List<String> addressAdditions;
@@ -63,8 +75,8 @@ class EmbeddedMultisigAccountModificationTransactionDTO {
     (version.hashCode) +
     (network.hashCode) +
     (type.hashCode) +
-    (minRemovalDelta.hashCode) +
-    (minApprovalDelta.hashCode) +
+    (minRemovalDelta == null ? 0 : minRemovalDelta!.hashCode) +
+    (minApprovalDelta == null ? 0 : minApprovalDelta!.hashCode) +
     (addressAdditions.hashCode) +
     (addressDeletions.hashCode);
 
@@ -77,8 +89,16 @@ class EmbeddedMultisigAccountModificationTransactionDTO {
       json[r'version'] = this.version;
       json[r'network'] = this.network;
       json[r'type'] = this.type;
+    if (this.minRemovalDelta != null) {
       json[r'minRemovalDelta'] = this.minRemovalDelta;
+    } else {
+      json[r'minRemovalDelta'] = null;
+    }
+    if (this.minApprovalDelta != null) {
       json[r'minApprovalDelta'] = this.minApprovalDelta;
+    } else {
+      json[r'minApprovalDelta'] = null;
+    }
       json[r'addressAdditions'] = this.addressAdditions;
       json[r'addressDeletions'] = this.addressDeletions;
     return json;
@@ -107,8 +127,8 @@ class EmbeddedMultisigAccountModificationTransactionDTO {
         version: mapValueOfType<int>(json, r'version')!,
         network: NetworkTypeEnum.fromJson(json[r'network'])!,
         type: mapValueOfType<int>(json, r'type')!,
-        minRemovalDelta: mapValueOfType<int>(json, r'minRemovalDelta')!,
-        minApprovalDelta: mapValueOfType<int>(json, r'minApprovalDelta')!,
+        minRemovalDelta: mapValueOfType<int>(json, r'minRemovalDelta'),
+        minApprovalDelta: mapValueOfType<int>(json, r'minApprovalDelta'),
         addressAdditions: json[r'addressAdditions'] is Iterable
             ? (json[r'addressAdditions'] as Iterable).cast<String>().toList(growable: false)
             : const [],
@@ -166,10 +186,6 @@ class EmbeddedMultisigAccountModificationTransactionDTO {
     'version',
     'network',
     'type',
-    'minRemovalDelta',
-    'minApprovalDelta',
-    'addressAdditions',
-    'addressDeletions',
   };
 }
 

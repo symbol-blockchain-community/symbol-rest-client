@@ -15,9 +15,9 @@ class NamespaceRegistrationTransactionBodyDTO {
   NamespaceRegistrationTransactionBodyDTO({
     this.duration,
     this.parentId,
-    required this.id,
-    required this.registrationType,
-    required this.name,
+    this.id,
+    this.registrationType,
+    this.name,
   });
 
   /// Duration expressed in number of blocks.
@@ -39,12 +39,30 @@ class NamespaceRegistrationTransactionBodyDTO {
   String? parentId;
 
   /// Namespace identifier.
-  String id;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? id;
 
-  NamespaceRegistrationTypeEnum registrationType;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  NamespaceRegistrationTypeEnum? registrationType;
 
   /// Namespace name.
-  String name;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? name;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is NamespaceRegistrationTransactionBodyDTO &&
@@ -59,9 +77,9 @@ class NamespaceRegistrationTransactionBodyDTO {
     // ignore: unnecessary_parenthesis
     (duration == null ? 0 : duration!.hashCode) +
     (parentId == null ? 0 : parentId!.hashCode) +
-    (id.hashCode) +
-    (registrationType.hashCode) +
-    (name.hashCode);
+    (id == null ? 0 : id!.hashCode) +
+    (registrationType == null ? 0 : registrationType!.hashCode) +
+    (name == null ? 0 : name!.hashCode);
 
   @override
   String toString() => 'NamespaceRegistrationTransactionBodyDTO[duration=$duration, parentId=$parentId, id=$id, registrationType=$registrationType, name=$name]';
@@ -78,9 +96,21 @@ class NamespaceRegistrationTransactionBodyDTO {
     } else {
       json[r'parentId'] = null;
     }
+    if (this.id != null) {
       json[r'id'] = this.id;
+    } else {
+      json[r'id'] = null;
+    }
+    if (this.registrationType != null) {
       json[r'registrationType'] = this.registrationType;
+    } else {
+      json[r'registrationType'] = null;
+    }
+    if (this.name != null) {
       json[r'name'] = this.name;
+    } else {
+      json[r'name'] = null;
+    }
     return json;
   }
 
@@ -105,9 +135,9 @@ class NamespaceRegistrationTransactionBodyDTO {
       return NamespaceRegistrationTransactionBodyDTO(
         duration: mapValueOfType<String>(json, r'duration'),
         parentId: mapValueOfType<String>(json, r'parentId'),
-        id: mapValueOfType<String>(json, r'id')!,
-        registrationType: NamespaceRegistrationTypeEnum.fromJson(json[r'registrationType'])!,
-        name: mapValueOfType<String>(json, r'name')!,
+        id: mapValueOfType<String>(json, r'id'),
+        registrationType: NamespaceRegistrationTypeEnum.fromJson(json[r'registrationType']),
+        name: mapValueOfType<String>(json, r'name'),
       );
     }
     return null;
@@ -155,9 +185,6 @@ class NamespaceRegistrationTransactionBodyDTO {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'id',
-    'registrationType',
-    'name',
   };
 }
 

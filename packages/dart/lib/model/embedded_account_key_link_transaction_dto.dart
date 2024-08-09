@@ -17,8 +17,8 @@ class EmbeddedAccountKeyLinkTransactionDTO {
     required this.version,
     required this.network,
     required this.type,
-    required this.linkedPublicKey,
-    required this.linkAction,
+    this.linkedPublicKey,
+    this.linkAction,
   });
 
   /// Public key.
@@ -32,9 +32,21 @@ class EmbeddedAccountKeyLinkTransactionDTO {
   int type;
 
   /// Public key.
-  String linkedPublicKey;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? linkedPublicKey;
 
-  LinkActionEnum linkAction;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  LinkActionEnum? linkAction;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is EmbeddedAccountKeyLinkTransactionDTO &&
@@ -52,8 +64,8 @@ class EmbeddedAccountKeyLinkTransactionDTO {
     (version.hashCode) +
     (network.hashCode) +
     (type.hashCode) +
-    (linkedPublicKey.hashCode) +
-    (linkAction.hashCode);
+    (linkedPublicKey == null ? 0 : linkedPublicKey!.hashCode) +
+    (linkAction == null ? 0 : linkAction!.hashCode);
 
   @override
   String toString() => 'EmbeddedAccountKeyLinkTransactionDTO[signerPublicKey=$signerPublicKey, version=$version, network=$network, type=$type, linkedPublicKey=$linkedPublicKey, linkAction=$linkAction]';
@@ -64,8 +76,16 @@ class EmbeddedAccountKeyLinkTransactionDTO {
       json[r'version'] = this.version;
       json[r'network'] = this.network;
       json[r'type'] = this.type;
+    if (this.linkedPublicKey != null) {
       json[r'linkedPublicKey'] = this.linkedPublicKey;
+    } else {
+      json[r'linkedPublicKey'] = null;
+    }
+    if (this.linkAction != null) {
       json[r'linkAction'] = this.linkAction;
+    } else {
+      json[r'linkAction'] = null;
+    }
     return json;
   }
 
@@ -92,8 +112,8 @@ class EmbeddedAccountKeyLinkTransactionDTO {
         version: mapValueOfType<int>(json, r'version')!,
         network: NetworkTypeEnum.fromJson(json[r'network'])!,
         type: mapValueOfType<int>(json, r'type')!,
-        linkedPublicKey: mapValueOfType<String>(json, r'linkedPublicKey')!,
-        linkAction: LinkActionEnum.fromJson(json[r'linkAction'])!,
+        linkedPublicKey: mapValueOfType<String>(json, r'linkedPublicKey'),
+        linkAction: LinkActionEnum.fromJson(json[r'linkAction']),
       );
     }
     return null;
@@ -145,8 +165,6 @@ class EmbeddedAccountKeyLinkTransactionDTO {
     'version',
     'network',
     'type',
-    'linkedPublicKey',
-    'linkAction',
   };
 }
 

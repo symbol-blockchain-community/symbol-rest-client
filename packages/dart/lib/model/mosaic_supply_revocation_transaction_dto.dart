@@ -21,9 +21,9 @@ class MosaicSupplyRevocationTransactionDTO {
     required this.type,
     required this.maxFee,
     required this.deadline,
-    required this.sourceAddress,
-    required this.mosaicId,
-    required this.amount,
+    this.sourceAddress,
+    this.mosaicId,
+    this.amount,
   });
 
   /// A number that allows uint 32 values.
@@ -49,13 +49,31 @@ class MosaicSupplyRevocationTransactionDTO {
   String deadline;
 
   /// Address expressed in Base32 format. If the bit 0 of byte 0 is not set (like in 0x90), then it is a regular address. Example: TAOXUJOTTW3W5XTBQMQEX3SQNA6MCUVGXLXR3TA.  Otherwise (e.g. 0x91) it represents a namespace id which starts at byte 1. Example: THBIMC3THGH5RUYAAAAAAAAAAAAAAAAAAAAAAAA 
-  String sourceAddress;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? sourceAddress;
 
   /// Mosaic identifier. If the most significant bit of byte 0 is set, a namespaceId (alias) is used instead of the real mosaic identifier. 
-  String mosaicId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? mosaicId;
 
   /// Absolute amount. An amount of 123456789 (absolute) for a mosaic with divisibility 6 means 123.456789 (relative).
-  String amount;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? amount;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is MosaicSupplyRevocationTransactionDTO &&
@@ -82,9 +100,9 @@ class MosaicSupplyRevocationTransactionDTO {
     (type.hashCode) +
     (maxFee.hashCode) +
     (deadline.hashCode) +
-    (sourceAddress.hashCode) +
-    (mosaicId.hashCode) +
-    (amount.hashCode);
+    (sourceAddress == null ? 0 : sourceAddress!.hashCode) +
+    (mosaicId == null ? 0 : mosaicId!.hashCode) +
+    (amount == null ? 0 : amount!.hashCode);
 
   @override
   String toString() => 'MosaicSupplyRevocationTransactionDTO[size=$size, signature=$signature, signerPublicKey=$signerPublicKey, version=$version, network=$network, type=$type, maxFee=$maxFee, deadline=$deadline, sourceAddress=$sourceAddress, mosaicId=$mosaicId, amount=$amount]';
@@ -99,9 +117,21 @@ class MosaicSupplyRevocationTransactionDTO {
       json[r'type'] = this.type;
       json[r'maxFee'] = this.maxFee;
       json[r'deadline'] = this.deadline;
+    if (this.sourceAddress != null) {
       json[r'sourceAddress'] = this.sourceAddress;
+    } else {
+      json[r'sourceAddress'] = null;
+    }
+    if (this.mosaicId != null) {
       json[r'mosaicId'] = this.mosaicId;
+    } else {
+      json[r'mosaicId'] = null;
+    }
+    if (this.amount != null) {
       json[r'amount'] = this.amount;
+    } else {
+      json[r'amount'] = null;
+    }
     return json;
   }
 
@@ -132,9 +162,9 @@ class MosaicSupplyRevocationTransactionDTO {
         type: mapValueOfType<int>(json, r'type')!,
         maxFee: mapValueOfType<String>(json, r'maxFee')!,
         deadline: mapValueOfType<String>(json, r'deadline')!,
-        sourceAddress: mapValueOfType<String>(json, r'sourceAddress')!,
-        mosaicId: mapValueOfType<String>(json, r'mosaicId')!,
-        amount: mapValueOfType<String>(json, r'amount')!,
+        sourceAddress: mapValueOfType<String>(json, r'sourceAddress'),
+        mosaicId: mapValueOfType<String>(json, r'mosaicId'),
+        amount: mapValueOfType<String>(json, r'amount'),
       );
     }
     return null;
@@ -190,9 +220,6 @@ class MosaicSupplyRevocationTransactionDTO {
     'type',
     'maxFee',
     'deadline',
-    'sourceAddress',
-    'mosaicId',
-    'amount',
   };
 }
 

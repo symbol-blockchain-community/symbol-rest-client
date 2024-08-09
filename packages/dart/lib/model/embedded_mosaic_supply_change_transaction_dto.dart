@@ -17,9 +17,9 @@ class EmbeddedMosaicSupplyChangeTransactionDTO {
     required this.version,
     required this.network,
     required this.type,
-    required this.mosaicId,
-    required this.delta,
-    required this.action,
+    this.mosaicId,
+    this.delta,
+    this.action,
   });
 
   /// Public key.
@@ -33,12 +33,30 @@ class EmbeddedMosaicSupplyChangeTransactionDTO {
   int type;
 
   /// Mosaic identifier. If the most significant bit of byte 0 is set, a namespaceId (alias) is used instead of the real mosaic identifier. 
-  String mosaicId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? mosaicId;
 
   /// Absolute amount. An amount of 123456789 (absolute) for a mosaic with divisibility 6 means 123.456789 (relative).
-  String delta;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? delta;
 
-  MosaicSupplyChangeActionEnum action;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  MosaicSupplyChangeActionEnum? action;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is EmbeddedMosaicSupplyChangeTransactionDTO &&
@@ -57,9 +75,9 @@ class EmbeddedMosaicSupplyChangeTransactionDTO {
     (version.hashCode) +
     (network.hashCode) +
     (type.hashCode) +
-    (mosaicId.hashCode) +
-    (delta.hashCode) +
-    (action.hashCode);
+    (mosaicId == null ? 0 : mosaicId!.hashCode) +
+    (delta == null ? 0 : delta!.hashCode) +
+    (action == null ? 0 : action!.hashCode);
 
   @override
   String toString() => 'EmbeddedMosaicSupplyChangeTransactionDTO[signerPublicKey=$signerPublicKey, version=$version, network=$network, type=$type, mosaicId=$mosaicId, delta=$delta, action=$action]';
@@ -70,9 +88,21 @@ class EmbeddedMosaicSupplyChangeTransactionDTO {
       json[r'version'] = this.version;
       json[r'network'] = this.network;
       json[r'type'] = this.type;
+    if (this.mosaicId != null) {
       json[r'mosaicId'] = this.mosaicId;
+    } else {
+      json[r'mosaicId'] = null;
+    }
+    if (this.delta != null) {
       json[r'delta'] = this.delta;
+    } else {
+      json[r'delta'] = null;
+    }
+    if (this.action != null) {
       json[r'action'] = this.action;
+    } else {
+      json[r'action'] = null;
+    }
     return json;
   }
 
@@ -99,9 +129,9 @@ class EmbeddedMosaicSupplyChangeTransactionDTO {
         version: mapValueOfType<int>(json, r'version')!,
         network: NetworkTypeEnum.fromJson(json[r'network'])!,
         type: mapValueOfType<int>(json, r'type')!,
-        mosaicId: mapValueOfType<String>(json, r'mosaicId')!,
-        delta: mapValueOfType<String>(json, r'delta')!,
-        action: MosaicSupplyChangeActionEnum.fromJson(json[r'action'])!,
+        mosaicId: mapValueOfType<String>(json, r'mosaicId'),
+        delta: mapValueOfType<String>(json, r'delta'),
+        action: MosaicSupplyChangeActionEnum.fromJson(json[r'action']),
       );
     }
     return null;
@@ -153,9 +183,6 @@ class EmbeddedMosaicSupplyChangeTransactionDTO {
     'version',
     'network',
     'type',
-    'mosaicId',
-    'delta',
-    'action',
   };
 }
 

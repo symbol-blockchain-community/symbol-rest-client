@@ -13,12 +13,18 @@ part of openapi.api;
 class AggregateTransactionBodyExtendedDTO {
   /// Returns a new [AggregateTransactionBodyExtendedDTO] instance.
   AggregateTransactionBodyExtendedDTO({
-    required this.transactionsHash,
+    this.transactionsHash,
     this.cosignatures = const [],
     this.transactions = const [],
   });
 
-  String transactionsHash;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? transactionsHash;
 
   /// Array of transaction cosignatures.
   List<CosignatureDTO> cosignatures;
@@ -35,7 +41,7 @@ class AggregateTransactionBodyExtendedDTO {
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (transactionsHash.hashCode) +
+    (transactionsHash == null ? 0 : transactionsHash!.hashCode) +
     (cosignatures.hashCode) +
     (transactions.hashCode);
 
@@ -44,7 +50,11 @@ class AggregateTransactionBodyExtendedDTO {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    if (this.transactionsHash != null) {
       json[r'transactionsHash'] = this.transactionsHash;
+    } else {
+      json[r'transactionsHash'] = null;
+    }
       json[r'cosignatures'] = this.cosignatures;
       json[r'transactions'] = this.transactions;
     return json;
@@ -69,7 +79,7 @@ class AggregateTransactionBodyExtendedDTO {
       }());
 
       return AggregateTransactionBodyExtendedDTO(
-        transactionsHash: mapValueOfType<String>(json, r'transactionsHash')!,
+        transactionsHash: mapValueOfType<String>(json, r'transactionsHash'),
         cosignatures: CosignatureDTO.listFromJson(json[r'cosignatures']),
         transactions: EmbeddedTransactionInfoDTO.listFromJson(json[r'transactions']),
       );
@@ -119,9 +129,6 @@ class AggregateTransactionBodyExtendedDTO {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'transactionsHash',
-    'cosignatures',
-    'transactions',
   };
 }
 

@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 **version** | **int** | Entity version. | 
 **network** | [**NetworkTypeEnum**](NetworkTypeEnum.md) |  | 
 **type** | **int** |  | 
-**namespaceId** | **String** | Namespace identifier. | 
-**address** | **String** | Address encoded using a 32-character set. | 
-**aliasAction** | [**AliasActionEnum**](AliasActionEnum.md) |  | 
+**namespaceId** | **String** | Namespace identifier. | [optional] 
+**address** | **String** | Address encoded using a 32-character set. | [optional] 
+**aliasAction** | [**AliasActionEnum**](AliasActionEnum.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

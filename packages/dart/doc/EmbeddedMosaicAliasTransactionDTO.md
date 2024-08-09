@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 **version** | **int** | Entity version. | 
 **network** | [**NetworkTypeEnum**](NetworkTypeEnum.md) |  | 
 **type** | **int** |  | 
-**namespaceId** | **String** | Namespace identifier. | 
-**mosaicId** | **String** | Mosaic identifier. | 
-**aliasAction** | [**AliasActionEnum**](AliasActionEnum.md) |  | 
+**namespaceId** | **String** | Namespace identifier. | [optional] 
+**mosaicId** | **String** | Mosaic identifier. | [optional] 
+**aliasAction** | [**AliasActionEnum**](AliasActionEnum.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

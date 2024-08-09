@@ -17,7 +17,7 @@ class EmbeddedAccountAddressRestrictionTransactionDTO {
     required this.version,
     required this.network,
     required this.type,
-    required this.restrictionFlags,
+    this.restrictionFlags,
     this.restrictionAdditions = const [],
     this.restrictionDeletions = const [],
   });
@@ -32,7 +32,13 @@ class EmbeddedAccountAddressRestrictionTransactionDTO {
 
   int type;
 
-  AccountRestrictionFlagsEnum restrictionFlags;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  AccountRestrictionFlagsEnum? restrictionFlags;
 
   /// Account restriction additions.
   List<String> restrictionAdditions;
@@ -57,7 +63,7 @@ class EmbeddedAccountAddressRestrictionTransactionDTO {
     (version.hashCode) +
     (network.hashCode) +
     (type.hashCode) +
-    (restrictionFlags.hashCode) +
+    (restrictionFlags == null ? 0 : restrictionFlags!.hashCode) +
     (restrictionAdditions.hashCode) +
     (restrictionDeletions.hashCode);
 
@@ -70,7 +76,11 @@ class EmbeddedAccountAddressRestrictionTransactionDTO {
       json[r'version'] = this.version;
       json[r'network'] = this.network;
       json[r'type'] = this.type;
+    if (this.restrictionFlags != null) {
       json[r'restrictionFlags'] = this.restrictionFlags;
+    } else {
+      json[r'restrictionFlags'] = null;
+    }
       json[r'restrictionAdditions'] = this.restrictionAdditions;
       json[r'restrictionDeletions'] = this.restrictionDeletions;
     return json;
@@ -99,7 +109,7 @@ class EmbeddedAccountAddressRestrictionTransactionDTO {
         version: mapValueOfType<int>(json, r'version')!,
         network: NetworkTypeEnum.fromJson(json[r'network'])!,
         type: mapValueOfType<int>(json, r'type')!,
-        restrictionFlags: AccountRestrictionFlagsEnum.fromJson(json[r'restrictionFlags'])!,
+        restrictionFlags: AccountRestrictionFlagsEnum.fromJson(json[r'restrictionFlags']),
         restrictionAdditions: json[r'restrictionAdditions'] is Iterable
             ? (json[r'restrictionAdditions'] as Iterable).cast<String>().toList(growable: false)
             : const [],
@@ -157,9 +167,6 @@ class EmbeddedAccountAddressRestrictionTransactionDTO {
     'version',
     'network',
     'type',
-    'restrictionFlags',
-    'restrictionAdditions',
-    'restrictionDeletions',
   };
 }
 

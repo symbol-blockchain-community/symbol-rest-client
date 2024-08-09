@@ -16,10 +16,10 @@ Name | Type | Description | Notes
 **type** | **int** |  | 
 **maxFee** | **String** | Absolute amount. An amount of 123456789 (absolute) for a mosaic with divisibility 6 means 123.456789 (relative). | 
 **deadline** | **String** | Duration expressed in number of blocks. | 
-**minRemovalDelta** | **int** | Number of signatures needed to remove a cosignatory. If we are modifying an existing multisig account, this indicates the relative change of the minimum cosignatories.  | 
-**minApprovalDelta** | **int** | Number of signatures needed to approve a transaction. If we are modifying an existing multisig account, this indicates the relative change of the minimum cosignatories.  | 
-**addressAdditions** | **List<String>** | Array of cosignatory accounts to add. | [default to const []]
-**addressDeletions** | **List<String>** | Array of cosignatory accounts to delete. | [default to const []]
+**minRemovalDelta** | **int** | Number of signatures needed to remove a cosignatory. If we are modifying an existing multisig account, this indicates the relative change of the minimum cosignatories.  | [optional] 
+**minApprovalDelta** | **int** | Number of signatures needed to approve a transaction. If we are modifying an existing multisig account, this indicates the relative change of the minimum cosignatories.  | [optional] 
+**addressAdditions** | **List<String>** | Array of cosignatory accounts to add. | [optional] [default to const []]
+**addressDeletions** | **List<String>** | Array of cosignatory accounts to delete. | [optional] [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

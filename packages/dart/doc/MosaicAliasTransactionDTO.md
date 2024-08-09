@@ -16,9 +16,9 @@ Name | Type | Description | Notes
 **type** | **int** |  | 
 **maxFee** | **String** | Absolute amount. An amount of 123456789 (absolute) for a mosaic with divisibility 6 means 123.456789 (relative). | 
 **deadline** | **String** | Duration expressed in number of blocks. | 
-**namespaceId** | **String** | Namespace identifier. | 
-**mosaicId** | **String** | Mosaic identifier. | 
-**aliasAction** | [**AliasActionEnum**](AliasActionEnum.md) |  | 
+**namespaceId** | **String** | Namespace identifier. | [optional] 
+**mosaicId** | **String** | Mosaic identifier. | [optional] 
+**aliasAction** | [**AliasActionEnum**](AliasActionEnum.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

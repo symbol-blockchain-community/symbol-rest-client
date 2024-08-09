@@ -3470,8 +3470,6 @@ components:
           type: string
     EmbeddedTransactionBodyDTO:
       type: object
-      required:
-        - transactions
       properties:
         transactions:
           type: array
@@ -3677,9 +3675,6 @@ components:
           description: to trigger plugin load
     AccountKeyLinkTransactionBodyDTO:
       type: object
-      required:
-        - linkedPublicKey
-        - linkAction
       properties:
         linkedPublicKey:
           $ref: '#/components/schemas/PublicKey'
@@ -3706,9 +3701,6 @@ components:
           description: to trigger plugin load
     NodeKeyLinkTransactionBodyDTO:
       type: object
-      required:
-        - linkedPublicKey
-        - linkAction
       properties:
         linkedPublicKey:
           $ref: '#/components/schemas/PublicKey'
@@ -3753,9 +3745,6 @@ components:
           example: 48h
     AggregateTransactionBodyDTO:
       type: object
-      required:
-        - transactionsHash
-        - cosignatures
       properties:
         transactionsHash:
           $ref: '#/components/schemas/Hash256'
@@ -3802,9 +3791,6 @@ components:
           description: to trigger plugin load
     VrfKeyLinkTransactionBodyDTO:
       type: object
-      required:
-        - linkedPublicKey
-        - linkAction
       properties:
         linkedPublicKey:
           $ref: '#/components/schemas/PublicKey'
@@ -3832,11 +3818,6 @@ components:
           description: to trigger plugin load
     VotingKeyLinkTransactionBodyDTO:
       type: object
-      required:
-        - linkedPublicKey
-        - startEpoch
-        - endEpoch
-        - linkAction
       properties:
         linkedPublicKey:
           $ref: '#/components/schemas/VotingKey'
@@ -3914,11 +3895,6 @@ components:
           $ref: '#/components/schemas/Pagination'
     HashLockTransactionBodyDTO:
       type: object
-      required:
-        - mosaicId
-        - amount
-        - duration
-        - hash
       properties:
         mosaicId:
           $ref: '#/components/schemas/UnresolvedMosaicId'
@@ -4040,13 +4016,6 @@ components:
           example: '1000'
     SecretLockTransactionBodyDTO:
       type: object
-      required:
-        - recipientAddress
-        - secret
-        - mosaicId
-        - amount
-        - duration
-        - hashAlgorithm
       properties:
         recipientAddress:
           $ref: '#/components/schemas/UnresolvedAddress'
@@ -4068,11 +4037,6 @@ components:
         - $ref: '#/components/schemas/SecretLockTransactionBodyDTO'
     SecretProofTransactionBodyDTO:
       type: object
-      required:
-        - recipientAddress
-        - secret
-        - hashAlgorithm
-        - proof
       properties:
         recipientAddress:
           $ref: '#/components/schemas/UnresolvedAddress'
@@ -4102,12 +4066,6 @@ components:
         * 2 - Namespace.
     AccountMetadataTransactionBodyDTO:
       type: object
-      required:
-        - targetAddress
-        - scopedMetadataKey
-        - valueSizeDelta
-        - valueSize
-        - value
       properties:
         targetAddress:
           $ref: '#/components/schemas/UnresolvedAddress'
@@ -4205,13 +4163,6 @@ components:
           $ref: '#/components/schemas/Pagination'
     MosaicMetadataTransactionBodyDTO:
       type: object
-      required:
-        - targetAddress
-        - scopedMetadataKey
-        - targetMosaicId
-        - valueSizeDelta
-        - valueSize
-        - value
       properties:
         targetAddress:
           $ref: '#/components/schemas/UnresolvedAddress'
@@ -4235,13 +4186,6 @@ components:
         - $ref: '#/components/schemas/MosaicMetadataTransactionBodyDTO'
     NamespaceMetadataTransactionBodyDTO:
       type: object
-      required:
-        - targetAddress
-        - scopedMetadataKey
-        - targetMosaicId
-        - valueSizeDelta
-        - valueSize
-        - value
       properties:
         targetAddress:
           $ref: '#/components/schemas/UnresolvedAddress'
@@ -4298,12 +4242,6 @@ components:
         - $ref: '#/components/schemas/MosaicSupplyRevocationTransactionBodyDTO'
     MosaicDefinitionTransactionBodyDTO:
       type: object
-      required:
-        - id
-        - duration
-        - nonce
-        - flags
-        - divisibility
       properties:
         id:
           $ref: '#/components/schemas/MosaicId'
@@ -4413,10 +4351,6 @@ components:
           $ref: '#/components/schemas/Pagination'
     MosaicSupplyChangeTransactionBodyDTO:
       type: object
-      required:
-        - mosaicId
-        - delta
-        - action
       properties:
         mosaicId:
           $ref: '#/components/schemas/UnresolvedMosaicId'
@@ -4432,10 +4366,6 @@ components:
         - $ref: '#/components/schemas/MosaicSupplyChangeTransactionBodyDTO'
     MosaicSupplyRevocationTransactionBodyDTO:
       type: object
-      required:
-        - sourceAddress
-        - mosaicId
-        - amount
       properties:
         sourceAddress:
           $ref: '#/components/schemas/UnresolvedAddress'
@@ -4478,11 +4408,6 @@ components:
           $ref: '#/components/schemas/MultisigDTO'
     MultisigAccountModificationTransactionBodyDTO:
       type: object
-      required:
-        - minRemovalDelta
-        - minApprovalDelta
-        - addressAdditions
-        - addressDeletions
       properties:
         minRemovalDelta:
           type: integer
@@ -4620,10 +4545,6 @@ components:
             $ref: '#/components/schemas/AccountNamesDTO'
     AddressAliasTransactionBodyDTO:
       type: object
-      required:
-        - namespaceId
-        - address
-        - aliasAction
       properties:
         namespaceId:
           $ref: '#/components/schemas/NamespaceId'
@@ -4665,10 +4586,6 @@ components:
         - $ref: '#/components/schemas/NamespaceRegistrationTransactionBodyDTO'
     MosaicAliasTransactionBodyDTO:
       type: object
-      required:
-        - namespaceId
-        - mosaicId
-        - aliasAction
       properties:
         namespaceId:
           $ref: '#/components/schemas/NamespaceId'
@@ -4841,10 +4758,6 @@ components:
           $ref: '#/components/schemas/Pagination'
     NamespaceRegistrationTransactionBodyDTO:
       type: object
-      required:
-        - id
-        - registrationType
-        - name
       properties:
         duration:
           $ref: '#/components/schemas/BlockDuration'
@@ -5143,10 +5056,6 @@ components:
         * 0xC004 (49156 decimal) - Block outgoing transactions with a given transaction type.
     AccountAddressRestrictionTransactionBodyDTO:
       type: object
-      required:
-        - restrictionFlags
-        - restrictionAdditions
-        - restrictionDeletions
       properties:
         restrictionFlags:
           $ref: '#/components/schemas/AccountRestrictionFlagsEnum'
@@ -5168,10 +5077,6 @@ components:
         - $ref: '#/components/schemas/AccountAddressRestrictionTransactionBodyDTO'
     AccountMosaicRestrictionTransactionBodyDTO:
       type: object
-      required:
-        - restrictionFlags
-        - restrictionAdditions
-        - restrictionDeletions
       properties:
         restrictionFlags:
           $ref: '#/components/schemas/AccountRestrictionFlagsEnum'
@@ -5193,10 +5098,6 @@ components:
         - $ref: '#/components/schemas/AccountMosaicRestrictionTransactionBodyDTO'
     AccountOperationRestrictionTransactionBodyDTO:
       type: object
-      required:
-        - restrictionFlags
-        - restrictionAdditions
-        - restrictionDeletions
       properties:
         restrictionFlags:
           $ref: '#/components/schemas/AccountRestrictionFlagsEnum'
@@ -5377,12 +5278,6 @@ components:
             $ref: '#/components/schemas/MosaicAddressRestrictionEntryDTO'
     MosaicAddressRestrictionTransactionBodyDTO:
       type: object
-      required:
-        - mosaicId
-        - restrictionKey
-        - previousRestrictionValue
-        - newRestrictionValue
-        - targetAddress
       properties:
         mosaicId:
           $ref: '#/components/schemas/UnresolvedMosaicId'
@@ -5457,14 +5352,6 @@ components:
             $ref: '#/components/schemas/MosaicGlobalRestrictionEntryDTO'
     MosaicGlobalRestrictionTransactionBodyDTO:
       type: object
-      required:
-        - mosaicId
-        - referenceMosaicId
-        - restrictionKey
-        - previousRestrictionValue
-        - newRestrictionValue
-        - previousRestrictionType
-        - newRestrictionType
       properties:
         mosaicId:
           $ref: '#/components/schemas/UnresolvedMosaicId'
@@ -5520,9 +5407,6 @@ components:
           example: '1024'
     TransferTransactionBodyDTO:
       type: object
-      required:
-        - recipientAddress
-        - mosaics
       properties:
         recipientAddress:
           $ref: '#/components/schemas/UnresolvedAddress'

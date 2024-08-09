@@ -17,7 +17,7 @@ class EmbeddedTransferTransactionDTO {
     required this.version,
     required this.network,
     required this.type,
-    required this.recipientAddress,
+    this.recipientAddress,
     this.mosaics = const [],
     this.message,
   });
@@ -33,7 +33,13 @@ class EmbeddedTransferTransactionDTO {
   int type;
 
   /// Address expressed in Base32 format. If the bit 0 of byte 0 is not set (like in 0x90), then it is a regular address. Example: TAOXUJOTTW3W5XTBQMQEX3SQNA6MCUVGXLXR3TA.  Otherwise (e.g. 0x91) it represents a namespace id which starts at byte 1. Example: THBIMC3THGH5RUYAAAAAAAAAAAAAAAAAAAAAAAA 
-  String recipientAddress;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? recipientAddress;
 
   /// Array of mosaics sent to the recipient. 
   List<UnresolvedMosaic> mosaics;
@@ -64,7 +70,7 @@ class EmbeddedTransferTransactionDTO {
     (version.hashCode) +
     (network.hashCode) +
     (type.hashCode) +
-    (recipientAddress.hashCode) +
+    (recipientAddress == null ? 0 : recipientAddress!.hashCode) +
     (mosaics.hashCode) +
     (message == null ? 0 : message!.hashCode);
 
@@ -77,7 +83,11 @@ class EmbeddedTransferTransactionDTO {
       json[r'version'] = this.version;
       json[r'network'] = this.network;
       json[r'type'] = this.type;
+    if (this.recipientAddress != null) {
       json[r'recipientAddress'] = this.recipientAddress;
+    } else {
+      json[r'recipientAddress'] = null;
+    }
       json[r'mosaics'] = this.mosaics;
     if (this.message != null) {
       json[r'message'] = this.message;
@@ -110,7 +120,7 @@ class EmbeddedTransferTransactionDTO {
         version: mapValueOfType<int>(json, r'version')!,
         network: NetworkTypeEnum.fromJson(json[r'network'])!,
         type: mapValueOfType<int>(json, r'type')!,
-        recipientAddress: mapValueOfType<String>(json, r'recipientAddress')!,
+        recipientAddress: mapValueOfType<String>(json, r'recipientAddress'),
         mosaics: UnresolvedMosaic.listFromJson(json[r'mosaics']),
         message: mapValueOfType<String>(json, r'message'),
       );
@@ -164,8 +174,6 @@ class EmbeddedTransferTransactionDTO {
     'version',
     'network',
     'type',
-    'recipientAddress',
-    'mosaics',
   };
 }
 

@@ -17,10 +17,10 @@ class EmbeddedVotingKeyLinkTransactionDTO {
     required this.version,
     required this.network,
     required this.type,
-    required this.linkedPublicKey,
-    required this.startEpoch,
-    required this.endEpoch,
-    required this.linkAction,
+    this.linkedPublicKey,
+    this.startEpoch,
+    this.endEpoch,
+    this.linkAction,
   });
 
   /// Public key.
@@ -34,15 +34,39 @@ class EmbeddedVotingKeyLinkTransactionDTO {
   int type;
 
   /// 32 bytes voting public key.
-  String linkedPublicKey;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? linkedPublicKey;
 
   /// Finalization Epoch
-  int startEpoch;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? startEpoch;
 
   /// Finalization Epoch
-  int endEpoch;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? endEpoch;
 
-  LinkActionEnum linkAction;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  LinkActionEnum? linkAction;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is EmbeddedVotingKeyLinkTransactionDTO &&
@@ -62,10 +86,10 @@ class EmbeddedVotingKeyLinkTransactionDTO {
     (version.hashCode) +
     (network.hashCode) +
     (type.hashCode) +
-    (linkedPublicKey.hashCode) +
-    (startEpoch.hashCode) +
-    (endEpoch.hashCode) +
-    (linkAction.hashCode);
+    (linkedPublicKey == null ? 0 : linkedPublicKey!.hashCode) +
+    (startEpoch == null ? 0 : startEpoch!.hashCode) +
+    (endEpoch == null ? 0 : endEpoch!.hashCode) +
+    (linkAction == null ? 0 : linkAction!.hashCode);
 
   @override
   String toString() => 'EmbeddedVotingKeyLinkTransactionDTO[signerPublicKey=$signerPublicKey, version=$version, network=$network, type=$type, linkedPublicKey=$linkedPublicKey, startEpoch=$startEpoch, endEpoch=$endEpoch, linkAction=$linkAction]';
@@ -76,10 +100,26 @@ class EmbeddedVotingKeyLinkTransactionDTO {
       json[r'version'] = this.version;
       json[r'network'] = this.network;
       json[r'type'] = this.type;
+    if (this.linkedPublicKey != null) {
       json[r'linkedPublicKey'] = this.linkedPublicKey;
+    } else {
+      json[r'linkedPublicKey'] = null;
+    }
+    if (this.startEpoch != null) {
       json[r'startEpoch'] = this.startEpoch;
+    } else {
+      json[r'startEpoch'] = null;
+    }
+    if (this.endEpoch != null) {
       json[r'endEpoch'] = this.endEpoch;
+    } else {
+      json[r'endEpoch'] = null;
+    }
+    if (this.linkAction != null) {
       json[r'linkAction'] = this.linkAction;
+    } else {
+      json[r'linkAction'] = null;
+    }
     return json;
   }
 
@@ -106,10 +146,10 @@ class EmbeddedVotingKeyLinkTransactionDTO {
         version: mapValueOfType<int>(json, r'version')!,
         network: NetworkTypeEnum.fromJson(json[r'network'])!,
         type: mapValueOfType<int>(json, r'type')!,
-        linkedPublicKey: mapValueOfType<String>(json, r'linkedPublicKey')!,
-        startEpoch: mapValueOfType<int>(json, r'startEpoch')!,
-        endEpoch: mapValueOfType<int>(json, r'endEpoch')!,
-        linkAction: LinkActionEnum.fromJson(json[r'linkAction'])!,
+        linkedPublicKey: mapValueOfType<String>(json, r'linkedPublicKey'),
+        startEpoch: mapValueOfType<int>(json, r'startEpoch'),
+        endEpoch: mapValueOfType<int>(json, r'endEpoch'),
+        linkAction: LinkActionEnum.fromJson(json[r'linkAction']),
       );
     }
     return null;
@@ -161,10 +201,6 @@ class EmbeddedVotingKeyLinkTransactionDTO {
     'version',
     'network',
     'type',
-    'linkedPublicKey',
-    'startEpoch',
-    'endEpoch',
-    'linkAction',
   };
 }
 

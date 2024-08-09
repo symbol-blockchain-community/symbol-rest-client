@@ -17,11 +17,11 @@ class EmbeddedMosaicAddressRestrictionTransactionDTO {
     required this.version,
     required this.network,
     required this.type,
-    required this.mosaicId,
-    required this.restrictionKey,
-    required this.previousRestrictionValue,
-    required this.newRestrictionValue,
-    required this.targetAddress,
+    this.mosaicId,
+    this.restrictionKey,
+    this.previousRestrictionValue,
+    this.newRestrictionValue,
+    this.targetAddress,
   });
 
   /// Public key.
@@ -35,19 +35,49 @@ class EmbeddedMosaicAddressRestrictionTransactionDTO {
   int type;
 
   /// Mosaic identifier. If the most significant bit of byte 0 is set, a namespaceId (alias) is used instead of the real mosaic identifier. 
-  String mosaicId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? mosaicId;
 
   /// Restriction key.
-  String restrictionKey;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? restrictionKey;
 
   /// Restriction value.
-  String previousRestrictionValue;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? previousRestrictionValue;
 
   /// Restriction value.
-  String newRestrictionValue;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? newRestrictionValue;
 
   /// Address expressed in Base32 format. If the bit 0 of byte 0 is not set (like in 0x90), then it is a regular address. Example: TAOXUJOTTW3W5XTBQMQEX3SQNA6MCUVGXLXR3TA.  Otherwise (e.g. 0x91) it represents a namespace id which starts at byte 1. Example: THBIMC3THGH5RUYAAAAAAAAAAAAAAAAAAAAAAAA 
-  String targetAddress;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? targetAddress;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is EmbeddedMosaicAddressRestrictionTransactionDTO &&
@@ -68,11 +98,11 @@ class EmbeddedMosaicAddressRestrictionTransactionDTO {
     (version.hashCode) +
     (network.hashCode) +
     (type.hashCode) +
-    (mosaicId.hashCode) +
-    (restrictionKey.hashCode) +
-    (previousRestrictionValue.hashCode) +
-    (newRestrictionValue.hashCode) +
-    (targetAddress.hashCode);
+    (mosaicId == null ? 0 : mosaicId!.hashCode) +
+    (restrictionKey == null ? 0 : restrictionKey!.hashCode) +
+    (previousRestrictionValue == null ? 0 : previousRestrictionValue!.hashCode) +
+    (newRestrictionValue == null ? 0 : newRestrictionValue!.hashCode) +
+    (targetAddress == null ? 0 : targetAddress!.hashCode);
 
   @override
   String toString() => 'EmbeddedMosaicAddressRestrictionTransactionDTO[signerPublicKey=$signerPublicKey, version=$version, network=$network, type=$type, mosaicId=$mosaicId, restrictionKey=$restrictionKey, previousRestrictionValue=$previousRestrictionValue, newRestrictionValue=$newRestrictionValue, targetAddress=$targetAddress]';
@@ -83,11 +113,31 @@ class EmbeddedMosaicAddressRestrictionTransactionDTO {
       json[r'version'] = this.version;
       json[r'network'] = this.network;
       json[r'type'] = this.type;
+    if (this.mosaicId != null) {
       json[r'mosaicId'] = this.mosaicId;
+    } else {
+      json[r'mosaicId'] = null;
+    }
+    if (this.restrictionKey != null) {
       json[r'restrictionKey'] = this.restrictionKey;
+    } else {
+      json[r'restrictionKey'] = null;
+    }
+    if (this.previousRestrictionValue != null) {
       json[r'previousRestrictionValue'] = this.previousRestrictionValue;
+    } else {
+      json[r'previousRestrictionValue'] = null;
+    }
+    if (this.newRestrictionValue != null) {
       json[r'newRestrictionValue'] = this.newRestrictionValue;
+    } else {
+      json[r'newRestrictionValue'] = null;
+    }
+    if (this.targetAddress != null) {
       json[r'targetAddress'] = this.targetAddress;
+    } else {
+      json[r'targetAddress'] = null;
+    }
     return json;
   }
 
@@ -114,11 +164,11 @@ class EmbeddedMosaicAddressRestrictionTransactionDTO {
         version: mapValueOfType<int>(json, r'version')!,
         network: NetworkTypeEnum.fromJson(json[r'network'])!,
         type: mapValueOfType<int>(json, r'type')!,
-        mosaicId: mapValueOfType<String>(json, r'mosaicId')!,
-        restrictionKey: mapValueOfType<String>(json, r'restrictionKey')!,
-        previousRestrictionValue: mapValueOfType<String>(json, r'previousRestrictionValue')!,
-        newRestrictionValue: mapValueOfType<String>(json, r'newRestrictionValue')!,
-        targetAddress: mapValueOfType<String>(json, r'targetAddress')!,
+        mosaicId: mapValueOfType<String>(json, r'mosaicId'),
+        restrictionKey: mapValueOfType<String>(json, r'restrictionKey'),
+        previousRestrictionValue: mapValueOfType<String>(json, r'previousRestrictionValue'),
+        newRestrictionValue: mapValueOfType<String>(json, r'newRestrictionValue'),
+        targetAddress: mapValueOfType<String>(json, r'targetAddress'),
       );
     }
     return null;
@@ -170,11 +220,6 @@ class EmbeddedMosaicAddressRestrictionTransactionDTO {
     'version',
     'network',
     'type',
-    'mosaicId',
-    'restrictionKey',
-    'previousRestrictionValue',
-    'newRestrictionValue',
-    'targetAddress',
   };
 }
 

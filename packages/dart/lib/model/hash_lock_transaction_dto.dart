@@ -21,10 +21,10 @@ class HashLockTransactionDTO {
     required this.type,
     required this.maxFee,
     required this.deadline,
-    required this.mosaicId,
-    required this.amount,
-    required this.duration,
-    required this.hash,
+    this.mosaicId,
+    this.amount,
+    this.duration,
+    this.hash,
   });
 
   /// A number that allows uint 32 values.
@@ -50,15 +50,39 @@ class HashLockTransactionDTO {
   String deadline;
 
   /// Mosaic identifier. If the most significant bit of byte 0 is set, a namespaceId (alias) is used instead of the real mosaic identifier. 
-  String mosaicId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? mosaicId;
 
   /// Absolute amount. An amount of 123456789 (absolute) for a mosaic with divisibility 6 means 123.456789 (relative).
-  String amount;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? amount;
 
   /// Duration expressed in number of blocks.
-  String duration;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? duration;
 
-  String hash;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? hash;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is HashLockTransactionDTO &&
@@ -86,10 +110,10 @@ class HashLockTransactionDTO {
     (type.hashCode) +
     (maxFee.hashCode) +
     (deadline.hashCode) +
-    (mosaicId.hashCode) +
-    (amount.hashCode) +
-    (duration.hashCode) +
-    (hash.hashCode);
+    (mosaicId == null ? 0 : mosaicId!.hashCode) +
+    (amount == null ? 0 : amount!.hashCode) +
+    (duration == null ? 0 : duration!.hashCode) +
+    (hash == null ? 0 : hash!.hashCode);
 
   @override
   String toString() => 'HashLockTransactionDTO[size=$size, signature=$signature, signerPublicKey=$signerPublicKey, version=$version, network=$network, type=$type, maxFee=$maxFee, deadline=$deadline, mosaicId=$mosaicId, amount=$amount, duration=$duration, hash=$hash]';
@@ -104,10 +128,26 @@ class HashLockTransactionDTO {
       json[r'type'] = this.type;
       json[r'maxFee'] = this.maxFee;
       json[r'deadline'] = this.deadline;
+    if (this.mosaicId != null) {
       json[r'mosaicId'] = this.mosaicId;
+    } else {
+      json[r'mosaicId'] = null;
+    }
+    if (this.amount != null) {
       json[r'amount'] = this.amount;
+    } else {
+      json[r'amount'] = null;
+    }
+    if (this.duration != null) {
       json[r'duration'] = this.duration;
+    } else {
+      json[r'duration'] = null;
+    }
+    if (this.hash != null) {
       json[r'hash'] = this.hash;
+    } else {
+      json[r'hash'] = null;
+    }
     return json;
   }
 
@@ -138,10 +178,10 @@ class HashLockTransactionDTO {
         type: mapValueOfType<int>(json, r'type')!,
         maxFee: mapValueOfType<String>(json, r'maxFee')!,
         deadline: mapValueOfType<String>(json, r'deadline')!,
-        mosaicId: mapValueOfType<String>(json, r'mosaicId')!,
-        amount: mapValueOfType<String>(json, r'amount')!,
-        duration: mapValueOfType<String>(json, r'duration')!,
-        hash: mapValueOfType<String>(json, r'hash')!,
+        mosaicId: mapValueOfType<String>(json, r'mosaicId'),
+        amount: mapValueOfType<String>(json, r'amount'),
+        duration: mapValueOfType<String>(json, r'duration'),
+        hash: mapValueOfType<String>(json, r'hash'),
       );
     }
     return null;
@@ -197,10 +237,6 @@ class HashLockTransactionDTO {
     'type',
     'maxFee',
     'deadline',
-    'mosaicId',
-    'amount',
-    'duration',
-    'hash',
   };
 }
 

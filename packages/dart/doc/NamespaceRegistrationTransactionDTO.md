@@ -18,9 +18,9 @@ Name | Type | Description | Notes
 **deadline** | **String** | Duration expressed in number of blocks. | 
 **duration** | **String** | Duration expressed in number of blocks. | [optional] 
 **parentId** | **String** | Namespace identifier. | [optional] 
-**id** | **String** | Namespace identifier. | 
-**registrationType** | [**NamespaceRegistrationTypeEnum**](NamespaceRegistrationTypeEnum.md) |  | 
-**name** | **String** | Namespace name. | 
+**id** | **String** | Namespace identifier. | [optional] 
+**registrationType** | [**NamespaceRegistrationTypeEnum**](NamespaceRegistrationTypeEnum.md) |  | [optional] 
+**name** | **String** | Namespace name. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

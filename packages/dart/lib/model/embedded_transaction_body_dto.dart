@@ -104,7 +104,6 @@ class EmbeddedTransactionBodyDTO {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'transactions',
   };
 }
 

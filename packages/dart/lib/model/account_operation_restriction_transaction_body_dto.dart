@@ -13,12 +13,18 @@ part of openapi.api;
 class AccountOperationRestrictionTransactionBodyDTO {
   /// Returns a new [AccountOperationRestrictionTransactionBodyDTO] instance.
   AccountOperationRestrictionTransactionBodyDTO({
-    required this.restrictionFlags,
+    this.restrictionFlags,
     this.restrictionAdditions = const [],
     this.restrictionDeletions = const [],
   });
 
-  AccountRestrictionFlagsEnum restrictionFlags;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  AccountRestrictionFlagsEnum? restrictionFlags;
 
   /// Account restriction additions.
   List<TransactionTypeEnum> restrictionAdditions;
@@ -35,7 +41,7 @@ class AccountOperationRestrictionTransactionBodyDTO {
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (restrictionFlags.hashCode) +
+    (restrictionFlags == null ? 0 : restrictionFlags!.hashCode) +
     (restrictionAdditions.hashCode) +
     (restrictionDeletions.hashCode);
 
@@ -44,7 +50,11 @@ class AccountOperationRestrictionTransactionBodyDTO {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    if (this.restrictionFlags != null) {
       json[r'restrictionFlags'] = this.restrictionFlags;
+    } else {
+      json[r'restrictionFlags'] = null;
+    }
       json[r'restrictionAdditions'] = this.restrictionAdditions;
       json[r'restrictionDeletions'] = this.restrictionDeletions;
     return json;
@@ -69,7 +79,7 @@ class AccountOperationRestrictionTransactionBodyDTO {
       }());
 
       return AccountOperationRestrictionTransactionBodyDTO(
-        restrictionFlags: AccountRestrictionFlagsEnum.fromJson(json[r'restrictionFlags'])!,
+        restrictionFlags: AccountRestrictionFlagsEnum.fromJson(json[r'restrictionFlags']),
         restrictionAdditions: TransactionTypeEnum.listFromJson(json[r'restrictionAdditions']),
         restrictionDeletions: TransactionTypeEnum.listFromJson(json[r'restrictionDeletions']),
       );
@@ -119,9 +129,6 @@ class AccountOperationRestrictionTransactionBodyDTO {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'restrictionFlags',
-    'restrictionAdditions',
-    'restrictionDeletions',
   };
 }
 

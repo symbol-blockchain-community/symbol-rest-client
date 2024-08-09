@@ -21,9 +21,9 @@ class AddressAliasTransactionDTO {
     required this.type,
     required this.maxFee,
     required this.deadline,
-    required this.namespaceId,
-    required this.address,
-    required this.aliasAction,
+    this.namespaceId,
+    this.address,
+    this.aliasAction,
   });
 
   /// A number that allows uint 32 values.
@@ -49,12 +49,30 @@ class AddressAliasTransactionDTO {
   String deadline;
 
   /// Namespace identifier.
-  String namespaceId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? namespaceId;
 
   /// Address encoded using a 32-character set.
-  String address;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? address;
 
-  AliasActionEnum aliasAction;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  AliasActionEnum? aliasAction;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is AddressAliasTransactionDTO &&
@@ -81,9 +99,9 @@ class AddressAliasTransactionDTO {
     (type.hashCode) +
     (maxFee.hashCode) +
     (deadline.hashCode) +
-    (namespaceId.hashCode) +
-    (address.hashCode) +
-    (aliasAction.hashCode);
+    (namespaceId == null ? 0 : namespaceId!.hashCode) +
+    (address == null ? 0 : address!.hashCode) +
+    (aliasAction == null ? 0 : aliasAction!.hashCode);
 
   @override
   String toString() => 'AddressAliasTransactionDTO[size=$size, signature=$signature, signerPublicKey=$signerPublicKey, version=$version, network=$network, type=$type, maxFee=$maxFee, deadline=$deadline, namespaceId=$namespaceId, address=$address, aliasAction=$aliasAction]';
@@ -98,9 +116,21 @@ class AddressAliasTransactionDTO {
       json[r'type'] = this.type;
       json[r'maxFee'] = this.maxFee;
       json[r'deadline'] = this.deadline;
+    if (this.namespaceId != null) {
       json[r'namespaceId'] = this.namespaceId;
+    } else {
+      json[r'namespaceId'] = null;
+    }
+    if (this.address != null) {
       json[r'address'] = this.address;
+    } else {
+      json[r'address'] = null;
+    }
+    if (this.aliasAction != null) {
       json[r'aliasAction'] = this.aliasAction;
+    } else {
+      json[r'aliasAction'] = null;
+    }
     return json;
   }
 
@@ -131,9 +161,9 @@ class AddressAliasTransactionDTO {
         type: mapValueOfType<int>(json, r'type')!,
         maxFee: mapValueOfType<String>(json, r'maxFee')!,
         deadline: mapValueOfType<String>(json, r'deadline')!,
-        namespaceId: mapValueOfType<String>(json, r'namespaceId')!,
-        address: mapValueOfType<String>(json, r'address')!,
-        aliasAction: AliasActionEnum.fromJson(json[r'aliasAction'])!,
+        namespaceId: mapValueOfType<String>(json, r'namespaceId'),
+        address: mapValueOfType<String>(json, r'address'),
+        aliasAction: AliasActionEnum.fromJson(json[r'aliasAction']),
       );
     }
     return null;
@@ -189,9 +219,6 @@ class AddressAliasTransactionDTO {
     'type',
     'maxFee',
     'deadline',
-    'namespaceId',
-    'address',
-    'aliasAction',
   };
 }
 

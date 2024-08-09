@@ -13,17 +13,29 @@ part of openapi.api;
 class MultisigAccountModificationTransactionBodyDTO {
   /// Returns a new [MultisigAccountModificationTransactionBodyDTO] instance.
   MultisigAccountModificationTransactionBodyDTO({
-    required this.minRemovalDelta,
-    required this.minApprovalDelta,
+    this.minRemovalDelta,
+    this.minApprovalDelta,
     this.addressAdditions = const [],
     this.addressDeletions = const [],
   });
 
   /// Number of signatures needed to remove a cosignatory. If we are modifying an existing multisig account, this indicates the relative change of the minimum cosignatories. 
-  int minRemovalDelta;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? minRemovalDelta;
 
   /// Number of signatures needed to approve a transaction. If we are modifying an existing multisig account, this indicates the relative change of the minimum cosignatories. 
-  int minApprovalDelta;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? minApprovalDelta;
 
   /// Array of cosignatory accounts to add.
   List<String> addressAdditions;
@@ -41,8 +53,8 @@ class MultisigAccountModificationTransactionBodyDTO {
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (minRemovalDelta.hashCode) +
-    (minApprovalDelta.hashCode) +
+    (minRemovalDelta == null ? 0 : minRemovalDelta!.hashCode) +
+    (minApprovalDelta == null ? 0 : minApprovalDelta!.hashCode) +
     (addressAdditions.hashCode) +
     (addressDeletions.hashCode);
 
@@ -51,8 +63,16 @@ class MultisigAccountModificationTransactionBodyDTO {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    if (this.minRemovalDelta != null) {
       json[r'minRemovalDelta'] = this.minRemovalDelta;
+    } else {
+      json[r'minRemovalDelta'] = null;
+    }
+    if (this.minApprovalDelta != null) {
       json[r'minApprovalDelta'] = this.minApprovalDelta;
+    } else {
+      json[r'minApprovalDelta'] = null;
+    }
       json[r'addressAdditions'] = this.addressAdditions;
       json[r'addressDeletions'] = this.addressDeletions;
     return json;
@@ -77,8 +97,8 @@ class MultisigAccountModificationTransactionBodyDTO {
       }());
 
       return MultisigAccountModificationTransactionBodyDTO(
-        minRemovalDelta: mapValueOfType<int>(json, r'minRemovalDelta')!,
-        minApprovalDelta: mapValueOfType<int>(json, r'minApprovalDelta')!,
+        minRemovalDelta: mapValueOfType<int>(json, r'minRemovalDelta'),
+        minApprovalDelta: mapValueOfType<int>(json, r'minApprovalDelta'),
         addressAdditions: json[r'addressAdditions'] is Iterable
             ? (json[r'addressAdditions'] as Iterable).cast<String>().toList(growable: false)
             : const [],
@@ -132,10 +152,6 @@ class MultisigAccountModificationTransactionBodyDTO {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'minRemovalDelta',
-    'minApprovalDelta',
-    'addressAdditions',
-    'addressDeletions',
   };
 }
 

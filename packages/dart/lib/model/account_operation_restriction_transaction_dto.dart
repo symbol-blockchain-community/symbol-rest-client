@@ -21,7 +21,7 @@ class AccountOperationRestrictionTransactionDTO {
     required this.type,
     required this.maxFee,
     required this.deadline,
-    required this.restrictionFlags,
+    this.restrictionFlags,
     this.restrictionAdditions = const [],
     this.restrictionDeletions = const [],
   });
@@ -48,7 +48,13 @@ class AccountOperationRestrictionTransactionDTO {
   /// Duration expressed in number of blocks.
   String deadline;
 
-  AccountRestrictionFlagsEnum restrictionFlags;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  AccountRestrictionFlagsEnum? restrictionFlags;
 
   /// Account restriction additions.
   List<TransactionTypeEnum> restrictionAdditions;
@@ -81,7 +87,7 @@ class AccountOperationRestrictionTransactionDTO {
     (type.hashCode) +
     (maxFee.hashCode) +
     (deadline.hashCode) +
-    (restrictionFlags.hashCode) +
+    (restrictionFlags == null ? 0 : restrictionFlags!.hashCode) +
     (restrictionAdditions.hashCode) +
     (restrictionDeletions.hashCode);
 
@@ -98,7 +104,11 @@ class AccountOperationRestrictionTransactionDTO {
       json[r'type'] = this.type;
       json[r'maxFee'] = this.maxFee;
       json[r'deadline'] = this.deadline;
+    if (this.restrictionFlags != null) {
       json[r'restrictionFlags'] = this.restrictionFlags;
+    } else {
+      json[r'restrictionFlags'] = null;
+    }
       json[r'restrictionAdditions'] = this.restrictionAdditions;
       json[r'restrictionDeletions'] = this.restrictionDeletions;
     return json;
@@ -131,7 +141,7 @@ class AccountOperationRestrictionTransactionDTO {
         type: mapValueOfType<int>(json, r'type')!,
         maxFee: mapValueOfType<String>(json, r'maxFee')!,
         deadline: mapValueOfType<String>(json, r'deadline')!,
-        restrictionFlags: AccountRestrictionFlagsEnum.fromJson(json[r'restrictionFlags'])!,
+        restrictionFlags: AccountRestrictionFlagsEnum.fromJson(json[r'restrictionFlags']),
         restrictionAdditions: TransactionTypeEnum.listFromJson(json[r'restrictionAdditions']),
         restrictionDeletions: TransactionTypeEnum.listFromJson(json[r'restrictionDeletions']),
       );
@@ -189,9 +199,6 @@ class AccountOperationRestrictionTransactionDTO {
     'type',
     'maxFee',
     'deadline',
-    'restrictionFlags',
-    'restrictionAdditions',
-    'restrictionDeletions',
   };
 }
 

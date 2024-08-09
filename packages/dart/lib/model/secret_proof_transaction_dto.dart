@@ -21,10 +21,10 @@ class SecretProofTransactionDTO {
     required this.type,
     required this.maxFee,
     required this.deadline,
-    required this.recipientAddress,
-    required this.secret,
-    required this.hashAlgorithm,
-    required this.proof,
+    this.recipientAddress,
+    this.secret,
+    this.hashAlgorithm,
+    this.proof,
   });
 
   /// A number that allows uint 32 values.
@@ -50,14 +50,38 @@ class SecretProofTransactionDTO {
   String deadline;
 
   /// Address expressed in Base32 format. If the bit 0 of byte 0 is not set (like in 0x90), then it is a regular address. Example: TAOXUJOTTW3W5XTBQMQEX3SQNA6MCUVGXLXR3TA.  Otherwise (e.g. 0x91) it represents a namespace id which starts at byte 1. Example: THBIMC3THGH5RUYAAAAAAAAAAAAAAAAAAAAAAAA 
-  String recipientAddress;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? recipientAddress;
 
-  String secret;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? secret;
 
-  LockHashAlgorithmEnum hashAlgorithm;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  LockHashAlgorithmEnum? hashAlgorithm;
 
   /// Original random set of bytes.
-  String proof;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? proof;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is SecretProofTransactionDTO &&
@@ -85,10 +109,10 @@ class SecretProofTransactionDTO {
     (type.hashCode) +
     (maxFee.hashCode) +
     (deadline.hashCode) +
-    (recipientAddress.hashCode) +
-    (secret.hashCode) +
-    (hashAlgorithm.hashCode) +
-    (proof.hashCode);
+    (recipientAddress == null ? 0 : recipientAddress!.hashCode) +
+    (secret == null ? 0 : secret!.hashCode) +
+    (hashAlgorithm == null ? 0 : hashAlgorithm!.hashCode) +
+    (proof == null ? 0 : proof!.hashCode);
 
   @override
   String toString() => 'SecretProofTransactionDTO[size=$size, signature=$signature, signerPublicKey=$signerPublicKey, version=$version, network=$network, type=$type, maxFee=$maxFee, deadline=$deadline, recipientAddress=$recipientAddress, secret=$secret, hashAlgorithm=$hashAlgorithm, proof=$proof]';
@@ -103,10 +127,26 @@ class SecretProofTransactionDTO {
       json[r'type'] = this.type;
       json[r'maxFee'] = this.maxFee;
       json[r'deadline'] = this.deadline;
+    if (this.recipientAddress != null) {
       json[r'recipientAddress'] = this.recipientAddress;
+    } else {
+      json[r'recipientAddress'] = null;
+    }
+    if (this.secret != null) {
       json[r'secret'] = this.secret;
+    } else {
+      json[r'secret'] = null;
+    }
+    if (this.hashAlgorithm != null) {
       json[r'hashAlgorithm'] = this.hashAlgorithm;
+    } else {
+      json[r'hashAlgorithm'] = null;
+    }
+    if (this.proof != null) {
       json[r'proof'] = this.proof;
+    } else {
+      json[r'proof'] = null;
+    }
     return json;
   }
 
@@ -137,10 +177,10 @@ class SecretProofTransactionDTO {
         type: mapValueOfType<int>(json, r'type')!,
         maxFee: mapValueOfType<String>(json, r'maxFee')!,
         deadline: mapValueOfType<String>(json, r'deadline')!,
-        recipientAddress: mapValueOfType<String>(json, r'recipientAddress')!,
-        secret: mapValueOfType<String>(json, r'secret')!,
-        hashAlgorithm: LockHashAlgorithmEnum.fromJson(json[r'hashAlgorithm'])!,
-        proof: mapValueOfType<String>(json, r'proof')!,
+        recipientAddress: mapValueOfType<String>(json, r'recipientAddress'),
+        secret: mapValueOfType<String>(json, r'secret'),
+        hashAlgorithm: LockHashAlgorithmEnum.fromJson(json[r'hashAlgorithm']),
+        proof: mapValueOfType<String>(json, r'proof'),
       );
     }
     return null;
@@ -196,10 +236,6 @@ class SecretProofTransactionDTO {
     'type',
     'maxFee',
     'deadline',
-    'recipientAddress',
-    'secret',
-    'hashAlgorithm',
-    'proof',
   };
 }
 

@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 **version** | **int** | Entity version. | 
 **network** | [**NetworkTypeEnum**](NetworkTypeEnum.md) |  | 
 **type** | **int** |  | 
-**restrictionFlags** | [**AccountRestrictionFlagsEnum**](AccountRestrictionFlagsEnum.md) |  | 
-**restrictionAdditions** | [**List<TransactionTypeEnum>**](TransactionTypeEnum.md) | Account restriction additions. | [default to const []]
-**restrictionDeletions** | [**List<TransactionTypeEnum>**](TransactionTypeEnum.md) | Account restriction deletions. | [default to const []]
+**restrictionFlags** | [**AccountRestrictionFlagsEnum**](AccountRestrictionFlagsEnum.md) |  | [optional] 
+**restrictionAdditions** | [**List<TransactionTypeEnum>**](TransactionTypeEnum.md) | Account restriction additions. | [optional] [default to const []]
+**restrictionDeletions** | [**List<TransactionTypeEnum>**](TransactionTypeEnum.md) | Account restriction deletions. | [optional] [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

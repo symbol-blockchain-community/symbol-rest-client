@@ -13,22 +13,46 @@ part of openapi.api;
 class VotingKeyLinkTransactionBodyDTO {
   /// Returns a new [VotingKeyLinkTransactionBodyDTO] instance.
   VotingKeyLinkTransactionBodyDTO({
-    required this.linkedPublicKey,
-    required this.startEpoch,
-    required this.endEpoch,
-    required this.linkAction,
+    this.linkedPublicKey,
+    this.startEpoch,
+    this.endEpoch,
+    this.linkAction,
   });
 
   /// 32 bytes voting public key.
-  String linkedPublicKey;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? linkedPublicKey;
 
   /// Finalization Epoch
-  int startEpoch;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? startEpoch;
 
   /// Finalization Epoch
-  int endEpoch;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? endEpoch;
 
-  LinkActionEnum linkAction;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  LinkActionEnum? linkAction;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is VotingKeyLinkTransactionBodyDTO &&
@@ -40,20 +64,36 @@ class VotingKeyLinkTransactionBodyDTO {
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (linkedPublicKey.hashCode) +
-    (startEpoch.hashCode) +
-    (endEpoch.hashCode) +
-    (linkAction.hashCode);
+    (linkedPublicKey == null ? 0 : linkedPublicKey!.hashCode) +
+    (startEpoch == null ? 0 : startEpoch!.hashCode) +
+    (endEpoch == null ? 0 : endEpoch!.hashCode) +
+    (linkAction == null ? 0 : linkAction!.hashCode);
 
   @override
   String toString() => 'VotingKeyLinkTransactionBodyDTO[linkedPublicKey=$linkedPublicKey, startEpoch=$startEpoch, endEpoch=$endEpoch, linkAction=$linkAction]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    if (this.linkedPublicKey != null) {
       json[r'linkedPublicKey'] = this.linkedPublicKey;
+    } else {
+      json[r'linkedPublicKey'] = null;
+    }
+    if (this.startEpoch != null) {
       json[r'startEpoch'] = this.startEpoch;
+    } else {
+      json[r'startEpoch'] = null;
+    }
+    if (this.endEpoch != null) {
       json[r'endEpoch'] = this.endEpoch;
+    } else {
+      json[r'endEpoch'] = null;
+    }
+    if (this.linkAction != null) {
       json[r'linkAction'] = this.linkAction;
+    } else {
+      json[r'linkAction'] = null;
+    }
     return json;
   }
 
@@ -76,10 +116,10 @@ class VotingKeyLinkTransactionBodyDTO {
       }());
 
       return VotingKeyLinkTransactionBodyDTO(
-        linkedPublicKey: mapValueOfType<String>(json, r'linkedPublicKey')!,
-        startEpoch: mapValueOfType<int>(json, r'startEpoch')!,
-        endEpoch: mapValueOfType<int>(json, r'endEpoch')!,
-        linkAction: LinkActionEnum.fromJson(json[r'linkAction'])!,
+        linkedPublicKey: mapValueOfType<String>(json, r'linkedPublicKey'),
+        startEpoch: mapValueOfType<int>(json, r'startEpoch'),
+        endEpoch: mapValueOfType<int>(json, r'endEpoch'),
+        linkAction: LinkActionEnum.fromJson(json[r'linkAction']),
       );
     }
     return null;
@@ -127,10 +167,6 @@ class VotingKeyLinkTransactionBodyDTO {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'linkedPublicKey',
-    'startEpoch',
-    'endEpoch',
-    'linkAction',
   };
 }
 

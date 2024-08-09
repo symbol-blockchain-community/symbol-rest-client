@@ -16,10 +16,10 @@ Name | Type | Description | Notes
 **type** | **int** |  | 
 **maxFee** | **String** | Absolute amount. An amount of 123456789 (absolute) for a mosaic with divisibility 6 means 123.456789 (relative). | 
 **deadline** | **String** | Duration expressed in number of blocks. | 
-**linkedPublicKey** | **String** | 32 bytes voting public key. | 
-**startEpoch** | **int** | Finalization Epoch | 
-**endEpoch** | **int** | Finalization Epoch | 
-**linkAction** | [**LinkActionEnum**](LinkActionEnum.md) |  | 
+**linkedPublicKey** | **String** | 32 bytes voting public key. | [optional] 
+**startEpoch** | **int** | Finalization Epoch | [optional] 
+**endEpoch** | **int** | Finalization Epoch | [optional] 
+**linkAction** | [**LinkActionEnum**](LinkActionEnum.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -21,9 +21,9 @@ class MosaicSupplyChangeTransactionDTO {
     required this.type,
     required this.maxFee,
     required this.deadline,
-    required this.mosaicId,
-    required this.delta,
-    required this.action,
+    this.mosaicId,
+    this.delta,
+    this.action,
   });
 
   /// A number that allows uint 32 values.
@@ -49,12 +49,30 @@ class MosaicSupplyChangeTransactionDTO {
   String deadline;
 
   /// Mosaic identifier. If the most significant bit of byte 0 is set, a namespaceId (alias) is used instead of the real mosaic identifier. 
-  String mosaicId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? mosaicId;
 
   /// Absolute amount. An amount of 123456789 (absolute) for a mosaic with divisibility 6 means 123.456789 (relative).
-  String delta;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? delta;
 
-  MosaicSupplyChangeActionEnum action;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  MosaicSupplyChangeActionEnum? action;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is MosaicSupplyChangeTransactionDTO &&
@@ -81,9 +99,9 @@ class MosaicSupplyChangeTransactionDTO {
     (type.hashCode) +
     (maxFee.hashCode) +
     (deadline.hashCode) +
-    (mosaicId.hashCode) +
-    (delta.hashCode) +
-    (action.hashCode);
+    (mosaicId == null ? 0 : mosaicId!.hashCode) +
+    (delta == null ? 0 : delta!.hashCode) +
+    (action == null ? 0 : action!.hashCode);
 
   @override
   String toString() => 'MosaicSupplyChangeTransactionDTO[size=$size, signature=$signature, signerPublicKey=$signerPublicKey, version=$version, network=$network, type=$type, maxFee=$maxFee, deadline=$deadline, mosaicId=$mosaicId, delta=$delta, action=$action]';
@@ -98,9 +116,21 @@ class MosaicSupplyChangeTransactionDTO {
       json[r'type'] = this.type;
       json[r'maxFee'] = this.maxFee;
       json[r'deadline'] = this.deadline;
+    if (this.mosaicId != null) {
       json[r'mosaicId'] = this.mosaicId;
+    } else {
+      json[r'mosaicId'] = null;
+    }
+    if (this.delta != null) {
       json[r'delta'] = this.delta;
+    } else {
+      json[r'delta'] = null;
+    }
+    if (this.action != null) {
       json[r'action'] = this.action;
+    } else {
+      json[r'action'] = null;
+    }
     return json;
   }
 
@@ -131,9 +161,9 @@ class MosaicSupplyChangeTransactionDTO {
         type: mapValueOfType<int>(json, r'type')!,
         maxFee: mapValueOfType<String>(json, r'maxFee')!,
         deadline: mapValueOfType<String>(json, r'deadline')!,
-        mosaicId: mapValueOfType<String>(json, r'mosaicId')!,
-        delta: mapValueOfType<String>(json, r'delta')!,
-        action: MosaicSupplyChangeActionEnum.fromJson(json[r'action'])!,
+        mosaicId: mapValueOfType<String>(json, r'mosaicId'),
+        delta: mapValueOfType<String>(json, r'delta'),
+        action: MosaicSupplyChangeActionEnum.fromJson(json[r'action']),
       );
     }
     return null;
@@ -189,9 +219,6 @@ class MosaicSupplyChangeTransactionDTO {
     'type',
     'maxFee',
     'deadline',
-    'mosaicId',
-    'delta',
-    'action',
   };
 }
 

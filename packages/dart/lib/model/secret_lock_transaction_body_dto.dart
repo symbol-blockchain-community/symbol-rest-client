@@ -13,29 +13,65 @@ part of openapi.api;
 class SecretLockTransactionBodyDTO {
   /// Returns a new [SecretLockTransactionBodyDTO] instance.
   SecretLockTransactionBodyDTO({
-    required this.recipientAddress,
-    required this.secret,
-    required this.mosaicId,
-    required this.amount,
-    required this.duration,
-    required this.hashAlgorithm,
+    this.recipientAddress,
+    this.secret,
+    this.mosaicId,
+    this.amount,
+    this.duration,
+    this.hashAlgorithm,
   });
 
   /// Address expressed in Base32 format. If the bit 0 of byte 0 is not set (like in 0x90), then it is a regular address. Example: TAOXUJOTTW3W5XTBQMQEX3SQNA6MCUVGXLXR3TA.  Otherwise (e.g. 0x91) it represents a namespace id which starts at byte 1. Example: THBIMC3THGH5RUYAAAAAAAAAAAAAAAAAAAAAAAA 
-  String recipientAddress;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? recipientAddress;
 
-  String secret;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? secret;
 
   /// Mosaic identifier. If the most significant bit of byte 0 is set, a namespaceId (alias) is used instead of the real mosaic identifier. 
-  String mosaicId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? mosaicId;
 
   /// Absolute amount. An amount of 123456789 (absolute) for a mosaic with divisibility 6 means 123.456789 (relative).
-  String amount;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? amount;
 
   /// Duration expressed in number of blocks.
-  String duration;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? duration;
 
-  LockHashAlgorithmEnum hashAlgorithm;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  LockHashAlgorithmEnum? hashAlgorithm;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is SecretLockTransactionBodyDTO &&
@@ -49,24 +85,48 @@ class SecretLockTransactionBodyDTO {
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (recipientAddress.hashCode) +
-    (secret.hashCode) +
-    (mosaicId.hashCode) +
-    (amount.hashCode) +
-    (duration.hashCode) +
-    (hashAlgorithm.hashCode);
+    (recipientAddress == null ? 0 : recipientAddress!.hashCode) +
+    (secret == null ? 0 : secret!.hashCode) +
+    (mosaicId == null ? 0 : mosaicId!.hashCode) +
+    (amount == null ? 0 : amount!.hashCode) +
+    (duration == null ? 0 : duration!.hashCode) +
+    (hashAlgorithm == null ? 0 : hashAlgorithm!.hashCode);
 
   @override
   String toString() => 'SecretLockTransactionBodyDTO[recipientAddress=$recipientAddress, secret=$secret, mosaicId=$mosaicId, amount=$amount, duration=$duration, hashAlgorithm=$hashAlgorithm]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    if (this.recipientAddress != null) {
       json[r'recipientAddress'] = this.recipientAddress;
+    } else {
+      json[r'recipientAddress'] = null;
+    }
+    if (this.secret != null) {
       json[r'secret'] = this.secret;
+    } else {
+      json[r'secret'] = null;
+    }
+    if (this.mosaicId != null) {
       json[r'mosaicId'] = this.mosaicId;
+    } else {
+      json[r'mosaicId'] = null;
+    }
+    if (this.amount != null) {
       json[r'amount'] = this.amount;
+    } else {
+      json[r'amount'] = null;
+    }
+    if (this.duration != null) {
       json[r'duration'] = this.duration;
+    } else {
+      json[r'duration'] = null;
+    }
+    if (this.hashAlgorithm != null) {
       json[r'hashAlgorithm'] = this.hashAlgorithm;
+    } else {
+      json[r'hashAlgorithm'] = null;
+    }
     return json;
   }
 
@@ -89,12 +149,12 @@ class SecretLockTransactionBodyDTO {
       }());
 
       return SecretLockTransactionBodyDTO(
-        recipientAddress: mapValueOfType<String>(json, r'recipientAddress')!,
-        secret: mapValueOfType<String>(json, r'secret')!,
-        mosaicId: mapValueOfType<String>(json, r'mosaicId')!,
-        amount: mapValueOfType<String>(json, r'amount')!,
-        duration: mapValueOfType<String>(json, r'duration')!,
-        hashAlgorithm: LockHashAlgorithmEnum.fromJson(json[r'hashAlgorithm'])!,
+        recipientAddress: mapValueOfType<String>(json, r'recipientAddress'),
+        secret: mapValueOfType<String>(json, r'secret'),
+        mosaicId: mapValueOfType<String>(json, r'mosaicId'),
+        amount: mapValueOfType<String>(json, r'amount'),
+        duration: mapValueOfType<String>(json, r'duration'),
+        hashAlgorithm: LockHashAlgorithmEnum.fromJson(json[r'hashAlgorithm']),
       );
     }
     return null;
@@ -142,12 +202,6 @@ class SecretLockTransactionBodyDTO {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'recipientAddress',
-    'secret',
-    'mosaicId',
-    'amount',
-    'duration',
-    'hashAlgorithm',
   };
 }
 

@@ -13,14 +13,26 @@ part of openapi.api;
 class VrfKeyLinkTransactionBodyDTO {
   /// Returns a new [VrfKeyLinkTransactionBodyDTO] instance.
   VrfKeyLinkTransactionBodyDTO({
-    required this.linkedPublicKey,
-    required this.linkAction,
+    this.linkedPublicKey,
+    this.linkAction,
   });
 
   /// Public key.
-  String linkedPublicKey;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? linkedPublicKey;
 
-  LinkActionEnum linkAction;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  LinkActionEnum? linkAction;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is VrfKeyLinkTransactionBodyDTO &&
@@ -30,16 +42,24 @@ class VrfKeyLinkTransactionBodyDTO {
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (linkedPublicKey.hashCode) +
-    (linkAction.hashCode);
+    (linkedPublicKey == null ? 0 : linkedPublicKey!.hashCode) +
+    (linkAction == null ? 0 : linkAction!.hashCode);
 
   @override
   String toString() => 'VrfKeyLinkTransactionBodyDTO[linkedPublicKey=$linkedPublicKey, linkAction=$linkAction]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    if (this.linkedPublicKey != null) {
       json[r'linkedPublicKey'] = this.linkedPublicKey;
+    } else {
+      json[r'linkedPublicKey'] = null;
+    }
+    if (this.linkAction != null) {
       json[r'linkAction'] = this.linkAction;
+    } else {
+      json[r'linkAction'] = null;
+    }
     return json;
   }
 
@@ -62,8 +82,8 @@ class VrfKeyLinkTransactionBodyDTO {
       }());
 
       return VrfKeyLinkTransactionBodyDTO(
-        linkedPublicKey: mapValueOfType<String>(json, r'linkedPublicKey')!,
-        linkAction: LinkActionEnum.fromJson(json[r'linkAction'])!,
+        linkedPublicKey: mapValueOfType<String>(json, r'linkedPublicKey'),
+        linkAction: LinkActionEnum.fromJson(json[r'linkAction']),
       );
     }
     return null;
@@ -111,8 +131,6 @@ class VrfKeyLinkTransactionBodyDTO {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'linkedPublicKey',
-    'linkAction',
   };
 }
 

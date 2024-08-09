@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **version** | **int** | Entity version. | 
 **network** | [**NetworkTypeEnum**](NetworkTypeEnum.md) |  | 
 **type** | **int** |  | 
-**linkedPublicKey** | **String** | Public key. | 
-**linkAction** | [**LinkActionEnum**](LinkActionEnum.md) |  | 
+**linkedPublicKey** | **String** | Public key. | [optional] 
+**linkAction** | [**LinkActionEnum**](LinkActionEnum.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

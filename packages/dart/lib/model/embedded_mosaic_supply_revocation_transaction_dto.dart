@@ -17,9 +17,9 @@ class EmbeddedMosaicSupplyRevocationTransactionDTO {
     required this.version,
     required this.network,
     required this.type,
-    required this.sourceAddress,
-    required this.mosaicId,
-    required this.amount,
+    this.sourceAddress,
+    this.mosaicId,
+    this.amount,
   });
 
   /// Public key.
@@ -33,13 +33,31 @@ class EmbeddedMosaicSupplyRevocationTransactionDTO {
   int type;
 
   /// Address expressed in Base32 format. If the bit 0 of byte 0 is not set (like in 0x90), then it is a regular address. Example: TAOXUJOTTW3W5XTBQMQEX3SQNA6MCUVGXLXR3TA.  Otherwise (e.g. 0x91) it represents a namespace id which starts at byte 1. Example: THBIMC3THGH5RUYAAAAAAAAAAAAAAAAAAAAAAAA 
-  String sourceAddress;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? sourceAddress;
 
   /// Mosaic identifier. If the most significant bit of byte 0 is set, a namespaceId (alias) is used instead of the real mosaic identifier. 
-  String mosaicId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? mosaicId;
 
   /// Absolute amount. An amount of 123456789 (absolute) for a mosaic with divisibility 6 means 123.456789 (relative).
-  String amount;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? amount;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is EmbeddedMosaicSupplyRevocationTransactionDTO &&
@@ -58,9 +76,9 @@ class EmbeddedMosaicSupplyRevocationTransactionDTO {
     (version.hashCode) +
     (network.hashCode) +
     (type.hashCode) +
-    (sourceAddress.hashCode) +
-    (mosaicId.hashCode) +
-    (amount.hashCode);
+    (sourceAddress == null ? 0 : sourceAddress!.hashCode) +
+    (mosaicId == null ? 0 : mosaicId!.hashCode) +
+    (amount == null ? 0 : amount!.hashCode);
 
   @override
   String toString() => 'EmbeddedMosaicSupplyRevocationTransactionDTO[signerPublicKey=$signerPublicKey, version=$version, network=$network, type=$type, sourceAddress=$sourceAddress, mosaicId=$mosaicId, amount=$amount]';
@@ -71,9 +89,21 @@ class EmbeddedMosaicSupplyRevocationTransactionDTO {
       json[r'version'] = this.version;
       json[r'network'] = this.network;
       json[r'type'] = this.type;
+    if (this.sourceAddress != null) {
       json[r'sourceAddress'] = this.sourceAddress;
+    } else {
+      json[r'sourceAddress'] = null;
+    }
+    if (this.mosaicId != null) {
       json[r'mosaicId'] = this.mosaicId;
+    } else {
+      json[r'mosaicId'] = null;
+    }
+    if (this.amount != null) {
       json[r'amount'] = this.amount;
+    } else {
+      json[r'amount'] = null;
+    }
     return json;
   }
 
@@ -100,9 +130,9 @@ class EmbeddedMosaicSupplyRevocationTransactionDTO {
         version: mapValueOfType<int>(json, r'version')!,
         network: NetworkTypeEnum.fromJson(json[r'network'])!,
         type: mapValueOfType<int>(json, r'type')!,
-        sourceAddress: mapValueOfType<String>(json, r'sourceAddress')!,
-        mosaicId: mapValueOfType<String>(json, r'mosaicId')!,
-        amount: mapValueOfType<String>(json, r'amount')!,
+        sourceAddress: mapValueOfType<String>(json, r'sourceAddress'),
+        mosaicId: mapValueOfType<String>(json, r'mosaicId'),
+        amount: mapValueOfType<String>(json, r'amount'),
       );
     }
     return null;
@@ -154,9 +184,6 @@ class EmbeddedMosaicSupplyRevocationTransactionDTO {
     'version',
     'network',
     'type',
-    'sourceAddress',
-    'mosaicId',
-    'amount',
   };
 }
 

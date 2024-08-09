@@ -21,12 +21,12 @@ class MosaicMetadataTransactionDTO {
     required this.type,
     required this.maxFee,
     required this.deadline,
-    required this.targetAddress,
-    required this.scopedMetadataKey,
-    required this.targetMosaicId,
-    required this.valueSizeDelta,
-    required this.valueSize,
-    required this.value,
+    this.targetAddress,
+    this.scopedMetadataKey,
+    this.targetMosaicId,
+    this.valueSizeDelta,
+    this.valueSize,
+    this.value,
   });
 
   /// A number that allows uint 32 values.
@@ -52,22 +52,58 @@ class MosaicMetadataTransactionDTO {
   String deadline;
 
   /// Address expressed in Base32 format. If the bit 0 of byte 0 is not set (like in 0x90), then it is a regular address. Example: TAOXUJOTTW3W5XTBQMQEX3SQNA6MCUVGXLXR3TA.  Otherwise (e.g. 0x91) it represents a namespace id which starts at byte 1. Example: THBIMC3THGH5RUYAAAAAAAAAAAAAAAAAAAAAAAA 
-  String targetAddress;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? targetAddress;
 
   /// Metadata key scoped to source, target and type expressed.
-  String scopedMetadataKey;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? scopedMetadataKey;
 
   /// Mosaic identifier. If the most significant bit of byte 0 is set, a namespaceId (alias) is used instead of the real mosaic identifier. 
-  String targetMosaicId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? targetMosaicId;
 
   /// Change in value size in bytes.
-  int valueSizeDelta;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? valueSizeDelta;
 
   /// A number that allows uint 32 values.
-  int valueSize;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? valueSize;
 
   /// Metadata value. If embedded in a transaction, this is calculated as xor(previous-value, value).
-  String value;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? value;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is MosaicMetadataTransactionDTO &&
@@ -97,12 +133,12 @@ class MosaicMetadataTransactionDTO {
     (type.hashCode) +
     (maxFee.hashCode) +
     (deadline.hashCode) +
-    (targetAddress.hashCode) +
-    (scopedMetadataKey.hashCode) +
-    (targetMosaicId.hashCode) +
-    (valueSizeDelta.hashCode) +
-    (valueSize.hashCode) +
-    (value.hashCode);
+    (targetAddress == null ? 0 : targetAddress!.hashCode) +
+    (scopedMetadataKey == null ? 0 : scopedMetadataKey!.hashCode) +
+    (targetMosaicId == null ? 0 : targetMosaicId!.hashCode) +
+    (valueSizeDelta == null ? 0 : valueSizeDelta!.hashCode) +
+    (valueSize == null ? 0 : valueSize!.hashCode) +
+    (value == null ? 0 : value!.hashCode);
 
   @override
   String toString() => 'MosaicMetadataTransactionDTO[size=$size, signature=$signature, signerPublicKey=$signerPublicKey, version=$version, network=$network, type=$type, maxFee=$maxFee, deadline=$deadline, targetAddress=$targetAddress, scopedMetadataKey=$scopedMetadataKey, targetMosaicId=$targetMosaicId, valueSizeDelta=$valueSizeDelta, valueSize=$valueSize, value=$value]';
@@ -117,12 +153,36 @@ class MosaicMetadataTransactionDTO {
       json[r'type'] = this.type;
       json[r'maxFee'] = this.maxFee;
       json[r'deadline'] = this.deadline;
+    if (this.targetAddress != null) {
       json[r'targetAddress'] = this.targetAddress;
+    } else {
+      json[r'targetAddress'] = null;
+    }
+    if (this.scopedMetadataKey != null) {
       json[r'scopedMetadataKey'] = this.scopedMetadataKey;
+    } else {
+      json[r'scopedMetadataKey'] = null;
+    }
+    if (this.targetMosaicId != null) {
       json[r'targetMosaicId'] = this.targetMosaicId;
+    } else {
+      json[r'targetMosaicId'] = null;
+    }
+    if (this.valueSizeDelta != null) {
       json[r'valueSizeDelta'] = this.valueSizeDelta;
+    } else {
+      json[r'valueSizeDelta'] = null;
+    }
+    if (this.valueSize != null) {
       json[r'valueSize'] = this.valueSize;
+    } else {
+      json[r'valueSize'] = null;
+    }
+    if (this.value != null) {
       json[r'value'] = this.value;
+    } else {
+      json[r'value'] = null;
+    }
     return json;
   }
 
@@ -153,12 +213,12 @@ class MosaicMetadataTransactionDTO {
         type: mapValueOfType<int>(json, r'type')!,
         maxFee: mapValueOfType<String>(json, r'maxFee')!,
         deadline: mapValueOfType<String>(json, r'deadline')!,
-        targetAddress: mapValueOfType<String>(json, r'targetAddress')!,
-        scopedMetadataKey: mapValueOfType<String>(json, r'scopedMetadataKey')!,
-        targetMosaicId: mapValueOfType<String>(json, r'targetMosaicId')!,
-        valueSizeDelta: mapValueOfType<int>(json, r'valueSizeDelta')!,
-        valueSize: mapValueOfType<int>(json, r'valueSize')!,
-        value: mapValueOfType<String>(json, r'value')!,
+        targetAddress: mapValueOfType<String>(json, r'targetAddress'),
+        scopedMetadataKey: mapValueOfType<String>(json, r'scopedMetadataKey'),
+        targetMosaicId: mapValueOfType<String>(json, r'targetMosaicId'),
+        valueSizeDelta: mapValueOfType<int>(json, r'valueSizeDelta'),
+        valueSize: mapValueOfType<int>(json, r'valueSize'),
+        value: mapValueOfType<String>(json, r'value'),
       );
     }
     return null;
@@ -214,12 +274,6 @@ class MosaicMetadataTransactionDTO {
     'type',
     'maxFee',
     'deadline',
-    'targetAddress',
-    'scopedMetadataKey',
-    'targetMosaicId',
-    'valueSizeDelta',
-    'valueSize',
-    'value',
   };
 }
 

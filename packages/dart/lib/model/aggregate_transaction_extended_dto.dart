@@ -21,7 +21,7 @@ class AggregateTransactionExtendedDTO {
     required this.type,
     required this.maxFee,
     required this.deadline,
-    required this.transactionsHash,
+    this.transactionsHash,
     this.cosignatures = const [],
     this.transactions = const [],
   });
@@ -48,7 +48,13 @@ class AggregateTransactionExtendedDTO {
   /// Duration expressed in number of blocks.
   String deadline;
 
-  String transactionsHash;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? transactionsHash;
 
   /// Array of transaction cosignatures.
   List<CosignatureDTO> cosignatures;
@@ -81,7 +87,7 @@ class AggregateTransactionExtendedDTO {
     (type.hashCode) +
     (maxFee.hashCode) +
     (deadline.hashCode) +
-    (transactionsHash.hashCode) +
+    (transactionsHash == null ? 0 : transactionsHash!.hashCode) +
     (cosignatures.hashCode) +
     (transactions.hashCode);
 
@@ -98,7 +104,11 @@ class AggregateTransactionExtendedDTO {
       json[r'type'] = this.type;
       json[r'maxFee'] = this.maxFee;
       json[r'deadline'] = this.deadline;
+    if (this.transactionsHash != null) {
       json[r'transactionsHash'] = this.transactionsHash;
+    } else {
+      json[r'transactionsHash'] = null;
+    }
       json[r'cosignatures'] = this.cosignatures;
       json[r'transactions'] = this.transactions;
     return json;
@@ -131,7 +141,7 @@ class AggregateTransactionExtendedDTO {
         type: mapValueOfType<int>(json, r'type')!,
         maxFee: mapValueOfType<String>(json, r'maxFee')!,
         deadline: mapValueOfType<String>(json, r'deadline')!,
-        transactionsHash: mapValueOfType<String>(json, r'transactionsHash')!,
+        transactionsHash: mapValueOfType<String>(json, r'transactionsHash'),
         cosignatures: CosignatureDTO.listFromJson(json[r'cosignatures']),
         transactions: EmbeddedTransactionInfoDTO.listFromJson(json[r'transactions']),
       );
@@ -189,9 +199,6 @@ class AggregateTransactionExtendedDTO {
     'type',
     'maxFee',
     'deadline',
-    'transactionsHash',
-    'cosignatures',
-    'transactions',
   };
 }
 
