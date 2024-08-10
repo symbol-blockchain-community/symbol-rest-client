@@ -15,10 +15,10 @@ class BalanceTransferReceiptDTO {
   BalanceTransferReceiptDTO({
     required this.version,
     required this.type,
-    required this.mosaicId,
-    required this.amount,
-    required this.senderAddress,
-    required this.recipientAddress,
+    this.mosaicId,
+    this.amount,
+    this.senderAddress,
+    this.recipientAddress,
   });
 
   /// Version of the receipt.
@@ -27,16 +27,40 @@ class BalanceTransferReceiptDTO {
   ReceiptTypeEnum type;
 
   /// Mosaic identifier.
-  String mosaicId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? mosaicId;
 
   /// Absolute amount. An amount of 123456789 (absolute) for a mosaic with divisibility 6 means 123.456789 (relative).
-  String amount;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? amount;
 
   /// Address encoded using a 32-character set.
-  String senderAddress;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? senderAddress;
 
   /// Address encoded using a 32-character set.
-  String recipientAddress;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? recipientAddress;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is BalanceTransferReceiptDTO &&
@@ -52,10 +76,10 @@ class BalanceTransferReceiptDTO {
     // ignore: unnecessary_parenthesis
     (version.hashCode) +
     (type.hashCode) +
-    (mosaicId.hashCode) +
-    (amount.hashCode) +
-    (senderAddress.hashCode) +
-    (recipientAddress.hashCode);
+    (mosaicId == null ? 0 : mosaicId!.hashCode) +
+    (amount == null ? 0 : amount!.hashCode) +
+    (senderAddress == null ? 0 : senderAddress!.hashCode) +
+    (recipientAddress == null ? 0 : recipientAddress!.hashCode);
 
   @override
   String toString() => 'BalanceTransferReceiptDTO[version=$version, type=$type, mosaicId=$mosaicId, amount=$amount, senderAddress=$senderAddress, recipientAddress=$recipientAddress]';
@@ -64,10 +88,26 @@ class BalanceTransferReceiptDTO {
     final json = <String, dynamic>{};
       json[r'version'] = this.version;
       json[r'type'] = this.type;
+    if (this.mosaicId != null) {
       json[r'mosaicId'] = this.mosaicId;
+    } else {
+      json[r'mosaicId'] = null;
+    }
+    if (this.amount != null) {
       json[r'amount'] = this.amount;
+    } else {
+      json[r'amount'] = null;
+    }
+    if (this.senderAddress != null) {
       json[r'senderAddress'] = this.senderAddress;
+    } else {
+      json[r'senderAddress'] = null;
+    }
+    if (this.recipientAddress != null) {
       json[r'recipientAddress'] = this.recipientAddress;
+    } else {
+      json[r'recipientAddress'] = null;
+    }
     return json;
   }
 
@@ -92,10 +132,10 @@ class BalanceTransferReceiptDTO {
       return BalanceTransferReceiptDTO(
         version: mapValueOfType<int>(json, r'version')!,
         type: ReceiptTypeEnum.fromJson(json[r'type'])!,
-        mosaicId: mapValueOfType<String>(json, r'mosaicId')!,
-        amount: mapValueOfType<String>(json, r'amount')!,
-        senderAddress: mapValueOfType<String>(json, r'senderAddress')!,
-        recipientAddress: mapValueOfType<String>(json, r'recipientAddress')!,
+        mosaicId: mapValueOfType<String>(json, r'mosaicId'),
+        amount: mapValueOfType<String>(json, r'amount'),
+        senderAddress: mapValueOfType<String>(json, r'senderAddress'),
+        recipientAddress: mapValueOfType<String>(json, r'recipientAddress'),
       );
     }
     return null;
@@ -145,10 +185,6 @@ class BalanceTransferReceiptDTO {
   static const requiredKeys = <String>{
     'version',
     'type',
-    'mosaicId',
-    'amount',
-    'senderAddress',
-    'recipientAddress',
   };
 }
 

@@ -38,6 +38,10 @@ replacement_text() {
   rm "$tmpfile"
 }
 
+escape_for_sed() {
+  echo "$1" | sed 's/[.[\*^$]/\\&/g'
+}
+
 # 修正対象のファイルとクラス名
 fix_dart_file "packages/dart/lib/model/account_restriction_dto_values_inner.dart" "AccountRestrictionDTOValuesInner"
 fix_dart_file "packages/dart/lib/model/metadata_entry_dto_target_id.dart" "MetadataEntryDTOTargetId"
@@ -55,3 +59,43 @@ replacement_text "packages/dart/lib/model/transaction_info_dto_transaction.dart"
 replacement_text "packages/dart/lib/model/transaction_info_dto.dart" \
   'TransactionInfoDTOTransaction transaction;' \
   'dynamic transaction;'
+
+replacement_text "packages/dart/lib/model/block_info_dto_block.dart" \
+  'return BlockInfoDTOBlock(' \
+  'if (json['\''type'\''] == 33347) {\n        return ImportanceBlockDTO.fromJson(value);\n      } else {\n        return BlockDTO.fromJson(value);\n      }\n      return BlockInfoDTOBlock('
+
+replacement_text "packages/dart/lib/model/block_info_dto_block.dart" \
+  'static BlockInfoDTOBlock\? fromJson(dynamic value)' \
+  'static dynamic fromJson(dynamic value)'
+
+replacement_text "packages/dart/lib/model/block_info_dto.dart" \
+  'BlockInfoDTOBlock block;' \
+  'dynamic block;'
+
+replacement_text "packages/dart/lib/model/transaction_statement_dto.dart" \
+  'List<TransactionStatementDTOReceiptsInner> receipts;' \
+  'List<dynamic> receipts;'
+
+replacement_text "packages/dart/lib/model/transaction_statement_dto_receipts_inner.dart" \
+  'static TransactionStatementDTOReceiptsInner? fromJson(dynamic value) {' \
+  'static dynamic fromJson(dynamic value) {'
+
+replacement_text "packages/dart/lib/model/transaction_statement_dto_receipts_inner.dart" \
+  'static List<TransactionStatementDTOReceiptsInner> listFromJson(' \
+  'static List<dynamic> listFromJson('
+
+replacement_text "packages/dart/lib/model/transaction_statement_dto_receipts_inner.dart" \
+  'final result = <TransactionStatementDTOReceiptsInner>' \
+  'final result = <dynamic>'
+
+replacement_text "packages/dart/lib/model/transaction_statement_dto_receipts_inner.dart" \
+  'static Map<String, List<TransactionStatementDTOReceiptsInner>>' \
+  'static Map<String, List<dynamic>>'
+
+replacement_text "packages/dart/lib/model/transaction_statement_dto_receipts_inner.dart" \
+  'final map = <String, List<TransactionStatementDTOReceiptsInner>>{};' \
+  'final map = <String, List<dynamic>>{};'
+
+replacement_text "packages/dart/lib/model/transaction_statement_dto_receipts_inner.dart" \
+  'return TransactionStatementDTOReceiptsInner(' \
+  'switch (json['\''type'\'']) {\n        case 4685:\n        case 4942:\n          return BalanceTransferReceiptDTO.fromJson(value);\n        case 8515:\n        case 8776:\n        case 9032:\n        case 8786:\n        case 9042:\n        case 12616:\n        case 12626:\n          return BalanceChangeReceiptDTO.fromJson(value);\n        case 16717:\n          return MosaicExpiryReceiptDTO.fromJson(value);\n        case 16718:\n        case 16974:\n          return NamespaceExpiryReceiptDTO.fromJson(value);\n        case 20803:\n          return InflationReceiptDTO.fromJson(value);\n      }\n      return TransactionStatementDTOReceiptsInner('

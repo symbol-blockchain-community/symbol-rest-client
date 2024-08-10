@@ -17,8 +17,8 @@ class MerkleTreeLeafDTO {
     required this.path,
     required this.encodedPath,
     required this.nibbleCount,
-    required this.value,
-    required this.leafHash,
+    this.value,
+    this.leafHash,
   });
 
   MerkleTreeNodeTypeEnum type;
@@ -33,9 +33,21 @@ class MerkleTreeLeafDTO {
   int nibbleCount;
 
   /// Leaf value (sha256 hash).
-  String value;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? value;
 
-  String leafHash;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? leafHash;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is MerkleTreeLeafDTO &&
@@ -53,8 +65,8 @@ class MerkleTreeLeafDTO {
     (path.hashCode) +
     (encodedPath.hashCode) +
     (nibbleCount.hashCode) +
-    (value.hashCode) +
-    (leafHash.hashCode);
+    (value == null ? 0 : value!.hashCode) +
+    (leafHash == null ? 0 : leafHash!.hashCode);
 
   @override
   String toString() => 'MerkleTreeLeafDTO[type=$type, path=$path, encodedPath=$encodedPath, nibbleCount=$nibbleCount, value=$value, leafHash=$leafHash]';
@@ -65,8 +77,16 @@ class MerkleTreeLeafDTO {
       json[r'path'] = this.path;
       json[r'encodedPath'] = this.encodedPath;
       json[r'nibbleCount'] = this.nibbleCount;
+    if (this.value != null) {
       json[r'value'] = this.value;
+    } else {
+      json[r'value'] = null;
+    }
+    if (this.leafHash != null) {
       json[r'leafHash'] = this.leafHash;
+    } else {
+      json[r'leafHash'] = null;
+    }
     return json;
   }
 
@@ -93,8 +113,8 @@ class MerkleTreeLeafDTO {
         path: mapValueOfType<String>(json, r'path')!,
         encodedPath: mapValueOfType<String>(json, r'encodedPath')!,
         nibbleCount: mapValueOfType<int>(json, r'nibbleCount')!,
-        value: mapValueOfType<String>(json, r'value')!,
-        leafHash: mapValueOfType<String>(json, r'leafHash')!,
+        value: mapValueOfType<String>(json, r'value'),
+        leafHash: mapValueOfType<String>(json, r'leafHash'),
       );
     }
     return null;
@@ -146,8 +166,6 @@ class MerkleTreeLeafDTO {
     'path',
     'encodedPath',
     'nibbleCount',
-    'value',
-    'leafHash',
   };
 }
 

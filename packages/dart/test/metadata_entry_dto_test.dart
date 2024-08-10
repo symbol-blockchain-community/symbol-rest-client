@@ -45,7 +45,7 @@ void main() {
       // TODO
     });
 
-    // MetadataEntryDTOTargetId targetId
+    // String targetId
     test('to test the property `targetId`', () async {
       // TODO
     });

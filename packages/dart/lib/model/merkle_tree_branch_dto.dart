@@ -17,9 +17,9 @@ class MerkleTreeBranchDTO {
     required this.path,
     required this.encodedPath,
     required this.nibbleCount,
-    required this.linkMask,
+    this.linkMask,
     this.links = const [],
-    required this.branchHash,
+    this.branchHash,
   });
 
   MerkleTreeNodeTypeEnum type;
@@ -34,12 +34,24 @@ class MerkleTreeBranchDTO {
   int nibbleCount;
 
   /// Branch link bitmask.
-  String linkMask;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? linkMask;
 
   /// Branch links (max 16).
   List<MerkleTreeBranchLinkDTO> links;
 
-  String branchHash;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? branchHash;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is MerkleTreeBranchDTO &&
@@ -58,9 +70,9 @@ class MerkleTreeBranchDTO {
     (path.hashCode) +
     (encodedPath.hashCode) +
     (nibbleCount.hashCode) +
-    (linkMask.hashCode) +
+    (linkMask == null ? 0 : linkMask!.hashCode) +
     (links.hashCode) +
-    (branchHash.hashCode);
+    (branchHash == null ? 0 : branchHash!.hashCode);
 
   @override
   String toString() => 'MerkleTreeBranchDTO[type=$type, path=$path, encodedPath=$encodedPath, nibbleCount=$nibbleCount, linkMask=$linkMask, links=$links, branchHash=$branchHash]';
@@ -71,9 +83,17 @@ class MerkleTreeBranchDTO {
       json[r'path'] = this.path;
       json[r'encodedPath'] = this.encodedPath;
       json[r'nibbleCount'] = this.nibbleCount;
+    if (this.linkMask != null) {
       json[r'linkMask'] = this.linkMask;
+    } else {
+      json[r'linkMask'] = null;
+    }
       json[r'links'] = this.links;
+    if (this.branchHash != null) {
       json[r'branchHash'] = this.branchHash;
+    } else {
+      json[r'branchHash'] = null;
+    }
     return json;
   }
 
@@ -100,9 +120,9 @@ class MerkleTreeBranchDTO {
         path: mapValueOfType<String>(json, r'path')!,
         encodedPath: mapValueOfType<String>(json, r'encodedPath')!,
         nibbleCount: mapValueOfType<int>(json, r'nibbleCount')!,
-        linkMask: mapValueOfType<String>(json, r'linkMask')!,
+        linkMask: mapValueOfType<String>(json, r'linkMask'),
         links: MerkleTreeBranchLinkDTO.listFromJson(json[r'links']),
-        branchHash: mapValueOfType<String>(json, r'branchHash')!,
+        branchHash: mapValueOfType<String>(json, r'branchHash'),
       );
     }
     return null;
@@ -154,9 +174,6 @@ class MerkleTreeBranchDTO {
     'path',
     'encodedPath',
     'nibbleCount',
-    'linkMask',
-    'links',
-    'branchHash',
   };
 }
 

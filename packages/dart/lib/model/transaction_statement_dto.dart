@@ -24,7 +24,7 @@ class TransactionStatementDTO {
   SourceDTO source_;
 
   /// Array of receipts.
-  List<TransactionStatementDTOReceiptsInner> receipts;
+  List<dynamic> receipts;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is TransactionStatementDTO &&

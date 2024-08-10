@@ -400,8 +400,6 @@ class ApiClient {
           return MessageGroup.fromJson(value);
         case 'MetadataEntryDTO':
           return MetadataEntryDTO.fromJson(value);
-        case 'MetadataEntryDTOTargetId':
-          return MetadataEntryDTOTargetId.fromJson(value);
         case 'MetadataInfoDTO':
           return MetadataInfoDTO.fromJson(value);
         case 'MetadataNetworkPropertiesDTO':
@@ -566,8 +564,6 @@ class ApiClient {
           return RentalFeesDTO.fromJson(value);
         case 'ResolutionEntryDTO':
           return ResolutionEntryDTO.fromJson(value);
-        case 'ResolutionEntryDTOResolved':
-          return ResolutionEntryDTOResolved.fromJson(value);
         case 'ResolutionStatementDTO':
           return ResolutionStatementDTO.fromJson(value);
         case 'ResolutionStatementInfoDTO':

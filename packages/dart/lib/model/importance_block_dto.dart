@@ -31,10 +31,10 @@ class ImportanceBlockDTO {
     required this.stateHash,
     required this.beneficiaryAddress,
     required this.feeMultiplier,
-    required this.votingEligibleAccountsCount,
-    required this.harvestingEligibleAccountsCount,
-    required this.totalVotingBalance,
-    required this.previousImportanceBlockHash,
+    this.votingEligibleAccountsCount,
+    this.harvestingEligibleAccountsCount,
+    this.totalVotingBalance,
+    this.previousImportanceBlockHash,
   });
 
   /// A number that allows uint 32 values.
@@ -86,15 +86,39 @@ class ImportanceBlockDTO {
   int feeMultiplier;
 
   /// A number that allows uint 32 values.
-  int votingEligibleAccountsCount;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? votingEligibleAccountsCount;
 
   /// A number that allows uint 64 values represented with a string.
-  String harvestingEligibleAccountsCount;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? harvestingEligibleAccountsCount;
 
   /// Absolute amount. An amount of 123456789 (absolute) for a mosaic with divisibility 6 means 123.456789 (relative).
-  String totalVotingBalance;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? totalVotingBalance;
 
-  String previousImportanceBlockHash;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? previousImportanceBlockHash;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is ImportanceBlockDTO &&
@@ -142,10 +166,10 @@ class ImportanceBlockDTO {
     (stateHash.hashCode) +
     (beneficiaryAddress.hashCode) +
     (feeMultiplier.hashCode) +
-    (votingEligibleAccountsCount.hashCode) +
-    (harvestingEligibleAccountsCount.hashCode) +
-    (totalVotingBalance.hashCode) +
-    (previousImportanceBlockHash.hashCode);
+    (votingEligibleAccountsCount == null ? 0 : votingEligibleAccountsCount!.hashCode) +
+    (harvestingEligibleAccountsCount == null ? 0 : harvestingEligibleAccountsCount!.hashCode) +
+    (totalVotingBalance == null ? 0 : totalVotingBalance!.hashCode) +
+    (previousImportanceBlockHash == null ? 0 : previousImportanceBlockHash!.hashCode);
 
   @override
   String toString() => 'ImportanceBlockDTO[size=$size, signature=$signature, signerPublicKey=$signerPublicKey, version=$version, network=$network, type=$type, height=$height, timestamp=$timestamp, difficulty=$difficulty, proofGamma=$proofGamma, proofVerificationHash=$proofVerificationHash, proofScalar=$proofScalar, previousBlockHash=$previousBlockHash, transactionsHash=$transactionsHash, receiptsHash=$receiptsHash, stateHash=$stateHash, beneficiaryAddress=$beneficiaryAddress, feeMultiplier=$feeMultiplier, votingEligibleAccountsCount=$votingEligibleAccountsCount, harvestingEligibleAccountsCount=$harvestingEligibleAccountsCount, totalVotingBalance=$totalVotingBalance, previousImportanceBlockHash=$previousImportanceBlockHash]';
@@ -170,10 +194,26 @@ class ImportanceBlockDTO {
       json[r'stateHash'] = this.stateHash;
       json[r'beneficiaryAddress'] = this.beneficiaryAddress;
       json[r'feeMultiplier'] = this.feeMultiplier;
+    if (this.votingEligibleAccountsCount != null) {
       json[r'votingEligibleAccountsCount'] = this.votingEligibleAccountsCount;
+    } else {
+      json[r'votingEligibleAccountsCount'] = null;
+    }
+    if (this.harvestingEligibleAccountsCount != null) {
       json[r'harvestingEligibleAccountsCount'] = this.harvestingEligibleAccountsCount;
+    } else {
+      json[r'harvestingEligibleAccountsCount'] = null;
+    }
+    if (this.totalVotingBalance != null) {
       json[r'totalVotingBalance'] = this.totalVotingBalance;
+    } else {
+      json[r'totalVotingBalance'] = null;
+    }
+    if (this.previousImportanceBlockHash != null) {
       json[r'previousImportanceBlockHash'] = this.previousImportanceBlockHash;
+    } else {
+      json[r'previousImportanceBlockHash'] = null;
+    }
     return json;
   }
 
@@ -214,10 +254,10 @@ class ImportanceBlockDTO {
         stateHash: mapValueOfType<String>(json, r'stateHash')!,
         beneficiaryAddress: mapValueOfType<String>(json, r'beneficiaryAddress')!,
         feeMultiplier: mapValueOfType<int>(json, r'feeMultiplier')!,
-        votingEligibleAccountsCount: mapValueOfType<int>(json, r'votingEligibleAccountsCount')!,
-        harvestingEligibleAccountsCount: mapValueOfType<String>(json, r'harvestingEligibleAccountsCount')!,
-        totalVotingBalance: mapValueOfType<String>(json, r'totalVotingBalance')!,
-        previousImportanceBlockHash: mapValueOfType<String>(json, r'previousImportanceBlockHash')!,
+        votingEligibleAccountsCount: mapValueOfType<int>(json, r'votingEligibleAccountsCount'),
+        harvestingEligibleAccountsCount: mapValueOfType<String>(json, r'harvestingEligibleAccountsCount'),
+        totalVotingBalance: mapValueOfType<String>(json, r'totalVotingBalance'),
+        previousImportanceBlockHash: mapValueOfType<String>(json, r'previousImportanceBlockHash'),
       );
     }
     return null;
@@ -283,10 +323,6 @@ class ImportanceBlockDTO {
     'stateHash',
     'beneficiaryAddress',
     'feeMultiplier',
-    'votingEligibleAccountsCount',
-    'harvestingEligibleAccountsCount',
-    'totalVotingBalance',
-    'previousImportanceBlockHash',
   };
 }
 

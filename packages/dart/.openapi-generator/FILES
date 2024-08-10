@@ -117,7 +117,6 @@ doc/MerkleTreeLeafDTO.md
 doc/MerkleTreeNodeTypeEnum.md
 doc/MessageGroup.md
 doc/MetadataEntryDTO.md
-doc/MetadataEntryDTOTargetId.md
 doc/MetadataInfoDTO.md
 doc/MetadataNetworkPropertiesDTO.md
 doc/MetadataPage.md
@@ -207,7 +206,6 @@ doc/ReceiptRoutesApi.md
 doc/ReceiptTypeEnum.md
 doc/RentalFeesDTO.md
 doc/ResolutionEntryDTO.md
-doc/ResolutionEntryDTOResolved.md
 doc/ResolutionStatementDTO.md
 doc/ResolutionStatementInfoDTO.md
 doc/ResolutionStatementPage.md
@@ -399,7 +397,6 @@ lib/model/merkle_tree_leaf_dto.dart
 lib/model/merkle_tree_node_type_enum.dart
 lib/model/message_group.dart
 lib/model/metadata_entry_dto.dart
-lib/model/metadata_entry_dto_target_id.dart
 lib/model/metadata_info_dto.dart
 lib/model/metadata_network_properties_dto.dart
 lib/model/metadata_page.dart
@@ -482,7 +479,6 @@ lib/model/receipt_dto.dart
 lib/model/receipt_type_enum.dart
 lib/model/rental_fees_dto.dart
 lib/model/resolution_entry_dto.dart
-lib/model/resolution_entry_dto_resolved.dart
 lib/model/resolution_statement_dto.dart
 lib/model/resolution_statement_info_dto.dart
 lib/model/resolution_statement_page.dart
@@ -647,7 +643,6 @@ test/merkle_tree_branch_link_dto_test.dart
 test/merkle_tree_leaf_dto_test.dart
 test/merkle_tree_node_type_enum_test.dart
 test/message_group_test.dart
-test/metadata_entry_dto_target_id_test.dart
 test/metadata_entry_dto_test.dart
 test/metadata_info_dto_test.dart
 test/metadata_network_properties_dto_test.dart
@@ -737,7 +732,6 @@ test/receipt_dto_test.dart
 test/receipt_routes_api_test.dart
 test/receipt_type_enum_test.dart
 test/rental_fees_dto_test.dart
-test/resolution_entry_dto_resolved_test.dart
 test/resolution_entry_dto_test.dart
 test/resolution_statement_dto_test.dart
 test/resolution_statement_info_dto_test.dart

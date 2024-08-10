@@ -15,12 +15,12 @@ class TransactionStatementDTOReceiptsInner {
   TransactionStatementDTOReceiptsInner({
     required this.version,
     required this.type,
-    required this.mosaicId,
-    required this.amount,
-    required this.senderAddress,
-    required this.recipientAddress,
-    required this.targetAddress,
-    required this.artifactId,
+    this.mosaicId,
+    this.amount,
+    this.senderAddress,
+    this.recipientAddress,
+    this.targetAddress,
+    this.artifactId,
   });
 
   /// Version of the receipt.
@@ -29,22 +29,58 @@ class TransactionStatementDTOReceiptsInner {
   ReceiptTypeEnum type;
 
   /// Mosaic identifier.
-  String mosaicId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? mosaicId;
 
   /// Absolute amount. An amount of 123456789 (absolute) for a mosaic with divisibility 6 means 123.456789 (relative).
-  String amount;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? amount;
 
   /// Address encoded using a 32-character set.
-  String senderAddress;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? senderAddress;
 
   /// Address encoded using a 32-character set.
-  String recipientAddress;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? recipientAddress;
 
   /// Address encoded using a 32-character set.
-  String targetAddress;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? targetAddress;
 
   /// Mosaic identifier.
-  String artifactId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? artifactId;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is TransactionStatementDTOReceiptsInner &&
@@ -62,12 +98,12 @@ class TransactionStatementDTOReceiptsInner {
     // ignore: unnecessary_parenthesis
     (version.hashCode) +
     (type.hashCode) +
-    (mosaicId.hashCode) +
-    (amount.hashCode) +
-    (senderAddress.hashCode) +
-    (recipientAddress.hashCode) +
-    (targetAddress.hashCode) +
-    (artifactId.hashCode);
+    (mosaicId == null ? 0 : mosaicId!.hashCode) +
+    (amount == null ? 0 : amount!.hashCode) +
+    (senderAddress == null ? 0 : senderAddress!.hashCode) +
+    (recipientAddress == null ? 0 : recipientAddress!.hashCode) +
+    (targetAddress == null ? 0 : targetAddress!.hashCode) +
+    (artifactId == null ? 0 : artifactId!.hashCode);
 
   @override
   String toString() => 'TransactionStatementDTOReceiptsInner[version=$version, type=$type, mosaicId=$mosaicId, amount=$amount, senderAddress=$senderAddress, recipientAddress=$recipientAddress, targetAddress=$targetAddress, artifactId=$artifactId]';
@@ -76,19 +112,43 @@ class TransactionStatementDTOReceiptsInner {
     final json = <String, dynamic>{};
       json[r'version'] = this.version;
       json[r'type'] = this.type;
+    if (this.mosaicId != null) {
       json[r'mosaicId'] = this.mosaicId;
+    } else {
+      json[r'mosaicId'] = null;
+    }
+    if (this.amount != null) {
       json[r'amount'] = this.amount;
+    } else {
+      json[r'amount'] = null;
+    }
+    if (this.senderAddress != null) {
       json[r'senderAddress'] = this.senderAddress;
+    } else {
+      json[r'senderAddress'] = null;
+    }
+    if (this.recipientAddress != null) {
       json[r'recipientAddress'] = this.recipientAddress;
+    } else {
+      json[r'recipientAddress'] = null;
+    }
+    if (this.targetAddress != null) {
       json[r'targetAddress'] = this.targetAddress;
+    } else {
+      json[r'targetAddress'] = null;
+    }
+    if (this.artifactId != null) {
       json[r'artifactId'] = this.artifactId;
+    } else {
+      json[r'artifactId'] = null;
+    }
     return json;
   }
 
   /// Returns a new [TransactionStatementDTOReceiptsInner] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static TransactionStatementDTOReceiptsInner? fromJson(dynamic value) {
+  static dynamic fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -103,22 +163,42 @@ class TransactionStatementDTOReceiptsInner {
         return true;
       }());
 
+      switch (json['type']) {
+        case 4685:
+        case 4942:
+          return BalanceTransferReceiptDTO.fromJson(value);
+        case 8515:
+        case 8776:
+        case 9032:
+        case 8786:
+        case 9042:
+        case 12616:
+        case 12626:
+          return BalanceChangeReceiptDTO.fromJson(value);
+        case 16717:
+          return MosaicExpiryReceiptDTO.fromJson(value);
+        case 16718:
+        case 16974:
+          return NamespaceExpiryReceiptDTO.fromJson(value);
+        case 20803:
+          return InflationReceiptDTO.fromJson(value);
+      }
       return TransactionStatementDTOReceiptsInner(
         version: mapValueOfType<int>(json, r'version')!,
         type: ReceiptTypeEnum.fromJson(json[r'type'])!,
-        mosaicId: mapValueOfType<String>(json, r'mosaicId')!,
-        amount: mapValueOfType<String>(json, r'amount')!,
-        senderAddress: mapValueOfType<String>(json, r'senderAddress')!,
-        recipientAddress: mapValueOfType<String>(json, r'recipientAddress')!,
-        targetAddress: mapValueOfType<String>(json, r'targetAddress')!,
-        artifactId: mapValueOfType<String>(json, r'artifactId')!,
+        mosaicId: mapValueOfType<String>(json, r'mosaicId'),
+        amount: mapValueOfType<String>(json, r'amount'),
+        senderAddress: mapValueOfType<String>(json, r'senderAddress'),
+        recipientAddress: mapValueOfType<String>(json, r'recipientAddress'),
+        targetAddress: mapValueOfType<String>(json, r'targetAddress'),
+        artifactId: mapValueOfType<String>(json, r'artifactId'),
       );
     }
     return null;
   }
 
-  static List<TransactionStatementDTOReceiptsInner> listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <TransactionStatementDTOReceiptsInner>[];
+  static List<dynamic> listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <dynamic>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
         final value = TransactionStatementDTOReceiptsInner.fromJson(row);
@@ -145,8 +225,8 @@ class TransactionStatementDTOReceiptsInner {
   }
 
   // maps a json object with a list of TransactionStatementDTOReceiptsInner-objects as value to a dart map
-  static Map<String, List<TransactionStatementDTOReceiptsInner>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<TransactionStatementDTOReceiptsInner>>{};
+  static Map<String, List<dynamic>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<dynamic>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
@@ -161,12 +241,6 @@ class TransactionStatementDTOReceiptsInner {
   static const requiredKeys = <String>{
     'version',
     'type',
-    'mosaicId',
-    'amount',
-    'senderAddress',
-    'recipientAddress',
-    'targetAddress',
-    'artifactId',
   };
 }
 

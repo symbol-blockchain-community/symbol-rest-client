@@ -23,7 +23,7 @@ class BlockInfoDTO {
 
   BlockMetaDTO meta;
 
-  BlockInfoDTOBlock block;
+  dynamic block;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is BlockInfoDTO &&

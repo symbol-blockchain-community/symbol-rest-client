@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **sourceAddress** | **String** | Address encoded using a 32-character set. | 
 **targetAddress** | **String** | Address encoded using a 32-character set. | 
 **scopedMetadataKey** | **String** | Metadata key scoped to source, target and type expressed. | 
-**targetId** | [**MetadataEntryDTOTargetId**](MetadataEntryDTOTargetId.md) |  | [optional] 
+**targetId** | **String** |  | [optional] 
 **metadataType** | [**MetadataTypeEnum**](MetadataTypeEnum.md) |  | 
 **value** | **String** | Metadata value. | 
 

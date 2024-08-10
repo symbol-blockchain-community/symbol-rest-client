@@ -15,9 +15,9 @@ class BalanceChangeReceiptDTO {
   BalanceChangeReceiptDTO({
     required this.version,
     required this.type,
-    required this.mosaicId,
-    required this.amount,
-    required this.targetAddress,
+    this.mosaicId,
+    this.amount,
+    this.targetAddress,
   });
 
   /// Version of the receipt.
@@ -26,13 +26,31 @@ class BalanceChangeReceiptDTO {
   ReceiptTypeEnum type;
 
   /// Mosaic identifier.
-  String mosaicId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? mosaicId;
 
   /// Absolute amount. An amount of 123456789 (absolute) for a mosaic with divisibility 6 means 123.456789 (relative).
-  String amount;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? amount;
 
   /// Address encoded using a 32-character set.
-  String targetAddress;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? targetAddress;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is BalanceChangeReceiptDTO &&
@@ -47,9 +65,9 @@ class BalanceChangeReceiptDTO {
     // ignore: unnecessary_parenthesis
     (version.hashCode) +
     (type.hashCode) +
-    (mosaicId.hashCode) +
-    (amount.hashCode) +
-    (targetAddress.hashCode);
+    (mosaicId == null ? 0 : mosaicId!.hashCode) +
+    (amount == null ? 0 : amount!.hashCode) +
+    (targetAddress == null ? 0 : targetAddress!.hashCode);
 
   @override
   String toString() => 'BalanceChangeReceiptDTO[version=$version, type=$type, mosaicId=$mosaicId, amount=$amount, targetAddress=$targetAddress]';
@@ -58,9 +76,21 @@ class BalanceChangeReceiptDTO {
     final json = <String, dynamic>{};
       json[r'version'] = this.version;
       json[r'type'] = this.type;
+    if (this.mosaicId != null) {
       json[r'mosaicId'] = this.mosaicId;
+    } else {
+      json[r'mosaicId'] = null;
+    }
+    if (this.amount != null) {
       json[r'amount'] = this.amount;
+    } else {
+      json[r'amount'] = null;
+    }
+    if (this.targetAddress != null) {
       json[r'targetAddress'] = this.targetAddress;
+    } else {
+      json[r'targetAddress'] = null;
+    }
     return json;
   }
 
@@ -85,9 +115,9 @@ class BalanceChangeReceiptDTO {
       return BalanceChangeReceiptDTO(
         version: mapValueOfType<int>(json, r'version')!,
         type: ReceiptTypeEnum.fromJson(json[r'type'])!,
-        mosaicId: mapValueOfType<String>(json, r'mosaicId')!,
-        amount: mapValueOfType<String>(json, r'amount')!,
-        targetAddress: mapValueOfType<String>(json, r'targetAddress')!,
+        mosaicId: mapValueOfType<String>(json, r'mosaicId'),
+        amount: mapValueOfType<String>(json, r'amount'),
+        targetAddress: mapValueOfType<String>(json, r'targetAddress'),
       );
     }
     return null;
@@ -137,9 +167,6 @@ class BalanceChangeReceiptDTO {
   static const requiredKeys = <String>{
     'version',
     'type',
-    'mosaicId',
-    'amount',
-    'targetAddress',
   };
 }
 

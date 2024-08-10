@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 **path** | **String** | Branch link path. | 
 **encodedPath** | **String** | Encoded branch link path. | 
 **nibbleCount** | **int** | Nibble count. | 
-**linkMask** | **String** | Branch link bitmask. | 
-**links** | [**List<MerkleTreeBranchLinkDTO>**](MerkleTreeBranchLinkDTO.md) | Branch links (max 16). | [default to const []]
-**branchHash** | **String** |  | 
+**linkMask** | **String** | Branch link bitmask. | [optional] 
+**links** | [**List<MerkleTreeBranchLinkDTO>**](MerkleTreeBranchLinkDTO.md) | Branch links (max 16). | [optional] [default to const []]
+**branchHash** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

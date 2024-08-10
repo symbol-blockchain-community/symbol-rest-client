@@ -15,7 +15,7 @@ class MosaicExpiryReceiptDTO {
   MosaicExpiryReceiptDTO({
     required this.version,
     required this.type,
-    required this.artifactId,
+    this.artifactId,
   });
 
   /// Version of the receipt.
@@ -24,7 +24,13 @@ class MosaicExpiryReceiptDTO {
   ReceiptTypeEnum type;
 
   /// Mosaic identifier.
-  String artifactId;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? artifactId;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is MosaicExpiryReceiptDTO &&
@@ -37,7 +43,7 @@ class MosaicExpiryReceiptDTO {
     // ignore: unnecessary_parenthesis
     (version.hashCode) +
     (type.hashCode) +
-    (artifactId.hashCode);
+    (artifactId == null ? 0 : artifactId!.hashCode);
 
   @override
   String toString() => 'MosaicExpiryReceiptDTO[version=$version, type=$type, artifactId=$artifactId]';
@@ -46,7 +52,11 @@ class MosaicExpiryReceiptDTO {
     final json = <String, dynamic>{};
       json[r'version'] = this.version;
       json[r'type'] = this.type;
+    if (this.artifactId != null) {
       json[r'artifactId'] = this.artifactId;
+    } else {
+      json[r'artifactId'] = null;
+    }
     return json;
   }
 
@@ -71,7 +81,7 @@ class MosaicExpiryReceiptDTO {
       return MosaicExpiryReceiptDTO(
         version: mapValueOfType<int>(json, r'version')!,
         type: ReceiptTypeEnum.fromJson(json[r'type'])!,
-        artifactId: mapValueOfType<String>(json, r'artifactId')!,
+        artifactId: mapValueOfType<String>(json, r'artifactId'),
       );
     }
     return null;
@@ -121,7 +131,6 @@ class MosaicExpiryReceiptDTO {
   static const requiredKeys = <String>{
     'version',
     'type',
-    'artifactId',
   };
 }
 

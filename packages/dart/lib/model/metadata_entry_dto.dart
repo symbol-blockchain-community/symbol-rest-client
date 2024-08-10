@@ -43,7 +43,7 @@ class MetadataEntryDTO {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  MetadataEntryDTOTargetId? targetId;
+  String? targetId;
 
   MetadataTypeEnum metadataType;
 
@@ -117,7 +117,7 @@ class MetadataEntryDTO {
         sourceAddress: mapValueOfType<String>(json, r'sourceAddress')!,
         targetAddress: mapValueOfType<String>(json, r'targetAddress')!,
         scopedMetadataKey: mapValueOfType<String>(json, r'scopedMetadataKey')!,
-        targetId: MetadataEntryDTOTargetId.fromJson(json[r'targetId']),
+        targetId: mapValueOfType<String>(json, r'targetId'),
         metadataType: MetadataTypeEnum.fromJson(json[r'metadataType'])!,
         value: mapValueOfType<String>(json, r'value')!,
       );

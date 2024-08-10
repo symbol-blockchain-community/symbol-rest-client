@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **path** | **String** | Leaf path. | 
 **encodedPath** | **String** | Encoded leaf path. | 
 **nibbleCount** | **int** | Nibble count. | 
-**value** | **String** | Leaf value (sha256 hash). | 
-**leafHash** | **String** |  | 
+**value** | **String** | Leaf value (sha256 hash). | [optional] 
+**leafHash** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

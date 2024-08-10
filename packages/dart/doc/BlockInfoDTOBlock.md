@@ -26,10 +26,10 @@ Name | Type | Description | Notes
 **stateHash** | **String** |  | 
 **beneficiaryAddress** | **String** | Address encoded using a 32-character set. | 
 **feeMultiplier** | **int** | Fee multiplier applied to transactions contained in block. | 
-**votingEligibleAccountsCount** | **int** | A number that allows uint 32 values. | 
-**harvestingEligibleAccountsCount** | **String** | A number that allows uint 64 values represented with a string. | 
-**totalVotingBalance** | **String** | Absolute amount. An amount of 123456789 (absolute) for a mosaic with divisibility 6 means 123.456789 (relative). | 
-**previousImportanceBlockHash** | **String** |  | 
+**votingEligibleAccountsCount** | **int** | A number that allows uint 32 values. | [optional] 
+**harvestingEligibleAccountsCount** | **String** | A number that allows uint 64 values represented with a string. | [optional] 
+**totalVotingBalance** | **String** | Absolute amount. An amount of 123456789 (absolute) for a mosaic with divisibility 6 means 123.456789 (relative). | [optional] 
+**previousImportanceBlockHash** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
