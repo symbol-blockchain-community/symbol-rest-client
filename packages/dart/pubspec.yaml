@@ -3,7 +3,7 @@
 #
 
 name: 'symbol_rest_client'
-version: '1.0.6'
+version: '1.0.8'
 license: MIT
 repository: https://github.com/symbol-blockchain-community/symbol-rest-client.git
 description: 'OpenAPI API client'
